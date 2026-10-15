@@ -46,7 +46,7 @@ def foto():
         fila = {"simbolo": simbolo, "nombre": nombre, "precio": None, "c1": None, "c4": None, "c24": None, "c7": None,
                 "serie": []}
         try:
-            df = yf.download(simbolo, period="10d", interval="1h", progress=False, auto_adjust=True)
+            df = yf.download(simbolo, period="10d", interval="1h", progress=False, timeout=20, auto_adjust=True)
             close = df["Close"]
             if isinstance(close, pd.DataFrame):
                 close = close.iloc[:, 0]
@@ -61,7 +61,7 @@ def foto():
     niveles = {}
     for simbolo in ["NQ=F", "ES=F", "BTC-USD", "GC=F", "EURUSD=X"]:
         try:
-            d = yf.download(simbolo, period="7d", interval="1d", progress=False, auto_adjust=True)
+            d = yf.download(simbolo, period="7d", interval="1d", progress=False, timeout=20, auto_adjust=True)
             if isinstance(d.columns, pd.MultiIndex):
                 d.columns = [c[0] for c in d.columns]
             d = d.dropna()

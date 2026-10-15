@@ -46,7 +46,7 @@ def gamma_bs(S, K, T, sigma, r=TASA):
 
 
 def ultimo_precio(simbolo):
-    d = yf.download(simbolo, period="5d", interval="5m", progress=False, auto_adjust=True)
+    d = yf.download(simbolo, period="5d", interval="5m", progress=False, timeout=20, auto_adjust=True)
     if isinstance(d.columns, pd.MultiIndex):
         d.columns = [c[0] for c in d.columns]
     return float(d["Close"].dropna().iloc[-1])

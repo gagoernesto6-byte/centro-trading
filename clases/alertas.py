@@ -62,8 +62,8 @@ def guardar_estado(e):
 
 
 def datos(simbolo):
-    h = yf.download(simbolo, period="5d", interval="15m", progress=False, auto_adjust=True)
-    d = yf.download(simbolo, period="10d", interval="1d", progress=False, auto_adjust=True)
+    h = yf.download(simbolo, period="5d", interval="15m", progress=False, timeout=20, auto_adjust=True)
+    d = yf.download(simbolo, period="10d", interval="1d", progress=False, timeout=20, auto_adjust=True)
     for x in (h, d):
         if isinstance(x.columns, pd.MultiIndex):
             x.columns = [c[0] for c in x.columns]

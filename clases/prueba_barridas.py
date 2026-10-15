@@ -40,7 +40,7 @@ COSTO_PCT = 0.000035  # comisión + deslizamiento ida y vuelta ≈ 1 punto en NQ
 
 
 def cargar():
-    df = yf.download(SIMBOLO, period=PERIODO, interval=INTERVALO, progress=False, auto_adjust=False)
+    df = yf.download(SIMBOLO, period=PERIODO, interval=INTERVALO, progress=False, timeout=20, auto_adjust=False)
     if isinstance(df.columns, pd.MultiIndex):
         df.columns = [c[0] for c in df.columns]
     df = df[["Open", "High", "Low", "Close"]].dropna()
