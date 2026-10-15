@@ -1,0 +1,37 @@
+name: Centro de Trading (cada hora)
+
+on:
+  schedule:
+    - cron: "7 * * * *"   # cada hora, al minuto 7 (hora UTC)
+  workflow_dispatch:       # botón para correrlo a mano
+
+permissions:
+  contents: write
+
+concurrency:
+  group: centro
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Precios, gamma, alertas y panel
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python centro/centro.py
+      - name: Guardar el panel y los datos
+        run: |
+          git config user.name "centro-trading-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs datos
+          git diff --cached --quiet || git commit -m "Actualización automática $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git pull --rebase --autostash || true
+          git push

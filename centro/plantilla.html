@@ -1,0 +1,283 @@
+<title>Centro de Trading</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&display=swap">
+<style>
+/* Mesa de operaciones nocturna: columnas de "terminal" con escalera de niveles como pieza central */
+:root {
+  --bg: #F2F4F6; --panel: #FFFFFF; --ink: #121820; --muted: #5B6672; --line: #D9DEE4;
+  --amber: #B45309; --amber-soft: #FDF0DC; --up: #127A43; --down: #C42B2B; --warn: #A16207;
+  --up-soft: #E3F4EA; --down-soft: #FBE7E6; --warn-soft: #FBF1D9;
+  --font-ui: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --font-num: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0D1117; --panel: #151B23; --ink: #E7EAEE; --muted: #8C96A3; --line: #262E39;
+  --amber: #F5A524; --amber-soft: #2A2112; --up: #3FB950; --down: #F2564F; --warn: #E3B341;
+  --up-soft: #12261A; --down-soft: #2C1516; --warn-soft: #2A2410; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0D1117; --panel: #151B23; --ink: #E7EAEE; --muted: #8C96A3; --line: #262E39;
+  --amber: #F5A524; --amber-soft: #2A2112; --up: #3FB950; --down: #F2564F; --warn: #E3B341;
+  --up-soft: #12261A; --down-soft: #2C1516; --warn-soft: #2A2410; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-ui); font-size: 15px; line-height: 1.45; margin: 0 }
+.wrap { max-width: 1240px; margin: 0 auto; padding-inline: 16px; padding-block: 18px 40px; display: grid; gap: 18px }
+h1, h2, h3 { margin: 0; text-wrap: balance }
+h2 { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600 }
+.num { font-family: var(--font-num); font-variant-numeric: tabular-nums }
+a { color: var(--amber) }
+.top { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: baseline; justify-content: space-between; border-bottom: 2px solid var(--ink); padding-bottom: 10px }
+.top h1 { font-size: 28px; font-weight: 700; letter-spacing: -.01em }
+.top h1 span { color: var(--amber) }
+.meta { color: var(--muted); font-size: 13px }
+.grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)) }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 14px; display: grid; gap: 10px; min-width: 0; align-content: start }
+.semaforo { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)) }
+.luz { border-radius: 6px; padding: 10px 12px; display: grid; gap: 2px; border-left: 4px solid var(--muted); background: var(--bg) }
+.luz b { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted) }
+.luz .v { font-size: 17px; font-weight: 600 }
+.luz small { color: var(--muted); font-size: 13px }
+.ok { border-left-color: var(--up); background: var(--up-soft) }
+.med { border-left-color: var(--warn); background: var(--warn-soft) }
+.mal { border-left-color: var(--down); background: var(--down-soft) }
+table { width: 100%; border-collapse: collapse; font-size: 14px }
+th { text-align: right; font-weight: 500; color: var(--muted); font-size: 12px; padding: 4px 6px; border-bottom: 1px solid var(--line) }
+th:first-child, td:first-child { text-align: left }
+td { padding: 6px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap }
+.scroll { overflow-x: auto }
+#lab th, #lab td { text-align: left; white-space: normal; min-width: 120px }
+.pos { color: var(--up) } .neg { color: var(--down) }
+.escaleras { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)) }
+.peldano { display: grid; grid-template-columns: 92px 1fr auto; gap: 8px; align-items: center; padding: 5px 8px; border-bottom: 1px dashed var(--line); font-size: 14px }
+.peldano .p { font-family: var(--font-num) }
+.peldano .d { font-family: var(--font-num); color: var(--muted); font-size: 12px }
+.chip { justify-self: start; font-size: 12px; padding: 1px 8px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted) }
+.chip.liq { border-color: var(--amber); color: var(--amber) }
+.chip.gam { border-color: var(--up); color: var(--up) }
+.chip.gamneg { border-color: var(--down); color: var(--down) }
+.peldano.ahora { background: var(--amber-soft); border: 1px solid var(--amber); border-radius: 4px; font-weight: 600 }
+.peldano.ahora .p { color: var(--amber) }
+.alerta { display: grid; gap: 2px; padding: 8px 10px; border-left: 4px solid var(--warn); background: var(--bg); border-radius: 4px }
+.alerta.p4 { border-left-color: var(--down) }
+.alerta small { color: var(--muted) }
+.vacio { color: var(--muted); font-style: italic }
+.evento { display: grid; grid-template-columns: 112px 1fr; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 14px }
+.evento .t { font-family: var(--font-num); font-size: 13px; color: var(--amber) }
+.evento small { color: var(--muted) }
+.titular { display: grid; gap: 1px; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 14px }
+.titular small { color: var(--muted); font-family: var(--font-num); font-size: 12px }
+.reporte { font-size: 15px; max-width: 72ch } .reporte h3 { font-size: 16px; margin-top: 8px } .reporte ul { padding-left: 18px; margin: 4px 0 }
+.gex-nums { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--muted) }
+.gex-nums b { color: var(--ink); font-family: var(--font-num); font-weight: 500 }
+.tag { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 99px; font-weight: 600 }
+.tag.verde { background: var(--up-soft); color: var(--up) } .tag.rojo { background: var(--down-soft); color: var(--down) } .tag.amar { background: var(--warn-soft); color: var(--warn) }
+svg text { fill: var(--muted); font-family: var(--font-num); font-size: 11px }
+.pie { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); padding-top: 10px }
+@media (prefers-reduced-motion: no-preference) { .peldano.ahora { transition: background .3s } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1>Centro de <span>Trading</span></h1>
+    <div class="meta">Actualizado <span id="hora" class="num">—</span> (hora de Caracas) · se actualiza cada hora</div>
+  </header>
+
+  <section class="card" aria-labelledby="t-antes">
+    <h2 id="t-antes">Antes de operar</h2>
+    <div class="semaforo" id="semaforo"></div>
+  </section>
+
+  <div class="grid">
+    <section class="card" aria-labelledby="t-alertas">
+      <h2 id="t-alertas">Alertas recientes</h2>
+      <div id="alertas" style="display:grid;gap:8px"></div>
+    </section>
+    <section class="card" aria-labelledby="t-cal">
+      <h2 id="t-cal">Calendario de alto impacto (EE. UU.)</h2>
+      <div id="calendario"></div>
+    </section>
+  </div>
+
+  <section class="card" aria-labelledby="t-term">
+    <h2 id="t-term">Termómetro</h2>
+    <div class="scroll"><table id="termometro"><thead><tr><th>Activo</th><th>Precio</th><th>1 h</th><th>4 h</th><th>24 h</th><th>7 días</th><th>3 días</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="card" aria-labelledby="t-esc">
+    <h2 id="t-esc">Escalera de niveles · dónde está la liquidez</h2>
+    <div class="escaleras" id="escaleras"></div>
+  </section>
+
+  <section class="card" aria-labelledby="t-gamma">
+    <h2 id="t-gamma">Gamma de los dealers (GEX estimado)</h2>
+    <div class="grid" id="gamma"></div>
+    <small class="meta">Encima de la línea cero (verde) los dealers frenan el precio: más rango. Debajo (rojo) lo aceleran: movimientos más fuertes. Es una estimación con datos públicos de opciones de SPY y QQQ.</small>
+  </section>
+
+  <div class="grid">
+    <section class="card" aria-labelledby="t-rep">
+      <h2 id="t-rep">Último reporte con IA</h2>
+      <div id="reporte" class="reporte"></div>
+    </section>
+    <section class="card" aria-labelledby="t-tit">
+      <h2 id="t-tit">Titulares</h2>
+      <div id="titulares"></div>
+    </section>
+  </div>
+
+  <section class="card" aria-labelledby="t-lab">
+    <h2 id="t-lab">Laboratorio · lo que hemos probado con datos</h2>
+    <div class="scroll"><table id="lab"><thead><tr><th>Prueba</th><th>Datos</th><th>Resultado</th><th>Veredicto</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <p class="pie">Datos: Yahoo Finance (unos 15 min de retraso), calendario de ForexFactory, titulares de CNBC e Investing.com, gamma calculada con las cadenas de opciones de SPY y QQQ. Es una herramienta educativa, no es asesoría financiera. Practica en demo y arriesga como máximo el 1 % por operación.</p>
+</div>
+
+<script id="datos" type="application/json">__DATOS__</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById("datos").textContent);
+  var fmt = function (x, d) { return x == null ? "—" : Number(x).toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d }); };
+  var pct = function (x) { return x == null ? "—" : (x > 0 ? "+" : "") + x.toFixed(2) + "%"; };
+  var el = function (tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+  document.getElementById("hora").textContent = D.hora || "—";
+
+  // ---------- Semáforo ----------
+  var sem = document.getElementById("semaforo");
+  (D.semaforo || []).forEach(function (s) {
+    var c = el("div", "luz " + s.nivel);
+    c.appendChild(el("b", null, s.titulo)); c.appendChild(el("span", "v", s.valor)); c.appendChild(el("small", null, s.detalle));
+    sem.appendChild(c);
+  });
+
+  // ---------- Alertas ----------
+  var al = document.getElementById("alertas");
+  if (!D.alertas || !D.alertas.length) al.appendChild(el("p", "vacio", "Sin alertas en las últimas horas. El mercado está tranquilo o no cruzó niveles clave."));
+  (D.alertas || []).slice(0, 8).forEach(function (a) {
+    var c = el("div", "alerta" + (a.prioridad >= 4 ? " p4" : ""));
+    c.appendChild(el("strong", null, a.titulo)); c.appendChild(el("span", null, a.texto)); c.appendChild(el("small", "num", a.hora));
+    al.appendChild(c);
+  });
+
+  // ---------- Calendario ----------
+  var cal = document.getElementById("calendario");
+  if (!D.calendario || !D.calendario.length) cal.appendChild(el("p", "vacio", "No hay datos de alto impacto en lo que queda de semana."));
+  (D.calendario || []).slice(0, 10).forEach(function (e) {
+    var r = el("div", "evento"); r.appendChild(el("span", "t", e.hora));
+    var d = el("div"); d.appendChild(el("div", null, e.titulo));
+    d.appendChild(el("small", null, "Pronóstico " + (e.pronostico || "—") + " · anterior " + (e.anterior || "—")));
+    r.appendChild(d); cal.appendChild(r);
+  });
+
+  // ---------- Termómetro con mini gráficos ----------
+  var tb = document.querySelector("#termometro tbody");
+  (D.mercado.activos || []).forEach(function (a) {
+    var tr = el("tr"); tr.appendChild(el("td", null, a.nombre));
+    var dec = a.simbolo === "EURUSD=X" ? 4 : 2;
+    tr.appendChild(el("td", "num", fmt(a.precio, dec)));
+    ["c1", "c4", "c24", "c7"].forEach(function (k) {
+      var inv = a.simbolo === "^VIX"; var v = a[k];
+      var cls = v == null ? "num" : "num " + ((v > 0) !== inv ? "pos" : "neg");
+      tr.appendChild(el("td", cls, pct(v)));
+    });
+    var td = el("td"); td.appendChild(spark(a.serie || [], a.c24 != null && a.c24 >= 0 !== (a.simbolo === "^VIX")));
+    tr.appendChild(td); tb.appendChild(tr);
+  });
+  function spark(s, sube) {
+    var ns = "http://www.w3.org/2000/svg", w = 90, h = 24, svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("viewBox", "0 0 " + w + " " + h); svg.setAttribute("width", w); svg.setAttribute("height", h);
+    if (s.length < 2) return svg;
+    var mn = Math.min.apply(null, s), mx = Math.max.apply(null, s), r = mx - mn || 1;
+    var pts = s.map(function (v, i) { return (i / (s.length - 1) * (w - 4) + 2).toFixed(1) + "," + (h - 2 - (v - mn) / r * (h - 4)).toFixed(1); });
+    var p = document.createElementNS(ns, "polyline"); p.setAttribute("points", pts.join(" ")); p.setAttribute("fill", "none");
+    p.setAttribute("stroke", sube ? "var(--up)" : "var(--down)"); p.setAttribute("stroke-width", "1.5"); svg.appendChild(p);
+    return svg;
+  }
+
+  // ---------- Escalera de niveles ----------
+  var esc = document.getElementById("escaleras");
+  (D.escaleras || []).forEach(function (E) {
+    var c = el("div", null); c.style.minWidth = "0";
+    var head = el("h3", null, E.nombre); head.style.fontSize = "17px"; head.style.marginBottom = "6px"; c.appendChild(head);
+    var filas = E.niveles.slice().sort(function (a, b) { return b.precio - a.precio; });
+    var puesto = false;
+    filas.forEach(function (n) {
+      if (!puesto && n.precio < E.precio) { c.appendChild(fila({ precio: E.precio, etiqueta: "Precio ahora", tipo: "ahora" }, E)); puesto = true; }
+      c.appendChild(fila(n, E));
+    });
+    if (!puesto) c.appendChild(fila({ precio: E.precio, etiqueta: "Precio ahora", tipo: "ahora" }, E));
+    esc.appendChild(c);
+  });
+  function fila(n, E) {
+    var r = el("div", "peldano" + (n.tipo === "ahora" ? " ahora" : ""));
+    r.appendChild(el("span", "p", fmt(n.precio, E.dec)));
+    var chip = el("span", "chip " + (n.tipo || ""), n.etiqueta); r.appendChild(chip);
+    var dist = n.tipo === "ahora" ? "" : ((n.precio - E.precio) > 0 ? "+" : "") + fmt(n.precio - E.precio, E.dec > 2 ? 4 : 0) + " (" + ((n.precio / E.precio - 1) * 100).toFixed(2) + "%)";
+    r.appendChild(el("span", "d", dist)); return r;
+  }
+
+  // ---------- Gamma ----------
+  var gg = document.getElementById("gamma");
+  (D.gamma || []).forEach(function (g) {
+    var c = el("div", null); c.style.minWidth = "0"; c.style.display = "grid"; c.style.gap = "6px";
+    var t = el("h3", null, g.futuro + " "); t.style.fontSize = "16px";
+    var tag = el("span", "tag " + (g.gex_total_millones > 0 ? "verde" : "rojo"), g.gex_total_millones > 0 ? "Gamma positiva · rango" : "Gamma negativa · movimientos fuertes");
+    t.appendChild(tag); c.appendChild(t);
+    var nums = el("div", "gex-nums");
+    [["Precio", g.precio_futuro], ["Gamma flip", g.gamma_flip.futuro], ["Call wall", g.call_wall.futuro], ["Put wall", g.put_wall.futuro]].forEach(function (p) {
+      var s = el("span", null, p[0] + " "); s.appendChild(el("b", null, fmt(p[1], 0))); nums.appendChild(s);
+    });
+    var s2 = el("span", null, "GEX total "); s2.appendChild(el("b", null, fmt(g.gex_total_millones, 0) + " M$ / 1%")); nums.appendChild(s2);
+    c.appendChild(nums);
+    var box = el("div", null); c.appendChild(box); gg.appendChild(c);
+    dibujarGamma(box, g);
+  });
+  function dibujarGamma(box, g) {
+    var ns = "http://www.w3.org/2000/svg", W = 560, H = 210, m = { l: 48, r: 10, t: 10, b: 26 };
+    var xs = g.perfil.precios_futuro, ys = g.perfil.gex_millones; if (!xs.length) return;
+    var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min(0, Math.min.apply(null, ys)), y1 = Math.max(0, Math.max.apply(null, ys));
+    var X = function (v) { return m.l + (v - x0) / (x1 - x0) * (W - m.l - m.r); }, Y = function (v) { return m.t + (y1 - v) / ((y1 - y0) || 1) * (H - m.t - m.b); };
+    var svg = document.createElementNS(ns, "svg"); svg.setAttribute("viewBox", "0 0 " + W + " " + H); svg.setAttribute("width", "100%"); svg.setAttribute("role", "img");
+    svg.setAttribute("aria-label", "Perfil de gamma de " + g.futuro);
+    function add(tag, at) { var e = document.createElementNS(ns, tag); for (var k in at) e.setAttribute(k, at[k]); svg.appendChild(e); return e; }
+    add("rect", { x: m.l, y: m.t, width: W - m.l - m.r, height: Y(0) - m.t, fill: "var(--up-soft)" });
+    add("rect", { x: m.l, y: Y(0), width: W - m.l - m.r, height: H - m.b - Y(0), fill: "var(--down-soft)" });
+    add("line", { x1: m.l, x2: W - m.r, y1: Y(0), y2: Y(0), stroke: "var(--muted)", "stroke-width": 1 });
+    var d = xs.map(function (v, i) { return (i ? "L" : "M") + X(v).toFixed(1) + "," + Y(ys[i]).toFixed(1); }).join("");
+    add("path", { d: d, fill: "none", stroke: "var(--ink)", "stroke-width": 2 });
+    [[g.precio_futuro, "ahora", "var(--amber)"], [g.gamma_flip.futuro, "flip", "var(--muted)"]].forEach(function (p) {
+      if (p[0] == null || p[0] < x0 || p[0] > x1) return;
+      add("line", { x1: X(p[0]), x2: X(p[0]), y1: m.t, y2: H - m.b, stroke: p[2], "stroke-width": p[1] === "ahora" ? 2 : 1, "stroke-dasharray": p[1] === "ahora" ? "" : "4 3" });
+      var tx = add("text", { x: X(p[0]) + 4, y: m.t + (p[1] === "ahora" ? 12 : 26) }); tx.textContent = p[1];
+    });
+    [y1, 0, y0].forEach(function (v) { var t = add("text", { x: m.l - 6, y: Y(v) + 4, "text-anchor": "end" }); t.textContent = Math.round(v / 1000) + "B"; });
+    [x0, (x0 + x1) / 2, x1].forEach(function (v, i) { var t = add("text", { x: X(v), y: H - 8, "text-anchor": i === 0 ? "start" : i === 2 ? "end" : "middle" }); t.textContent = fmt(v, 0); });
+    box.appendChild(svg);
+  }
+
+  // ---------- Reporte y titulares ----------
+  var rep = document.getElementById("reporte");
+  if (D.reporte && D.reporte.bloques && D.reporte.bloques.length) {
+    rep.appendChild(el("small", "meta", D.reporte.fecha || ""));
+    D.reporte.bloques.forEach(function (b) {
+      if (b.tipo === "h") rep.appendChild(el("h3", null, b.texto));
+      else if (b.tipo === "li") { var ul = rep.lastElementChild && rep.lastElementChild.tagName === "UL" ? rep.lastElementChild : rep.appendChild(el("ul")); ul.appendChild(el("li", null, b.texto)); }
+      else rep.appendChild(el("p", null, b.texto));
+    });
+  } else rep.appendChild(el("p", "vacio", "Todavía no hay reporte con IA. Escribe \"reporte\" en Claude o espera al próximo automático."));
+  var tit = document.getElementById("titulares");
+  (D.titulares || []).slice(0, 10).forEach(function (t) {
+    var r = el("div", "titular"); var a = el("a", null, t.titulo); a.href = t.link; a.target = "_blank"; a.rel = "noopener";
+    r.appendChild(a); r.appendChild(el("small", null, t.fuente + " · " + t.hora)); tit.appendChild(r);
+  });
+
+  // ---------- Laboratorio ----------
+  var lb = document.querySelector("#lab tbody");
+  (D.laboratorio || []).forEach(function (p) {
+    var tr = el("tr"); tr.appendChild(el("td", null, p.prueba)); tr.appendChild(el("td", null, p.datos));
+    tr.appendChild(el("td", null, p.resultado)); var td = el("td"); td.appendChild(el("span", "tag " + p.color, p.veredicto)); tr.appendChild(td);
+    lb.appendChild(tr);
+  });
+})();
+</script>
