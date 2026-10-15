@@ -1,0 +1,22 @@
+{
+ "precios": {
+  "NQ=F": 29979.75,
+  "ES=F": 7751.75,
+  "BTC-USD": 81500.0078125,
+  "GC=F": 4161.60009765625,
+  "CL=F": 94.58999633789062,
+  "^VIX": 16.850000381469727
+ },
+ "enviadas": {},
+ "gamma": {
+  "SPY": {
+   "positivo": false,
+   "precio": 7751.5
+  },
+  "QQQ": {
+   "positivo": false,
+   "precio": 29979.25
+  }
+ },
+ "historial": []
+}

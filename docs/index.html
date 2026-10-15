@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="es">
+<head>
+<title>Centro de Trading</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<style>
+/* Mesa de operaciones nocturna: columnas de "terminal" con escalera de niveles como pieza central */
+:root {
+  --bg: #F2F4F6; --panel: #FFFFFF; --ink: #121820; --muted: #5B6672; --line: #D9DEE4;
+  --amber: #B45309; --amber-soft: #FDF0DC; --up: #127A43; --down: #C42B2B; --warn: #A16207;
+  --up-soft: #E3F4EA; --down-soft: #FBE7E6; --warn-soft: #FBF1D9;
+  --font-ui: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --font-num: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0D1117; --panel: #151B23; --ink: #E7EAEE; --muted: #8C96A3; --line: #262E39;
+  --amber: #F5A524; --amber-soft: #2A2112; --up: #3FB950; --down: #F2564F; --warn: #E3B341;
+  --up-soft: #12261A; --down-soft: #2C1516; --warn-soft: #2A2410; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0D1117; --panel: #151B23; --ink: #E7EAEE; --muted: #8C96A3; --line: #262E39;
+  --amber: #F5A524; --amber-soft: #2A2112; --up: #3FB950; --down: #F2564F; --warn: #E3B341;
+  --up-soft: #12261A; --down-soft: #2C1516; --warn-soft: #2A2410; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-ui); font-size: 15px; line-height: 1.45; margin: 0 }
+.wrap { max-width: 1240px; margin: 0 auto; padding-inline: 16px; padding-block: 18px 40px; display: grid; gap: 18px }
+h1, h2, h3 { margin: 0; text-wrap: balance }
+h2 { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600 }
+.num { font-family: var(--font-num); font-variant-numeric: tabular-nums }
+a { color: var(--amber) }
+.top { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: baseline; justify-content: space-between; border-bottom: 2px solid var(--ink); padding-bottom: 10px }
+.top h1 { font-size: 28px; font-weight: 700; letter-spacing: -.01em }
+.top h1 span { color: var(--amber) }
+.meta { color: var(--muted); font-size: 13px }
+.grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)) }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 14px; display: grid; gap: 10px; min-width: 0; align-content: start }
+.semaforo { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)) }
+.luz { border-radius: 6px; padding: 10px 12px; display: grid; gap: 2px; border-left: 4px solid var(--muted); background: var(--bg) }
+.luz b { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted) }
+.luz .v { font-size: 17px; font-weight: 600 }
+.luz small { color: var(--muted); font-size: 13px }
+.ok { border-left-color: var(--up); background: var(--up-soft) }
+.med { border-left-color: var(--warn); background: var(--warn-soft) }
+.mal { border-left-color: var(--down); background: var(--down-soft) }
+table { width: 100%; border-collapse: collapse; font-size: 14px }
+th { text-align: right; font-weight: 500; color: var(--muted); font-size: 12px; padding: 4px 6px; border-bottom: 1px solid var(--line) }
+th:first-child, td:first-child { text-align: left }
+td { padding: 6px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap }
+.scroll { overflow-x: auto }
+#lab th, #lab td { text-align: left; white-space: normal; min-width: 120px }
+.pos { color: var(--up) } .neg { color: var(--down) }
+.escaleras { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)) }
+.peldano { display: grid; grid-template-columns: 92px 1fr auto; gap: 8px; align-items: center; padding: 5px 8px; border-bottom: 1px dashed var(--line); font-size: 14px }
+.peldano .p { font-family: var(--font-num) }
+.peldano .d { font-family: var(--font-num); color: var(--muted); font-size: 12px }
+.chip { justify-self: start; font-size: 12px; padding: 1px 8px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted) }
+.chip.liq { border-color: var(--amber); color: var(--amber) }
+.chip.gam { border-color: var(--up); color: var(--up) }
+.chip.gamneg { border-color: var(--down); color: var(--down) }
+.peldano.ahora { background: var(--amber-soft); border: 1px solid var(--amber); border-radius: 4px; font-weight: 600 }
+.peldano.ahora .p { color: var(--amber) }
+.alerta { display: grid; gap: 2px; padding: 8px 10px; border-left: 4px solid var(--warn); background: var(--bg); border-radius: 4px }
+.alerta.p4 { border-left-color: var(--down) }
+.alerta small { color: var(--muted) }
+.vacio { color: var(--muted); font-style: italic }
+.evento { display: grid; grid-template-columns: 112px 1fr; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 14px }
+.evento .t { font-family: var(--font-num); font-size: 13px; color: var(--amber) }
+.evento small { color: var(--muted) }
+.titular { display: grid; gap: 1px; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 14px }
+.titular small { color: var(--muted); font-family: var(--font-num); font-size: 12px }
+.reporte { font-size: 15px; max-width: 72ch } .reporte h3 { font-size: 16px; margin-top: 8px } .reporte ul { padding-left: 18px; margin: 4px 0 }
+.gex-nums { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--muted) }
+.gex-nums b { color: var(--ink); font-family: var(--font-num); font-weight: 500 }
+.tag { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 99px; font-weight: 600 }
+.tag.verde { background: var(--up-soft); color: var(--up) } .tag.rojo { background: var(--down-soft); color: var(--down) } .tag.amar { background: var(--warn-soft); color: var(--warn) }
+svg text { fill: var(--muted); font-family: var(--font-num); font-size: 11px }
+.pie { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); padding-top: 10px }
+@media (prefers-reduced-motion: no-preference) { .peldano.ahora { transition: background .3s } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1>Centro de <span>Trading</span></h1>
+    <div class="meta">Actualizado <span id="hora" class="num">—</span> (hora de Caracas) · se actualiza cada hora</div>
+  </header>
+
+  <section class="card" aria-labelledby="t-antes">
+    <h2 id="t-antes">Antes de operar</h2>
+    <div class="semaforo" id="semaforo"></div>
+  </section>
+
+  <div class="grid">
+    <section class="card" aria-labelledby="t-alertas">
+      <h2 id="t-alertas">Alertas recientes</h2>
+      <div id="alertas" style="display:grid;gap:8px"></div>
+    </section>
+    <section class="card" aria-labelledby="t-cal">
+      <h2 id="t-cal">Calendario de alto impacto (EE. UU.)</h2>
+      <div id="calendario"></div>
+    </section>
+  </div>
+
+  <section class="card" aria-labelledby="t-term">
+    <h2 id="t-term">Termómetro</h2>
+    <div class="scroll"><table id="termometro"><thead><tr><th>Activo</th><th>Precio</th><th>1 h</th><th>4 h</th><th>24 h</th><th>7 días</th><th>3 días</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="card" aria-labelledby="t-esc">
+    <h2 id="t-esc">Escalera de niveles · dónde está la liquidez</h2>
+    <div class="escaleras" id="escaleras"></div>
+  </section>
+
+  <section class="card" aria-labelledby="t-gamma">
+    <h2 id="t-gamma">Gamma de los dealers (GEX estimado)</h2>
+    <div class="grid" id="gamma"></div>
+    <small class="meta">Encima de la línea cero (verde) los dealers frenan el precio: más rango. Debajo (rojo) lo aceleran: movimientos más fuertes. Es una estimación con datos públicos de opciones de SPY y QQQ.</small>
+  </section>
+
+  <div class="grid">
+    <section class="card" aria-labelledby="t-rep">
+      <h2 id="t-rep">Último reporte con IA</h2>
+      <div id="reporte" class="reporte"></div>
+    </section>
+    <section class="card" aria-labelledby="t-tit">
+      <h2 id="t-tit">Titulares</h2>
+      <div id="titulares"></div>
+    </section>
+  </div>
+
+  <section class="card" aria-labelledby="t-lab">
+    <h2 id="t-lab">Laboratorio · lo que hemos probado con datos</h2>
+    <div class="scroll"><table id="lab"><thead><tr><th>Prueba</th><th>Datos</th><th>Resultado</th><th>Veredicto</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <p class="pie">Datos: Yahoo Finance (unos 15 min de retraso), calendario de ForexFactory, titulares de CNBC e Investing.com, gamma calculada con las cadenas de opciones de SPY y QQQ. Es una herramienta educativa, no es asesoría financiera. Practica en demo y arriesga como máximo el 1 % por operación.</p>
+</div>
+
+<script id="datos" type="application/json">{"hora": "mié 14-oct 20:41 2026", "semaforo": [{"titulo": "Próximo dato fuerte", "valor": "Core PPI m/m en 12 h", "nivel": "ok", "detalle": "jue 15-oct 08:30 (Caracas)"}, {"titulo": "Miedo del mercado (VIX)", "valor": "16.9 · Normal", "nivel": "ok", "detalle": "Con VIX alto, los movimientos son más grandes: baja el tamaño."}, {"titulo": "Gamma del Nasdaq", "valor": "Negativa · movimientos fuertes", "nivel": "med", "detalle": "Stops más amplios o tamaño más chico."}, {"titulo": "Nasdaq en 24 h", "valor": "-2.72%", "nivel": "mal", "detalle": "Día movido: más ruido y barridas."}, {"titulo": "Tu regla", "valor": "Riesgo ≤ 1 % · demo", "nivel": "ok", "detalle": "Stop definido antes de entrar. Si dudas, no operes."}], "alertas": [], "calendario": [{"hora": "jue 15-oct 08:30", "titulo": "Core PPI m/m", "pronostico": "0.3%", "anterior": "0.2%", "ts": "2026-10-15T08:30:00-04:00"}, {"hora": "jue 15-oct 08:30", "titulo": "Core Retail Sales m/m", "pronostico": "0.6%", "anterior": "1.4%", "ts": "2026-10-15T08:30:00-04:00"}, {"hora": "jue 15-oct 08:30", "titulo": "PPI m/m", "pronostico": "0.6%", "anterior": "0.4%", "ts": "2026-10-15T08:30:00-04:00"}, {"hora": "jue 15-oct 08:30", "titulo": "Retail Sales m/m", "pronostico": "0.3%", "anterior": "1.2%", "ts": "2026-10-15T08:30:00-04:00"}, {"hora": "jue 15-oct 23:30", "titulo": "Fed Chairman Warsh Speaks", "pronostico": "", "anterior": "", "ts": "2026-10-15T23:30:00-04:00"}], "mercado": {"activos": [{"simbolo": "NQ=F", "nombre": "Futuro Nasdaq 100 (NQ)", "precio": 29974.75, "c1": 0.225697782310319, "c4": -0.5457999120747847, "c24": -2.7157067977865434, "c7": -4.485019397908053, "serie": [31185.75, 31260.25, 31207.75, 31222.0, 31232.5, 31236.25, 31252.0, 31204.25, 31168.0, 31187.5, 31069.75, 31090.0, 31076.75, 31058.75, 31069.75, 30960.25, 30918.25, 30957.5, 30881.5, 30877.75, 30850.25, 30896.5, 30877.5, 30878.0, 30811.25, 30718.75, 30664.0, 30651.5, 30672.5, 30645.25, 30693.5, 30681.0, 30702.25, 30751.75, 30761.25, 30720.75, 30662.5, 30658.5, 30792.0, 30704.25, 30704.25, 30739.25, 30718.5, 30737.75, 30789.0, 30782.0, 30812.25, 30758.0, 30811.5, 30841.25, 30872.5, 30879.0, 30868.5, 30754.25, 30784.0, 30811.5, 30780.25, 30793.75, 30758.0, 30762.0, 30557.0, 30474.5, 30489.0, 30331.25, 30295.5, 30146.25, 30131.75, 30185.75, 30139.25, 29992.0, 29907.25, 29974.75]}, {"simbolo": "ES=F", "nombre": "Futuro S&P 500 (ES)", "precio": 7750.75, "c1": 0.058092625463923575, "c4": -0.18672933904252398, "c24": -1.3742643550182954, "c7": -1.239169215086644, "serie": [7868.5, 7877.75, 7877.75, 7882.25, 7883.25, 7885.0, 7885.75, 7882.25, 7877.75, 7881.5, 7867.75, 7868.25, 7864.5, 7863.75, 7864.25, 7861.0, 7857.25, 7863.75, 7851.25, 7853.0, 7849.0, 7856.75, 7857.0, 7858.5, 7849.5, 7842.5, 7841.5, 7841.75, 7844.75, 7841.25, 7849.75, 7853.25, 7854.5, 7857.5, 7862.75, 7850.25, 7849.75, 7850.5, 7856.0, 7843.75, 7841.5, 7847.5, 7844.75, 7852.0, 7856.25, 7855.5, 7859.5, 7850.75, 7858.75, 7862.0, 7866.0, 7872.75, 7873.0, 7861.75, 7867.0, 7867.0, 7867.75, 7873.0, 7868.75, 7867.75, 7824.75, 7807.75, 7800.0, 7782.5, 7777.5, 7749.5, 7751.25, 7771.5, 7765.25, 7751.0, 7746.25, 7750.75]}, {"simbolo": "BTC-USD", "nombre": "Bitcoin", "precio": 81486.171875, "c1": -0.224208383124469, "c4": -0.24424795959512302, "c24": -2.221556006032699, "c7": -2.2053473649469635, "serie": [83678.2891, 83864.2734, 83564.9688, 83739.6797, 83507.8984, 84032.8203, 83920.1172, 84124.9922, 83903.6875, 83415.0078, 83463.3438, 83418.7188, 83315.7734, 82676.9062, 82883.2031, 82491.4609, 82630.2109, 82395.5781, 82399.0, 82331.7109, 82758.0781, 82985.4766, 82472.6172, 82052.4219, 81742.5, 81338.5234, 82353.5, 82823.6719, 83229.7578, 83351.4766, 83576.0234, 83667.5781, 83765.7188, 83485.6172, 83531.4375, 83247.1016, 83250.0781, 83257.2891, 83174.3672, 83426.6172, 83337.5312, 83290.0, 83001.0391, 83049.25, 83205.4375, 83354.1875, 83461.9688, 83456.8438, 83101.9922, 83337.5625, 83247.5391, 83556.3906, 83626.7031, 83670.7969, 83381.1562, 83345.4922, 83487.0234, 83347.6797, 83158.3281, 83389.6016, 83383.6719, 82643.9609, 82289.0078, 81881.4062, 81545.2812, 81915.8672, 81493.5234, 81619.1328, 81736.3672, 81685.6875, 81669.2812, 81486.1719]}, {"simbolo": "ETH-USD", "nombre": "Ethereum", "precio": 2416.7900390625, "c1": 0.17657851773420496, "c4": 0.11391691751176936, "c24": -3.5356084722699133, "c7": -6.126578129987448, "serie": [2534.05, 2543.3401, 2539.27, 2544.73, 2543.05, 2563.6899, 2561.6499, 2568.1001, 2561.5701, 2549.48, 2557.7, 2553.3501, 2543.5701, 2529.3501, 2539.5601, 2521.02, 2527.6101, 2510.8601, 2508.97, 2510.77, 2518.46, 2516.1101, 2487.71, 2465.73, 2444.3, 2418.52, 2461.54, 2488.8201, 2505.6201, 2514.6699, 2528.6599, 2531.4099, 2526.6899, 2515.21, 2511.6001, 2495.9299, 2497.23, 2502.0901, 2500.52, 2514.03, 2513.7, 2510.23, 2498.3101, 2506.3701, 2505.3101, 2508.3101, 2510.0901, 2509.01, 2495.6399, 2505.3701, 2503.8799, 2511.9199, 2511.1399, 2512.3899, 2500.8799, 2502.3899, 2508.6001, 2503.6499, 2494.55, 2504.72, 2502.02, 2473.99, 2450.49, 2431.5601, 2427.1499, 2445.96, 2428.77, 2428.8899, 2427.9299, 2414.04, 2412.53, 2416.79]}, {"simbolo": "^GSPC", "nombre": "S&P 500 (bolsa EE. UU.)", "precio": 7721.490234375, "c1": 0.08516371610507445, "c4": 0.017102117095357805, "c24": -1.0774279850527813, "c7": -1.009832154528112, "serie": [7633.8501, 7633.77, 7641.9102, 7665.9302, 7669.9902, 7674.0698, 7668.8198, 7749.5898, 7716.4702, 7718.4702, 7713.9902, 7718.0098, 7721.6401, 7723.4902, 7756.0098, 7757.29, 7764.71, 7772.21, 7780.2798, 7790.1201, 7774.2202, 7817.0698, 7842.1201, 7831.4302, 7825.52, 7825.9102, 7824.8501, 7819.8301, 7771.9502, 7775.7402, 7794.6699, 7801.21, 7802.9399, 7797.7798, 7800.2598, 7792.23, 7774.9902, 7781.3901, 7737.7798, 7761.2798, 7760.8301, 7765.7002, 7792.52, 7798.7598, 7806.5698, 7807.0898, 7812.6899, 7815.5898, 7811.0898, 7806.21, 7807.2002, 7808.52, 7803.7998, 7800.4502, 7799.6001, 7807.79, 7801.71, 7788.9702, 7800.3501, 7796.4702, 7806.1401, 7809.3501, 7805.5898, 7755.2798, 7742.23, 7720.1699, 7708.5, 7707.4199, 7714.9199, 7721.4902]}, {"simbolo": "^IXIC", "nombre": "Nasdaq (tecnológicas)", "precio": 26701.482421875, "c1": 0.006437322895891384, "c4": -0.2014781046954739, "c24": -1.849037520068264, "c7": -3.0236396547622113, "serie": [26834.6035, 26817.9141, 26805.7324, 26924.416, 26927.6699, 26926.0957, 26878.791, 27343.6426, 27172.4727, 27184.9102, 27151.0918, 27169.5762, 27172.3691, 27186.7324, 27389.1738, 27387.3926, 27404.1152, 27447.5605, 27473.8457, 27531.2734, 27471.4219, 27642.5684, 27708.3691, 27649.4219, 27634.6445, 27649.3242, 27647.0293, 27601.9102, 27393.8281, 27419.5801, 27463.3887, 27490.1191, 27519.8359, 27503.7773, 27534.0117, 27485.5059, 27401.2773, 27401.418, 27094.8379, 27210.9434, 27176.6289, 27195.4902, 27311.8066, 27307.0664, 27349.4355, 27339.9648, 27357.6152, 27374.2051, 27364.3164, 27266.8086, 27268.1895, 27283.9336, 27241.7148, 27241.2305, 27232.6934, 27250.0273, 27214.6484, 27151.8379, 27215.5312, 27174.6094, 27209.3828, 27213.1523, 27204.5039, 26963.9297, 26898.0469, 26755.3887, 26696.4336, 26675.1836, 26699.7637, 26701.4824]}, {"simbolo": "^VIX", "nombre": "VIX (índice del miedo)", "precio": 16.850000381469727, "c1": 0.1783631818658149, "c4": 2.8065955396668008, "c24": 10.34708497931145, "c7": 11.7374036254549, "serie": [15.08, 15.08, 15.66, 15.68, 15.72, 15.95, 15.77, 15.66, 15.47, 15.4, 15.49, 15.68, 15.95, 15.62, 15.58, 15.42, 15.25, 15.21, 15.21, 15.24, 15.12, 15.17, 15.06, 14.98, 14.88, 14.86, 14.87, 14.82, 14.79, 14.84, 15.37, 15.52, 15.48, 15.47, 15.47, 15.49, 15.28, 15.22, 15.14, 15.26, 15.18, 15.3, 15.21, 15.21, 15.5, 15.4, 15.29, 15.53, 15.44, 15.3, 15.26, 15.34, 15.44, 15.45, 15.53, 15.46, 15.25, 15.27, 15.2, 15.21, 15.19, 15.32, 15.34, 15.83, 15.79, 15.76, 16.19, 16.39, 17.24, 17.13, 16.82, 16.85]}, {"simbolo": "DX-Y.NYB", "nombre": "Índice del dólar (DXY)", "precio": 102.18000030517578, "c1": -0.033260202190077415, "c4": -0.33261810320314167, "c24": 0.008811390469531943, "c7": -0.06552890714989212, "serie": [102.123, 102.193, 102.17, 102.199, 102.225, 102.189, 102.234, 102.306, 102.391, 102.398, 102.423, 102.418, 102.418, 102.467, 102.587, 102.566, 102.572, 102.589, 102.598, 102.582, 102.562, 102.572, 102.544, 102.539, 102.438, 102.391, 102.414, 102.438, 102.367, 102.379, 102.311, 102.309, 102.331, 102.301, 102.277, 102.22, 102.3, 102.238, 102.227, 102.27, 102.237, 102.18, 102.215, 102.198, 102.212, 102.215, 102.183, 102.171, 102.135, 102.104, 102.116, 102.088, 102.132, 102.106, 102.188, 102.225, 102.226, 102.251, 102.235, 102.748, 102.896, 102.852, 102.851, 102.824, 102.694, 102.553, 102.536, 102.521, 102.543, 102.528, 102.214, 102.18]}, {"simbolo": "EURUSD=X", "nombre": "Euro / dólar", "precio": 1.1195701360702515, "c1": -0.02238725414739351, "c4": 0.32467917448124606, "c24": -0.10075409204469699, "c7": -0.055975936732288734, "serie": [1.1217, 1.121, 1.1213, 1.1211, 1.1206, 1.121, 1.1206, 1.1196, 1.1184, 1.1184, 1.1179, 1.1179, 1.1179, 1.1176, 1.1161, 1.1162, 1.1162, 1.1159, 1.1157, 1.1159, 1.1163, 1.1159, 1.1163, 1.1162, 1.1174, 1.1181, 1.1179, 1.1174, 1.1182, 1.1182, 1.1192, 1.1186, 1.1183, 1.1188, 1.1191, 1.1199, 1.1191, 1.1197, 1.1198, 1.1193, 1.1197, 1.1203, 1.1201, 1.1201, 1.1199, 1.1201, 1.1204, 1.1207, 1.121, 1.1213, 1.1211, 1.1213, 1.1208, 1.1212, 1.1203, 1.1198, 1.1197, 1.1193, 1.1196, 1.1131, 1.1121, 1.1125, 1.1127, 1.1126, 1.1141, 1.1156, 1.1158, 1.1159, 1.1157, 1.1177, 1.1198, 1.1196]}, {"simbolo": "GC=F", "nombre": "Oro", "precio": 4161.7001953125, "c1": 0.6919768933848935, "c4": 0.83348417253164, "c24": -0.3853609585824591, "c7": 0.4756203600313924, "serie": [4215.5, 4233.5, 4236.0, 4228.6001, 4227.3999, 4218.6001, 4215.2002, 4209.7998, 4204.8999, 4197.7002, 4197.5, 4202.0, 4192.6001, 4188.8999, 4195.2002, 4187.8999, 4188.8999, 4188.2998, 4194.0, 4191.7002, 4193.5, 4195.8999, 4193.3999, 4194.2998, 4181.5, 4188.2998, 4204.1001, 4211.1001, 4219.7998, 4216.8999, 4215.7998, 4211.5, 4210.3999, 4210.7998, 4205.5, 4209.0, 4203.1001, 4192.6001, 4190.3999, 4182.1001, 4175.7998, 4171.7002, 4186.5, 4186.3999, 4183.8999, 4184.2002, 4184.5, 4177.8999, 4177.7998, 4177.6001, 4191.0, 4185.3999, 4189.0, 4171.5, 4171.0, 4172.2002, 4165.7998, 4166.7002, 4163.5, 4161.5, 4119.8999, 4110.2998, 4115.5, 4102.0, 4105.2998, 4105.7002, 4118.7002, 4122.7998, 4127.2998, 4127.7002, 4133.1001, 4161.7002]}, {"simbolo": "CL=F", "nombre": "Petróleo WTI", "precio": 94.58000183105469, "c1": -0.23206879073939257, "c4": -0.6199394233918798, "c24": -0.4630549648033777, "c7": 6.114669298307107, "serie": [92.4, 90.83, 90.32, 90.09, 90.07, 90.33, 90.38, 90.77, 91.28, 91.13, 92.42, 92.69, 92.7, 93.29, 93.74, 93.82, 93.82, 93.82, 93.78, 93.87, 93.64, 93.36, 93.16, 93.4, 93.24, 93.15, 92.54, 92.39, 92.64, 92.72, 92.57, 92.36, 92.06, 92.09, 91.87, 91.78, 92.51, 92.63, 93.4, 93.93, 94.11, 94.6, 94.2, 94.22, 94.7, 94.79, 94.61, 94.77, 95.02, 95.21, 95.03, 94.79, 94.74, 94.54, 94.38, 94.25, 94.38, 94.96, 95.42, 95.78, 95.69, 95.26, 95.03, 95.22, 95.83, 95.6, 95.11, 95.15, 95.17, 94.93, 94.8, 94.58]}, {"simbolo": "^TNX", "nombre": "Tasa del bono a 10 años EE. UU. (%)", "precio": 5.190000057220459, "c1": 0.09643422364702392, "c4": -1.19930949837328, "c24": -0.5175378640876138, "c7": -1.6486620050419898, "serie": [5.319, 5.323, 5.272, 5.241, 5.215, 5.239, 5.237, 5.197, 5.193, 5.252, 5.26, 5.277, 5.283, 5.277, 5.296, 5.298, 5.328, 5.336, 5.343, 5.345, 5.311, 5.29, 5.29, 5.26, 5.273, 5.277, 5.262, 5.269, 5.354, 5.32, 5.311, 5.311, 5.277, 5.286, 5.277, 5.294, 5.282, 5.305, 5.273, 5.237, 5.235, 5.231, 5.259, 5.269, 5.263, 5.257, 5.248, 5.25, 5.244, 5.24, 5.24, 5.24, 5.24, 5.24, 5.24, 5.24, 5.211, 5.223, 5.219, 5.223, 5.221, 5.217, 5.217, 5.312, 5.272, 5.253, 5.244, 5.223, 5.185, 5.19]}], "niveles": {"NQ=F": {"PDH": 30906.0, "PDL": 30591.25, "PDC": 30791.5, "HOY_max": 30158.5, "HOY_min": 29879.5}, "ES=F": {"PDH": 7864.0, "PDL": 7834.5, "PDC": 7855.75, "HOY_max": 7769.5, "HOY_min": 7740.5}, "BTC-USD": {"PDH": 84061.09375, "PDL": 80962.515625, "PDC": 83095.125, "HOY_max": 81707.7421875, "HOY_min": 81532.1328125}, "GC=F": {"PDH": 4224.7998046875, "PDL": 4169.7001953125, "PDC": 4177.2998046875, "HOY_max": 4164.10009765625, "HOY_min": 4120.89990234375}, "EURUSD=X": {"PDH": 1.1214534044265747, "PDL": 1.1114075183868408, "PDC": 1.1204482316970825, "HOY_max": 1.1205737590789795, "HOY_min": 1.1156978607177734}}}, "escaleras": [{"simbolo": "NQ=F", "nombre": "Nasdaq 100 (NQ)", "precio": 29974.75, "dec": 2, "niveles": [{"precio": 29819.25, "etiqueta": "Put wall", "tipo": "gamneg"}, {"precio": 29879.5, "etiqueta": "Mín. de hoy", "tipo": "liq"}, {"precio": 30158.5, "etiqueta": "Máx. de hoy", "tipo": "liq"}, {"precio": 30591.25, "etiqueta": "Mín. de ayer", "tipo": "liq"}, {"precio": 30608.96, "etiqueta": "Gamma flip", "tipo": "gam"}, {"precio": 30791.5, "etiqueta": "Cierre de ayer", "tipo": "liq"}, {"precio": 30906.0, "etiqueta": "Máx. de ayer", "tipo": "liq"}, {"precio": 31258.8, "etiqueta": "Call wall", "tipo": "gam"}, {"precio": 29000.0, "etiqueta": "Número redondo", "tipo": ""}, {"precio": 29500.0, "etiqueta": "Número redondo", "tipo": ""}, {"precio": 30000.0, "etiqueta": "Número redondo", "tipo": ""}, {"precio": 30500.0, "etiqueta": "Número redondo", "tipo": ""}]}, {"simbolo": "ES=F", "nombre": "S&P 500 (ES)", "precio": 7750.75, "dec": 2, "niveles": [{"precio": 7740.5, "etiqueta": "Mín. de hoy", "tipo": "liq"}, {"precio": 7769.5, "etiqueta": "Máx. de hoy", "tipo": "liq"}, {"precio": 7775.57, "etiqueta": "Put wall", "tipo": "gamneg"}, {"precio": 7805.79, "etiqueta": "Call wall", "tipo": "gam"}, {"precio": 7823.82, "etiqueta": "Gamma flip", "tipo": "gam"}, {"precio": 7834.5, "etiqueta": "Mín. de ayer", "tipo": "liq"}, {"precio": 7855.75, "etiqueta": "Cierre de ayer", "tipo": "liq"}, {"precio": 7864.0, "etiqueta": "Máx. de ayer", "tipo": "liq"}, {"precio": 7700.0, "etiqueta": "Número redondo", "tipo": ""}, {"precio": 7750.0, "etiqueta": "Número redondo", "tipo": ""}, {"precio": 7800.0, "etiqueta": "Número redondo", "tipo": ""}, {"precio": 7850.0, "etiqueta": "Número redondo", "tipo": ""}]}, {"simbolo": "BTC-USD", "nombre": "Bitcoin", "precio": 81486.171875, "dec": 0, "niveles": [{"precio": 80962.515625, "etiqueta": "Mín. de ayer", "tipo": "liq"}, {"precio": 81532.1328125, "etiqueta": "Mín. de hoy", "tipo": "liq"}, {"precio": 81707.7421875, "etiqueta": "Máx. de hoy", "tipo": "liq"}, {"precio": 83095.125, "etiqueta": "Cierre de ayer", "tipo": "liq"}, {"precio": 84061.09375, "etiqueta": "Máx. de ayer", "tipo": "liq"}, {"precio": 78000.0, "etiqueta": "Número redondo", "tipo": ""}, {"precio": 80000.0, "etiqueta": "Número redondo", "tipo": ""}, {"precio": 82000.0, "etiqueta": "Número redondo", "tipo": ""}, {"precio": 84000.0, "etiqueta": "Número redondo", "tipo": ""}]}], "gamma": [{"etf": "SPY", "futuro": "ES (S&P 500)", "precio_etf": 769.61, "precio_futuro": 7751.5, "gex_total_millones": -8916.9, "regimen": "negativo (movimientos más fuertes)", "gamma_flip": {"etf": 776.79, "futuro": 7823.82}, "call_wall": {"etf": 775.0, "futuro": 7805.79}, "put_wall": {"etf": 772.0, "futuro": 7775.57}, "strikes_clave": [{"etf": 772.0, "futuro": 7775.57, "gex_millones": -1276.6}, {"etf": 755.0, "futuro": 7604.35, "gex_millones": -1226.8}, {"etf": 765.0, "futuro": 7705.07, "gex_millones": -1038.7}, {"etf": 750.0, "futuro": 7553.99, "gex_millones": -685.5}, {"etf": 740.0, "futuro": 7453.27, "gex_millones": -668.9}], "perfil": {"precios_futuro": [7131.4, 7162.4, 7193.4, 7224.4, 7255.4, 7286.4, 7317.4, 7348.4, 7379.4, 7410.4, 7441.4, 7472.4, 7503.5, 7534.5, 7565.5, 7596.5, 7627.5, 7658.5, 7689.5, 7720.5, 7751.5, 7782.5, 7813.5, 7844.5, 7875.5, 7906.5, 7937.5, 7968.5, 7999.5, 8030.6, 8061.6, 8092.6, 8123.6, 8154.6, 8185.6, 8216.6, 8247.6, 8278.6, 8309.6, 8340.6, 8371.6], "gex_millones": [-8415.9, -9178.3, -9995.1, -10855.8, -11747.2, -12653.8, -13558.3, -14441.2, -15281.1, -16053.1, -16729.1, -17278.1, -17668.1, -17868.0, -17846.0, -17560.6, -16945.7, -15896.9, -14277.9, -11963.4, -8916.9, -5264.4, -1309.9, 2535.3, 5878.6, 8458.8, 10191.5, 11143.0, 11465.8, 11335.1, 10907.1, 10302.9, 9608.1, 8880.4, 8157.4, 7462.4, 6808.4, 6200.9, 5640.4, 5124.4, 4648.9]}, "contratos_usados": 2386}, {"etf": "QQQ", "futuro": "NQ (Nasdaq 100)", "precio_etf": 728.89, "precio_futuro": 29979.25, "gex_total_millones": -6070.1, "regimen": "negativo (movimientos más fuertes)", "gamma_flip": {"etf": 744.2, "futuro": 30608.96}, "call_wall": {"etf": 760.0, "futuro": 31258.8}, "put_wall": {"etf": 725.0, "futuro": 29819.25}, "strikes_clave": [{"etf": 725.0, "futuro": 29819.25, "gex_millones": -755.2}, {"etf": 700.0, "futuro": 28791.0, "gex_millones": -620.4}, {"etf": 730.0, "futuro": 30024.9, "gex_millones": -518.0}, {"etf": 715.0, "futuro": 29407.95, "gex_millones": -376.9}, {"etf": 710.0, "futuro": 29202.3, "gex_millones": -345.6}], "perfil": {"precios_futuro": [27580.9, 27700.8, 27820.7, 27940.7, 28060.6, 28180.5, 28300.4, 28420.3, 28540.2, 28660.2, 28780.1, 28900.0, 29019.9, 29139.8, 29259.7, 29379.7, 29499.6, 29619.5, 29739.4, 29859.3, 29979.3, 30099.2, 30219.1, 30339.0, 30458.9, 30578.8, 30698.8, 30818.7, 30938.6, 31058.5, 31178.4, 31298.3, 31418.3, 31538.2, 31658.1, 31778.0, 31897.9, 32017.8, 32137.8, 32257.7, 32377.6], "gex_millones": [-5302.5, -5622.6, -5955.8, -6299.2, -6648.4, -6998.0, -7341.3, -7670.8, -7978.5, -8256.0, -8494.8, -8685.6, -8818.4, -8881.5, -8860.9, -8740.5, -8502.3, -8128.2, -7602.8, -6916.7, -6070.1, -5075.6, -3959.3, -2759.4, -1522.6, -299.4, 861.9, 1919.9, 2843.3, 3612.9, 4221.0, 4670.1, 4970.3, 5137.3, 5189.7, 5147.5, 5030.3, 4856.5, 4642.6, 4402.5, 4148.1]}, "contratos_usados": 2594}], "titulares": [{"titulo": "Inside India newsletter: Billionaire Ambani’s mega-IPO faces a valuation reality check amid Musk spat", "link": "https://www.cnbc.com/2026/10/15/india-starlink-musk-jio-ambani-ipo.html", "fuente": "CNBC", "ts": 1792024213.0, "hora": "14-oct 20:30"}, {"titulo": "YouTube explores audiobook feature for 2027 launch- WSJ", "link": "https://www.investing.com/news/stock-market-news/youtube-explores-audiobook-feature-for-2027-launch-wsj-93CH-4950313", "fuente": "Investing.com", "ts": 1792023526.0, "hora": "14-oct 20:18"}, {"titulo": "S&P 500 futures fall as traders await more U.S. economic data: Live updates", "link": "https://www.cnbc.com/2026/10/14/stock-market-today-live-updates.html", "fuente": "CNBC", "ts": 1792021259.0, "hora": "14-oct 19:40"}, {"titulo": "TSMC expected to report sixth straight quarter of record profit thanks to AI boom", "link": "https://www.investing.com/news/stock-market-news/tsmc-expected-to-report-sixth-straight-quarter-of-record-profit-thanks-to-ai-boom-4950243", "fuente": "Investing.com", "ts": 1792019182.0, "hora": "14-oct 19:06"}, {"titulo": "Iambic Therapeutics prices IPO at $16 per share on Nasdaq", "link": "https://www.investing.com/news/stock-market-news/iambic-therapeutics-prices-ipo-at-16-per-share-on-nasdaq-432SI-4950227", "fuente": "Investing.com", "ts": 1792019102.0, "hora": "14-oct 19:05"}, {"titulo": "Anthropic’s Q3 revenue surges 45% to nearly $17 billion", "link": "https://www.investing.com/news/stock-market-news/anthropics-q3-revenue-surges-45-to-nearly-17-billion-4950208", "fuente": "Investing.com", "ts": 1792018459.0, "hora": "14-oct 18:54"}, {"titulo": "Mexico to require digital platforms to shield minors from harmful content", "link": "https://www.investing.com/news/stock-market-news/mexico-to-require-digital-platforms-to-protect-minors-from-violent-sexual-content-4949581", "fuente": "Investing.com", "ts": 1792015946.0, "hora": "14-oct 18:12"}, {"titulo": "Rocket Lab pushes Neutron rocket’s debut flight to 2027, shares fall", "link": "https://www.investing.com/news/stock-market-news/rocket-lab-pushes-neutron-rockets-debut-flight-to-2027-shares-fall-4950171", "fuente": "Investing.com", "ts": 1792014866.0, "hora": "14-oct 17:54"}, {"titulo": "Explainer-What is Starshield, SpaceX’s military version of Starlink?", "link": "https://www.investing.com/news/stock-market-news/explainerwhat-is-starshieldspacexs-military-version-of-starlink-4949897", "fuente": "Investing.com", "ts": 1792014511.0, "hora": "14-oct 17:48"}, {"titulo": "Why is Rocket Lab stock tumbling today?", "link": "https://www.investing.com/news/stock-market-news/why-is-rocket-lab-stock-tumbling-today-93CH-4950150", "fuente": "Investing.com", "ts": 1792013495.0, "hora": "14-oct 17:31"}, {"titulo": "OpenAI bugging suspect booked one-way ticket to Saudi Arabia with family before arrest", "link": "https://www.cnbc.com/2026/10/14/openai-alfozan-recording-raed-ventures.html", "fuente": "CNBC", "ts": 1792012693.0, "hora": "14-oct 17:18"}, {"titulo": "OpenAI sued by 8 states over ChatGPT safety concerns", "link": "https://www.cnbc.com/2026/10/14/openai-sued-by-8-states-over-chatgpt-safety-concerns-.html", "fuente": "CNBC", "ts": 1792012160.0, "hora": "14-oct 17:09"}], "reporte": {"fecha": "2026-10-14-20h", "bloques": [{"tipo": "h", "texto": "📊 Reporte de mercado · miércoles 14-oct-2026, 20:10 (Caracas)"}, {"tipo": "p", "texto": "Resumen: día de inflación (CPI) en EE. UU., con el petróleo cerca de $95–100 por la crisis de Ormuz y la tasa a 10 años en 5,2 %. El Nasdaq cayó fuerte (NQ −2,8 % en 24 h, −4,9 % en la semana) y el miedo (VIX) subió +10 %. Mañana, a las 8:30, salen precios al productor (PPI) y ventas minoristas."}, {"tipo": "h", "texto": "🌡️ Termómetro"}, {"tipo": "li", "texto": "Activo · Precio · ~4 h · 24 h · 7 días"}, {"tipo": "li", "texto": "Futuro Nasdaq (NQ) · 29.886 · −1,0 % · −2,8 % · −4,9 %"}, {"tipo": "li", "texto": "Futuro S&P 500 (ES) · 7.742 · −0,4 % · −1,4 % · −1,4 %"}, {"tipo": "li", "texto": "Bitcoin · 81.690 · 0,0 % · −2,0 % · −2,0 %"}, {"tipo": "li", "texto": "Oro · 4.129 · +0,2 % · −1,2 % · −0,1 %"}, {"tipo": "li", "texto": "Petróleo WTI · 94,76 · −0,4 % · 0,0 % · +6,5 %"}, {"tipo": "li", "texto": "Tasa a 10 años EE. UU. · 5,19 % · — · −0,5 % · −1,7 %"}, {"tipo": "li", "texto": "VIX (miedo) · 16,85 · +2,8 % · +10,4 % · +11,7 %"}, {"tipo": "h", "texto": "📰 Lo que pasó"}, {"tipo": "li", "texto": "Inflación (CPI de septiembre) hoy a las 8:30."}, {"tipo": "li", "texto": "Se esperaba que la inflación general subiera de 3,4 % a ~3,6 % anual, sobre todo por la gasolina récord (Admiral Markets, investingLive)."}, {"tipo": "li", "texto": "No encontré una fuente fiable con el número final. Lo que sí se ve en los precios es la caída del Nasdaq y la subida del VIX, compatible con un mercado preocupado por la inflación y la Fed."}, {"tipo": "li", "texto": "La Fed subió las tasas el 16 de septiembre a 3,75–4,00 %. La próxima reunión es el 27–28 de octubre (defirate). Más inflación = más presión para seguir subiendo = malo para las tecnológicas (NQ)."}, {"tipo": "li", "texto": "Petróleo: sigue la interrupción en el estrecho de Ormuz, por donde antes pasaban ~19–20 millones de barriles diarios."}, {"tipo": "li", "texto": "El Brent estaba en ~$102,6 el 5 de octubre (FX Empire, Yahoo/Goldman)."}, {"tipo": "li", "texto": "Petróleo caro → gasolina cara → inflación → Fed dura. Todo está conectado."}, {"tipo": "li", "texto": "Bancos: JPMorgan, Goldman, Wells Fargo y Citi reportaron el martes; Bank of America y Morgan Stanley, hoy."}, {"tipo": "li", "texto": "Bitcoin: viene de un rango de $83.500–86.600 a principios de mes (Kalshi) y hoy perforó hacia ~$81.700."}, {"tipo": "h", "texto": "📅 Lo que viene (hora de Caracas)"}, {"tipo": "li", "texto": "Jueves 15-oct, 8:30:"}, {"tipo": "li", "texto": "PPI (precios al productor);"}, {"tipo": "li", "texto": "ventas minoristas (se espera +0,3 % mensual, contra +1,13 % del mes anterior);"}, {"tipo": "li", "texto": "solicitudes de desempleo;"}, {"tipo": "li", "texto": "Philly Fed y Empire State (fedratecalc)."}, {"tipo": "li", "texto": "27–28 de octubre: reunión de la Fed. A principios de octubre el mercado daba ~53 % a \"no cambian las tasas\" (CME FedWatch) y ~17 % a una subida de 0,25 % (mercados de predicción). Es un dato viejo, y puede haber cambiado con el CPI de hoy."}, {"tipo": "h", "texto": "🎲 Escenarios para las próximas 24 h (estimación de la IA, no certeza)"}, {"tipo": "p", "texto": "NQ (Nasdaq):"}, {"tipo": "li", "texto": "Base (50 %): se mueve de lado, en 29.700–30.200, esperando el PPI y las ventas de mañana."}, {"tipo": "li", "texto": "Bajista (30 %): PPI caliente y tasas arriba → pierde el mínimo de hoy (29.880) y busca 29.500."}, {"tipo": "li", "texto": "Alcista (20 %): datos suaves → rebote hacia 30.300–30.600, la zona del mínimo de ayer, que ahora es \"liquidez\" arriba."}, {"tipo": "p", "texto": "Bitcoin:"}, {"tipo": "li", "texto": "Base (55 %): rango de 80.900–84.000."}, {"tipo": "li", "texto": "Bajista (25 %): pierde el mínimo de ayer (80.960) y va a 78–79 mil."}, {"tipo": "li", "texto": "Alcista (20 %): vuelve sobre 84.000."}, {"tipo": "h", "texto": "🎯 Niveles a vigilar"}, {"tipo": "li", "texto": "NQ: mínimo de hoy 29.880 · máximo de hoy 30.158 · mínimo de ayer (PDL) 30.591 · máximo de ayer (PDH) 30.906 · números redondos 30.000 y 29.500."}, {"tipo": "li", "texto": "Bitcoin: PDL 80.963 · PDH 84.061 · número redondo 80.000."}, {"tipo": "li", "texto": "Oro: PDL 4.170 · hoy 4.123–4.133."}, {"tipo": "h", "texto": "⚠️ Recordatorio"}, {"tipo": "p", "texto": "Practica en demo. Arriesga ≤1 % por operación. A las 8:30 de mañana el precio puede saltar varios puntos en segundos. Muchos profesionales no operan los primeros minutos de un dato."}]}, "laboratorio": [{"prueba": "Barridas SMC de mínimos/máximos iguales", "datos": "NQ 5 min · 60 días · 250 barridas", "resultado": "51 % a favor, ≈ 0 puntos tras costos (z +0,4)", "veredicto": "Igual que el azar", "color": "rojo"}, {"prueba": "Barridas SMC de mínimos/máximos iguales", "datos": "NQ y ES 1 h · 2 años · 49 y 92 barridas", "resultado": "57 % y 49 % a favor (z +1,2 y +0,3)", "veredicto": "Sin ventaja clara", "color": "rojo"}, {"prueba": "Rupturas de máximos iguales que fallan", "datos": "NQ y ES 1 h · 2 años · 36 y 54 casos", "resultado": "El precio se devolvió hacia abajo en 2 h (z +3,4 y +2,1)", "veredicto": "Pista: confirmar fuera de muestra", "color": "amar"}, {"prueba": "Días de CPI y FOMC: ¿rango mayor?", "datos": "Pendiente · sábado", "resultado": "—", "veredicto": "Por probar", "color": "amar"}, {"prueba": "Gamma positiva = día de rango", "datos": "Guardando una foto diaria desde el 14-oct-2026", "resultado": "—", "veredicto": "Recolectando datos", "color": "amar"}, {"prueba": "Order flow de bitcoin (desequilibrio del libro)", "datos": "Pendiente · sábado", "resultado": "—", "veredicto": "Por probar", "color": "amar"}]}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById("datos").textContent);
+  var fmt = function (x, d) { return x == null ? "—" : Number(x).toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d }); };
+  var pct = function (x) { return x == null ? "—" : (x > 0 ? "+" : "") + x.toFixed(2) + "%"; };
+  var el = function (tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+  document.getElementById("hora").textContent = D.hora || "—";
+
+  // ---------- Semáforo ----------
+  var sem = document.getElementById("semaforo");
+  (D.semaforo || []).forEach(function (s) {
+    var c = el("div", "luz " + s.nivel);
+    c.appendChild(el("b", null, s.titulo)); c.appendChild(el("span", "v", s.valor)); c.appendChild(el("small", null, s.detalle));
+    sem.appendChild(c);
+  });
+
+  // ---------- Alertas ----------
+  var al = document.getElementById("alertas");
+  if (!D.alertas || !D.alertas.length) al.appendChild(el("p", "vacio", "Sin alertas en las últimas horas. El mercado está tranquilo o no cruzó niveles clave."));
+  (D.alertas || []).slice(0, 8).forEach(function (a) {
+    var c = el("div", "alerta" + (a.prioridad >= 4 ? " p4" : ""));
+    c.appendChild(el("strong", null, a.titulo)); c.appendChild(el("span", null, a.texto)); c.appendChild(el("small", "num", a.hora));
+    al.appendChild(c);
+  });
+
+  // ---------- Calendario ----------
+  var cal = document.getElementById("calendario");
+  if (!D.calendario || !D.calendario.length) cal.appendChild(el("p", "vacio", "No hay datos de alto impacto en lo que queda de semana."));
+  (D.calendario || []).slice(0, 10).forEach(function (e) {
+    var r = el("div", "evento"); r.appendChild(el("span", "t", e.hora));
+    var d = el("div"); d.appendChild(el("div", null, e.titulo));
+    d.appendChild(el("small", null, "Pronóstico " + (e.pronostico || "—") + " · anterior " + (e.anterior || "—")));
+    r.appendChild(d); cal.appendChild(r);
+  });
+
+  // ---------- Termómetro con mini gráficos ----------
+  var tb = document.querySelector("#termometro tbody");
+  (D.mercado.activos || []).forEach(function (a) {
+    var tr = el("tr"); tr.appendChild(el("td", null, a.nombre));
+    var dec = a.simbolo === "EURUSD=X" ? 4 : 2;
+    tr.appendChild(el("td", "num", fmt(a.precio, dec)));
+    ["c1", "c4", "c24", "c7"].forEach(function (k) {
+      var inv = a.simbolo === "^VIX"; var v = a[k];
+      var cls = v == null ? "num" : "num " + ((v > 0) !== inv ? "pos" : "neg");
+      tr.appendChild(el("td", cls, pct(v)));
+    });
+    var td = el("td"); td.appendChild(spark(a.serie || [], a.c24 != null && a.c24 >= 0 !== (a.simbolo === "^VIX")));
+    tr.appendChild(td); tb.appendChild(tr);
+  });
+  function spark(s, sube) {
+    var ns = "http://www.w3.org/2000/svg", w = 90, h = 24, svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("viewBox", "0 0 " + w + " " + h); svg.setAttribute("width", w); svg.setAttribute("height", h);
+    if (s.length < 2) return svg;
+    var mn = Math.min.apply(null, s), mx = Math.max.apply(null, s), r = mx - mn || 1;
+    var pts = s.map(function (v, i) { return (i / (s.length - 1) * (w - 4) + 2).toFixed(1) + "," + (h - 2 - (v - mn) / r * (h - 4)).toFixed(1); });
+    var p = document.createElementNS(ns, "polyline"); p.setAttribute("points", pts.join(" ")); p.setAttribute("fill", "none");
+    p.setAttribute("stroke", sube ? "var(--up)" : "var(--down)"); p.setAttribute("stroke-width", "1.5"); svg.appendChild(p);
+    return svg;
+  }
+
+  // ---------- Escalera de niveles ----------
+  var esc = document.getElementById("escaleras");
+  (D.escaleras || []).forEach(function (E) {
+    var c = el("div", null); c.style.minWidth = "0";
+    var head = el("h3", null, E.nombre); head.style.fontSize = "17px"; head.style.marginBottom = "6px"; c.appendChild(head);
+    var filas = E.niveles.slice().sort(function (a, b) { return b.precio - a.precio; });
+    var puesto = false;
+    filas.forEach(function (n) {
+      if (!puesto && n.precio < E.precio) { c.appendChild(fila({ precio: E.precio, etiqueta: "Precio ahora", tipo: "ahora" }, E)); puesto = true; }
+      c.appendChild(fila(n, E));
+    });
+    if (!puesto) c.appendChild(fila({ precio: E.precio, etiqueta: "Precio ahora", tipo: "ahora" }, E));
+    esc.appendChild(c);
+  });
+  function fila(n, E) {
+    var r = el("div", "peldano" + (n.tipo === "ahora" ? " ahora" : ""));
+    r.appendChild(el("span", "p", fmt(n.precio, E.dec)));
+    var chip = el("span", "chip " + (n.tipo || ""), n.etiqueta); r.appendChild(chip);
+    var dist = n.tipo === "ahora" ? "" : ((n.precio - E.precio) > 0 ? "+" : "") + fmt(n.precio - E.precio, E.dec > 2 ? 4 : 0) + " (" + ((n.precio / E.precio - 1) * 100).toFixed(2) + "%)";
+    r.appendChild(el("span", "d", dist)); return r;
+  }
+
+  // ---------- Gamma ----------
+  var gg = document.getElementById("gamma");
+  (D.gamma || []).forEach(function (g) {
+    var c = el("div", null); c.style.minWidth = "0"; c.style.display = "grid"; c.style.gap = "6px";
+    var t = el("h3", null, g.futuro + " "); t.style.fontSize = "16px";
+    var tag = el("span", "tag " + (g.gex_total_millones > 0 ? "verde" : "rojo"), g.gex_total_millones > 0 ? "Gamma positiva · rango" : "Gamma negativa · movimientos fuertes");
+    t.appendChild(tag); c.appendChild(t);
+    var nums = el("div", "gex-nums");
+    [["Precio", g.precio_futuro], ["Gamma flip", g.gamma_flip.futuro], ["Call wall", g.call_wall.futuro], ["Put wall", g.put_wall.futuro]].forEach(function (p) {
+      var s = el("span", null, p[0] + " "); s.appendChild(el("b", null, fmt(p[1], 0))); nums.appendChild(s);
+    });
+    var s2 = el("span", null, "GEX total "); s2.appendChild(el("b", null, fmt(g.gex_total_millones, 0) + " M$ / 1%")); nums.appendChild(s2);
+    c.appendChild(nums);
+    var box = el("div", null); c.appendChild(box); gg.appendChild(c);
+    dibujarGamma(box, g);
+  });
+  function dibujarGamma(box, g) {
+    var ns = "http://www.w3.org/2000/svg", W = 560, H = 210, m = { l: 48, r: 10, t: 10, b: 26 };
+    var xs = g.perfil.precios_futuro, ys = g.perfil.gex_millones; if (!xs.length) return;
+    var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min(0, Math.min.apply(null, ys)), y1 = Math.max(0, Math.max.apply(null, ys));
+    var X = function (v) { return m.l + (v - x0) / (x1 - x0) * (W - m.l - m.r); }, Y = function (v) { return m.t + (y1 - v) / ((y1 - y0) || 1) * (H - m.t - m.b); };
+    var svg = document.createElementNS(ns, "svg"); svg.setAttribute("viewBox", "0 0 " + W + " " + H); svg.setAttribute("width", "100%"); svg.setAttribute("role", "img");
+    svg.setAttribute("aria-label", "Perfil de gamma de " + g.futuro);
+    function add(tag, at) { var e = document.createElementNS(ns, tag); for (var k in at) e.setAttribute(k, at[k]); svg.appendChild(e); return e; }
+    add("rect", { x: m.l, y: m.t, width: W - m.l - m.r, height: Y(0) - m.t, fill: "var(--up-soft)" });
+    add("rect", { x: m.l, y: Y(0), width: W - m.l - m.r, height: H - m.b - Y(0), fill: "var(--down-soft)" });
+    add("line", { x1: m.l, x2: W - m.r, y1: Y(0), y2: Y(0), stroke: "var(--muted)", "stroke-width": 1 });
+    var d = xs.map(function (v, i) { return (i ? "L" : "M") + X(v).toFixed(1) + "," + Y(ys[i]).toFixed(1); }).join("");
+    add("path", { d: d, fill: "none", stroke: "var(--ink)", "stroke-width": 2 });
+    [[g.precio_futuro, "ahora", "var(--amber)"], [g.gamma_flip.futuro, "flip", "var(--muted)"]].forEach(function (p) {
+      if (p[0] == null || p[0] < x0 || p[0] > x1) return;
+      add("line", { x1: X(p[0]), x2: X(p[0]), y1: m.t, y2: H - m.b, stroke: p[2], "stroke-width": p[1] === "ahora" ? 2 : 1, "stroke-dasharray": p[1] === "ahora" ? "" : "4 3" });
+      var tx = add("text", { x: X(p[0]) + 4, y: m.t + (p[1] === "ahora" ? 12 : 26) }); tx.textContent = p[1];
+    });
+    [y1, 0, y0].forEach(function (v) { var t = add("text", { x: m.l - 6, y: Y(v) + 4, "text-anchor": "end" }); t.textContent = Math.round(v / 1000) + "B"; });
+    [x0, (x0 + x1) / 2, x1].forEach(function (v, i) { var t = add("text", { x: X(v), y: H - 8, "text-anchor": i === 0 ? "start" : i === 2 ? "end" : "middle" }); t.textContent = fmt(v, 0); });
+    box.appendChild(svg);
+  }
+
+  // ---------- Reporte y titulares ----------
+  var rep = document.getElementById("reporte");
+  if (D.reporte && D.reporte.bloques && D.reporte.bloques.length) {
+    rep.appendChild(el("small", "meta", D.reporte.fecha || ""));
+    D.reporte.bloques.forEach(function (b) {
+      if (b.tipo === "h") rep.appendChild(el("h3", null, b.texto));
+      else if (b.tipo === "li") { var ul = rep.lastElementChild && rep.lastElementChild.tagName === "UL" ? rep.lastElementChild : rep.appendChild(el("ul")); ul.appendChild(el("li", null, b.texto)); }
+      else rep.appendChild(el("p", null, b.texto));
+    });
+  } else rep.appendChild(el("p", "vacio", "Todavía no hay reporte con IA. Escribe \"reporte\" en Claude o espera al próximo automático."));
+  var tit = document.getElementById("titulares");
+  (D.titulares || []).slice(0, 10).forEach(function (t) {
+    var r = el("div", "titular"); var a = el("a", null, t.titulo); a.href = t.link; a.target = "_blank"; a.rel = "noopener";
+    r.appendChild(a); r.appendChild(el("small", null, t.fuente + " · " + t.hora)); tit.appendChild(r);
+  });
+
+  // ---------- Laboratorio ----------
+  var lb = document.querySelector("#lab tbody");
+  (D.laboratorio || []).forEach(function (p) {
+    var tr = el("tr"); tr.appendChild(el("td", null, p.prueba)); tr.appendChild(el("td", null, p.datos));
+    tr.appendChild(el("td", null, p.resultado)); var td = el("td"); td.appendChild(el("span", "tag " + p.color, p.veredicto)); tr.appendChild(td);
+    lb.appendChild(tr);
+  });
+})();
+</script>
+
+</body>
+</html>
