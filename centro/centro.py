@@ -13,6 +13,7 @@ Uso:  uv run python centro/centro.py   (desde la carpeta escuela-trading)
 """
 import html
 import json
+import math
 import re
 import sys
 import urllib.request
@@ -23,7 +24,9 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "clases"))
 import alertas as AL  # noqa: E402
+import bitcoin as BT  # noqa: E402
 import mercado as ME  # noqa: E402
+import opciones as OP  # noqa: E402
 
 CARACAS = timezone(timedelta(hours=-4))
 FUENTES = [("CNBC", "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100003114"),
@@ -124,7 +127,38 @@ def semaforo(mercado, gamma_res, calendario):
     return luces
 
 
-def escaleras(mercado, gamma_res):
+def sigma_de(sim, ops_res, btc):
+    """Volatilidad hasta el próximo vencimiento (para probabilidades)."""
+    if sim == "BTC-USD":
+        iv = (btc or {}).get("iv_corta")
+        return (iv / 100 * math.sqrt(1 / 365), "próximas 24 h") if iv else (None, "")
+    etf = {"NQ=F": "QQQ", "ES=F": "SPY"}.get(sim)
+    o = next((r for r in ops_res if r["etf"] == etf), None)
+    p = (o or {}).get("proximo")
+    if not p:
+        return None, ""
+    return p["iv_atm"] / 100 * math.sqrt(max(p["dias"], 0.05) / 365), f"hasta el cierre del {p['venc']}"
+
+
+def extra_semaforo(ops_res, btc, mercado):
+    luces = []
+    o = next((r for r in ops_res if r["etf"] == "QQQ"), None)
+    if o and o.get("proximo"):
+        p = o["proximo"]
+        luces.append({"titulo": "Rango esperado del NQ", "valor": f"±{p['rango_futuro']:,.0f} pts (±{p['rango_pct']} %)", "nivel": "ok",
+                      "detalle": f"Lo que esperan las opciones hasta el {p['venc']}. Más allá = movimiento anormal."})
+    fg = (btc or {}).get("miedo_codicia") or {}
+    if fg.get("valor") is not None:
+        v = fg["valor"]
+        nivel = "mal" if v <= 20 or v >= 80 else "med" if v <= 35 or v >= 65 else "ok"
+        texto = {"Extreme Fear": "Miedo extremo", "Fear": "Miedo", "Neutral": "Neutral", "Greed": "Codicia", "Extreme Greed": "Codicia extrema"}.get(fg.get("texto"), fg.get("texto"))
+        luces.append({"titulo": "Cripto: miedo y codicia", "valor": f"{v} · {texto}", "nivel": nivel,
+                      "detalle": "En los extremos la gente exagera: cuidado con perseguir el precio."})
+    return luces
+
+
+def escaleras(mercado, gamma_res, ops_res=None, btc=None):
+    ops_res = ops_res or []
     precios = {a["simbolo"]: a["precio"] for a in mercado["activos"]}
     out = []
     for sim, nombre, etf, paso, dec in ESCALERAS:
@@ -138,11 +172,25 @@ def escaleras(mercado, gamma_res):
             if clave in n:
                 niveles.append({"precio": n[clave], "etiqueta": etiqueta, "tipo": "liq"})
         g = next((r for r in gamma_res if r["etf"] == etf), None) if etf else None
-        if g:
+        if g and (g.get("calculado") or not g.get("nota")):  # solo gamma confiable (horario de mercado)
             for clave, etiqueta in [("gamma_flip", "Gamma flip"), ("call_wall", "Call wall"), ("put_wall", "Put wall")]:
                 v = g[clave]["futuro"]
                 if v:
                     niveles.append({"precio": v, "etiqueta": etiqueta, "tipo": "gam" if clave != "put_wall" else "gamneg"})
+        o = next((r for r in ops_res if r["etf"] == etf), None) if etf else None
+        if o and o.get("max_pain", {}).get("futuro"):
+            niveles.append({"precio": float(o["max_pain"]["futuro"]), "etiqueta": "Max pain", "tipo": "gam"})
+        if sim == "BTC-USD" and btc and btc.get("gex"):
+            bg = btc["gex"]
+            for clave, etiqueta, tipo in [("flip", "Gamma flip", "gam"), ("call_wall", "Call wall", "gam"), ("put_wall", "Put wall", "gamneg")]:
+                if bg.get(clave):
+                    niveles.append({"precio": float(bg[clave]), "etiqueta": etiqueta, "tipo": tipo})
+            if btc.get("max_pain"):
+                niveles.append({"precio": float(btc["max_pain"]["precio"]), "etiqueta": "Max pain", "tipo": "gam"})
+            of = btc.get("order_flow") or {}
+            for m, et in [((of.get("muros_compra") or [None])[0], "Muro de compra"), ((of.get("muros_venta") or [None])[0], "Muro de venta")]:
+                if m:
+                    niveles.append({"precio": float(m["precio"]), "etiqueta": f"{et} ({m['btc']} BTC)", "tipo": "liq"})
         base = int(precio // paso) * paso
         for r in [base - paso, base, base + paso, base + 2 * paso]:
             niveles.append({"precio": float(r), "etiqueta": "Número redondo", "tipo": ""})
@@ -155,7 +203,11 @@ def escaleras(mercado, gamma_res):
                 limpio.append(dict(x))
             elif x["tipo"]:  # dos niveles casi iguales: se juntan las etiquetas (zona más fuerte)
                 cerca["etiqueta"] += " + " + x["etiqueta"]
-        out.append({"simbolo": sim, "nombre": nombre, "precio": precio, "dec": dec, "niveles": limpio})
+        sig, horizonte = sigma_de(sim, ops_res, btc)
+        if sig:
+            limpio = OP.probabilidades(precio, sig, limpio)
+        out.append({"simbolo": sim, "nombre": nombre, "precio": precio, "dec": dec, "niveles": limpio,
+                    "horizonte": horizonte, "rango": None if not sig else [round(precio * math.exp(-sig), dec), round(precio * math.exp(sig), dec)]})
     return out
 
 
@@ -165,23 +217,52 @@ def armar():
     AL.revisar_precios(nuevas, estado)
     gamma_res = AL.revisar_gamma(nuevas, estado) or []
     calendario = AL.revisar_calendario(nuevas, estado) or []
+    enviadas = 0
+
+    mercado = ME.foto()
+    try:
+        ops_res = OP.resultados()
+    except Exception as e:
+        print("opciones:", e); ops_res = []
+    try:
+        btc = BT.analizar()
+    except Exception as e:
+        print("bitcoin:", e); btc = {}
+    # Alerta: el precio se salió del rango que esperaba el mercado de opciones
+    for r in ops_res:
+        p = r.get("proximo")
+        sim = {"QQQ": "NQ=F", "SPY": "ES=F"}[r["etf"]]
+        n = mercado["niveles"].get(sim, {})
+        actual = next((a["precio"] for a in mercado["activos"] if a["simbolo"] == sim), None)
+        if p and p["dias"] <= 1.5 and n.get("PDC") and actual and abs(actual - n["PDC"]) > p["rango_futuro"]:
+            AL.nueva(nuevas, estado, f"rango-{sim}-{datetime.now(timezone.utc):%Y%m%d}",
+                     f"{r['futuro']} se salió del rango esperado (±{p['rango_futuro']:.0f} pts)",
+                     f"Va {actual - n['PDC']:+,.0f} pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+                     prioridad=4, horas=12)
+    if btc.get("gex") and btc.get("precio"):
+        prev = estado.get("btc_precio")
+        for nombre, nivel in [("gamma flip", btc["gex"].get("flip")), ("call wall", btc["gex"].get("call_wall")), ("put wall", btc["gex"].get("put_wall"))]:
+            if prev and nivel and (prev - nivel) * (btc["precio"] - nivel) < 0:
+                AL.nueva(nuevas, estado, f"btc-{nombre}-{nivel:.0f}", f"Bitcoin cruzó el {nombre} (~{nivel:,.0f})",
+                         f"Precio {btc['precio']:,.0f}. Nivel de opciones de Deribit donde puede cambiar el comportamiento.", horas=12)
+        estado["btc_precio"] = btc["precio"]
     enviadas = sum(AL.enviar(a) for a in nuevas)
     estado["historial"] = (nuevas + estado.get("historial", []))[:50]
     AL.guardar_estado(estado)
-
-    mercado = ME.foto()
     try:
         lab = json.loads((RAIZ / "datos" / "laboratorio.json").read_text(encoding="utf-8"))
     except Exception:
         lab = []
     datos = {
         "hora": AL.fecha_es(datetime.now(timezone.utc)) + f" {datetime.now(CARACAS).year}",
-        "semaforo": semaforo(mercado, gamma_res, calendario),
+        "semaforo": semaforo(mercado, gamma_res, calendario) + extra_semaforo(ops_res, btc, mercado),
         "alertas": estado["historial"][:10],
         "calendario": [c for c in calendario if datetime.fromisoformat(c["ts"]) >= datetime.now(timezone.utc) - timedelta(hours=1)],
         "mercado": mercado,
-        "escaleras": escaleras(mercado, gamma_res),
-        "gamma": [{k: v for k, v in g.items() if k != "por_strike"} for g in gamma_res],
+        "escaleras": escaleras(mercado, gamma_res, ops_res, btc),
+        "gamma": gamma_res,
+        "opciones": ops_res,
+        "bitcoin": btc,
         "titulares": titulares(),
         "reporte": ultimo_reporte(),
         "laboratorio": lab,

@@ -6,7 +6,7 @@ Escribe todo **en español**, claro y corto: Ernesto lo lee en el celular en 2 m
 ## Pasos
 1. `pip install -r requirements.txt -q`
 2. `python clases/mercado.py` → precios, cambios a 1 h, 4 h, 24 h y 7 días, y niveles PDH/PDL/PDC.
-3. `python clases/gamma.py` → régimen de gamma, gamma flip, call wall y put wall de ES y NQ.
+3. `python clases/gamma.py`, `python clases/opciones.py` y `python clases/bitcoin.py` → gamma, walls, rango esperado (straddle), skew, put/call, max pain; bitcoin con Deribit + order flow de Coinbase + miedo y codicia. Usa el rango esperado y las probabilidades de tocar niveles (`docs/datos.json` → `escaleras`) en los escenarios.
 4. Busca en internet (WebSearch) las noticias de **las últimas horas**:
    - bolsa de EE. UU. y futuros del Nasdaq;
    - la Fed, las tasas y los bonos;

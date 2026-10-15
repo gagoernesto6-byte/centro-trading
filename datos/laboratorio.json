@@ -1,8 +1,65 @@
 [
- {"prueba": "Barridas SMC de mínimos/máximos iguales", "datos": "NQ 5 min · 60 días · 250 barridas", "resultado": "51 % a favor, ≈ 0 puntos tras costos (z +0,4)", "veredicto": "Igual que el azar", "color": "rojo"},
- {"prueba": "Barridas SMC de mínimos/máximos iguales", "datos": "NQ y ES 1 h · 2 años · 49 y 92 barridas", "resultado": "57 % y 49 % a favor (z +1,2 y +0,3)", "veredicto": "Sin ventaja clara", "color": "rojo"},
- {"prueba": "Rupturas de máximos iguales que fallan", "datos": "NQ y ES 1 h · 2 años · 36 y 54 casos", "resultado": "El precio se devolvió hacia abajo en 2 h (z +3,4 y +2,1)", "veredicto": "Pista: confirmar fuera de muestra", "color": "amar"},
- {"prueba": "Días de CPI y FOMC: ¿rango mayor?", "datos": "Pendiente · sábado", "resultado": "—", "veredicto": "Por probar", "color": "amar"},
- {"prueba": "Gamma positiva = día de rango", "datos": "Guardando una foto diaria desde el 14-oct-2026", "resultado": "—", "veredicto": "Recolectando datos", "color": "amar"},
- {"prueba": "Order flow de bitcoin (desequilibrio del libro)", "datos": "Pendiente · sábado", "resultado": "—", "veredicto": "Por probar", "color": "amar"}
+ {
+  "prueba": "Barridas SMC de mínimos/máximos iguales",
+  "datos": "NQ 5 min · 60 días · 250 barridas",
+  "resultado": "51 % a favor, ≈ 0 puntos tras costos (z +0,4)",
+  "veredicto": "Igual que el azar",
+  "color": "rojo"
+ },
+ {
+  "prueba": "Barridas SMC de mínimos/máximos iguales",
+  "datos": "NQ y ES 1 h · 2 años · 49 y 92 barridas",
+  "resultado": "57 % y 49 % a favor (z +1,2 y +0,3)",
+  "veredicto": "Sin ventaja clara",
+  "color": "rojo"
+ },
+ {
+  "prueba": "Rupturas de máximos iguales que fallan",
+  "datos": "NQ y ES 1 h · 2 años · 36 y 54 casos",
+  "resultado": "El precio se devolvió hacia abajo en 2 h (z +3,4 y +2,1)",
+  "veredicto": "Pista: confirmar fuera de muestra",
+  "color": "amar"
+ },
+ {
+  "prueba": "Días de CPI y FOMC: ¿rango mayor?",
+  "datos": "Pendiente · sábado",
+  "resultado": "—",
+  "veredicto": "Por probar",
+  "color": "amar"
+ },
+ {
+  "prueba": "Gamma positiva = día de rango",
+  "datos": "Guardando una foto diaria desde el 14-oct-2026",
+  "resultado": "—",
+  "veredicto": "Recolectando datos",
+  "color": "amar"
+ },
+ {
+  "prueba": "Order flow de bitcoin (desequilibrio del libro)",
+  "datos": "Pendiente · sábado",
+  "resultado": "—",
+  "veredicto": "Por probar",
+  "color": "amar"
+ },
+ {
+  "prueba": "¿Las opciones aciertan el rango del día? (rango esperado vs. real)",
+  "datos": "Guardando el rango esperado cada día desde el 15-oct-2026",
+  "resultado": "—",
+  "veredicto": "Recolectando datos",
+  "color": "amar"
+ },
+ {
+  "prueba": "¿El precio termina cerca del max pain el día del vencimiento?",
+  "datos": "Vencimientos semanales de SPY, QQQ y bitcoin",
+  "resultado": "—",
+  "veredicto": "Por probar",
+  "color": "amar"
+ },
+ {
+  "prueba": "Delta de compras agresivas en bitcoin → ¿predice los próximos 5 min?",
+  "datos": "Libro y operaciones de Coinbase (gratis)",
+  "resultado": "—",
+  "veredicto": "Por probar · sábado",
+  "color": "amar"
+ }
 ]
