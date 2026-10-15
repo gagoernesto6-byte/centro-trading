@@ -1,22 +1,32 @@
 {
  "precios": {
-  "NQ=F": 29979.75,
-  "ES=F": 7751.75,
-  "BTC-USD": 81500.0078125,
-  "GC=F": 4161.60009765625,
-  "CL=F": 94.58999633789062,
+  "NQ=F": 29948.0,
+  "ES=F": 7747.25,
+  "BTC-USD": 81701.8984375,
+  "GC=F": 4162.7001953125,
+  "CL=F": 94.4800033569336,
   "^VIX": 16.850000381469727
  },
- "enviadas": {},
+ "enviadas": {
+  "redondo-ES=F-7750": "2026-10-15T01:03:08.762644+00:00"
+ },
  "gamma": {
   "SPY": {
    "positivo": false,
-   "precio": 7751.5
+   "precio": 7746.5
   },
   "QQQ": {
    "positivo": false,
-   "precio": 29979.25
+   "precio": 29947.25
   }
  },
- "historial": []
+ "historial": [
+  {
+   "clave": "redondo-ES=F-7750",
+   "titulo": "S&P 500 (ES) cruzó el número redondo 7,750",
+   "texto": "Precio 7,747.25. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "14-oct 21:03"
+  }
+ ]
 }
