@@ -128,6 +128,8 @@ def revisar_gamma(alertas, estado):
     except Exception:
         return []
     for r in res:
+        if r.get("nota") or not r.get("fiable", True):
+            continue  # fuera de horario o datos de opciones poco confiables: no alertar
         etf, positivo = r["etf"], r["gex_total_millones"] > 0
         previo = estado["gamma"].get(etf)
         if previo is not None and previo["positivo"] != positivo:

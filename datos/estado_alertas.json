@@ -2,7 +2,7 @@
  "precios": {
   "NQ=F": 30078.25,
   "ES=F": 7786.0,
-  "BTC-USD": 82298.0078125,
+  "BTC-USD": 82355.5234375,
   "GC=F": 4192.5,
   "CL=F": 96.12000274658203,
   "^VIX": 16.459999084472656
@@ -40,20 +40,6 @@
   }
  },
  "historial": [
-  {
-   "clave": "gamma-SPY-call wall-7789",
-   "titulo": "ES (S&P 500) cruzó el call wall (~7,789)",
-   "texto": "Precio 7,786. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "15-oct 17:56"
-  },
-  {
-   "clave": "gamma-SPY-put wall-7789",
-   "titulo": "ES (S&P 500) cruzó el put wall (~7,789)",
-   "texto": "Precio 7,786. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "15-oct 17:56"
-  },
   {
    "clave": "nivel-NQ=F-mínimo-30078",
    "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el mínimo de ayer (PDL)",
@@ -109,34 +95,6 @@
    "texto": "Precio 96.33. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "15-oct 12:54"
-  },
-  {
-   "clave": "gamma-regimen-SPY-False",
-   "titulo": "Gamma de ES (S&P 500) cambió a NEGATIVO",
-   "texto": "Ahora los dealers aceleran el precio: más probables movimientos fuertes. GEX -7,318.3 M.",
-   "prioridad": 4,
-   "hora": "15-oct 12:54"
-  },
-  {
-   "clave": "gamma-regimen-QQQ-False",
-   "titulo": "Gamma de NQ (Nasdaq 100) cambió a NEGATIVO",
-   "texto": "Ahora los dealers aceleran el precio: más probables movimientos fuertes. GEX -9,054.0 M.",
-   "prioridad": 4,
-   "hora": "15-oct 12:54"
-  },
-  {
-   "clave": "gamma-regimen-SPY-True",
-   "titulo": "Gamma de ES (S&P 500) cambió a POSITIVO",
-   "texto": "Ahora los dealers frenan el precio: más probable un día de rango. GEX +113.2 M.",
-   "prioridad": 4,
-   "hora": "15-oct 07:21"
-  },
-  {
-   "clave": "gamma-regimen-QQQ-True",
-   "titulo": "Gamma de NQ (Nasdaq 100) cambió a POSITIVO",
-   "texto": "Ahora los dealers frenan el precio: más probable un día de rango. GEX +21.2 M.",
-   "prioridad": 4,
-   "hora": "15-oct 07:21"
   },
   {
    "clave": "evento-Core PPI m/m-2026-10-15T08:30:00-04:00",
