@@ -1,14 +1,16 @@
 {
  "precios": {
-  "NQ=F": 29929.75,
-  "ES=F": 7743.75,
-  "BTC-USD": 81551.5,
-  "GC=F": 4162.39990234375,
-  "CL=F": 94.25,
+  "NQ=F": 29880.5,
+  "ES=F": 7736.25,
+  "BTC-USD": 80599.03125,
+  "GC=F": 4162.2001953125,
+  "CL=F": 94.31999969482422,
   "^VIX": 16.850000381469727
  },
  "enviadas": {
-  "redondo-ES=F-7750": "2026-10-15T01:03:08.762644+00:00"
+  "redondo-ES=F-7750": "2026-10-15T01:03:08.762644+00:00",
+  "nivel-ES=F-mínimo-7741": "2026-10-15T05:52:12.581932+00:00",
+  "nivel-BTC-USD-mínimo-80963": "2026-10-15T05:52:12.795608+00:00"
  },
  "gamma": {
   "SPY": {
@@ -21,6 +23,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-ES=F-mínimo-7741",
+   "titulo": "S&P 500 (ES) cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 7,741.00 · precio 7,736.25. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "15-oct 01:52"
+  },
+  {
+   "clave": "nivel-BTC-USD-mínimo-80963",
+   "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 80,962.52 · precio 80,599.03. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "15-oct 01:52"
+  },
   {
    "clave": "redondo-ES=F-7750",
    "titulo": "S&P 500 (ES) cruzó el número redondo 7,750",
