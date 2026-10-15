@@ -1,14 +1,14 @@
 {
  "precios": {
-  "NQ=F": 29794.75,
-  "ES=F": 7745.5,
-  "BTC-USD": 80924.5,
-  "GC=F": 4178.2998046875,
-  "CL=F": 93.9800033569336,
-  "^VIX": 17.610000610351562
+  "NQ=F": 29942.0,
+  "ES=F": 7769.5,
+  "BTC-USD": 81974.3203125,
+  "GC=F": 4169.89990234375,
+  "CL=F": 96.33000183105469,
+  "^VIX": 16.8700008392334
  },
  "enviadas": {
-  "redondo-ES=F-7750": "2026-10-15T01:03:08.762644+00:00",
+  "redondo-ES=F-7750": "2026-10-15T16:53:59.899807+00:00",
   "nivel-ES=F-mínimo-7741": "2026-10-15T05:52:12.581932+00:00",
   "nivel-BTC-USD-mínimo-80963": "2026-10-15T05:52:12.795608+00:00",
   "gamma-regimen-SPY-True": "2026-10-15T11:21:04.625077+00:00",
@@ -16,19 +16,66 @@
   "evento-Core PPI m/m-2026-10-15T08:30:00-04:00": "2026-10-15T11:21:04.858761+00:00",
   "evento-Core Retail Sales m/m-2026-10-15T08:30:00-04:00": "2026-10-15T11:21:04.858780+00:00",
   "evento-PPI m/m-2026-10-15T08:30:00-04:00": "2026-10-15T11:21:04.858795+00:00",
-  "evento-Retail Sales m/m-2026-10-15T08:30:00-04:00": "2026-10-15T11:21:04.858811+00:00"
+  "evento-Retail Sales m/m-2026-10-15T08:30:00-04:00": "2026-10-15T11:21:04.858811+00:00",
+  "nivel-BTC-USD-mínimo-81346": "2026-10-15T16:54:00.095460+00:00",
+  "nivel-CL=F-máximo-96": "2026-10-15T16:54:00.529142+00:00",
+  "redondo-CL=F-95": "2026-10-15T16:54:00.529204+00:00",
+  "gamma-regimen-SPY-False": "2026-10-15T16:54:03.371471+00:00",
+  "gamma-regimen-QQQ-False": "2026-10-15T16:54:03.371504+00:00"
  },
  "gamma": {
   "SPY": {
-   "positivo": true,
-   "precio": 7745.5
+   "positivo": false,
+   "precio": 7769.5
   },
   "QQQ": {
-   "positivo": true,
-   "precio": 29798.5
+   "positivo": false,
+   "precio": 29940.25
   }
  },
  "historial": [
+  {
+   "clave": "redondo-ES=F-7750",
+   "titulo": "S&P 500 (ES) cruzó el número redondo 7,750",
+   "texto": "Precio 7,769.50. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "15-oct 12:53"
+  },
+  {
+   "clave": "nivel-BTC-USD-mínimo-81346",
+   "titulo": "Bitcoin cruzó hacia arriba ⬆️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 81,345.88 · precio 81,974.32. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "15-oct 12:54"
+  },
+  {
+   "clave": "nivel-CL=F-máximo-96",
+   "titulo": "Petróleo WTI cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
+   "texto": "Nivel 96.06 · precio 96.33. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "15-oct 12:54"
+  },
+  {
+   "clave": "redondo-CL=F-95",
+   "titulo": "Petróleo WTI cruzó el número redondo 95",
+   "texto": "Precio 96.33. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "15-oct 12:54"
+  },
+  {
+   "clave": "gamma-regimen-SPY-False",
+   "titulo": "Gamma de ES (S&P 500) cambió a NEGATIVO",
+   "texto": "Ahora los dealers aceleran el precio: más probables movimientos fuertes. GEX -7,318.3 M.",
+   "prioridad": 4,
+   "hora": "15-oct 12:54"
+  },
+  {
+   "clave": "gamma-regimen-QQQ-False",
+   "titulo": "Gamma de NQ (Nasdaq 100) cambió a NEGATIVO",
+   "texto": "Ahora los dealers aceleran el precio: más probables movimientos fuertes. GEX -9,054.0 M.",
+   "prioridad": 4,
+   "hora": "15-oct 12:54"
+  },
   {
    "clave": "gamma-regimen-SPY-True",
    "titulo": "Gamma de ES (S&P 500) cambió a POSITIVO",
