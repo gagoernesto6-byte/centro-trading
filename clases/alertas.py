@@ -124,8 +124,7 @@ def revisar_gamma(alertas, estado):
     try:
         sys.path.insert(0, str(Path(__file__).resolve().parent))
         import gamma
-        res = [gamma.analizar(etf) for etf in gamma.PARES]
-        gamma.guardar(res)
+        res = gamma.resultados()
     except Exception:
         return []
     for r in res:

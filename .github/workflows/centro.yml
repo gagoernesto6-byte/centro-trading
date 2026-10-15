@@ -2,7 +2,7 @@ name: Centro de Trading (cada hora)
 
 on:
   schedule:
-    - cron: "7 * * * *"   # cada hora, al minuto 7 (hora UTC)
+    - cron: "3,18,33,48 * * * *"   # cada 15 min (GitHub a veces se salta corridas)
   workflow_dispatch:       # botón para correrlo a mano
 
 permissions:

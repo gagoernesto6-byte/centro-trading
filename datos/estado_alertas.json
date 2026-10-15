@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 30123.5,
-  "ES=F": 7790.75,
-  "BTC-USD": 82260.8203125,
-  "GC=F": 4193.7998046875,
-  "CL=F": 96.25,
-  "^VIX": 16.389999389648438
+  "NQ=F": 30078.25,
+  "ES=F": 7786.0,
+  "BTC-USD": 82298.0078125,
+  "GC=F": 4192.5,
+  "CL=F": 96.12000274658203,
+  "^VIX": 16.459999084472656
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-15T16:53:59.899807+00:00",
@@ -25,19 +25,35 @@
   "nivel-NQ=F-mínimo-30078": "2026-10-15T20:19:03.337186+00:00",
   "redondo-NQ=F-30000": "2026-10-15T20:19:03.337226+00:00",
   "redondo-BTC-USD-82000": "2026-10-15T20:19:04.382411+00:00",
-  "nivel-GC=F-máximo-4194": "2026-10-15T20:19:04.809674+00:00"
+  "nivel-GC=F-máximo-4194": "2026-10-15T20:19:04.809674+00:00",
+  "gamma-SPY-call wall-7789": "2026-10-15T21:56:55.116765+00:00",
+  "gamma-SPY-put wall-7789": "2026-10-15T21:56:55.116786+00:00"
  },
  "gamma": {
   "SPY": {
-   "positivo": false,
-   "precio": 7790.25
+   "positivo": true,
+   "precio": 7786.0
   },
   "QQQ": {
    "positivo": false,
-   "precio": 30121.5
+   "precio": 30078.25
   }
  },
  "historial": [
+  {
+   "clave": "gamma-SPY-call wall-7789",
+   "titulo": "ES (S&P 500) cruzó el call wall (~7,789)",
+   "texto": "Precio 7,786. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "15-oct 17:56"
+  },
+  {
+   "clave": "gamma-SPY-put wall-7789",
+   "titulo": "ES (S&P 500) cruzó el put wall (~7,789)",
+   "texto": "Precio 7,786. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "15-oct 17:56"
+  },
   {
    "clave": "nivel-NQ=F-mínimo-30078",
    "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el mínimo de ayer (PDL)",

@@ -230,6 +230,7 @@ svg text { fill: var(--muted); font-family: var(--font-num); font-size: 11px }
     });
     var s2 = el("span", null, "GEX total "); s2.appendChild(el("b", null, fmt(g.gex_total_millones, 0) + " M$ / 1%")); nums.appendChild(s2);
     c.appendChild(nums);
+    if (g.nota) c.appendChild(el("small", "meta", g.nota));
     var box = el("div", null); c.appendChild(box); gg.appendChild(c);
     dibujarGamma(box, g);
   });

@@ -123,7 +123,42 @@ def analizar(etf):
         "por_strike": [{"futuro": round(k * razon, 1), "call": round(float(r.call) / 1e6, 2), "put": round(float(r.put) / 1e6, 2)}
                        for k, r in cerca.iterrows()],
         "contratos_usados": int(len(ch)),
+        "fiable": bool(len(ch) > 300 and ch.impliedVolatility.median() > 0.05),
     }
+
+
+def en_horario():
+    """Opciones de EE. UU. con precios confiables: lunes a viernes, 9:45–16:00 hora de Nueva York."""
+    ahora = pd.Timestamp.now(tz="America/New_York")
+    minutos = ahora.hour * 60 + ahora.minute
+    return ahora.weekday() < 5 and 9 * 60 + 45 <= minutos <= 16 * 60
+
+
+ULTIMO = BASE / "datos" / "gex" / "ultimo.json"
+
+
+def resultados():
+    """Durante el mercado calcula de nuevo y guarda; fuera de horario usa el último cálculo bueno."""
+    if en_horario() or not ULTIMO.exists():
+        res = [analizar(etf) for etf in PARES]
+        if not en_horario():
+            for r in res:
+                r["nota"] = "Fuera del horario de mercado: estimación poco confiable hasta mañana a las 9:45."
+        if en_horario():
+            for r in res:
+                r["calculado"] = datetime.now(timezone.utc).isoformat(timespec="minutes")
+            ULTIMO.parent.mkdir(parents=True, exist_ok=True)
+            ULTIMO.write_text(json.dumps(res, ensure_ascii=False))
+            guardar(res)
+        return res
+    res = json.loads(ULTIMO.read_text())
+    for r in res:  # actualizar solo el precio actual del futuro; los niveles son del último cierre
+        try:
+            r["precio_futuro"] = round(ultimo_precio(PARES[r["etf"]][0]), 2)
+        except Exception:
+            pass
+        r["nota"] = "Cálculo del último horario de mercado (" + r.get("calculado", "?") + " UTC)"
+    return res
 
 
 def guardar(res):
@@ -141,8 +176,7 @@ def guardar(res):
 
 
 def main():
-    res = [analizar(etf) for etf in PARES]
-    guardar(res)
+    res = resultados()
     if "--json" in sys.argv:
         print(json.dumps(res, ensure_ascii=False))
         return
