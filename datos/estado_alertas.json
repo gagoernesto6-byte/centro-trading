@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 30147.75,
-  "ES=F": 7804.0,
-  "BTC-USD": 82079.796875,
-  "GC=F": 4211.7998046875,
-  "CL=F": 95.52999877929688,
-  "^VIX": 16.059999465942383
+  "NQ=F": 29830.75,
+  "ES=F": 7783.25,
+  "BTC-USD": 81837.0078125,
+  "GC=F": 4206.2001953125,
+  "CL=F": 95.83999633789062,
+  "^VIX": 15.989999771118164
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-15T16:53:59.899807+00:00",
@@ -20,30 +20,67 @@
   "nivel-BTC-USD-mínimo-81346": "2026-10-15T16:54:00.095460+00:00",
   "nivel-CL=F-máximo-96": "2026-10-15T16:54:00.529142+00:00",
   "redondo-CL=F-95": "2026-10-15T16:54:00.529204+00:00",
-  "gamma-regimen-SPY-False": "2026-10-15T16:54:03.371471+00:00",
+  "gamma-regimen-SPY-False": "2026-10-16T14:08:19.309107+00:00",
   "gamma-regimen-QQQ-False": "2026-10-15T16:54:03.371504+00:00",
   "nivel-NQ=F-mínimo-30078": "2026-10-15T20:19:03.337186+00:00",
-  "redondo-NQ=F-30000": "2026-10-15T20:19:03.337226+00:00",
-  "redondo-BTC-USD-82000": "2026-10-15T20:19:04.382411+00:00",
+  "redondo-NQ=F-30000": "2026-10-16T14:08:15.091443+00:00",
+  "redondo-BTC-USD-82000": "2026-10-16T14:08:15.522592+00:00",
   "nivel-GC=F-máximo-4194": "2026-10-15T20:19:04.809674+00:00",
   "gamma-SPY-call wall-7789": "2026-10-15T21:56:55.116765+00:00",
   "gamma-SPY-put wall-7789": "2026-10-15T21:56:55.116786+00:00",
   "nivel-ES=F-máximo-7802": "2026-10-16T04:33:25.208712+00:00",
   "redondo-ES=F-7800": "2026-10-16T04:33:25.208786+00:00",
   "nivel-GC=F-máximo-4198": "2026-10-16T04:33:25.691798+00:00",
-  "redondo-GC=F-4200": "2026-10-16T04:33:25.691843+00:00"
+  "redondo-GC=F-4200": "2026-10-16T04:33:25.691843+00:00",
+  "mov-NQ=F-down": "2026-10-16T14:08:15.091278+00:00",
+  "rango-NQ=F-20261016": "2026-10-16T14:08:26.220136+00:00"
  },
  "gamma": {
   "SPY": {
-   "positivo": true,
-   "precio": 7786.0
+   "positivo": false,
+   "precio": 7784.25
   },
   "QQQ": {
    "positivo": false,
-   "precio": 30078.25
+   "precio": 29830.25
   }
  },
  "historial": [
+  {
+   "clave": "mov-NQ=F-down",
+   "titulo": "Nasdaq (NQ) 📉 cae -0.78 % en 1 h",
+   "texto": "Precio 29,830.75. Movimiento fuerte: revisa noticias antes de operar.",
+   "prioridad": 4,
+   "hora": "16-oct 10:08"
+  },
+  {
+   "clave": "redondo-NQ=F-30000",
+   "titulo": "Nasdaq (NQ) cruzó el número redondo 30,000",
+   "texto": "Precio 29,830.75. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "16-oct 10:08"
+  },
+  {
+   "clave": "redondo-BTC-USD-82000",
+   "titulo": "Bitcoin cruzó el número redondo 82,000",
+   "texto": "Precio 81,837.01. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "16-oct 10:08"
+  },
+  {
+   "clave": "gamma-regimen-SPY-False",
+   "titulo": "Gamma de ES (S&P 500) cambió a NEGATIVO",
+   "texto": "Ahora los dealers aceleran el precio: más probables movimientos fuertes. GEX -9,003.1 M.",
+   "prioridad": 4,
+   "hora": "16-oct 10:08"
+  },
+  {
+   "clave": "rango-NQ=F-20261016",
+   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±179 pts)",
+   "texto": "Va -316 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "16-oct 10:08"
+  },
   {
    "clave": "nivel-ES=F-máximo-7802",
    "titulo": "S&P 500 (ES) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
@@ -178,5 +215,5 @@
    "hora": "14-oct 21:03"
   }
  ],
- "btc_precio": 82077.9
+ "btc_precio": 81831.5
 }
