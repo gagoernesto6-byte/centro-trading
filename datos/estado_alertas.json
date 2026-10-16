@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 29830.75,
-  "ES=F": 7783.25,
-  "BTC-USD": 81837.0078125,
-  "GC=F": 4206.2001953125,
-  "CL=F": 95.83999633789062,
-  "^VIX": 15.989999771118164
+  "NQ=F": 29718.5,
+  "ES=F": 7768.5,
+  "BTC-USD": 81508.640625,
+  "GC=F": 4206.10009765625,
+  "CL=F": 95.4000015258789,
+  "^VIX": 16.06999969482422
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-15T16:53:59.899807+00:00",
@@ -33,19 +33,43 @@
   "nivel-GC=F-máximo-4198": "2026-10-16T04:33:25.691798+00:00",
   "redondo-GC=F-4200": "2026-10-16T04:33:25.691843+00:00",
   "mov-NQ=F-down": "2026-10-16T14:08:15.091278+00:00",
-  "rango-NQ=F-20261016": "2026-10-16T14:08:26.220136+00:00"
+  "rango-NQ=F-20261016": "2026-10-16T14:08:26.220136+00:00",
+  "gamma-SPY-call wall-7775": "2026-10-16T15:21:42.446130+00:00",
+  "gamma-SPY-put wall-7775": "2026-10-16T15:21:42.446159+00:00",
+  "gamma-QQQ-call wall-29825": "2026-10-16T15:21:42.446202+00:00"
  },
  "gamma": {
   "SPY": {
    "positivo": false,
-   "precio": 7784.25
+   "precio": 7768.5
   },
   "QQQ": {
    "positivo": false,
-   "precio": 29830.25
+   "precio": 29719.75
   }
  },
  "historial": [
+  {
+   "clave": "gamma-SPY-call wall-7775",
+   "titulo": "ES (S&P 500) cruzó el call wall (~7,775)",
+   "texto": "Precio 7,768. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "16-oct 11:21"
+  },
+  {
+   "clave": "gamma-SPY-put wall-7775",
+   "titulo": "ES (S&P 500) cruzó el put wall (~7,775)",
+   "texto": "Precio 7,768. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "16-oct 11:21"
+  },
+  {
+   "clave": "gamma-QQQ-call wall-29825",
+   "titulo": "NQ (Nasdaq 100) cruzó el call wall (~29,825)",
+   "texto": "Precio 29,720. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "16-oct 11:21"
+  },
   {
    "clave": "mov-NQ=F-down",
    "titulo": "Nasdaq (NQ) 📉 cae -0.78 % en 1 h",
@@ -215,5 +239,5 @@
    "hora": "14-oct 21:03"
   }
  ],
- "btc_precio": 81831.5
+ "btc_precio": 81495.4
 }
