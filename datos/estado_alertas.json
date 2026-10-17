@@ -2,7 +2,7 @@
  "precios": {
   "NQ=F": 29391.5,
   "ES=F": 7704.25,
-  "BTC-USD": 81541.90625,
+  "BTC-USD": 81394.7109375,
   "GC=F": 4181.10009765625,
   "CL=F": 99.0199966430664,
   "^VIX": 19.979999542236328
@@ -49,8 +49,8 @@
   "redondo-ES=F-7700": "2026-10-16T19:25:34.524377+00:00",
   "gamma-SPY-call wall-7701": "2026-10-16T19:25:42.477593+00:00",
   "btc-gamma flip-81360": "2026-10-16T19:25:58.379248+00:00",
-  "rango-ES=F-20261017": "2026-10-17T01:34:30.199212+00:00",
-  "rango-NQ=F-20261017": "2026-10-17T01:34:30.199250+00:00",
+  "rango-ES=F-20261017": "2026-10-17T13:58:09.556485+00:00",
+  "rango-NQ=F-20261017": "2026-10-17T13:58:09.556528+00:00",
   "btc-gamma flip-81463": "2026-10-17T01:34:30.199263+00:00",
   "btc-gamma flip-81392": "2026-10-17T06:14:34.995194+00:00"
  },
@@ -65,6 +65,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "rango-ES=F-20261017",
+   "titulo": "ES (S&P 500) se salió del rango esperado (±24 pts)",
+   "texto": "Va -87 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "17-oct 09:58"
+  },
+  {
+   "clave": "rango-NQ=F-20261017",
+   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±141 pts)",
+   "texto": "Va -752 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "17-oct 09:58"
+  },
   {
    "clave": "btc-gamma flip-81392",
    "titulo": "Bitcoin cruzó el gamma flip (~81,392)",
@@ -388,5 +402,5 @@
    "hora": "14-oct 21:03"
   }
  ],
- "btc_precio": 81542.9
+ "btc_precio": 81397.2
 }
