@@ -2,7 +2,7 @@
  "precios": {
   "NQ=F": 29391.5,
   "ES=F": 7704.25,
-  "BTC-USD": 81394.7109375,
+  "BTC-USD": 81138.1015625,
   "GC=F": 4181.10009765625,
   "CL=F": 99.0199966430664,
   "^VIX": 19.979999542236328
@@ -52,7 +52,8 @@
   "rango-ES=F-20261017": "2026-10-17T13:58:09.556485+00:00",
   "rango-NQ=F-20261017": "2026-10-17T13:58:09.556528+00:00",
   "btc-gamma flip-81463": "2026-10-17T01:34:30.199263+00:00",
-  "btc-gamma flip-81392": "2026-10-17T06:14:34.995194+00:00"
+  "btc-gamma flip-81392": "2026-10-17T06:14:34.995194+00:00",
+  "btc-gamma flip-81388": "2026-10-17T16:53:28.329338+00:00"
  },
  "gamma": {
   "SPY": {
@@ -65,6 +66,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "btc-gamma flip-81388",
+   "titulo": "Bitcoin cruzó el gamma flip (~81,388)",
+   "texto": "Precio 81,132. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "17-oct 12:53"
+  },
   {
    "clave": "rango-ES=F-20261017",
    "titulo": "ES (S&P 500) se salió del rango esperado (±24 pts)",
@@ -402,5 +410,5 @@
    "hora": "14-oct 21:03"
   }
  ],
- "btc_precio": 81397.2
+ "btc_precio": 81132.1
 }
