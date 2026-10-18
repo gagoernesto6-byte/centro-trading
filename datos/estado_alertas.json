@@ -1,10 +1,10 @@
 {
  "precios": {
-  "NQ=F": 29391.5,
-  "ES=F": 7704.25,
-  "BTC-USD": 80971.578125,
-  "GC=F": 4181.10009765625,
-  "CL=F": 99.0199966430664,
+  "NQ=F": 29512.75,
+  "ES=F": 7719.75,
+  "BTC-USD": 81544.890625,
+  "GC=F": 4195.7001953125,
+  "CL=F": 98.26000213623047,
   "^VIX": 19.979999542236328
  },
  "enviadas": {
@@ -38,7 +38,7 @@
   "gamma-SPY-put wall-7775": "2026-10-16T15:21:42.446159+00:00",
   "gamma-QQQ-call wall-29825": "2026-10-16T15:21:42.446202+00:00",
   "nivel-NQ=F-mínimo-29622": "2026-10-16T18:04:13.012824+00:00",
-  "redondo-NQ=F-29500": "2026-10-16T18:04:13.012861+00:00",
+  "redondo-NQ=F-29500": "2026-10-18T22:26:31.842224+00:00",
   "nivel-ES=F-mínimo-7717": "2026-10-16T18:04:13.486513+00:00",
   "nivel-CL=F-máximo-98": "2026-10-16T18:04:14.937633+00:00",
   "gamma-SPY-gamma flip-7754": "2026-10-16T18:04:21.177262+00:00",
@@ -59,7 +59,8 @@
   "rango-NQ=F-20261018": "2026-10-18T13:36:34.810605+00:00",
   "btc-gamma flip-81413": "2026-10-18T01:17:12.567015+00:00",
   "nivel-BTC-USD-máximo-81649": "2026-10-18T11:34:30.444648+00:00",
-  "btc-gamma flip-81378": "2026-10-18T13:36:34.810625+00:00"
+  "btc-gamma flip-81378": "2026-10-18T13:36:34.810625+00:00",
+  "btc-gamma flip-81422": "2026-10-18T22:26:37.133691+00:00"
  },
  "gamma": {
   "SPY": {
@@ -72,6 +73,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-NQ=F-29500",
+   "titulo": "Nasdaq (NQ) cruzó el número redondo 29,500",
+   "texto": "Precio 29,512.75. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "18-oct 18:26"
+  },
+  {
+   "clave": "btc-gamma flip-81422",
+   "titulo": "Bitcoin cruzó el gamma flip (~81,422)",
+   "texto": "Precio 81,558. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "18-oct 18:26"
+  },
   {
    "clave": "rango-ES=F-20261018",
    "titulo": "ES (S&P 500) se salió del rango esperado (±24 pts)",
@@ -407,21 +422,7 @@
    "texto": "Nivel 81,345.88 · precio 81,974.32. Zona de liquidez: ojo con barridas y rupturas falsas.",
    "prioridad": 3,
    "hora": "15-oct 12:54"
-  },
-  {
-   "clave": "nivel-CL=F-máximo-96",
-   "titulo": "Petróleo WTI cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
-   "texto": "Nivel 96.06 · precio 96.33. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "15-oct 12:54"
-  },
-  {
-   "clave": "redondo-CL=F-95",
-   "titulo": "Petróleo WTI cruzó el número redondo 95",
-   "texto": "Precio 96.33. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "15-oct 12:54"
   }
  ],
- "btc_precio": 80974.7
+ "btc_precio": 81558.5
 }
