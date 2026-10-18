@@ -2,7 +2,7 @@
  "precios": {
   "NQ=F": 29391.5,
   "ES=F": 7704.25,
-  "BTC-USD": 81855.6796875,
+  "BTC-USD": 81285.8828125,
   "GC=F": 4181.10009765625,
   "CL=F": 99.0199966430664,
   "^VIX": 19.979999542236328
@@ -55,10 +55,11 @@
   "btc-gamma flip-81392": "2026-10-17T06:14:34.995194+00:00",
   "btc-gamma flip-81388": "2026-10-17T16:53:28.329338+00:00",
   "btc-gamma flip-81405": "2026-10-17T21:28:41.976611+00:00",
-  "rango-ES=F-20261018": "2026-10-18T01:17:12.566960+00:00",
-  "rango-NQ=F-20261018": "2026-10-18T01:17:12.566999+00:00",
+  "rango-ES=F-20261018": "2026-10-18T13:36:34.810556+00:00",
+  "rango-NQ=F-20261018": "2026-10-18T13:36:34.810605+00:00",
   "btc-gamma flip-81413": "2026-10-18T01:17:12.567015+00:00",
-  "nivel-BTC-USD-máximo-81649": "2026-10-18T11:34:30.444648+00:00"
+  "nivel-BTC-USD-máximo-81649": "2026-10-18T11:34:30.444648+00:00",
+  "btc-gamma flip-81378": "2026-10-18T13:36:34.810625+00:00"
  },
  "gamma": {
   "SPY": {
@@ -71,6 +72,27 @@
   }
  },
  "historial": [
+  {
+   "clave": "rango-ES=F-20261018",
+   "titulo": "ES (S&P 500) se salió del rango esperado (±24 pts)",
+   "texto": "Va -87 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "18-oct 09:36"
+  },
+  {
+   "clave": "rango-NQ=F-20261018",
+   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±141 pts)",
+   "texto": "Va -752 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "18-oct 09:36"
+  },
+  {
+   "clave": "btc-gamma flip-81378",
+   "titulo": "Bitcoin cruzó el gamma flip (~81,378)",
+   "texto": "Precio 81,295. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "18-oct 09:36"
+  },
   {
    "clave": "nivel-BTC-USD-máximo-81649",
    "titulo": "Bitcoin cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
@@ -399,28 +421,7 @@
    "texto": "Precio 96.33. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "15-oct 12:54"
-  },
-  {
-   "clave": "evento-Core PPI m/m-2026-10-15T08:30:00-04:00",
-   "titulo": "⏰ En 69 min: Core PPI m/m",
-   "texto": "Pronóstico 0.3% · anterior 0.2%. El precio puede saltar en segundos: muchos profesionales esperan a que pase el dato.",
-   "prioridad": 4,
-   "hora": "15-oct 07:21"
-  },
-  {
-   "clave": "evento-Core Retail Sales m/m-2026-10-15T08:30:00-04:00",
-   "titulo": "⏰ En 69 min: Core Retail Sales m/m",
-   "texto": "Pronóstico 0.6% · anterior 1.4%. El precio puede saltar en segundos: muchos profesionales esperan a que pase el dato.",
-   "prioridad": 4,
-   "hora": "15-oct 07:21"
-  },
-  {
-   "clave": "evento-PPI m/m-2026-10-15T08:30:00-04:00",
-   "titulo": "⏰ En 69 min: PPI m/m",
-   "texto": "Pronóstico 0.6% · anterior 0.4%. El precio puede saltar en segundos: muchos profesionales esperan a que pase el dato.",
-   "prioridad": 4,
-   "hora": "15-oct 07:21"
   }
  ],
- "btc_precio": 81854.3
+ "btc_precio": 81295.2
 }
