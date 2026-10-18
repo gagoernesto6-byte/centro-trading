@@ -2,7 +2,7 @@
  "precios": {
   "NQ=F": 29391.5,
   "ES=F": 7704.25,
-  "BTC-USD": 81600.2265625,
+  "BTC-USD": 81925.5703125,
   "GC=F": 4181.10009765625,
   "CL=F": 99.0199966430664,
   "^VIX": 19.979999542236328
@@ -57,7 +57,8 @@
   "btc-gamma flip-81405": "2026-10-17T21:28:41.976611+00:00",
   "rango-ES=F-20261018": "2026-10-18T01:17:12.566960+00:00",
   "rango-NQ=F-20261018": "2026-10-18T01:17:12.566999+00:00",
-  "btc-gamma flip-81413": "2026-10-18T01:17:12.567015+00:00"
+  "btc-gamma flip-81413": "2026-10-18T01:17:12.567015+00:00",
+  "nivel-BTC-USD-máximo-81649": "2026-10-18T11:34:30.444648+00:00"
  },
  "gamma": {
   "SPY": {
@@ -70,6 +71,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-BTC-USD-máximo-81649",
+   "titulo": "Bitcoin cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
+   "texto": "Nivel 81,649.49 · precio 81,925.57. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "18-oct 07:34"
+  },
   {
    "clave": "rango-ES=F-20261018",
    "titulo": "ES (S&P 500) se salió del rango esperado (±24 pts)",
@@ -412,14 +420,7 @@
    "texto": "Pronóstico 0.6% · anterior 0.4%. El precio puede saltar en segundos: muchos profesionales esperan a que pase el dato.",
    "prioridad": 4,
    "hora": "15-oct 07:21"
-  },
-  {
-   "clave": "evento-Retail Sales m/m-2026-10-15T08:30:00-04:00",
-   "titulo": "⏰ En 69 min: Retail Sales m/m",
-   "texto": "Pronóstico 0.3% · anterior 1.2%. El precio puede saltar en segundos: muchos profesionales esperan a que pase el dato.",
-   "prioridad": 4,
-   "hora": "15-oct 07:21"
   }
  ],
- "btc_precio": 81609.3
+ "btc_precio": 81927.9
 }
