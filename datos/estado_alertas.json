@@ -2,7 +2,7 @@
  "precios": {
   "NQ=F": 29391.5,
   "ES=F": 7704.25,
-  "BTC-USD": 81244.5625,
+  "BTC-USD": 81479.6015625,
   "GC=F": 4186.7001953125,
   "CL=F": 99.04000091552734,
   "^VIX": 19.979999542236328
@@ -54,7 +54,10 @@
   "btc-gamma flip-81463": "2026-10-17T01:34:30.199263+00:00",
   "btc-gamma flip-81392": "2026-10-17T06:14:34.995194+00:00",
   "btc-gamma flip-81388": "2026-10-17T16:53:28.329338+00:00",
-  "btc-gamma flip-81405": "2026-10-17T21:28:41.976611+00:00"
+  "btc-gamma flip-81405": "2026-10-17T21:28:41.976611+00:00",
+  "rango-ES=F-20261018": "2026-10-18T01:17:12.566960+00:00",
+  "rango-NQ=F-20261018": "2026-10-18T01:17:12.566999+00:00",
+  "btc-gamma flip-81413": "2026-10-18T01:17:12.567015+00:00"
  },
  "gamma": {
   "SPY": {
@@ -67,6 +70,27 @@
   }
  },
  "historial": [
+  {
+   "clave": "rango-ES=F-20261018",
+   "titulo": "ES (S&P 500) se salió del rango esperado (±24 pts)",
+   "texto": "Va -87 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "17-oct 21:17"
+  },
+  {
+   "clave": "rango-NQ=F-20261018",
+   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±141 pts)",
+   "texto": "Va -752 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "17-oct 21:17"
+  },
+  {
+   "clave": "btc-gamma flip-81413",
+   "titulo": "Bitcoin cruzó el gamma flip (~81,413)",
+   "texto": "Precio 81,484. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "17-oct 21:17"
+  },
   {
    "clave": "btc-gamma flip-81405",
    "titulo": "Bitcoin cruzó el gamma flip (~81,405)",
@@ -395,28 +419,7 @@
    "texto": "Pronóstico 0.3% · anterior 1.2%. El precio puede saltar en segundos: muchos profesionales esperan a que pase el dato.",
    "prioridad": 4,
    "hora": "15-oct 07:21"
-  },
-  {
-   "clave": "nivel-ES=F-mínimo-7741",
-   "titulo": "S&P 500 (ES) cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
-   "texto": "Nivel 7,741.00 · precio 7,736.25. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "15-oct 01:52"
-  },
-  {
-   "clave": "nivel-BTC-USD-mínimo-80963",
-   "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
-   "texto": "Nivel 80,962.52 · precio 80,599.03. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "15-oct 01:52"
-  },
-  {
-   "clave": "redondo-ES=F-7750",
-   "titulo": "S&P 500 (ES) cruzó el número redondo 7,750",
-   "texto": "Precio 7,747.25. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "14-oct 21:03"
   }
  ],
- "btc_precio": 81249.2
+ "btc_precio": 81483.9
 }
