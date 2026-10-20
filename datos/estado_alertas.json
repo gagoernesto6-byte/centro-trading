@@ -1,10 +1,10 @@
 {
  "precios": {
-  "NQ=F": 29743.75,
-  "ES=F": 7739.75,
-  "BTC-USD": 81970.5703125,
-  "GC=F": 4160.2998046875,
-  "CL=F": 98.23999786376953,
+  "NQ=F": 29703.0,
+  "ES=F": 7740.25,
+  "BTC-USD": 81526.34375,
+  "GC=F": 4158.7001953125,
+  "CL=F": 98.0999984741211,
   "^VIX": 18.43000030517578
  },
  "enviadas": {
@@ -65,7 +65,9 @@
   "rango-NQ=F-20261019": "2026-10-19T17:12:46.286955+00:00",
   "nivel-BTC-USD-máximo-82183": "2026-10-19T17:12:29.256081+00:00",
   "nivel-GC=F-mínimo-4168": "2026-10-19T17:12:29.616084+00:00",
-  "gamma-SPY-put wall-7718": "2026-10-19T17:12:35.175091+00:00"
+  "gamma-SPY-put wall-7718": "2026-10-19T17:12:35.175091+00:00",
+  "rango-ES=F-20261020": "2026-10-20T00:20:14.762301+00:00",
+  "rango-NQ=F-20261020": "2026-10-20T00:20:14.762345+00:00"
  },
  "gamma": {
   "SPY": {
@@ -78,6 +80,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "rango-ES=F-20261020",
+   "titulo": "ES (S&P 500) se salió del rango esperado (±20 pts)",
+   "texto": "Va +35 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "19-oct 20:20"
+  },
+  {
+   "clave": "rango-NQ=F-20261020",
+   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±102 pts)",
+   "texto": "Va +306 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "19-oct 20:20"
+  },
   {
    "clave": "nivel-BTC-USD-máximo-82183",
    "titulo": "Bitcoin cruzó hacia abajo ⬇️ el máximo de ayer (PDH)",
@@ -413,21 +429,7 @@
    "texto": "Precio 29,830.75. Movimiento fuerte: revisa noticias antes de operar.",
    "prioridad": 4,
    "hora": "16-oct 10:08"
-  },
-  {
-   "clave": "redondo-NQ=F-30000",
-   "titulo": "Nasdaq (NQ) cruzó el número redondo 30,000",
-   "texto": "Precio 29,830.75. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "16-oct 10:08"
-  },
-  {
-   "clave": "redondo-BTC-USD-82000",
-   "titulo": "Bitcoin cruzó el número redondo 82,000",
-   "texto": "Precio 81,837.01. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "16-oct 10:08"
   }
  ],
- "btc_precio": 81977.2
+ "btc_precio": 81523.6
 }
