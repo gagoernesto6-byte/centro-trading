@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 29644.0,
-  "ES=F": 7736.5,
-  "BTC-USD": 81893.1328125,
-  "GC=F": 4156.89990234375,
-  "CL=F": 98.81999969482422,
-  "^VIX": 18.43000030517578
+  "NQ=F": 29605.5,
+  "ES=F": 7728.5,
+  "BTC-USD": 81463.46875,
+  "GC=F": 4130.10009765625,
+  "CL=F": 100.72000122070312,
+  "^VIX": 18.65999984741211
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-19T05:05:57.249425+00:00",
@@ -70,7 +70,11 @@
   "rango-NQ=F-20261020": "2026-10-20T00:20:14.762345+00:00",
   "btc-gamma flip-81458": "2026-10-20T01:11:25.186435+00:00",
   "btc-gamma flip-81486": "2026-10-20T02:21:09.906705+00:00",
-  "btc-gamma flip-81544": "2026-10-20T03:37:40.404156+00:00"
+  "btc-gamma flip-81544": "2026-10-20T03:37:40.404156+00:00",
+  "nivel-BTC-USD-mínimo-81668": "2026-10-20T10:18:20.572891+00:00",
+  "nivel-GC=F-mínimo-4156": "2026-10-20T10:18:20.883609+00:00",
+  "nivel-CL=F-mínimo-99": "2026-10-20T10:18:21.202587+00:00",
+  "redondo-CL=F-100": "2026-10-20T10:18:21.202638+00:00"
  },
  "gamma": {
   "SPY": {
@@ -83,6 +87,34 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-BTC-USD-mínimo-81668",
+   "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 81,668.22 · precio 81,463.47. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "20-oct 06:18"
+  },
+  {
+   "clave": "nivel-GC=F-mínimo-4156",
+   "titulo": "Oro cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 4,155.60 · precio 4,130.10. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "20-oct 06:18"
+  },
+  {
+   "clave": "nivel-CL=F-mínimo-99",
+   "titulo": "Petróleo WTI cruzó hacia arriba ⬆️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 99.24 · precio 100.72. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "20-oct 06:18"
+  },
+  {
+   "clave": "redondo-CL=F-100",
+   "titulo": "Petróleo WTI cruzó el número redondo 100",
+   "texto": "Precio 100.72. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "20-oct 06:18"
+  },
   {
    "clave": "btc-gamma flip-81544",
    "titulo": "Bitcoin cruzó el gamma flip (~81,544)",
@@ -404,35 +436,7 @@
    "texto": "Precio 7,707. Nivel de opciones donde puede cambiar el comportamiento del precio.",
    "prioridad": 3,
    "hora": "16-oct 14:04"
-  },
-  {
-   "clave": "gamma-QQQ-call wall-29528",
-   "titulo": "NQ (Nasdaq 100) cruzó el call wall (~29,528)",
-   "texto": "Precio 29,465. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "16-oct 14:04"
-  },
-  {
-   "clave": "rango-ES=F-20261016",
-   "titulo": "ES (S&P 500) se salió del rango esperado (±35 pts)",
-   "texto": "Va -84 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "16-oct 14:04"
-  },
-  {
-   "clave": "btc-gamma flip-81229",
-   "titulo": "Bitcoin cruzó el gamma flip (~81,229)",
-   "texto": "Precio 81,088. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "16-oct 14:04"
-  },
-  {
-   "clave": "gamma-SPY-call wall-7775",
-   "titulo": "ES (S&P 500) cruzó el call wall (~7,775)",
-   "texto": "Precio 7,768. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "16-oct 11:21"
   }
  ],
- "btc_precio": 81877.9
+ "btc_precio": 81470.1
 }
