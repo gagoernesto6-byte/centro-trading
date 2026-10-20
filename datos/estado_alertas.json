@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 29724.75,
-  "ES=F": 7758.0,
-  "BTC-USD": 82439.4609375,
-  "GC=F": 4142.7998046875,
-  "CL=F": 97.95999908447266,
-  "^VIX": 17.420000076293945
+  "NQ=F": 29941.25,
+  "ES=F": 7783.0,
+  "BTC-USD": 83021.8828125,
+  "GC=F": 4144.7001953125,
+  "CL=F": 98.19000244140625,
+  "^VIX": 17.309999465942383
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-20T15:11:09.123311+00:00",
@@ -67,7 +67,7 @@
   "nivel-GC=F-mínimo-4168": "2026-10-19T17:12:29.616084+00:00",
   "gamma-SPY-put wall-7718": "2026-10-19T17:12:35.175091+00:00",
   "rango-ES=F-20261020": "2026-10-20T15:11:25.004647+00:00",
-  "rango-NQ=F-20261020": "2026-10-20T00:20:14.762345+00:00",
+  "rango-NQ=F-20261020": "2026-10-20T22:23:32.214531+00:00",
   "btc-gamma flip-81458": "2026-10-20T01:11:25.186435+00:00",
   "btc-gamma flip-81486": "2026-10-20T02:21:09.906705+00:00",
   "btc-gamma flip-81544": "2026-10-20T03:37:40.404156+00:00",
@@ -95,6 +95,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "rango-NQ=F-20261020",
+   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±79 pts)",
+   "texto": "Va +220 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "20-oct 18:23"
+  },
   {
    "clave": "gamma-SPY-gamma flip-7778",
    "titulo": "ES (S&P 500) cruzó el gamma flip (~7,778)",
@@ -437,14 +444,7 @@
    "texto": "Precio 81,383. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
    "prioridad": 3,
    "hora": "16-oct 21:34"
-  },
-  {
-   "clave": "redondo-ES=F-7700",
-   "titulo": "S&P 500 (ES) cruzó el número redondo 7,700",
-   "texto": "Precio 7,699.75. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "16-oct 15:25"
   }
  ],
- "btc_precio": 82428.2
+ "btc_precio": 83002.0
 }
