@@ -1,10 +1,10 @@
 {
  "precios": {
-  "NQ=F": 29941.25,
-  "ES=F": 7783.0,
-  "BTC-USD": 83021.8828125,
-  "GC=F": 4144.7001953125,
-  "CL=F": 98.19000244140625,
+  "NQ=F": 29999.0,
+  "ES=F": 7784.5,
+  "BTC-USD": 83062.8828125,
+  "GC=F": 4137.2001953125,
+  "CL=F": 98.52999877929688,
   "^VIX": 17.309999465942383
  },
  "enviadas": {
@@ -82,7 +82,10 @@
   "gamma-SPY-gamma flip-7778": "2026-10-20T19:17:58.382220+00:00",
   "gamma-SPY-call wall-7772": "2026-10-20T19:17:58.382255+00:00",
   "gamma-QQQ-call wall-29804": "2026-10-20T19:17:58.382275+00:00",
-  "gamma-QQQ-put wall-29763": "2026-10-20T19:17:58.382288+00:00"
+  "gamma-QQQ-put wall-29763": "2026-10-20T19:17:58.382288+00:00",
+  "nivel-NQ=F-máximo-29984": "2026-10-21T00:47:10.607456+00:00",
+  "rango-ES=F-20261021": "2026-10-21T00:47:16.899660+00:00",
+  "rango-NQ=F-20261021": "2026-10-21T00:47:16.899702+00:00"
  },
  "gamma": {
   "SPY": {
@@ -95,6 +98,27 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-NQ=F-máximo-29984",
+   "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
+   "texto": "Nivel 29,983.50 · precio 29,999.00. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "20-oct 20:47"
+  },
+  {
+   "clave": "rango-ES=F-20261021",
+   "titulo": "ES (S&P 500) se salió del rango esperado (±11 pts)",
+   "texto": "Va +50 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "20-oct 20:47"
+  },
+  {
+   "clave": "rango-NQ=F-20261021",
+   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±79 pts)",
+   "texto": "Va +278 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "20-oct 20:47"
+  },
   {
    "clave": "rango-NQ=F-20261020",
    "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±79 pts)",
@@ -423,28 +447,7 @@
    "texto": "Precio 81,496. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
    "prioridad": 3,
    "hora": "17-oct 02:14"
-  },
-  {
-   "clave": "rango-ES=F-20261017",
-   "titulo": "ES (S&P 500) se salió del rango esperado (±24 pts)",
-   "texto": "Va -88 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "16-oct 21:34"
-  },
-  {
-   "clave": "rango-NQ=F-20261017",
-   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±141 pts)",
-   "texto": "Va -752 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "16-oct 21:34"
-  },
-  {
-   "clave": "btc-gamma flip-81463",
-   "titulo": "Bitcoin cruzó el gamma flip (~81,463)",
-   "texto": "Precio 81,383. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "16-oct 21:34"
   }
  ],
- "btc_precio": 83002.0
+ "btc_precio": 83057.8
 }
