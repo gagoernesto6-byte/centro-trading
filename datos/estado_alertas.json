@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 29868.75,
-  "ES=F": 7777.25,
-  "BTC-USD": 82783.2734375,
-  "GC=F": 4136.5,
-  "CL=F": 98.93000030517578,
-  "^VIX": 17.309999465942383
+  "NQ=F": 29744.75,
+  "ES=F": 7760.0,
+  "BTC-USD": 83237.71875,
+  "GC=F": 4131.89990234375,
+  "CL=F": 100.22000122070312,
+  "^VIX": 17.510000228881836
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-20T15:11:09.123311+00:00",
@@ -74,7 +74,7 @@
   "nivel-BTC-USD-mínimo-81668": "2026-10-20T10:18:20.572891+00:00",
   "nivel-GC=F-mínimo-4156": "2026-10-20T10:18:20.883609+00:00",
   "nivel-CL=F-mínimo-99": "2026-10-20T10:18:21.202587+00:00",
-  "redondo-CL=F-100": "2026-10-20T10:18:21.202638+00:00",
+  "redondo-CL=F-100": "2026-10-21T10:27:56.654344+00:00",
   "nivel-ES=F-máximo-7773": "2026-10-20T15:11:09.123268+00:00",
   "gamma-SPY-call wall-7777": "2026-10-20T15:11:15.486185+00:00",
   "gamma-QQQ-put wall-29823": "2026-10-20T15:11:15.486220+00:00",
@@ -99,6 +99,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-CL=F-100",
+   "titulo": "Petróleo WTI cruzó el número redondo 100",
+   "texto": "Precio 100.22. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "21-oct 06:27"
+  },
   {
    "clave": "nivel-NQ=F-máximo-29904",
    "titulo": "Nasdaq (NQ) cruzó hacia abajo ⬇️ el máximo de ayer (PDH)",
@@ -441,14 +448,7 @@
    "texto": "Va -87 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
    "prioridad": 4,
    "hora": "17-oct 09:58"
-  },
-  {
-   "clave": "rango-NQ=F-20261017",
-   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±141 pts)",
-   "texto": "Va -752 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "17-oct 09:58"
   }
  ],
- "btc_precio": 82779.6
+ "btc_precio": 83227.1
 }
