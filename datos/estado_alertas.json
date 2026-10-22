@@ -1,10 +1,10 @@
 {
  "precios": {
-  "NQ=F": 29807.5,
-  "ES=F": 7767.25,
-  "BTC-USD": 84191.8671875,
-  "GC=F": 4133.60009765625,
-  "CL=F": 98.05000305175781,
+  "NQ=F": 29755.0,
+  "ES=F": 7766.0,
+  "BTC-USD": 83414.5625,
+  "GC=F": 4129.2001953125,
+  "CL=F": 98.1500015258789,
   "^VIX": 16.68000030517578
  },
  "enviadas": {
@@ -91,7 +91,9 @@
   "redondo-BTC-USD-84000": "2026-10-21T15:30:17.179599+00:00",
   "gamma-SPY-gamma flip-7789": "2026-10-21T19:31:09.649888+00:00",
   "gamma-SPY-call wall-7790": "2026-10-21T19:31:09.649906+00:00",
-  "gamma-QQQ-call wall-29951": "2026-10-21T19:31:09.649923+00:00"
+  "gamma-QQQ-call wall-29951": "2026-10-21T19:31:09.649923+00:00",
+  "nivel-GC=F-mínimo-4130": "2026-10-22T01:57:51.400866+00:00",
+  "btc-call wall-84000": "2026-10-22T01:57:55.130989+00:00"
  },
  "gamma": {
   "SPY": {
@@ -104,6 +106,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-GC=F-mínimo-4130",
+   "titulo": "Oro cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 4,130.10 · precio 4,129.20. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "21-oct 21:57"
+  },
+  {
+   "clave": "btc-call wall-84000",
+   "titulo": "Bitcoin cruzó el call wall (~84,000)",
+   "texto": "Precio 83,436. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "21-oct 21:57"
+  },
   {
    "clave": "nivel-NQ=F-máximo-29904",
    "titulo": "Nasdaq (NQ) cruzó hacia abajo ⬇️ el máximo de ayer (PDH)",
@@ -439,21 +455,7 @@
    "texto": "Precio 29,512.75. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "18-oct 18:26"
-  },
-  {
-   "clave": "btc-gamma flip-81422",
-   "titulo": "Bitcoin cruzó el gamma flip (~81,422)",
-   "texto": "Precio 81,558. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "18-oct 18:26"
-  },
-  {
-   "clave": "rango-ES=F-20261018",
-   "titulo": "ES (S&P 500) se salió del rango esperado (±24 pts)",
-   "texto": "Va -87 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "18-oct 09:36"
   }
  ],
- "btc_precio": 84188.2
+ "btc_precio": 83436.2
 }
