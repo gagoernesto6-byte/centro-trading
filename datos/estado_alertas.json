@@ -1,10 +1,10 @@
 {
  "precios": {
-  "NQ=F": 29755.0,
-  "ES=F": 7766.0,
-  "BTC-USD": 83414.5625,
-  "GC=F": 4129.2001953125,
-  "CL=F": 98.1500015258789,
+  "NQ=F": 29636.75,
+  "ES=F": 7751.75,
+  "BTC-USD": 82860.640625,
+  "GC=F": 4111.89990234375,
+  "CL=F": 98.41999816894531,
   "^VIX": 16.68000030517578
  },
  "enviadas": {
@@ -87,13 +87,14 @@
   "rango-ES=F-20261021": "2026-10-21T19:31:17.803245+00:00",
   "rango-NQ=F-20261021": "2026-10-21T15:30:29.551667+00:00",
   "nivel-NQ=F-máximo-29904": "2026-10-21T22:38:31.378889+00:00",
-  "nivel-BTC-USD-máximo-83288": "2026-10-21T15:30:17.179542+00:00",
+  "nivel-BTC-USD-máximo-83288": "2026-10-22T03:45:22.699207+00:00",
   "redondo-BTC-USD-84000": "2026-10-21T15:30:17.179599+00:00",
   "gamma-SPY-gamma flip-7789": "2026-10-21T19:31:09.649888+00:00",
   "gamma-SPY-call wall-7790": "2026-10-21T19:31:09.649906+00:00",
   "gamma-QQQ-call wall-29951": "2026-10-21T19:31:09.649923+00:00",
   "nivel-GC=F-mínimo-4130": "2026-10-22T01:57:51.400866+00:00",
-  "btc-call wall-84000": "2026-10-22T01:57:55.130989+00:00"
+  "btc-call wall-84000": "2026-10-22T01:57:55.130989+00:00",
+  "btc-call wall-83000": "2026-10-22T03:45:26.886222+00:00"
  },
  "gamma": {
   "SPY": {
@@ -106,6 +107,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-BTC-USD-máximo-83288",
+   "titulo": "Bitcoin cruzó hacia abajo ⬇️ el máximo de ayer (PDH)",
+   "texto": "Nivel 83,287.80 · precio 82,860.64. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "21-oct 23:45"
+  },
+  {
+   "clave": "btc-call wall-83000",
+   "titulo": "Bitcoin cruzó el call wall (~83,000)",
+   "texto": "Precio 82,864. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "21-oct 23:45"
+  },
   {
    "clave": "nivel-GC=F-mínimo-4130",
    "titulo": "Oro cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
@@ -441,21 +456,7 @@
    "texto": "Va +41 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
    "prioridad": 4,
    "hora": "18-oct 20:22"
-  },
-  {
-   "clave": "rango-NQ=F-20261019",
-   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±141 pts)",
-   "texto": "Va +271 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "18-oct 20:22"
-  },
-  {
-   "clave": "redondo-NQ=F-29500",
-   "titulo": "Nasdaq (NQ) cruzó el número redondo 29,500",
-   "texto": "Precio 29,512.75. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "18-oct 18:26"
   }
  ],
- "btc_precio": 83436.2
+ "btc_precio": 82864.4
 }
