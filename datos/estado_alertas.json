@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 29492.5,
-  "ES=F": 7719.75,
-  "BTC-USD": 81870.671875,
-  "GC=F": 4089.89990234375,
-  "CL=F": 99.08000183105469,
-  "^VIX": 18.25
+  "NQ=F": 29287.0,
+  "ES=F": 7699.5,
+  "BTC-USD": 81597.609375,
+  "GC=F": 4067.60009765625,
+  "CL=F": 98.4000015258789,
+  "^VIX": 18.84000015258789
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-22T05:49:01.397751+00:00",
@@ -20,7 +20,7 @@
   "nivel-BTC-USD-mínimo-81346": "2026-10-15T16:54:00.095460+00:00",
   "nivel-CL=F-máximo-96": "2026-10-15T16:54:00.529142+00:00",
   "redondo-CL=F-95": "2026-10-15T16:54:00.529204+00:00",
-  "gamma-regimen-SPY-False": "2026-10-16T14:08:19.309107+00:00",
+  "gamma-regimen-SPY-False": "2026-10-22T15:57:55.245970+00:00",
   "gamma-regimen-QQQ-False": "2026-10-15T16:54:03.371504+00:00",
   "nivel-NQ=F-mínimo-30078": "2026-10-15T20:19:03.337186+00:00",
   "redondo-NQ=F-30000": "2026-10-16T14:08:15.091443+00:00",
@@ -46,7 +46,7 @@
   "gamma-QQQ-call wall-29528": "2026-10-16T18:04:21.177298+00:00",
   "rango-ES=F-20261016": "2026-10-16T18:04:32.417795+00:00",
   "btc-gamma flip-81229": "2026-10-16T18:04:32.417840+00:00",
-  "redondo-ES=F-7700": "2026-10-16T19:25:34.524377+00:00",
+  "redondo-ES=F-7700": "2026-10-22T15:57:48.940625+00:00",
   "gamma-SPY-call wall-7701": "2026-10-16T19:25:42.477593+00:00",
   "btc-gamma flip-81360": "2026-10-16T19:25:58.379248+00:00",
   "rango-ES=F-20261017": "2026-10-17T13:58:09.556485+00:00",
@@ -101,19 +101,73 @@
   "rango-NQ=F-20261022": "2026-10-22T05:49:05.126102+00:00",
   "nivel-BTC-USD-mínimo-82543": "2026-10-22T11:18:24.797854+00:00",
   "btc-call wall-82000": "2026-10-22T11:18:28.485780+00:00",
-  "btc-put wall-82000": "2026-10-22T11:18:28.485811+00:00"
+  "btc-put wall-82000": "2026-10-22T11:18:28.485811+00:00",
+  "gamma-SPY-gamma flip-7775": "2026-10-22T15:57:55.246022+00:00",
+  "gamma-SPY-call wall-7752": "2026-10-22T15:57:55.246040+00:00",
+  "gamma-QQQ-gamma flip-29968": "2026-10-22T15:57:55.246061+00:00",
+  "gamma-QQQ-call wall-29729": "2026-10-22T15:57:55.246076+00:00",
+  "gamma-QQQ-put wall-29316": "2026-10-22T15:57:55.246112+00:00"
  },
  "gamma": {
   "SPY": {
-   "positivo": true,
-   "precio": 7790.25
+   "positivo": false,
+   "precio": 7699.0
   },
   "QQQ": {
    "positivo": false,
-   "precio": 29983.75
+   "precio": 29281.25
   }
  },
  "historial": [
+  {
+   "clave": "redondo-ES=F-7700",
+   "titulo": "S&P 500 (ES) cruzó el número redondo 7,700",
+   "texto": "Precio 7,699.50. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "22-oct 11:57"
+  },
+  {
+   "clave": "gamma-regimen-SPY-False",
+   "titulo": "Gamma de ES (S&P 500) cambió a NEGATIVO",
+   "texto": "Ahora los dealers aceleran el precio: más probables movimientos fuertes. GEX -12,154.8 M.",
+   "prioridad": 4,
+   "hora": "22-oct 11:57"
+  },
+  {
+   "clave": "gamma-SPY-gamma flip-7775",
+   "titulo": "ES (S&P 500) cruzó el gamma flip (~7,775)",
+   "texto": "Precio 7,699. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "22-oct 11:57"
+  },
+  {
+   "clave": "gamma-SPY-call wall-7752",
+   "titulo": "ES (S&P 500) cruzó el call wall (~7,752)",
+   "texto": "Precio 7,699. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "22-oct 11:57"
+  },
+  {
+   "clave": "gamma-QQQ-gamma flip-29968",
+   "titulo": "NQ (Nasdaq 100) cruzó el gamma flip (~29,968)",
+   "texto": "Precio 29,281. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "22-oct 11:57"
+  },
+  {
+   "clave": "gamma-QQQ-call wall-29729",
+   "titulo": "NQ (Nasdaq 100) cruzó el call wall (~29,729)",
+   "texto": "Precio 29,281. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "22-oct 11:57"
+  },
+  {
+   "clave": "gamma-QQQ-put wall-29316",
+   "titulo": "NQ (Nasdaq 100) cruzó el put wall (~29,316)",
+   "texto": "Precio 29,281. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "22-oct 11:57"
+  },
   {
    "clave": "redondo-NQ=F-29500",
    "titulo": "Nasdaq (NQ) cruzó el número redondo 29,500",
@@ -414,56 +468,7 @@
    "texto": "Nivel 99.24 · precio 100.72. Zona de liquidez: ojo con barridas y rupturas falsas.",
    "prioridad": 3,
    "hora": "20-oct 06:18"
-  },
-  {
-   "clave": "redondo-CL=F-100",
-   "titulo": "Petróleo WTI cruzó el número redondo 100",
-   "texto": "Precio 100.72. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "20-oct 06:18"
-  },
-  {
-   "clave": "btc-gamma flip-81544",
-   "titulo": "Bitcoin cruzó el gamma flip (~81,544)",
-   "texto": "Precio 81,926. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "19-oct 23:37"
-  },
-  {
-   "clave": "btc-gamma flip-81486",
-   "titulo": "Bitcoin cruzó el gamma flip (~81,486)",
-   "texto": "Precio 81,515. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "19-oct 22:21"
-  },
-  {
-   "clave": "btc-gamma flip-81458",
-   "titulo": "Bitcoin cruzó el gamma flip (~81,458)",
-   "texto": "Precio 81,238. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "19-oct 21:11"
-  },
-  {
-   "clave": "rango-ES=F-20261020",
-   "titulo": "ES (S&P 500) se salió del rango esperado (±20 pts)",
-   "texto": "Va +35 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "19-oct 20:20"
-  },
-  {
-   "clave": "rango-NQ=F-20261020",
-   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±102 pts)",
-   "texto": "Va +306 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "19-oct 20:20"
-  },
-  {
-   "clave": "nivel-BTC-USD-máximo-82183",
-   "titulo": "Bitcoin cruzó hacia abajo ⬇️ el máximo de ayer (PDH)",
-   "texto": "Nivel 82,183.20 · precio 81,839.85. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "19-oct 13:12"
   }
  ],
- "btc_precio": 81878.4
+ "btc_precio": 81577.1
 }
