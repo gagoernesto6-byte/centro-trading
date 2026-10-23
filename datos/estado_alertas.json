@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 29170.25,
-  "ES=F": 7700.25,
-  "BTC-USD": 81741.2421875,
-  "GC=F": 4037.5,
-  "CL=F": 100.48999786376953,
-  "^VIX": 19.040000915527344
+  "NQ=F": 29095.25,
+  "ES=F": 7680.0,
+  "BTC-USD": 81542.921875,
+  "GC=F": 4036.699951171875,
+  "CL=F": 101.22000122070312,
+  "^VIX": 19.889999389648438
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-22T05:49:01.397751+00:00",
@@ -46,7 +46,7 @@
   "gamma-QQQ-call wall-29528": "2026-10-16T18:04:21.177298+00:00",
   "rango-ES=F-20261016": "2026-10-16T18:04:32.417795+00:00",
   "btc-gamma flip-81229": "2026-10-16T18:04:32.417840+00:00",
-  "redondo-ES=F-7700": "2026-10-22T15:57:48.940625+00:00",
+  "redondo-ES=F-7700": "2026-10-23T11:09:18.751386+00:00",
   "gamma-SPY-call wall-7701": "2026-10-16T19:25:42.477593+00:00",
   "btc-gamma flip-81360": "2026-10-16T19:25:58.379248+00:00",
   "rango-ES=F-20261017": "2026-10-17T13:58:09.556485+00:00",
@@ -110,7 +110,8 @@
   "rango-ES=F-20261023": "2026-10-23T01:01:41.316993+00:00",
   "rango-NQ=F-20261023": "2026-10-23T01:01:41.317031+00:00",
   "btc-gamma flip-81267": "2026-10-23T01:01:41.317044+00:00",
-  "nivel-CL=F-máximo-100": "2026-10-23T05:55:31.516532+00:00"
+  "nivel-CL=F-máximo-100": "2026-10-23T05:55:31.516532+00:00",
+  "nivel-GC=F-mínimo-4037": "2026-10-23T11:09:19.595340+00:00"
  },
  "gamma": {
   "SPY": {
@@ -123,6 +124,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-ES=F-7700",
+   "titulo": "S&P 500 (ES) cruzó el número redondo 7,700",
+   "texto": "Precio 7,680.00. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "23-oct 07:09"
+  },
+  {
+   "clave": "nivel-GC=F-mínimo-4037",
+   "titulo": "Oro cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 4,036.80 · precio 4,036.70. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "23-oct 07:09"
+  },
   {
    "clave": "nivel-CL=F-máximo-100",
    "titulo": "Petróleo WTI cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
@@ -458,21 +473,7 @@
    "texto": "Nivel 7,773.25 · precio 7,784.00. Zona de liquidez: ojo con barridas y rupturas falsas.",
    "prioridad": 3,
    "hora": "20-oct 11:11"
-  },
-  {
-   "clave": "redondo-ES=F-7750",
-   "titulo": "S&P 500 (ES) cruzó el número redondo 7,750",
-   "texto": "Precio 7,784.00. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "20-oct 11:11"
-  },
-  {
-   "clave": "redondo-BTC-USD-82000",
-   "titulo": "Bitcoin cruzó el número redondo 82,000",
-   "texto": "Precio 82,928.19. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "20-oct 11:11"
   }
  ],
- "btc_precio": 81749.4
+ "btc_precio": 81543.1
 }
