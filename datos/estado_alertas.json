@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 29280.0,
-  "ES=F": 7694.5,
-  "BTC-USD": 81373.0234375,
-  "GC=F": 4010.800048828125,
-  "CL=F": 102.61000061035156,
-  "^VIX": 19.010000228881836
+  "NQ=F": 29138.25,
+  "ES=F": 7666.0,
+  "BTC-USD": 81177.1875,
+  "GC=F": 4009.39990234375,
+  "CL=F": 103.5,
+  "^VIX": 19.690000534057617
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-22T05:49:01.397751+00:00",
@@ -107,23 +107,62 @@
   "gamma-QQQ-gamma flip-29968": "2026-10-22T15:57:55.246061+00:00",
   "gamma-QQQ-call wall-29729": "2026-10-22T15:57:55.246076+00:00",
   "gamma-QQQ-put wall-29316": "2026-10-22T15:57:55.246112+00:00",
-  "rango-ES=F-20261023": "2026-10-23T01:01:41.316993+00:00",
+  "rango-ES=F-20261023": "2026-10-23T19:33:56.600736+00:00",
   "rango-NQ=F-20261023": "2026-10-23T01:01:41.317031+00:00",
   "btc-gamma flip-81267": "2026-10-23T01:01:41.317044+00:00",
   "nivel-CL=F-máximo-100": "2026-10-23T05:55:31.516532+00:00",
-  "nivel-GC=F-mínimo-4037": "2026-10-23T11:09:19.595340+00:00"
+  "nivel-GC=F-mínimo-4037": "2026-10-23T11:09:19.595340+00:00",
+  "nivel-ES=F-mínimo-7677": "2026-10-23T19:33:42.210883+00:00",
+  "gamma-SPY-call wall-7685": "2026-10-23T19:33:47.503718+00:00",
+  "gamma-QQQ-call wall-29160": "2026-10-23T19:33:47.503751+00:00",
+  "gamma-QQQ-put wall-29160": "2026-10-23T19:33:47.503763+00:00"
  },
  "gamma": {
   "SPY": {
    "positivo": false,
-   "precio": 7694.5
+   "precio": 7666.5
   },
   "QQQ": {
    "positivo": false,
-   "precio": 29279.75
+   "precio": 29139.25
   }
  },
  "historial": [
+  {
+   "clave": "nivel-ES=F-mínimo-7677",
+   "titulo": "S&P 500 (ES) cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 7,676.75 · precio 7,666.00. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "23-oct 15:33"
+  },
+  {
+   "clave": "gamma-SPY-call wall-7685",
+   "titulo": "ES (S&P 500) cruzó el call wall (~7,685)",
+   "texto": "Precio 7,666. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "23-oct 15:33"
+  },
+  {
+   "clave": "gamma-QQQ-call wall-29160",
+   "titulo": "NQ (Nasdaq 100) cruzó el call wall (~29,160)",
+   "texto": "Precio 29,139. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "23-oct 15:33"
+  },
+  {
+   "clave": "gamma-QQQ-put wall-29160",
+   "titulo": "NQ (Nasdaq 100) cruzó el put wall (~29,160)",
+   "texto": "Precio 29,139. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "23-oct 15:33"
+  },
+  {
+   "clave": "rango-ES=F-20261023",
+   "titulo": "ES (S&P 500) se salió del rango esperado (±14 pts)",
+   "texto": "Va -38 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "23-oct 15:33"
+  },
   {
    "clave": "redondo-ES=F-7700",
    "titulo": "S&P 500 (ES) cruzó el número redondo 7,700",
@@ -438,42 +477,7 @@
    "texto": "Va +220 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
    "prioridad": 4,
    "hora": "20-oct 18:23"
-  },
-  {
-   "clave": "gamma-SPY-gamma flip-7778",
-   "titulo": "ES (S&P 500) cruzó el gamma flip (~7,778)",
-   "texto": "Precio 7,758. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "20-oct 15:17"
-  },
-  {
-   "clave": "gamma-SPY-call wall-7772",
-   "titulo": "ES (S&P 500) cruzó el call wall (~7,772)",
-   "texto": "Precio 7,758. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "20-oct 15:17"
-  },
-  {
-   "clave": "gamma-QQQ-call wall-29804",
-   "titulo": "NQ (Nasdaq 100) cruzó el call wall (~29,804)",
-   "texto": "Precio 29,725. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "20-oct 15:17"
-  },
-  {
-   "clave": "gamma-QQQ-put wall-29763",
-   "titulo": "NQ (Nasdaq 100) cruzó el put wall (~29,763)",
-   "texto": "Precio 29,725. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "20-oct 15:17"
-  },
-  {
-   "clave": "nivel-ES=F-máximo-7773",
-   "titulo": "S&P 500 (ES) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
-   "texto": "Nivel 7,773.25 · precio 7,784.00. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "20-oct 11:11"
   }
  ],
- "btc_precio": 81367.0
+ "btc_precio": 81182.7
 }
