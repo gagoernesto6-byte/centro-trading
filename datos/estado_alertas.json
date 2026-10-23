@@ -1,10 +1,10 @@
 {
  "precios": {
-  "NQ=F": 29178.5,
-  "ES=F": 7709.5,
-  "BTC-USD": 81437.15625,
-  "GC=F": 4044.0,
-  "CL=F": 99.2300033569336,
+  "NQ=F": 29170.25,
+  "ES=F": 7700.25,
+  "BTC-USD": 81741.2421875,
+  "GC=F": 4037.5,
+  "CL=F": 100.48999786376953,
   "^VIX": 19.040000915527344
  },
  "enviadas": {
@@ -74,7 +74,7 @@
   "nivel-BTC-USD-mínimo-81668": "2026-10-20T10:18:20.572891+00:00",
   "nivel-GC=F-mínimo-4156": "2026-10-20T10:18:20.883609+00:00",
   "nivel-CL=F-mínimo-99": "2026-10-20T10:18:21.202587+00:00",
-  "redondo-CL=F-100": "2026-10-21T10:27:56.654344+00:00",
+  "redondo-CL=F-100": "2026-10-23T05:55:31.516585+00:00",
   "nivel-ES=F-máximo-7773": "2026-10-20T15:11:09.123268+00:00",
   "gamma-SPY-call wall-7777": "2026-10-20T15:11:15.486185+00:00",
   "gamma-QQQ-put wall-29823": "2026-10-20T15:11:15.486220+00:00",
@@ -109,7 +109,8 @@
   "gamma-QQQ-put wall-29316": "2026-10-22T15:57:55.246112+00:00",
   "rango-ES=F-20261023": "2026-10-23T01:01:41.316993+00:00",
   "rango-NQ=F-20261023": "2026-10-23T01:01:41.317031+00:00",
-  "btc-gamma flip-81267": "2026-10-23T01:01:41.317044+00:00"
+  "btc-gamma flip-81267": "2026-10-23T01:01:41.317044+00:00",
+  "nivel-CL=F-máximo-100": "2026-10-23T05:55:31.516532+00:00"
  },
  "gamma": {
   "SPY": {
@@ -122,6 +123,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-CL=F-máximo-100",
+   "titulo": "Petróleo WTI cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
+   "texto": "Nivel 100.17 · precio 100.49. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "23-oct 01:55"
+  },
+  {
+   "clave": "redondo-CL=F-100",
+   "titulo": "Petróleo WTI cruzó el número redondo 100",
+   "texto": "Precio 100.49. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "23-oct 01:55"
+  },
   {
    "clave": "rango-ES=F-20261023",
    "titulo": "ES (S&P 500) se salió del rango esperado (±16 pts)",
@@ -457,21 +472,7 @@
    "texto": "Precio 82,928.19. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "20-oct 11:11"
-  },
-  {
-   "clave": "gamma-SPY-call wall-7777",
-   "titulo": "ES (S&P 500) cruzó el call wall (~7,777)",
-   "texto": "Precio 7,784. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "20-oct 11:11"
-  },
-  {
-   "clave": "gamma-QQQ-put wall-29823",
-   "titulo": "NQ (Nasdaq 100) cruzó el put wall (~29,823)",
-   "texto": "Precio 29,864. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "20-oct 11:11"
   }
  ],
- "btc_precio": 81447.2
+ "btc_precio": 81749.4
 }
