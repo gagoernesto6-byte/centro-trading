@@ -117,6 +117,7 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
   </header>
   <nav class="tabs" id="tabs" role="tablist" aria-label="Secciones">
     <button role="tab" data-tab="resumen">Resumen</button>
+    <button role="tab" data-tab="hoy">Hoy</button>
     <button role="tab" data-tab="niveles">Niveles</button>
     <button role="tab" data-tab="opciones">Gamma y opciones</button>
     <button role="tab" data-tab="volatilidad">Volatilidad</button>
@@ -137,6 +138,28 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
       </div>
       <div class="pan"><div class="pan-h"><h2>Termómetro</h2></div>
         <div class="scroll"><table id="termometro"><thead><tr><th>Activo</th><th>Precio</th><th>1 h</th><th>4 h</th><th>24 h</th><th>7 días</th><th>3 días</th></tr></thead><tbody></tbody></table></div></div>
+    </section>
+
+    <!-- HOY: la sesión en curso -->
+    <section class="tab" id="hoy" role="tabpanel" hidden>
+      <div class="pan-h"><div class="seg" id="seg-hoy"><button data-i="NQ" aria-pressed="true">NQ</button><button data-i="ES" aria-pressed="false">ES</button></div><small id="hoy-sub"></small></div>
+      <div class="kpis" id="hoy-kpis"></div>
+      <div class="pan"><div class="pan-h"><h2>La sesión de hoy · zonas, VWAP y volumen</h2><small>velas de 5 min · sesión desde las 18:00 de Nueva York</small></div>
+        <div class="leyenda"><span><i style="background:var(--down-soft);border:1px solid var(--down)"></i>zona del posible máximo</span><span><i style="background:var(--up-soft);border:1px solid var(--up)"></i>zona del posible mínimo</span><span><i style="background:var(--amber)"></i>VWAP</span><span><i style="background:#B98CF0"></i>POC (más volumen)</span><span><i style="background:var(--call)"></i>call wall</span><span><i style="background:var(--put)"></i>put wall</span></div>
+        <div id="hoy-graf"></div>
+        <small style="color:var(--muted)">Las zonas salen de la volatilidad implícita (VXN / VIX). En 2019–hoy, fuera de muestra, el máximo cayó dentro de la zona roja ~46–49 % de los días: es un <b>mapa</b>, no una predicción. A la derecha, el perfil de volumen: dónde se negoció más.</small></div>
+      <div class="fila">
+        <div class="pan"><div class="pan-h"><h2>Paredes de gamma: toques y firmeza</h2><small>la pared dice dónde; la firmeza, cómo</small></div>
+          <div class="scroll"><table id="hoy-paredes"><thead><tr><th>Pared</th><th>Nivel</th><th>Rol</th><th>Toques</th><th>¿Rompió?</th><th>Firmeza</th></tr></thead><tbody></tbody></table></div>
+          <small style="color:var(--muted)">Toque = el precio llega a menos de 0,05 % del nivel. "Firmeza" es nuestra aproximación de la "convexidad": si detrás de la pared la gamma es negativa, una ruptura tiende a acelerar. Ojo: en la prueba con el máximo y el mínimo de ayer, cada toque rompió ~50 % de las veces (ver Laboratorio).</small></div>
+        <div class="pan"><div class="pan-h"><h2>Cómo leerlo</h2></div>
+          <ul style="margin:0;padding-left:18px;color:var(--muted);font-size:13px;display:grid;gap:4px">
+            <li><b style="color:var(--ink)">VWAP</b>: el precio promedio de hoy pesado por volumen. Encima = compradores en control; debajo = vendedores. Las bandas ±1σ y ±2σ marcan cuándo el precio está "estirado".</li>
+            <li><b style="color:var(--ink)">POC</b>: el precio con más volumen del día; suele atraer al precio. <b style="color:var(--ink)">Área de valor</b> (VAL–VAH): donde se negoció el 70 % del volumen.</li>
+            <li><b style="color:var(--ink)">Zonas del día</b>: dónde suele quedar el máximo y el mínimo según la volatilidad. Sirven para no perseguir el precio ni poner el stop justo en medio.</li>
+            <li><b style="color:var(--ink)">Paredes</b>: muchos toques sin romper = nivel defendido; si rompe con gamma negativa detrás, puede acelerar.</li>
+          </ul></div>
+      </div>
     </section>
 
     <!-- NIVELES -->
@@ -197,6 +220,10 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
           <div id="btc-muros" class="scroll"></div>
           <small style="color:var(--muted)">Desequilibrio positivo = más órdenes de compra esperando cerca del precio. El "delta" mide quién está comprando o vendiendo a mercado (agresivamente). Predice segundos o minutos, no horas.</small></div>
       </div>
+      <div class="pan"><div class="pan-h"><h2>Footprint · quién compró y quién vendió en cada precio</h2><small id="btc-fp-sub">operaciones de Coinbase</small></div>
+        <div class="leyenda"><span><i style="background:var(--put)"></i>ventas agresivas</span><span><i style="background:var(--call)"></i>compras agresivas</span><span><i style="background:#B98CF0"></i>precio con más volumen</span></div>
+        <div id="btc-fp"></div>
+        <small style="color:var(--muted)">Cada fila es un tramo de precio. Delta = compras − ventas a mercado. Mucho volumen vendedor en un precio que no baja más = "absorción" (alguien grande está comprando). Mira solo los últimos minutos.</small></div>
       <div class="fila">
         <div class="pan"><div class="pan-h"><h2>Perfil de gamma de bitcoin</h2></div><div id="btc-perfil"></div></div>
         <div class="pan"><div class="pan-h"><h2>Volatilidad por vencimiento</h2><small>Deribit</small></div><div id="btc-term"></div>
@@ -530,14 +557,86 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
   (D.titulares || []).slice(0, 12).forEach(function (t) { var r = el("div", "titular"); var a = el("a", null, t.titulo); a.href = t.link; a.target = "_blank"; a.rel = "noopener"; r.appendChild(a); r.appendChild(el("small", null, t.fuente + " · " + t.hora)); document.getElementById("titulares").appendChild(r); });
   (D.laboratorio || []).forEach(function (p) { var tr = el("tr"); tr.appendChild(el("td", null, p.prueba)); tr.appendChild(el("td", null, p.datos)); tr.appendChild(el("td", null, p.resultado)); var td = el("td"); td.appendChild(el("span", "tag " + p.color, p.veredicto)); tr.appendChild(td); document.querySelector("#lab tbody").appendChild(tr); });
 
+  // ---------- HOY ----------
+  var hoySel = "NQ";
+  function dibujarHoy() {
+    var R = (D.sesion || []).filter(function (r) { return r.nombre === hoySel; })[0], k = document.getElementById("hoy-kpis"), box = document.getElementById("hoy-graf");
+    k.innerHTML = ""; box.innerHTML = ""; document.querySelector("#hoy-paredes tbody").innerHTML = "";
+    if (!R || R.error || !R.serie || !R.serie.length) { k.appendChild(el("p", "vacio", "Sin datos de la sesión" + (R && R.error ? ": " + R.error : "."))); return; }
+    document.getElementById("hoy-sub").textContent = "sesión " + R.inicio + " → " + R.fin + " (hora de Nueva York)";
+    var Z = R.zonas || {}, V = R.vwap || {}, P = R.perfil || {};
+    kpi(k, "Precio", fmt(R.precio, 2), V.vwap ? (R.precio >= V.vwap ? "encima del VWAP" : "debajo del VWAP") : "", V.vwap ? (R.precio >= V.vwap ? "pos" : "neg") : null);
+    if (V.vwap) kpi(k, "VWAP", fmt(V.vwap, 2), "±1σ " + fmt(V.b1[0]) + " – " + fmt(V.b1[1]));
+    if (P.poc) kpi(k, "POC", fmt(P.poc), "área de valor " + fmt(P.val) + " – " + fmt(P.vah));
+    if (Z.roja) { kpi(k, "Zona del máximo", fmt(Z.roja[0]) + "–" + fmt(Z.roja[1]), "acertó " + fmt(Z.acierto_max) + " % de los días", "neg"); kpi(k, "Zona del mínimo", fmt(Z.verde[0]) + "–" + fmt(Z.verde[1]), "acertó " + fmt(Z.acierto_min) + " % de los días", "pos"); kpi(k, "1 sigma del día", "±" + fmt(Z.sigma), "IV " + fmt(Z.iv, 1) + " · desde " + fmt(Z.ref)); }
+    // escala vertical: todo lo que hay que ver
+    var vals = R.serie.slice(), add = function (x) { if (x != null && !isNaN(x)) vals.push(x); };
+    if (Z.roja) { add(Z.roja[1]); add(Z.verde[0]); }
+    if (V.b2) { add(V.b2[0]); add(V.b2[1]); }
+    var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals), pad = (hi - lo) * 0.04; lo -= pad; hi += pad;
+    var W = ancho(box), H = 400, L = 8, Rr = 92, perfW = Math.min(150, W * 0.22), T = 10, B = 22, cw = W - L - Rr - perfW - 10;
+    var s = nuevoSvg(box, W, H, "Sesión de hoy de " + R.nombre), y = function (v) { return T + (hi - v) / (hi - lo) * (H - T - B); }, x = function (i) { return L + i / Math.max(1, R.serie.length - 1) * cw; };
+    function banda(a, b, color, borde) { if (a == null) return; var y1 = y(Math.max(a, b)), y2 = y(Math.min(a, b)); svgEl(s, "rect", { x: L, y: y1, width: cw, height: Math.max(1, y2 - y1), fill: color, stroke: borde, "stroke-width": .6 }); }
+    var etiquetas = [];
+    function linea(v, color, dash, txt) { if (v == null || v < lo || v > hi) return; svgEl(s, "line", { x1: L, x2: L + cw, y1: y(v), y2: y(v), stroke: color, "stroke-width": 1, "stroke-dasharray": dash || "" }); if (txt) etiquetas.push({ y: y(v) + 3, color: color, txt: txt + " " + fmt(v) }); }
+    if (Z.roja) { banda(Z.roja[0], Z.roja[1], "rgba(239,100,97,.13)", "rgba(239,100,97,.5)"); banda(Z.verde[0], Z.verde[1], "rgba(76,195,138,.12)", "rgba(76,195,138,.5)"); }
+    if (V.b1) { banda(V.b1[0], V.b1[1], "rgba(242,181,68,.06)", "none"); linea(V.b2[0], "rgba(242,181,68,.35)", "2 4"); linea(V.b2[1], "rgba(242,181,68,.35)", "2 4"); }
+    if (P.vah) { linea(P.vah, "rgba(185,140,240,.5)", "1 3"); linea(P.val, "rgba(185,140,240,.5)", "1 3"); }
+    (R.paredes || []).forEach(function (w) { linea(w.nivel, w.nombre === "Put wall" ? "var(--put)" : w.nombre === "Call wall" ? "var(--call)" : "var(--muted)", "6 3", w.nombre === "Gamma flip" ? "flip" : w.nombre === "Call wall" ? "call" : "put"); });
+    if (Z.ref) linea(Z.ref, "var(--faint)", "1 4");
+    if (V.vwap) linea(V.vwap, "var(--amber)", "", "VWAP");
+    if (P.poc) linea(P.poc, "#B98CF0", "", "POC");
+    // etiquetas sin encimarse: se ordenan y se separan al menos 12 px
+    etiquetas.sort(function (a, b) { return a.y - b.y; });
+    for (var q = 1; q < etiquetas.length; q++) if (etiquetas[q].y - etiquetas[q - 1].y < 12) etiquetas[q].y = etiquetas[q - 1].y + 12;
+    etiquetas.forEach(function (e) { svgEl(s, "text", { x: L + cw + 4, y: e.y, style: "fill:" + e.color }, e.txt); });
+    var d = R.serie.map(function (v, i) { return (i ? "L" : "M") + x(i).toFixed(1) + " " + y(v).toFixed(1); }).join(" ");
+    svgEl(s, "path", { d: d, fill: "none", stroke: "var(--ink)", "stroke-width": 1.4 });
+    svgEl(s, "circle", { cx: x(R.serie.length - 1), cy: y(R.serie[R.serie.length - 1]), r: 3, fill: "var(--amber)" });
+    // perfil de volumen a la derecha
+    if (P.barras && P.barras.length) {
+      var x0 = L + cw + Rr + 6, mx = Math.max.apply(null, P.barras.map(function (b) { return b.vol; })), alto = Math.max(1, Math.abs(y(P.barras[0].precio) - y(P.barras[0].precio + P.paso)) - 0.5);
+      P.barras.forEach(function (b) { if (b.precio < lo || b.precio > hi) return; var en = b.precio >= P.val && b.precio <= P.vah; svgEl(s, "rect", { x: x0, y: y(b.precio + P.paso), width: Math.max(1, b.vol / mx * perfW), height: alto, fill: b.precio === P.poc ? "#B98CF0" : en ? "rgba(185,140,240,.45)" : "rgba(124,135,151,.35)" }); });
+      svgEl(s, "text", { x: x0, y: H - 6 }, "volumen por precio");
+    }
+    svgEl(s, "text", { x: L, y: H - 6 }, R.inicio);
+    svgEl(s, "text", { x: L + cw, y: H - 6, "text-anchor": "end" }, R.fin);
+    var tb = document.querySelector("#hoy-paredes tbody");
+    (R.paredes || []).forEach(function (w) {
+      var tr = el("tr"); tr.appendChild(el("td", null, w.nombre)); tr.appendChild(el("td", "num", fmt(w.nivel, 2))); tr.appendChild(el("td", null, w.rol || "—"));
+      tr.appendChild(el("td", "num", w.toques == null ? "—" : String(w.toques))); tr.appendChild(el("td", w.roto ? "neg" : "pos", w.roto ? "Sí" : "No"));
+      var td = el("td"); td.style.whiteSpace = "normal"; if (w.firmeza) { td.appendChild(el("span", "tag " + ({ ok: "verde", mal: "rojo", med: "amar" }[w.firmeza.nivel_color] || "amar"), w.firmeza.lectura)); } else td.textContent = "—"; tr.appendChild(td); tb.appendChild(tr);
+    });
+    if (!(R.paredes || []).length) { var tr2 = el("tr"); var c2 = el("td", "vacio", "Sin datos de gamma ahora."); c2.colSpan = 6; tr2.appendChild(c2); tb.appendChild(tr2); }
+  }
+
+  // ---------- FOOTPRINT de bitcoin ----------
+  function dibujarFootprint() {
+    var F = (D.bitcoin || {}).footprint, box = document.getElementById("btc-fp"); box.innerHTML = "";
+    if (!F || !F.filas || !F.filas.length) { box.appendChild(el("p", "vacio", "Sin footprint ahora.")); return; }
+    document.getElementById("btc-fp-sub").textContent = F.operaciones + " operaciones · " + F.ventana + " · delta " + (F.delta_total > 0 ? "+" : "") + fmt(F.delta_total, 2) + " BTC";
+    var filas = F.filas.slice(0, 40), W = ancho(box), fh = 16, H = filas.length * fh + 8, s = nuevoSvg(box, W, H, "Footprint de bitcoin"), cx = W / 2, mx = 0;
+    filas.forEach(function (f) { mx = Math.max(mx, f.compra, f.venta); });
+    var esc = (W / 2 - 110) / (mx || 1);
+    filas.forEach(function (f, i) {
+      var yy = 4 + i * fh;
+      if (f.precio === F.poc) svgEl(s, "rect", { x: 0, y: yy - 1, width: W, height: fh, fill: "rgba(185,140,240,.12)" });
+      svgEl(s, "rect", { x: cx - 40 - f.venta * esc, y: yy + 2, width: Math.max(1, f.venta * esc), height: fh - 5, fill: "var(--put)" });
+      svgEl(s, "rect", { x: cx + 40, y: yy + 2, width: Math.max(1, f.compra * esc), height: fh - 5, fill: "var(--call)" });
+      svgEl(s, "text", { x: cx, y: yy + fh - 4, "text-anchor": "middle", style: "fill:var(--ink)" }, fmt(f.precio));
+      svgEl(s, "text", { x: W - 4, y: yy + fh - 4, "text-anchor": "end", style: "fill:" + (f.delta >= 0 ? "var(--up)" : "var(--down)") }, (f.delta > 0 ? "+" : "") + f.delta.toFixed(2));
+    });
+  }
+
   // ---------- selectores ----------
   function seg(id, attr, cb) { var bs = [].slice.call(document.querySelectorAll("#" + id + " button")); bs.forEach(function (b) { b.addEventListener("click", function () { bs.forEach(function (x) { x.setAttribute("aria-pressed", x === b); }); cb(b.getAttribute(attr)); }); }); }
   seg("seg-op", "data-i", function (v) { opSel = v; dibujarOpciones(); });
+  seg("seg-hoy", "data-i", function (v) { hoySel = v; dibujarHoy(); });
   seg("seg-vol", "data-i", function (v) { volSel = v; dibujarVol(); });
   seg("seg-dist", "data-h", function (v) { distSel = v; dibujarVol(); });
   function dibujarTodo() {
     var vis = function (id) { return !document.getElementById(id).hidden; };
-    if (vis("opciones")) dibujarOpciones(); if (vis("volatilidad")) dibujarVol(); if (vis("bitcoin")) dibujarBTC();
+    if (vis("opciones")) dibujarOpciones(); if (vis("volatilidad")) dibujarVol(); if (vis("bitcoin")) { dibujarBTC(); dibujarFootprint(); } if (vis("hoy")) dibujarHoy();
   }
   var t; window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(dibujarTodo, 200); });
   abrir(inicial);

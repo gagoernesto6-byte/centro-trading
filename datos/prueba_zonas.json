@@ -1,0 +1,56 @@
+[
+ {
+  "mercado": "NQ",
+  "dias_prueba": 1964,
+  "desde": "2019-01-02",
+  "cierre_dentro_1sigma": 76.6,
+  "toca_mas_1sigma": 21.4,
+  "toca_menos_1sigma": 21.9,
+  "zona_max_sigmas": [
+   0.27,
+   0.85
+  ],
+  "zona_min_sigmas": [
+   0.2,
+   0.88
+  ],
+  "acierto_zona_max": 45.7,
+  "acierto_zona_min": 48.5,
+  "acierto_ambas": 27.9,
+  "rango_dentro_de": {
+   "±1.0σ": 57.6,
+   "±1.5σ": 83.9,
+   "±2.0σ": 94.5
+  },
+  "sigmas_para_91": 1.75,
+  "u_mediana": 0.52,
+  "d_mediana": 0.49
+ },
+ {
+  "mercado": "ES",
+  "dias_prueba": 1964,
+  "desde": "2019-01-02",
+  "cierre_dentro_1sigma": 81.7,
+  "toca_mas_1sigma": 16.6,
+  "toca_menos_1sigma": 18.6,
+  "zona_max_sigmas": [
+   0.24,
+   0.79
+  ],
+  "zona_min_sigmas": [
+   0.21,
+   0.83
+  ],
+  "acierto_zona_max": 48.9,
+  "acierto_zona_min": 47.9,
+  "acierto_ambas": 28.6,
+  "rango_dentro_de": {
+   "±1.0σ": 65.4,
+   "±1.5σ": 88.2,
+   "±2.0σ": 95.9
+  },
+  "sigmas_para_91": 1.61,
+  "u_mediana": 0.47,
+  "d_mediana": 0.44
+ }
+]

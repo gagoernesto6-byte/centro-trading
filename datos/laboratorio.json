@@ -61,5 +61,26 @@
   "resultado": "—",
   "veredicto": "Por probar · sábado",
   "color": "amar"
+ },
+ {
+  "prueba": "Zonas del día con volatilidad implícita (el indicador del \"91 %\")",
+  "datos": "NQ y ES diario · 1964 días fuera de muestra (2019–hoy)",
+  "resultado": "La zona del máximo acierta 46 % (NQ) y 49 % (ES); máximo y mínimo a la vez 28 %. Para \"acertar 91 %\" la banda debe medir ±1.75 σ",
+  "veredicto": "Útil como mapa, no como predicción",
+  "color": "amar"
+ },
+ {
+  "prueba": "¿El 3.er o 4.º toque a un nivel lo rompe? (máximo/mínimo de ayer)",
+  "datos": "NQ y ES · 5 min 60 días y 1 h 2 años",
+  "resultado": "NQ 1 h: 1.º 56 % · 2.º 54 % · 3.º 53 % (595 niveles) · ES 1 h: 1.º 48 % · 2.º 50 % · 3.º 56 % (614 niveles)",
+  "veredicto": "Cada toque es casi 50/50: no hay patrón",
+  "color": "rojo"
+ },
+ {
+  "prueba": "Toques a las paredes de gamma y si rompen",
+  "datos": "Guardando cada día desde el 24-oct-2026 (datos/gex/toques.csv)",
+  "resultado": "—",
+  "veredicto": "Recolectando datos",
+  "color": "amar"
  }
 ]

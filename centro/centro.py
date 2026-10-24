@@ -7,7 +7,8 @@ Cada vez que corre (cada hora en la nube):
 3. Alertas: movimientos fuertes, cruces de niveles, gamma y datos económicos (clases/alertas.py);
    si existe NTFY_TOPIC, las manda al celular.
 4. Titulares (CNBC, Investing.com) y el último reporte con IA (carpeta reportes/).
-5. Arma el panel: docs/index.html (página web) y centro/panel.html (versión para Claude).
+5. La sesión de hoy: zonas del día, VWAP, perfil de volumen y toques a las paredes (clases/sesion.py).
+6. Arma el panel: docs/index.html (página web) y centro/panel.html (versión para Claude).
 
 Uso:  uv run python centro/centro.py   (desde la carpeta escuela-trading)
 """
@@ -27,6 +28,7 @@ import alertas as AL  # noqa: E402
 import bitcoin as BT  # noqa: E402
 import mercado as ME  # noqa: E402
 import opciones as OP  # noqa: E402
+import sesion as SE  # noqa: E402
 
 CARACAS = timezone(timedelta(hours=-4))
 FUENTES = [("CNBC", "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100003114"),
@@ -225,6 +227,10 @@ def armar():
     except Exception as e:
         print("opciones:", e); ops_res = []
     try:
+        ses = SE.analizar(gamma_res)
+    except Exception as e:
+        print("sesion:", e); ses = []
+    try:
         btc = BT.analizar()
     except Exception as e:
         print("bitcoin:", e); btc = {}
@@ -263,6 +269,7 @@ def armar():
         "gamma": gamma_res,
         "opciones": ops_res,
         "bitcoin": btc,
+        "sesion": ses,
         "titulares": titulares(),
         "reporte": ultimo_reporte(),
         "laboratorio": lab,

@@ -1,0 +1,130 @@
+[
+ {
+  "mercado": "NQ",
+  "datos": "5m · 60d",
+  "niveles_tocados": 48,
+  "por_toque": [
+   {
+    "toque": 1,
+    "casos": 48,
+    "rompe_pct": 45.8
+   },
+   {
+    "toque": 2,
+    "casos": 23,
+    "rompe_pct": 43.5
+   },
+   {
+    "toque": 3,
+    "casos": 8,
+    "rompe_pct": 37.5
+   },
+   {
+    "toque": 4,
+    "casos": 3,
+    "rompe_pct": 0.0
+   },
+   {
+    "toque": 5,
+    "casos": 2,
+    "rompe_pct": 100.0
+   }
+  ]
+ },
+ {
+  "mercado": "NQ",
+  "datos": "1h · 730d",
+  "niveles_tocados": 595,
+  "por_toque": [
+   {
+    "toque": 1,
+    "casos": 595,
+    "rompe_pct": 56.1
+   },
+   {
+    "toque": 2,
+    "casos": 142,
+    "rompe_pct": 53.5
+   },
+   {
+    "toque": 3,
+    "casos": 19,
+    "rompe_pct": 52.6
+   },
+   {
+    "toque": 4,
+    "casos": 0,
+    "rompe_pct": null
+   },
+   {
+    "toque": 5,
+    "casos": 0,
+    "rompe_pct": null
+   }
+  ]
+ },
+ {
+  "mercado": "ES",
+  "datos": "5m · 60d",
+  "niveles_tocados": 50,
+  "por_toque": [
+   {
+    "toque": 1,
+    "casos": 50,
+    "rompe_pct": 48.0
+   },
+   {
+    "toque": 2,
+    "casos": 20,
+    "rompe_pct": 55.0
+   },
+   {
+    "toque": 3,
+    "casos": 8,
+    "rompe_pct": 37.5
+   },
+   {
+    "toque": 4,
+    "casos": 5,
+    "rompe_pct": 20.0
+   },
+   {
+    "toque": 5,
+    "casos": 0,
+    "rompe_pct": null
+   }
+  ]
+ },
+ {
+  "mercado": "ES",
+  "datos": "1h · 730d",
+  "niveles_tocados": 614,
+  "por_toque": [
+   {
+    "toque": 1,
+    "casos": 614,
+    "rompe_pct": 48.2
+   },
+   {
+    "toque": 2,
+    "casos": 149,
+    "rompe_pct": 50.3
+   },
+   {
+    "toque": 3,
+    "casos": 18,
+    "rompe_pct": 55.6
+   },
+   {
+    "toque": 4,
+    "casos": 0,
+    "rompe_pct": null
+   },
+   {
+    "toque": 5,
+    "casos": 0,
+    "rompe_pct": null
+   }
+  ]
+ }
+]

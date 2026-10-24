@@ -155,6 +155,31 @@ def order_flow():
             "ventana": f"{t0[11:16]}–{t1[11:16]} UTC"}
 
 
+def footprint(paginas=4, paso=25):
+    """Footprint real con las operaciones de Coinbase: cuánto compraron y vendieron los agresores en cada precio.
+    En Coinbase "side" es el lado del maker: side=sell → el agresor COMPRÓ."""
+    trades = get("https://api.exchange.coinbase.com/products/BTC-USD/trades?limit=1000")
+    for _ in range(paginas - 1):
+        try:
+            minimo = min(int(t["trade_id"]) for t in trades)
+            trades += get(f"https://api.exchange.coinbase.com/products/BTC-USD/trades?limit=1000&after={minimo}")
+        except Exception:
+            break
+    cubos = {}
+    for t in trades:
+        p, q = float(t["price"]), float(t["size"])
+        c = math.floor(p / paso) * paso
+        b = cubos.setdefault(c, [0.0, 0.0])
+        b[0 if t["side"] == "sell" else 1] += q
+    filas = [{"precio": c, "compra": round(v[0], 3), "venta": round(v[1], 3), "delta": round(v[0] - v[1], 3)}
+             for c, v in sorted(cubos.items(), reverse=True)]
+    poc = max(filas, key=lambda f: f["compra"] + f["venta"]) if filas else None
+    tiempos = sorted(t["time"] for t in trades)
+    return {"filas": filas, "paso": paso, "operaciones": len(trades), "poc": poc and poc["precio"],
+            "delta_total": round(sum(f["delta"] for f in filas), 2),
+            "ventana": f"{tiempos[0][11:16]}–{tiempos[-1][11:16]} UTC" if tiempos else ""}
+
+
 def miedo_codicia():
     d = get("https://api.alternative.me/fng/?limit=8")["data"]
     return {"valor": int(d[0]["value"]), "texto": d[0]["value_classification"], "semana": [int(x["value"]) for x in reversed(d)]}
@@ -171,7 +196,7 @@ def analizar():
         res.update({"precio": round(S, 1), "gex": gex(ops, S), **resumen_opciones(ops, S)})
     except Exception as e:
         res["error_opciones"] = str(e)[:120]
-    for clave, fn in [("perpetuo", perpetuo), ("order_flow", order_flow), ("miedo_codicia", miedo_codicia)]:
+    for clave, fn in [("perpetuo", perpetuo), ("order_flow", order_flow), ("footprint", footprint), ("miedo_codicia", miedo_codicia)]:
         try:
             res[clave] = fn()
         except Exception as e:
