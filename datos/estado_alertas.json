@@ -1,10 +1,10 @@
 {
  "precios": {
   "NQ=F": 29117.75,
-  "ES=F": 7659.75,
-  "BTC-USD": 80658.7578125,
+  "ES=F": 7672.5,
+  "BTC-USD": 79883.2265625,
   "GC=F": 4007.89990234375,
-  "CL=F": 103.2699966430664,
+  "CL=F": 103.44000244140625,
   "^VIX": 19.450000762939453
  },
  "enviadas": {
@@ -121,7 +121,11 @@
   "rango-ES=F-20261024": "2026-10-24T14:05:31.936001+00:00",
   "btc-gamma flip-80681": "2026-10-24T01:08:50.208279+00:00",
   "btc-gamma flip-80532": "2026-10-24T10:26:44.572628+00:00",
-  "btc-gamma flip-80551": "2026-10-24T14:05:31.936054+00:00"
+  "btc-gamma flip-80551": "2026-10-24T14:05:31.936054+00:00",
+  "nivel-BTC-USD-mínimo-80422": "2026-10-24T15:04:28.893146+00:00",
+  "redondo-BTC-USD-80000": "2026-10-24T15:04:28.893196+00:00",
+  "btc-gamma flip-80135": "2026-10-24T15:04:37.710419+00:00",
+  "btc-put wall-80000": "2026-10-24T15:04:37.710452+00:00"
  },
  "gamma": {
   "SPY": {
@@ -134,6 +138,34 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-BTC-USD-mínimo-80422",
+   "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 80,421.74 · precio 79,883.23. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "24-oct 11:04"
+  },
+  {
+   "clave": "redondo-BTC-USD-80000",
+   "titulo": "Bitcoin cruzó el número redondo 80,000",
+   "texto": "Precio 79,883.23. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "24-oct 11:04"
+  },
+  {
+   "clave": "btc-gamma flip-80135",
+   "titulo": "Bitcoin cruzó el gamma flip (~80,135)",
+   "texto": "Precio 79,841. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "24-oct 11:04"
+  },
+  {
+   "clave": "btc-put wall-80000",
+   "titulo": "Bitcoin cruzó el put wall (~80,000)",
+   "texto": "Precio 79,841. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "24-oct 11:04"
+  },
   {
    "clave": "rango-ES=F-20261024",
    "titulo": "ES (S&P 500) se salió del rango esperado (±14 pts)",
@@ -455,35 +487,7 @@
    "texto": "Precio 7,790. Nivel de opciones donde puede cambiar el comportamiento del precio.",
    "prioridad": 3,
    "hora": "21-oct 15:31"
-  },
-  {
-   "clave": "gamma-QQQ-call wall-29951",
-   "titulo": "NQ (Nasdaq 100) cruzó el call wall (~29,951)",
-   "texto": "Precio 29,984. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "21-oct 15:31"
-  },
-  {
-   "clave": "rango-ES=F-20261021",
-   "titulo": "ES (S&P 500) se salió del rango esperado (±20 pts)",
-   "texto": "Va +35 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "21-oct 15:31"
-  },
-  {
-   "clave": "nivel-BTC-USD-máximo-83288",
-   "titulo": "Bitcoin cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
-   "texto": "Nivel 83,287.80 · precio 84,387.15. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "21-oct 11:30"
-  },
-  {
-   "clave": "redondo-BTC-USD-84000",
-   "titulo": "Bitcoin cruzó el número redondo 84,000",
-   "texto": "Precio 84,387.15. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "21-oct 11:30"
   }
  ],
- "btc_precio": 80653.2
+ "btc_precio": 79840.7
 }
