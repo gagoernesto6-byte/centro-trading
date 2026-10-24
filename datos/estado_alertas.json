@@ -1,10 +1,10 @@
 {
  "precios": {
   "NQ=F": 29117.75,
-  "ES=F": 7672.5,
-  "BTC-USD": 80432.6875,
+  "ES=F": 7659.75,
+  "BTC-USD": 80230.5078125,
   "GC=F": 4007.89990234375,
-  "CL=F": 103.44000244140625,
+  "CL=F": 103.2699966430664,
   "^VIX": 19.450000762939453
  },
  "enviadas": {
@@ -126,7 +126,8 @@
   "redondo-BTC-USD-80000": "2026-10-24T15:04:28.893196+00:00",
   "btc-gamma flip-80135": "2026-10-24T15:04:37.710419+00:00",
   "btc-put wall-80000": "2026-10-24T15:04:37.710452+00:00",
-  "btc-gamma flip-80255": "2026-10-24T19:15:56.195374+00:00"
+  "btc-gamma flip-80255": "2026-10-24T19:15:56.195374+00:00",
+  "btc-gamma flip-80237": "2026-10-24T21:14:58.463907+00:00"
  },
  "gamma": {
   "SPY": {
@@ -139,6 +140,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "btc-gamma flip-80237",
+   "titulo": "Bitcoin cruzó el gamma flip (~80,237)",
+   "texto": "Precio 80,231. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "24-oct 17:14"
+  },
   {
    "clave": "btc-gamma flip-80255",
    "titulo": "Bitcoin cruzó el gamma flip (~80,255)",
@@ -481,14 +489,7 @@
    "texto": "Ahora los dealers frenan el precio: más probable un día de rango. GEX +587.6 M.",
    "prioridad": 4,
    "hora": "21-oct 15:31"
-  },
-  {
-   "clave": "gamma-SPY-gamma flip-7789",
-   "titulo": "ES (S&P 500) cruzó el gamma flip (~7,789)",
-   "texto": "Precio 7,790. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "21-oct 15:31"
   }
  ],
- "btc_precio": 80433.3
+ "btc_precio": 80231.2
 }
