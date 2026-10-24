@@ -1,10 +1,10 @@
 {
  "precios": {
   "NQ=F": 29117.75,
-  "ES=F": 7672.5,
-  "BTC-USD": 80466.34375,
+  "ES=F": 7659.75,
+  "BTC-USD": 80658.7578125,
   "GC=F": 4007.89990234375,
-  "CL=F": 103.44000244140625,
+  "CL=F": 103.2699966430664,
   "^VIX": 19.450000762939453
  },
  "enviadas": {
@@ -118,9 +118,10 @@
   "gamma-QQQ-put wall-29160": "2026-10-23T19:33:47.503763+00:00",
   "btc-put wall-81000": "2026-10-23T23:40:44.750088+00:00",
   "nivel-BTC-USD-mínimo-80841": "2026-10-24T01:08:46.284227+00:00",
-  "rango-ES=F-20261024": "2026-10-24T01:08:50.208238+00:00",
+  "rango-ES=F-20261024": "2026-10-24T14:05:31.936001+00:00",
   "btc-gamma flip-80681": "2026-10-24T01:08:50.208279+00:00",
-  "btc-gamma flip-80532": "2026-10-24T10:26:44.572628+00:00"
+  "btc-gamma flip-80532": "2026-10-24T10:26:44.572628+00:00",
+  "btc-gamma flip-80551": "2026-10-24T14:05:31.936054+00:00"
  },
  "gamma": {
   "SPY": {
@@ -133,6 +134,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "rango-ES=F-20261024",
+   "titulo": "ES (S&P 500) se salió del rango esperado (±14 pts)",
+   "texto": "Va -45 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "24-oct 10:05"
+  },
+  {
+   "clave": "btc-gamma flip-80551",
+   "titulo": "Bitcoin cruzó el gamma flip (~80,551)",
+   "texto": "Precio 80,653. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "24-oct 10:05"
+  },
   {
    "clave": "btc-gamma flip-80532",
    "titulo": "Bitcoin cruzó el gamma flip (~80,532)",
@@ -468,21 +483,7 @@
    "texto": "Precio 84,387.15. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "21-oct 11:30"
-  },
-  {
-   "clave": "rango-NQ=F-20261021",
-   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±146 pts)",
-   "texto": "Va +251 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "21-oct 11:30"
-  },
-  {
-   "clave": "redondo-CL=F-100",
-   "titulo": "Petróleo WTI cruzó el número redondo 100",
-   "texto": "Precio 100.22. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "21-oct 06:27"
   }
  ],
- "btc_precio": 80474.6
+ "btc_precio": 80653.2
 }
