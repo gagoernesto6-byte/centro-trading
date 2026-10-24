@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La Araña</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&display=swap">
+<style>
+/* La Araña: una araña recorre el informe anual (10-K) y teje un hilo hacia cada cifra que lee.
+   Hoja blanca = el documento real de la SEC · rosa = lo que la araña encontró · cian = la fila que está leyendo ·
+   panel oscuro = el reporte que se va armando. */
+:root {
+  --bg: #07080B; --chrome: #0F1116; --panel: rgba(12,13,18,.94); --line: #232633; --ink: #E7E9EF; --muted: #8A90A2; --faint: #535a6c;
+  --rosa: #FF2E93; --rosa-suave: rgba(255,46,147,.16); --rosa-claro: #FF7DBA; --cian: #7FE3FF; --cian-suave: rgba(127,227,255,.28);
+  --verde: #4CC38A; --rojo: #EF6461;
+  --ui: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box }
+[hidden] { display: none !important }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font-family: var(--ui); font-size: 14px; overflow: hidden }
+button, select { font: inherit; color: inherit }
+.app { display: grid; grid-template-rows: auto 1fr; height: 100dvh }
+
+/* barra superior (como la ventana del video) */
+.barra { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 8px 14px; background: var(--chrome); border-bottom: 1px solid var(--line) }
+.marca { font-family: var(--mono); font-weight: 600; letter-spacing: .12em; font-size: 13px; white-space: nowrap }
+.marca b { color: var(--rosa) }
+.marca small { color: var(--muted); font-weight: 400; letter-spacing: .04em; margin-left: 6px }
+.ctrl { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-left: auto }
+select, .btn { background: #171A22; border: 1px solid var(--line); border-radius: 6px; padding: 5px 10px; font-family: var(--mono); font-size: 12px; cursor: pointer }
+select:focus-visible, .btn:focus-visible { outline: 2px solid var(--rosa); outline-offset: 1px }
+.btn[aria-pressed="true"] { border-color: var(--rosa); color: var(--rosa) }
+.btn.prim { border-color: var(--rosa); color: #fff; background: var(--rosa) }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden }
+.seg .btn { border: 0; border-radius: 0 }
+
+/* escena: documento + reporte encima, abajo */
+.escena { position: relative; min-height: 0 }
+.marco { position: absolute; inset: 0; overflow: auto; background: #1A1C22; padding: 18px 12px 46vh; scrollbar-color: #3a3f4f transparent }
+.lienzo { position: relative; margin: 0 auto }
+.hoja { position: absolute; top: 0; left: 0; transform-origin: 0 0; background: #fff; box-shadow: 0 10px 40px rgba(0,0,0,.5) }
+.doc { width: 816px; padding: 44px 56px 60px; color: #000; font-family: "Times New Roman", serif; font-size: 10pt; line-height: 1.25; background: #fff }
+.doc table { border-collapse: collapse }
+.doc hr { border: 0; border-top: 1px solid #ddd }
+.doc hr[style*="page-break"] { border: 0; height: 22px; background: #1A1C22; margin: 34px -56px; box-shadow: inset 0 6px 8px -6px rgba(0,0,0,.6), inset 0 -6px 8px -6px rgba(0,0,0,.6) }
+/* lo que encontró la araña */
+.doc [data-f].f-clave { background: var(--rosa-suave); outline: 1.5px solid var(--rosa); border-radius: 2px }
+.doc [data-f].f-otra { outline: 1px solid #3fb7d9; background: rgba(127,227,255,.25); border-radius: 2px }
+.doc tr.fila-leida > td, .doc tr.fila-leida > th { background-color: var(--cian-suave) !important; transition: background-color .4s }
+.doc [data-s].s-vista { background: var(--rosa) !important; color: #fff !important; padding: 1px 6px; border-radius: 3px; box-shadow: 0 2px 10px rgba(255,46,147,.35) }
+.doc .flash { animation: flash 1.2s ease-out 2 }
+@keyframes flash { 0% { box-shadow: 0 0 0 0 rgba(255,46,147,.9) } 100% { box-shadow: 0 0 0 14px rgba(255,46,147,0) } }
+.tela { position: absolute; top: 0; left: 0; pointer-events: none; overflow: visible }
+.tela line.hilo { stroke: var(--rosa); stroke-width: 1.1; opacity: .9 }
+.tela line.hilo.viejo { opacity: .28 }
+.tela circle.nudo { fill: var(--rosa) }
+.tela .rastro { fill: none; stroke: var(--rosa); stroke-width: .9; opacity: .32; stroke-dasharray: 3 3 }
+.tela .etq { font-family: var(--mono); font-size: 9px; fill: #fff }
+.tela .etq-fondo { fill: var(--rosa); opacity: .92 }
+.tela .viejo-etq { opacity: .45 }
+
+/* pastilla: "AMD 10-K · 79 cifras · 10 observaciones" */
+.pastilla { position: absolute; left: 16px; bottom: calc(36vh + 12px); z-index: 3; display: flex; gap: 12px; align-items: center; background: rgba(15,16,22,.92); border: 1px solid var(--line); border-radius: 99px; padding: 6px 14px; font-family: var(--mono); font-size: 12px; box-shadow: 0 6px 24px rgba(0,0,0,.4) }
+.pastilla .t { color: #fff; font-weight: 600 } .pastilla .r { color: var(--rosa-claro) }
+
+/* reporte (panel oscuro de abajo) */
+.informe { position: absolute; left: 0; right: 0; bottom: 0; height: 36vh; z-index: 4; background: var(--panel); backdrop-filter: blur(6px); border-top: 1px solid #2c2f3d; display: grid; grid-template-rows: auto 1fr; font-family: var(--mono); transition: height .35s ease }
+.informe.grande { height: calc(100% - 8px) }
+.inf-cab { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; padding: 10px 16px 8px; border-bottom: 1px solid var(--line) }
+.inf-cab .marca-r { color: var(--rosa-claro); font-size: 12px }
+.inf-cab .empresa { font-family: var(--ui); font-weight: 700; font-size: 16px; letter-spacing: .02em }
+.inf-cab .empresa small { font-family: var(--mono); font-weight: 400; color: var(--muted); font-size: 12px; margin-left: 6px }
+.inf-cab .prog { color: var(--muted); font-size: 12px; margin-left: auto }
+.barrita { height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; width: 100%; margin-top: 4px } .barrita i { display: block; height: 100%; width: 0; background: var(--rosa); transition: width .3s }
+.inf-cuerpo { min-height: 0; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+.col { min-height: 0; overflow: auto; padding: 8px 16px 14px; scrollbar-color: #3a3f4f transparent }
+.col + .col { border-left: 1px solid var(--line) }
+.col h3 { margin: 4px 0 6px; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600 }
+.col h3 small { text-transform: none; letter-spacing: 0; color: var(--faint); font-weight: 400; margin-left: 6px }
+.linea { display: grid; grid-template-columns: 14px minmax(0,1fr) auto 52px; gap: 8px; align-items: baseline; padding: 3px 0; border-bottom: 1px dashed #1f2230; font-size: 12px; cursor: pointer }
+.linea:hover { background: rgba(255,255,255,.03) }
+.linea .i { color: var(--rosa) } .linea .n { overflow: hidden; text-overflow: ellipsis; white-space: nowrap } .linea .v { color: #fff; text-align: right } .linea .p { color: var(--faint); text-align: right; font-size: 11px; white-space: nowrap }
+.linea.sec .n { color: var(--muted); font-style: italic } .linea.sec .i { color: var(--faint) }
+.linea.otra .n { color: #b9bfd0 } .linea.otra .i { color: #3fb7d9 }
+.linea.nueva { animation: entra .5s ease-out }
+@keyframes entra { from { background: rgba(255,46,147,.22) } to { background: transparent } }
+.obs { border: 1px solid #3a2333; background: linear-gradient(180deg, rgba(255,46,147,.10), rgba(255,46,147,.03)); border-radius: 6px; padding: 8px 10px; margin-bottom: 8px; display: grid; gap: 3px }
+.obs .tag { justify-self: start; font-size: 10px; letter-spacing: .12em; color: #fff; background: var(--rosa); border-radius: 3px; padding: 1px 6px }
+.obs .tit { display: flex; justify-content: space-between; gap: 10px; font-size: 12px; color: var(--muted) } .obs .tit b { color: #fff; font-size: 14px; font-weight: 600 }
+.obs p { margin: 0; font-family: var(--ui); font-size: 13px; color: var(--ink); line-height: 1.35 }
+.obs.nueva { animation: entra 1s ease-out }
+.pend { color: var(--faint); font-size: 11px; margin-top: 6px }
+.vacio { color: var(--faint); font-style: italic; font-size: 12px }
+.pie { font-family: var(--ui); color: var(--faint); font-size: 11px; margin-top: 10px; line-height: 1.4 }
+.pie a { color: var(--rosa-claro) }
+.carga { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-family: var(--mono); z-index: 2 }
+@media (max-width: 760px) {
+  .linea { grid-template-columns: 12px minmax(0,1fr) auto 40px; gap: 6px; font-size: 11px }
+  .inf-cuerpo { display: block; overflow: auto }
+  .col { overflow: visible; min-height: auto } .col + .col { border-left: 0; border-top: 1px solid var(--line) }
+  .inf-cab .prog { margin-left: 0 }
+  .informe { height: 42vh } .pastilla { bottom: calc(42vh + 10px); font-size: 11px } .marco { padding-bottom: 52vh }
+  .ctrl { margin-left: 0 }
+}
+@media (prefers-reduced-motion: reduce) { .linea.nueva, .obs.nueva, .doc .flash { animation: none } }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="barra">
+    <div class="marca"><b>🕷 LA ARAÑA</b><small>lector de informes anuales · 10-K de la SEC</small></div>
+    <div class="ctrl">
+      <label class="sr" for="empresa" style="position:absolute;left:-9999px">Empresa</label>
+      <select id="empresa" aria-label="Empresa"></select>
+      <button class="btn" id="play" aria-pressed="false" title="Pausar o seguir">⏸ Pausa</button>
+      <div class="seg" role="group" aria-label="Velocidad"><button class="btn" data-v="1" aria-pressed="true">1×</button><button class="btn" data-v="2" aria-pressed="false">2×</button><button class="btn" data-v="4" aria-pressed="false">4×</button></div>
+      <button class="btn" id="reiniciar" title="Empezar de nuevo">↺</button>
+      <button class="btn prim" id="saltar">Ver reporte completo</button>
+    </div>
+  </header>
+  <main class="escena">
+    <div class="marco" id="marco">
+      <div class="lienzo" id="lienzo">
+        <div class="hoja" id="hoja"><div class="doc" id="doc"></div><svg class="tela" id="tela" xmlns="http://www.w3.org/2000/svg"></svg></div>
+      </div>
+    </div>
+    <div class="carga" id="carga">Bajando el informe…</div>
+    <div class="pastilla" id="pastilla"><span class="t" id="p-tit">—</span><span id="p-cifras">— cifras</span><span class="r" id="p-obs">— observaciones</span></div>
+    <section class="informe" id="informe" aria-label="Reporte de la araña">
+      <div class="inf-cab">
+        <span class="marca-r">↗ Gago Capital · reporte</span>
+        <span class="empresa" id="r-empresa">—</span>
+        <span class="prog" id="r-prog">—</span>
+        <div class="barrita"><i id="r-barra"></i></div>
+      </div>
+      <div class="inf-cuerpo">
+        <div class="col">
+          <h3>Lo que va leyendo <small>toca una línea para ir a esa cifra</small></h3>
+          <div id="r-feed"></div>
+          <div class="pend" id="r-pend"></div>
+          <div id="r-mas" hidden>
+            <h3 style="margin-top:14px">Más del informe <small>otras cifras que leyó la araña, con su página</small></h3>
+            <div id="r-otras"></div>
+          </div>
+        </div>
+        <div class="col">
+          <h3>Observaciones <small>calculadas con las cifras del informe</small></h3>
+          <div id="r-obs"><p class="vacio">La araña todavía está leyendo…</p></div>
+          <div class="pie" id="r-pie"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+(function () {
+  "use strict";
+  var NS = "http://www.w3.org/2000/svg";
+  var $ = function (s) { return document.querySelector(s); };
+  var marco = $("#marco"), lienzo = $("#lienzo"), hoja = $("#hoja"), doc = $("#doc"), tela = $("#tela");
+  var D = null, escala = 1, vel = 1, pausa = false, reloj = 0, ultimo = performance.now(), esperas = [], tweens = [], corrida = 0;
+  var ara = { x: 400, y: 120, ang: Math.PI / 2, fase: 0, mov: false, tween: null };
+  var gHilos, gEtq, rastro, gAra, patas = [], cuerpo;
+  var vistos = {}, clavesVistas = {}, obsVistas = {}, nCifras = 0, nObs = 0, paradas = [], totalParadas = 0, hechas = 0, terminado = false;
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function svg(tag, at, padre) { var e = document.createElementNS(NS, tag); for (var k in at) e.setAttribute(k, at[k]); (padre || tela).appendChild(e); return e; }
+
+  // ---------- reloj virtual: todo se mide en él (así funcionan la pausa y la velocidad) ----------
+  function esperar(ms) { return new Promise(function (r) { esperas.push({ fin: reloj + ms, r: r, c: corrida }); }); }
+  function animar(dur, paso) { return new Promise(function (r) { tweens.push({ t0: reloj, dur: Math.max(1, dur), paso: paso, r: r, c: corrida }); }); }
+  function suave(p) { return p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2; }
+
+  function bucle(ahora) {
+    var dt = Math.min(64, ahora - ultimo); ultimo = ahora;
+    if (!pausa) reloj += dt * vel;
+    for (var i = tweens.length - 1; i >= 0; i--) { var t = tweens[i]; var p = Math.min(1, (reloj - t.t0) / t.dur); t.paso(suave(p), p); if (p >= 1) { tweens.splice(i, 1); t.r(); } }
+    for (var j = esperas.length - 1; j >= 0; j--) if (reloj >= esperas[j].fin) { var e = esperas.splice(j, 1)[0]; e.r(); }
+    if (!pausa) ara.fase += dt * vel * (ara.mov ? 0.018 : 0.0035);
+    dibujarArana();
+    if (!pausa && !terminado) camara(dt);
+    requestAnimationFrame(bucle);
+  }
+
+  // ---------- la araña: cuerpo oscuro, 8 patas largas rosadas ----------
+  function crearArana() {
+    gAra = svg("g", { "class": "arana" });
+    var sombra = svg("ellipse", { cx: 0, cy: 6, rx: 22, ry: 8, fill: "rgba(0,0,0,.12)" }, gAra);
+    for (var i = 0; i < 8; i++) patas.push(svg("path", { fill: "none", stroke: "#FF2E93", "stroke-width": 2, "stroke-linecap": "round", "stroke-linejoin": "round" }, gAra));
+    cuerpo = svg("g", {}, gAra);
+    svg("ellipse", { cx: -10, cy: 0, rx: 11, ry: 7.5, fill: "#2B0F20", stroke: "#FF5FAE", "stroke-width": 1.2 }, cuerpo);
+    svg("circle", { cx: 4, cy: 0, r: 5.2, fill: "#3A1229", stroke: "#FF5FAE", "stroke-width": 1.1 }, cuerpo);
+    svg("circle", { cx: 7.3, cy: -1.6, r: 1, fill: "#fff" }, cuerpo); svg("circle", { cx: 7.3, cy: 1.6, r: 1, fill: "#fff" }, cuerpo);
+    svg("path", { d: "M-16 -2 Q-10 -5 -4 -2 M-16 2 Q-10 5 -4 2", stroke: "rgba(255,95,174,.55)", "stroke-width": .8, fill: "none" }, cuerpo);
+  }
+  function dibujarArana() {
+    if (!gAra) return;
+    var cs = Math.cos(ara.ang), sn = Math.sin(ara.ang);
+    var T = 1.45;                              // tamaño de la araña
+    function rot(x, y) { x *= T; y *= T; return [ara.x + x * cs - y * sn, ara.y + x * sn + y * cs]; }
+    var base = [48, 82, 112, 142];          // ángulo de cada pata respecto al frente (grados)
+    var cadera = [5, 2, -2, -6];
+    for (var lado = -1, k = 0; lado <= 1; lado += 2) {
+      for (var i = 0; i < 4; i++, k++) {
+        var osc = Math.sin(ara.fase * 2 + i * Math.PI / 2 + (lado > 0 ? Math.PI : 0));
+        var a = (base[i] + osc * (ara.mov ? 13 : 3)) * Math.PI / 180;
+        var hx = cadera[i], hy = lado * 3.5;
+        var kx = hx + Math.cos(a) * 30, ky = hy + lado * Math.sin(a) * 30 - 0;      // rodilla
+        var a2 = a + lado * 0 + (i < 2 ? -0.35 : 0.35) * 1;
+        var fx = kx + Math.cos(a2) * 46, fy = ky + lado * Math.sin(a2) * 46 + (ara.mov ? osc * 2 : 0);  // pie
+        var p1 = rot(hx, hy), p2 = rot(kx, ky + lado * -6), p3 = rot(fx, fy);
+        patas[k].setAttribute("d", "M" + p1[0].toFixed(1) + " " + p1[1].toFixed(1) + " L" + p2[0].toFixed(1) + " " + p2[1].toFixed(1) + " L" + p3[0].toFixed(1) + " " + p3[1].toFixed(1));
+      }
+    }
+    cuerpo.setAttribute("transform", "translate(" + ara.x.toFixed(1) + " " + ara.y.toFixed(1) + ") rotate(" + (ara.ang * 180 / Math.PI).toFixed(1) + ") scale(" + T + ")");
+    gAra.firstChild.setAttribute("cx", ara.x); gAra.firstChild.setAttribute("cy", ara.y + 8);
+  }
+  function camara(dt) {
+    var alto = marco.clientHeight, objetivo = 18 + ara.y * escala - alto * 0.30;
+    var f = 1 - Math.pow(0.0015, dt / 1000);
+    marco.scrollTop += (objetivo - marco.scrollTop) * f;
+    var anchoV = marco.clientWidth, x = ara.x * escala, objX = x - anchoV / 2;
+    if (lienzo.offsetWidth > anchoV) marco.scrollLeft += (objX - marco.scrollLeft) * f;
+  }
+
+  // ---------- geometría ----------
+  function medidas() {
+    var W = doc.offsetWidth, H = doc.offsetHeight;
+    escala = Math.min(1, (marco.clientWidth - 24) / W);
+    hoja.style.transform = "scale(" + escala + ")";
+    lienzo.style.width = (W * escala) + "px"; lienzo.style.height = (H * escala) + "px";
+    tela.setAttribute("width", W); tela.setAttribute("height", H); tela.setAttribute("viewBox", "0 0 " + W + " " + H);
+  }
+  function pos(el) {
+    var r = el.getBoundingClientRect(), h = hoja.getBoundingClientRect();
+    return { x: (r.left - h.left) / escala, y: (r.top - h.top) / escala, w: r.width / escala, h: r.height / escala };
+  }
+
+  // ---------- reporte ----------
+  function linea(tipo, nombre, valor, pagina, el) {
+    var d = document.createElement("div"); d.className = "linea nueva " + tipo;
+    d.innerHTML = '<span class="i">' + (tipo === "sec" ? "§" : tipo === "otra" ? "·" : "◆") + '</span><span class="n">' + esc(nombre) + '</span><span class="v">' + esc(valor || "") + '</span><span class="p">' + (pagina ? "p. " + pagina : "") + "</span>";
+    d.title = nombre + (valor ? " · " + valor : "");
+    d.addEventListener("click", function () { irA(el); });
+    return d;
+  }
+  function irA(el) {
+    if (!el) return;
+    if (!pausa && !terminado) alternarPausa();
+    var p = pos(el); marco.scrollTo({ top: 18 + p.y * escala - marco.clientHeight * 0.28, behavior: "smooth" });
+    el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
+  }
+  function progreso() {
+    var clavesTot = D.total_claves, vistasC = Object.keys(clavesVistas).length;
+    $("#r-prog").textContent = vistasC + " de " + clavesTot + " cifras clave del informe";
+    $("#r-barra").style.width = (totalParadas ? hechas / totalParadas * 100 : 0) + "%";
+    $("#p-cifras").textContent = nCifras + (terminado ? "" : "/" + D.total_cifras) + " cifras";
+    $("#p-obs").textContent = nObs + " observaciones";
+    $("#r-pend").textContent = terminado ? "✓ Lectura completa: la araña leyó " + nCifras + " cifras en " + D.paginas + " páginas." : (totalParadas - hechas) + " pendientes";
+  }
+  function revisarObservaciones() {
+    (D.observaciones || []).forEach(function (o, i) {
+      if (obsVistas[i]) return;
+      if (!o.usa.every(function (u) { return clavesVistas[u]; })) return;
+      obsVistas[i] = true; nObs++;
+      var c = document.createElement("div"); c.className = "obs nueva";
+      c.innerHTML = '<span class="tag">OBSERVACIÓN</span><div class="tit"><span>' + esc(o.titulo) + "</span><b>" + esc(o.valor) + "</b></div><p>" + esc(o.texto) + "</p>";
+      var box = $("#r-obs"); var v = box.querySelector(".vacio"); if (v) v.remove();
+      box.insertBefore(c, box.firstChild);
+    });
+  }
+  function anotar(parada) {
+    var d = parada.dato, feed = $("#r-feed");
+    if (parada.tipo === "seccion") feed.appendChild(linea("sec", d.titulo, "", d.pagina, parada.el));
+    else {
+      nCifras++;
+      if (parada.tipo === "clave") { clavesVistas[d.clave] = true; feed.appendChild(linea("clave", d.etiqueta, d.texto, d.pagina, parada.el)); }
+      else { feed.appendChild(linea("otra", "Cifra en el texto · " + d.etiqueta, d.texto, d.pagina, parada.el)); $("#r-otras").appendChild(linea("otra", d.etiqueta, d.texto, d.pagina, parada.el)); }
+    }
+    while (feed.children.length > 60) feed.removeChild(feed.firstChild);
+    var col = feed.parentNode, cuerpoInf = col.parentNode;
+    if (col.scrollHeight > col.clientHeight + 4) col.scrollTop = col.scrollHeight;          // computadora: cada columna tiene su barra
+    else cuerpoInf.scrollTop = Math.max(0, feed.offsetTop + feed.offsetHeight - cuerpoInf.clientHeight + 30); // celular: una sola barra
+    hechas++; revisarObservaciones(); progreso();
+  }
+
+  // ---------- recorrido ----------
+  function prepararParadas() {
+    var figs = {}, secs = {};
+    D.figuras.forEach(function (f) { figs[f.id] = f; });
+    D.secciones.forEach(function (s) { secs[s.id] = s; });
+    paradas = [];
+    doc.querySelectorAll("[data-f],[data-s]").forEach(function (el) {
+      var f = el.dataset.f && figs[el.dataset.f], s = el.dataset.s && secs[el.dataset.s];
+      if (!f && !s) return;
+      paradas.push({ el: el, tipo: f ? (f.tipo === "clave" ? "clave" : "otra") : "seccion", dato: f || s });
+    });
+    totalParadas = paradas.length;
+  }
+  function grupos() {
+    // paradas cercanas (misma zona de la hoja) se leen juntas: la araña se queda quieta y lanza varios hilos
+    var gs = [], g = null;
+    paradas.forEach(function (p) {
+      var y = pos(p.el).y;
+      if (!g || y - g.y0 > 700 || g.items.length >= 9) { g = { y0: y, items: [] }; gs.push(g); }
+      g.items.push(p);
+    });
+    return gs;
+  }
+  function moverA(x, y, c) {
+    var x0 = ara.x, y0 = ara.y, dist = Math.hypot(x - x0, y - y0);
+    if (dist < 2) return Promise.resolve();
+    ara.mov = true; ara.ang = Math.atan2(y - y0, x - x0);
+    var dur = Math.max(380, Math.min(1500, dist / 1.6));
+    return animar(dur, function (e) { if (c !== corrida) return; ara.x = x0 + (x - x0) * e; ara.y = y0 + (y - y0) * e; })
+      .then(function () { ara.mov = false; });
+  }
+  function hilo(destino, tipo, etiqueta, c) {
+    var x0 = ara.x, y0 = ara.y;
+    var l = svg("line", { "class": "hilo", x1: x0, y1: y0, x2: x0, y2: y0 }, gHilos);
+    if (tipo === "otra") l.setAttribute("stroke", "#3fb7d9");
+    return animar(230, function (e) { if (c !== corrida) return; l.setAttribute("x2", x0 + (destino.x - x0) * e); l.setAttribute("y2", y0 + (destino.y - y0) * e); })
+      .then(function () {
+        svg("circle", { "class": "nudo", cx: destino.x, cy: destino.y, r: tipo === "otra" ? 2 : 3, fill: tipo === "otra" ? "#3fb7d9" : "#FF2E93" }, gHilos);
+        if (etiqueta) {
+          var gx = destino.x + 6, gy = destino.y - 16, w = etiqueta.length * 5.6 + 10;
+          if (gx + w > 800) gx = 800 - w;
+          var g = svg("g", {}, gEtq);
+          svg("rect", { "class": "etq-fondo", x: gx, y: gy, width: w, height: 13, rx: 3 }, g);
+          svg("text", { "class": "etq", x: gx + 5, y: gy + 9.5 }, g).textContent = etiqueta;
+        }
+        return l;
+      });
+  }
+  async function recorrer(c) {
+    await esperar(700);
+    var gs = grupos();
+    for (var gi = 0; gi < gs.length; gi++) {
+      if (c !== corrida) return;
+      var items = gs[gi].items, ps = items.map(function (p) { return pos(p.el); });
+      var ys = ps.map(function (p) { return p.y; }), cx = ps.reduce(function (a, p) { return a + p.x + p.w / 2; }, 0) / ps.length;
+      var y = (Math.min.apply(null, ys) + Math.max.apply(null, ys)) / 2 + 6;
+      var x = Math.max(70, Math.min(doc.offsetWidth - 70, cx - 150));
+      rastro.setAttribute("points", (rastro.getAttribute("points") || "") + " " + x.toFixed(0) + "," + y.toFixed(0));
+      await moverA(x, y, c);
+      if (c !== corrida) return;
+      var lineas = [];
+      for (var k = 0; k < items.length; k++) {
+        var it = items[k], p = pos(it.el);
+        if (it.tipo === "seccion") it.el.classList.add("s-vista");
+        else { it.el.classList.add(it.tipo === "clave" ? "f-clave" : "f-otra"); var tr = it.el.closest("tr"); if (tr) tr.classList.add("fila-leida"); }
+        var dest = { x: it.tipo === "seccion" ? p.x : p.x + p.w / 2, y: p.y + p.h / 2 };
+        lineas.push(await hilo(dest, it.tipo, it.tipo === "clave" ? it.dato.etiqueta : null, c));
+        if (c !== corrida) return;
+        anotar(it);
+        await esperar(it.tipo === "clave" ? 260 : 110);
+      }
+      await esperar(220);
+      lineas.forEach(function (l) { if (l) l.classList.add("viejo"); });
+      gEtq.querySelectorAll("g").forEach(function (g) { g.setAttribute("class", "viejo-etq"); });
+    }
+    terminar();
+  }
+  function terminar() {
+    terminado = true; $("#r-mas").hidden = false; progreso();
+    $("#saltar").textContent = "Ver el documento";
+  }
+  function saltarAlFinal() {
+    corrida++;
+    paradas.slice(hechas).forEach(function (it) {
+      if (it.tipo === "seccion") it.el.classList.add("s-vista");
+      else { it.el.classList.add(it.tipo === "clave" ? "f-clave" : "f-otra"); var tr = it.el.closest("tr"); if (tr) tr.classList.add("fila-leida"); }
+      anotar(it);
+    });
+    terminar();
+  }
+
+  // ---------- cargar una empresa ----------
+  async function cargar(ticker) {
+    corrida++; var c = corrida;
+    terminado = false; pausa = false; actualizarPausa(); tweens = []; esperas = [];
+    vistos = {}; clavesVistas = {}; obsVistas = {}; nCifras = 0; nObs = 0; hechas = 0;
+    $("#carga").hidden = false; $("#carga").textContent = "Bajando el informe de " + ticker + "…";
+    $("#r-feed").innerHTML = ""; $("#r-otras").innerHTML = ""; $("#r-obs").innerHTML = '<p class="vacio">La araña todavía está leyendo…</p>'; $("#r-mas").hidden = true;
+    $("#informe").classList.remove("grande"); $("#saltar").textContent = "Ver reporte completo";
+    try {
+      var r = await Promise.all([fetch("data/" + ticker + ".json").then(function (x) { return x.json(); }), fetch("data/" + ticker + ".html").then(function (x) { return x.text(); })]);
+      if (c !== corrida) return;
+      D = r[0]; doc.innerHTML = r[1];
+    } catch (e) { $("#carga").textContent = "No se pudo cargar el informe (" + e.message + ")."; return; }
+    tela.innerHTML = ""; patas = [];
+    rastro = svg("polyline", { "class": "rastro", points: "" });
+    gHilos = svg("g", {}); gEtq = svg("g", {}); crearArana();
+    $("#p-tit").textContent = D.ticker + " " + D.formulario;
+    $("#r-empresa").innerHTML = esc(D.empresa) + "<small>" + esc(D.ticker) + " · " + D.formulario + " · año fiscal " + D.anio_fiscal + "</small>";
+    $("#r-pie").innerHTML = "Informe presentado el " + esc(D.presentado) + " (cierre " + esc(D.periodo) + ") · " + D.paginas + " páginas · <a href=\"" + esc(D.url) + "\" target=\"_blank\" rel=\"noopener\">ver en la SEC</a>.<br>Las observaciones son cálculos automáticos con las cifras del informe; es educativo, no es asesoría financiera.";
+    if (document.fonts && document.fonts.ready) await document.fonts.ready;
+    await new Promise(function (res) { requestAnimationFrame(function () { requestAnimationFrame(res); }); });
+    medidas(); prepararParadas();
+    ara.x = Math.min(380, doc.offsetWidth / 2); ara.y = 90; ara.ang = Math.PI / 2;
+    marco.scrollTop = 0; $("#carga").hidden = true; progreso();
+    try { history.replaceState(null, "", "#" + ticker); } catch (e) {}
+    recorrer(c);
+  }
+
+  // ---------- controles ----------
+  function actualizarPausa() { var b = $("#play"); b.textContent = pausa ? "▶ Seguir" : "⏸ Pausa"; b.setAttribute("aria-pressed", pausa); }
+  function alternarPausa() { pausa = !pausa; actualizarPausa(); }
+  $("#play").addEventListener("click", alternarPausa);
+  document.querySelectorAll(".seg .btn").forEach(function (b) { b.addEventListener("click", function () { vel = +b.dataset.v; document.querySelectorAll(".seg .btn").forEach(function (x) { x.setAttribute("aria-pressed", x === b); }); }); });
+  $("#reiniciar").addEventListener("click", function () { cargar(D ? D.ticker : "AMD"); });
+  $("#saltar").addEventListener("click", function () {
+    var inf = $("#informe");
+    if (!terminado) { saltarAlFinal(); inf.classList.add("grande"); return; }
+    inf.classList.toggle("grande");
+    $("#saltar").textContent = inf.classList.contains("grande") ? "Ver el documento" : "Ver reporte completo";
+  });
+  $("#empresa").addEventListener("change", function () { cargar(this.value); });
+  document.addEventListener("keydown", function (e) { if (e.key === " " && e.target === document.body) { e.preventDefault(); alternarPausa(); } });
+  var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { if (D) medidas(); }, 150); });
+  marco.addEventListener("wheel", function () { if (!pausa && !terminado) { pausa = true; actualizarPausa(); } }, { passive: true });
+
+  fetch("data/indice.json").then(function (r) { return r.json(); }).then(function (lista) {
+    var sel = $("#empresa");
+    lista.forEach(function (e) { var o = document.createElement("option"); o.value = e.ticker; o.textContent = e.ticker + " · " + e.empresa.replace(/,? (INC|CORP|CORPORATION|PLATFORMS)\.?$/i, "") + " (" + e.anio_fiscal + ")"; sel.appendChild(o); });
+    var pedido = (location.hash || "").replace("#", "").toUpperCase();
+    var t = lista.some(function (e) { return e.ticker === pedido; }) ? pedido : "AMD";
+    sel.value = t; cargar(t);
+  }).catch(function (e) { $("#carga").textContent = "No se pudo cargar la lista de empresas (" + e.message + ")."; });
+  requestAnimationFrame(bucle);
+})();
+</script>
+</body>
+</html>

@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 .DS_Store
 .ntfy_topic
+.sec_contacto
+arana/cache/
