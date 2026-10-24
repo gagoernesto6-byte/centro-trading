@@ -2,7 +2,7 @@
  "precios": {
   "NQ=F": 29175.0,
   "ES=F": 7672.5,
-  "BTC-USD": 80857.4296875,
+  "BTC-USD": 80622.2890625,
   "GC=F": 4010.0,
   "CL=F": 103.44000244140625,
   "^VIX": 19.450000762939453
@@ -116,7 +116,10 @@
   "gamma-SPY-call wall-7685": "2026-10-23T19:33:47.503718+00:00",
   "gamma-QQQ-call wall-29160": "2026-10-23T19:33:47.503751+00:00",
   "gamma-QQQ-put wall-29160": "2026-10-23T19:33:47.503763+00:00",
-  "btc-put wall-81000": "2026-10-23T23:40:44.750088+00:00"
+  "btc-put wall-81000": "2026-10-23T23:40:44.750088+00:00",
+  "nivel-BTC-USD-mínimo-80841": "2026-10-24T01:08:46.284227+00:00",
+  "rango-ES=F-20261024": "2026-10-24T01:08:50.208238+00:00",
+  "btc-gamma flip-80681": "2026-10-24T01:08:50.208279+00:00"
  },
  "gamma": {
   "SPY": {
@@ -129,6 +132,27 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-BTC-USD-mínimo-80841",
+   "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 80,841.27 · precio 80,622.29. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "23-oct 21:08"
+  },
+  {
+   "clave": "rango-ES=F-20261024",
+   "titulo": "ES (S&P 500) se salió del rango esperado (±14 pts)",
+   "texto": "Va -32 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "23-oct 21:08"
+  },
+  {
+   "clave": "btc-gamma flip-80681",
+   "titulo": "Bitcoin cruzó el gamma flip (~80,681)",
+   "texto": "Precio 80,630. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "23-oct 21:08"
+  },
   {
    "clave": "btc-put wall-81000",
    "titulo": "Bitcoin cruzó el put wall (~81,000)",
@@ -457,28 +481,7 @@
    "texto": "Nivel 29,903.50 · precio 29,868.75. Zona de liquidez: ojo con barridas y rupturas falsas.",
    "prioridad": 3,
    "hora": "21-oct 01:22"
-  },
-  {
-   "clave": "nivel-NQ=F-máximo-29984",
-   "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
-   "texto": "Nivel 29,983.50 · precio 29,999.00. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "20-oct 20:47"
-  },
-  {
-   "clave": "rango-ES=F-20261021",
-   "titulo": "ES (S&P 500) se salió del rango esperado (±11 pts)",
-   "texto": "Va +50 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "20-oct 20:47"
-  },
-  {
-   "clave": "rango-NQ=F-20261021",
-   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±79 pts)",
-   "texto": "Va +278 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "20-oct 20:47"
   }
  ],
- "btc_precio": 80871.0
+ "btc_precio": 80629.6
 }
