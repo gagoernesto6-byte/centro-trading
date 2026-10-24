@@ -248,8 +248,9 @@ def armar():
     if btc.get("gex") and btc.get("precio"):
         prev = estado.get("btc_precio")
         for nombre, nivel in [("gamma flip", btc["gex"].get("flip")), ("call wall", btc["gex"].get("call_wall")), ("put wall", btc["gex"].get("put_wall"))]:
-            if prev and nivel and (prev - nivel) * (btc["precio"] - nivel) < 0:
-                AL.nueva(nuevas, estado, f"btc-{nombre}-{nivel:.0f}", f"Bitcoin cruzó el {nombre} (~{nivel:,.0f})",
+            # solo si cruzó de verdad (≥0,25 % del otro lado) y sin repetir el aviso si el nivel se mueve un poco
+            if prev and nivel and (prev - nivel) * (btc["precio"] - nivel) < 0 and abs(btc["precio"] / nivel - 1) >= 0.0025:
+                AL.nueva(nuevas, estado, f"btc-{nombre}-{round(nivel / 1000)}", f"Bitcoin cruzó el {nombre} (~{nivel:,.0f})",
                          f"Precio {btc['precio']:,.0f}. Nivel de opciones de Deribit donde puede cambiar el comportamiento.", horas=12)
         estado["btc_precio"] = btc["precio"]
     enviadas = sum(AL.enviar(a) for a in nuevas)
