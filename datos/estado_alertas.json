@@ -2,7 +2,7 @@
  "precios": {
   "NQ=F": 29117.75,
   "ES=F": 7672.5,
-  "BTC-USD": 80648.953125,
+  "BTC-USD": 80466.34375,
   "GC=F": 4007.89990234375,
   "CL=F": 103.44000244140625,
   "^VIX": 19.450000762939453
@@ -119,7 +119,8 @@
   "btc-put wall-81000": "2026-10-23T23:40:44.750088+00:00",
   "nivel-BTC-USD-mínimo-80841": "2026-10-24T01:08:46.284227+00:00",
   "rango-ES=F-20261024": "2026-10-24T01:08:50.208238+00:00",
-  "btc-gamma flip-80681": "2026-10-24T01:08:50.208279+00:00"
+  "btc-gamma flip-80681": "2026-10-24T01:08:50.208279+00:00",
+  "btc-gamma flip-80532": "2026-10-24T10:26:44.572628+00:00"
  },
  "gamma": {
   "SPY": {
@@ -132,6 +133,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "btc-gamma flip-80532",
+   "titulo": "Bitcoin cruzó el gamma flip (~80,532)",
+   "texto": "Precio 80,475. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "24-oct 06:26"
+  },
   {
    "clave": "nivel-BTC-USD-mínimo-80841",
    "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
@@ -474,14 +482,7 @@
    "texto": "Precio 100.22. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "21-oct 06:27"
-  },
-  {
-   "clave": "nivel-NQ=F-máximo-29904",
-   "titulo": "Nasdaq (NQ) cruzó hacia abajo ⬇️ el máximo de ayer (PDH)",
-   "texto": "Nivel 29,903.50 · precio 29,868.75. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "21-oct 01:22"
   }
  ],
- "btc_precio": 80658.6
+ "btc_precio": 80474.6
 }
