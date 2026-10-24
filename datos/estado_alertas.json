@@ -2,7 +2,7 @@
  "precios": {
   "NQ=F": 29117.75,
   "ES=F": 7659.75,
-  "BTC-USD": 80136.0390625,
+  "BTC-USD": 80400.703125,
   "GC=F": 4007.89990234375,
   "CL=F": 103.2699966430664,
   "^VIX": 19.450000762939453
@@ -125,7 +125,8 @@
   "nivel-BTC-USD-mínimo-80422": "2026-10-24T15:04:28.893146+00:00",
   "redondo-BTC-USD-80000": "2026-10-24T15:04:28.893196+00:00",
   "btc-gamma flip-80135": "2026-10-24T15:04:37.710419+00:00",
-  "btc-put wall-80000": "2026-10-24T15:04:37.710452+00:00"
+  "btc-put wall-80000": "2026-10-24T15:04:37.710452+00:00",
+  "btc-gamma flip-80255": "2026-10-24T19:15:56.195374+00:00"
  },
  "gamma": {
   "SPY": {
@@ -138,6 +139,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "btc-gamma flip-80255",
+   "titulo": "Bitcoin cruzó el gamma flip (~80,255)",
+   "texto": "Precio 80,406. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "24-oct 15:15"
+  },
   {
    "clave": "nivel-BTC-USD-mínimo-80422",
    "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
@@ -480,14 +488,7 @@
    "texto": "Precio 7,790. Nivel de opciones donde puede cambiar el comportamiento del precio.",
    "prioridad": 3,
    "hora": "21-oct 15:31"
-  },
-  {
-   "clave": "gamma-SPY-call wall-7790",
-   "titulo": "ES (S&P 500) cruzó el call wall (~7,790)",
-   "texto": "Precio 7,790. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "21-oct 15:31"
   }
  ],
- "btc_precio": 80137.7
+ "btc_precio": 80406.3
 }
