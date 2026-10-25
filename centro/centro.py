@@ -236,6 +236,8 @@ def armar():
         print("bitcoin:", e); btc = {}
     # Alerta: el precio se salió del rango que esperaba el mercado de opciones
     for r in ops_res:
+        if r.get("nota"):      # fuera de horario: las opciones son del último cierre → no avisar con datos viejos
+            continue
         p = r.get("proximo")
         sim = {"QQQ": "NQ=F", "SPY": "ES=F"}[r["etf"]]
         n = mercado["niveles"].get(sim, {})
