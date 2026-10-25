@@ -2,7 +2,7 @@
  "precios": {
   "NQ=F": 29117.75,
   "ES=F": 7659.75,
-  "BTC-USD": 80474.2890625,
+  "BTC-USD": 80712.09375,
   "GC=F": 4007.89990234375,
   "CL=F": 103.2699966430664,
   "^VIX": 19.450000762939453
@@ -128,7 +128,8 @@
   "btc-put wall-80000": "2026-10-24T15:04:37.710452+00:00",
   "btc-gamma flip-80255": "2026-10-24T19:15:56.195374+00:00",
   "btc-gamma flip-80237": "2026-10-24T21:14:58.463907+00:00",
-  "btc-gamma flip-80260": "2026-10-24T21:58:40.880596+00:00"
+  "btc-gamma flip-80260": "2026-10-24T21:58:40.880596+00:00",
+  "rango-ES=F-20261025": "2026-10-25T00:02:55.964296+00:00"
  },
  "gamma": {
   "SPY": {
@@ -141,6 +142,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "rango-ES=F-20261025",
+   "titulo": "ES (S&P 500) se salió del rango esperado (±14 pts)",
+   "texto": "Va -45 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "24-oct 20:02"
+  },
   {
    "clave": "btc-gamma flip-80260",
    "titulo": "Bitcoin cruzó el gamma flip (~80,260)",
@@ -483,14 +491,7 @@
    "texto": "Precio 83,436. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
    "prioridad": 3,
    "hora": "21-oct 21:57"
-  },
-  {
-   "clave": "nivel-NQ=F-máximo-29904",
-   "titulo": "Nasdaq (NQ) cruzó hacia abajo ⬇️ el máximo de ayer (PDH)",
-   "texto": "Nivel 29,903.50 · precio 29,846.25. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "21-oct 18:38"
   }
  ],
- "btc_precio": 80473.8
+ "btc_precio": 80709.6
 }
