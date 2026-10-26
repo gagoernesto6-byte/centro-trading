@@ -1,10 +1,10 @@
 {
  "precios": {
-  "NQ=F": 29225.75,
-  "ES=F": 7673.75,
-  "BTC-USD": 80011.609375,
-  "GC=F": 4004.0,
-  "CL=F": 101.9000015258789,
+  "NQ=F": 29180.75,
+  "ES=F": 7679.75,
+  "BTC-USD": 79947.7734375,
+  "GC=F": 4029.199951171875,
+  "CL=F": 100.94999694824219,
   "^VIX": 19.450000762939453
  },
  "enviadas": {
@@ -123,7 +123,7 @@
   "btc-gamma flip-80532": "2026-10-24T10:26:44.572628+00:00",
   "btc-gamma flip-80551": "2026-10-24T14:05:31.936054+00:00",
   "nivel-BTC-USD-mínimo-80422": "2026-10-24T15:04:28.893146+00:00",
-  "redondo-BTC-USD-80000": "2026-10-24T15:04:28.893196+00:00",
+  "redondo-BTC-USD-80000": "2026-10-26T05:09:33.581712+00:00",
   "btc-gamma flip-80135": "2026-10-24T15:04:37.710419+00:00",
   "btc-put wall-80000": "2026-10-24T15:04:37.710452+00:00",
   "btc-gamma flip-80255": "2026-10-24T19:15:56.195374+00:00",
@@ -142,6 +142,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-BTC-USD-80000",
+   "titulo": "Bitcoin cruzó el número redondo 80,000",
+   "texto": "Precio 79,947.77. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "26-oct 01:09"
+  },
   {
    "clave": "rango-ES=F-20261025",
    "titulo": "ES (S&P 500) se salió del rango esperado (±14 pts)",
@@ -484,14 +491,7 @@
    "texto": "Nivel 4,130.10 · precio 4,129.20. Zona de liquidez: ojo con barridas y rupturas falsas.",
    "prioridad": 3,
    "hora": "21-oct 21:57"
-  },
-  {
-   "clave": "btc-call wall-84000",
-   "titulo": "Bitcoin cruzó el call wall (~84,000)",
-   "texto": "Precio 83,436. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "21-oct 21:57"
   }
  ],
- "btc_precio": 80017.0
+ "btc_precio": 79964.5
 }
