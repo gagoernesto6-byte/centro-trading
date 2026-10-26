@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 29516.25,
-  "ES=F": 7721.75,
-  "BTC-USD": 80324.34375,
-  "GC=F": 4043.300048828125,
-  "CL=F": 102.18000030517578,
-  "^VIX": 18.299999237060547
+  "NQ=F": 29467.5,
+  "ES=F": 7714.5,
+  "BTC-USD": 79999.9921875,
+  "GC=F": 4031.0,
+  "CL=F": 101.25,
+  "^VIX": 18.389999389648438
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-22T05:49:01.397751+00:00",
@@ -123,7 +123,7 @@
   "btc-gamma flip-80532": "2026-10-24T10:26:44.572628+00:00",
   "btc-gamma flip-80551": "2026-10-24T14:05:31.936054+00:00",
   "nivel-BTC-USD-mínimo-80422": "2026-10-24T15:04:28.893146+00:00",
-  "redondo-BTC-USD-80000": "2026-10-26T05:09:33.581712+00:00",
+  "redondo-BTC-USD-80000": "2026-10-26T21:46:32.644136+00:00",
   "btc-gamma flip-80135": "2026-10-24T15:04:37.710419+00:00",
   "btc-put wall-80000": "2026-10-24T15:04:37.710452+00:00",
   "btc-gamma flip-80255": "2026-10-24T19:15:56.195374+00:00",
@@ -148,6 +148,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-BTC-USD-80000",
+   "titulo": "Bitcoin cruzó el número redondo 80,000",
+   "texto": "Precio 79,999.99. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "26-oct 17:46"
+  },
   {
    "clave": "nivel-NQ=F-máximo-29326",
    "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
@@ -490,14 +497,7 @@
    "texto": "Precio 81,878. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
    "prioridad": 3,
    "hora": "22-oct 07:18"
-  },
-  {
-   "clave": "btc-put wall-82000",
-   "titulo": "Bitcoin cruzó el put wall (~82,000)",
-   "texto": "Precio 81,878. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "22-oct 07:18"
   }
  ],
- "btc_precio": 80314.3
+ "btc_precio": 80015.4
 }
