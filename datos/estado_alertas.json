@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 29882.0,
-  "ES=F": 7769.75,
-  "BTC-USD": 81003.109375,
-  "GC=F": 4053.300048828125,
-  "CL=F": 102.83000183105469,
-  "^VIX": 17.299999237060547
+  "NQ=F": 29682.75,
+  "ES=F": 7753.5,
+  "BTC-USD": 81241.359375,
+  "GC=F": 4065.199951171875,
+  "CL=F": 101.93000030517578,
+  "^VIX": 16.889999389648438
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-27T17:49:33.453121+00:00",
@@ -148,9 +148,10 @@
   "rango-ES=F-20261027": "2026-10-27T17:49:49.591930+00:00",
   "rango-NQ=F-20261027": "2026-10-27T17:49:49.591971+00:00",
   "nivel-BTC-USD-máximo-80710": "2026-10-27T21:53:36.465549+00:00",
-  "nivel-NQ=F-máximo-29881": "2026-10-28T06:47:20.536785+00:00",
+  "nivel-NQ=F-máximo-29881": "2026-10-28T23:14:25.227116+00:00",
   "nivel-CL=F-máximo-103": "2026-10-28T19:07:56.656833+00:00",
-  "gamma-SPY-call wall-7757": "2026-10-28T19:08:01.220383+00:00"
+  "gamma-SPY-call wall-7757": "2026-10-28T19:08:01.220383+00:00",
+  "nivel-BTC-USD-máximo-81181": "2026-10-28T23:14:26.156323+00:00"
  },
  "gamma": {
   "SPY": {
@@ -163,6 +164,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-NQ=F-máximo-29881",
+   "titulo": "Nasdaq (NQ) cruzó hacia abajo ⬇️ el máximo de ayer (PDH)",
+   "texto": "Nivel 29,881.25 · precio 29,682.75. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "28-oct 19:14"
+  },
+  {
+   "clave": "nivel-BTC-USD-máximo-81181",
+   "titulo": "Bitcoin cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
+   "texto": "Nivel 81,180.92 · precio 81,241.36. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "28-oct 19:14"
+  },
   {
    "clave": "nivel-CL=F-máximo-103",
    "titulo": "Petróleo WTI cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
@@ -498,21 +513,7 @@
    "texto": "Precio 7,666. Nivel de opciones donde puede cambiar el comportamiento del precio.",
    "prioridad": 3,
    "hora": "23-oct 15:33"
-  },
-  {
-   "clave": "gamma-QQQ-call wall-29160",
-   "titulo": "NQ (Nasdaq 100) cruzó el call wall (~29,160)",
-   "texto": "Precio 29,139. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "23-oct 15:33"
-  },
-  {
-   "clave": "gamma-QQQ-put wall-29160",
-   "titulo": "NQ (Nasdaq 100) cruzó el put wall (~29,160)",
-   "texto": "Precio 29,139. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "23-oct 15:33"
   }
  ],
- "btc_precio": 81026.9
+ "btc_precio": 81249.8
 }
