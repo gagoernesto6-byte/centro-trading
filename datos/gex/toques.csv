@@ -25,7 +25,7 @@ sesion,mercado,pared,nivel,toques,roto
 27-Oct,ES,Gamma flip,7767.43,2,False
 28-Oct,NQ,Call wall,29756.73,0,False
 28-Oct,NQ,Put wall,29756.73,0,False
-28-Oct,NQ,Gamma flip,29939.71,3,False
-28-Oct,ES,Call wall,7758.31,1,False
+28-Oct,NQ,Gamma flip,29939.71,3,True
+28-Oct,ES,Call wall,7758.31,4,False
 28-Oct,ES,Put wall,7556.8,0,False
-28-Oct,ES,Gamma flip,7767.43,3,False
+28-Oct,ES,Gamma flip,7767.43,5,True

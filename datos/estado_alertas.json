@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 29957.25,
-  "ES=F": 7759.25,
-  "BTC-USD": 80774.4765625,
-  "GC=F": 4042.10009765625,
-  "CL=F": 101.62000274658203,
-  "^VIX": 17.510000228881836
+  "NQ=F": 29910.5,
+  "ES=F": 7775.25,
+  "BTC-USD": 80549.0078125,
+  "GC=F": 4066.699951171875,
+  "CL=F": 101.77999877929688,
+  "^VIX": 17.309999465942383
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-27T17:49:33.453121+00:00",
@@ -75,7 +75,7 @@
   "nivel-GC=F-mínimo-4156": "2026-10-20T10:18:20.883609+00:00",
   "nivel-CL=F-mínimo-99": "2026-10-20T10:18:21.202587+00:00",
   "redondo-CL=F-100": "2026-10-27T17:49:34.330552+00:00",
-  "nivel-ES=F-máximo-7773": "2026-10-20T15:11:09.123268+00:00",
+  "nivel-ES=F-máximo-7773": "2026-10-28T13:35:28.396957+00:00",
   "gamma-SPY-call wall-7777": "2026-10-20T15:11:15.486185+00:00",
   "gamma-QQQ-put wall-29823": "2026-10-20T15:11:15.486220+00:00",
   "btc-gamma flip-81375": "2026-10-20T15:11:25.004685+00:00",
@@ -161,6 +161,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-ES=F-máximo-7773",
+   "titulo": "S&P 500 (ES) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
+   "texto": "Nivel 7,772.75 · precio 7,775.25. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "28-oct 09:35"
+  },
   {
    "clave": "nivel-NQ=F-máximo-29881",
    "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
@@ -503,14 +510,7 @@
    "texto": "Precio 7,680.00. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "23-oct 07:09"
-  },
-  {
-   "clave": "nivel-GC=F-mínimo-4037",
-   "titulo": "Oro cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
-   "texto": "Nivel 4,036.80 · precio 4,036.70. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "23-oct 07:09"
   }
  ],
- "btc_precio": 80770.6
+ "btc_precio": 80566.9
 }
