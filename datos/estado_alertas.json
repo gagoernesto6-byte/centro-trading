@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 29910.5,
-  "ES=F": 7775.25,
-  "BTC-USD": 80549.0078125,
-  "GC=F": 4066.699951171875,
-  "CL=F": 101.77999877929688,
-  "^VIX": 17.309999465942383
+  "NQ=F": 29882.0,
+  "ES=F": 7769.75,
+  "BTC-USD": 81003.109375,
+  "GC=F": 4053.300048828125,
+  "CL=F": 102.83000183105469,
+  "^VIX": 17.299999237060547
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-27T17:49:33.453121+00:00",
@@ -148,19 +148,35 @@
   "rango-ES=F-20261027": "2026-10-27T17:49:49.591930+00:00",
   "rango-NQ=F-20261027": "2026-10-27T17:49:49.591971+00:00",
   "nivel-BTC-USD-máximo-80710": "2026-10-27T21:53:36.465549+00:00",
-  "nivel-NQ=F-máximo-29881": "2026-10-28T06:47:20.536785+00:00"
+  "nivel-NQ=F-máximo-29881": "2026-10-28T06:47:20.536785+00:00",
+  "nivel-CL=F-máximo-103": "2026-10-28T19:07:56.656833+00:00",
+  "gamma-SPY-call wall-7757": "2026-10-28T19:08:01.220383+00:00"
  },
  "gamma": {
   "SPY": {
    "positivo": false,
-   "precio": 7757.0
+   "precio": 7770.5
   },
   "QQQ": {
    "positivo": false,
-   "precio": 29805.5
+   "precio": 29879.75
   }
  },
  "historial": [
+  {
+   "clave": "nivel-CL=F-máximo-103",
+   "titulo": "Petróleo WTI cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
+   "texto": "Nivel 102.82 · precio 102.83. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "28-oct 15:07"
+  },
+  {
+   "clave": "gamma-SPY-call wall-7757",
+   "titulo": "ES (S&P 500) cruzó el call wall (~7,757)",
+   "texto": "Precio 7,770. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "28-oct 15:08"
+  },
   {
    "clave": "nivel-ES=F-máximo-7773",
    "titulo": "S&P 500 (ES) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
@@ -496,21 +512,7 @@
    "texto": "Precio 29,139. Nivel de opciones donde puede cambiar el comportamiento del precio.",
    "prioridad": 3,
    "hora": "23-oct 15:33"
-  },
-  {
-   "clave": "rango-ES=F-20261023",
-   "titulo": "ES (S&P 500) se salió del rango esperado (±14 pts)",
-   "texto": "Va -38 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "23-oct 15:33"
-  },
-  {
-   "clave": "redondo-ES=F-7700",
-   "titulo": "S&P 500 (ES) cruzó el número redondo 7,700",
-   "texto": "Precio 7,680.00. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "23-oct 07:09"
   }
  ],
- "btc_precio": 80566.9
+ "btc_precio": 81026.9
 }
