@@ -1,14 +1,14 @@
 {
  "precios": {
-  "NQ=F": 29710.0,
-  "ES=F": 7762.25,
-  "BTC-USD": 80874.1171875,
-  "GC=F": 4055.10009765625,
-  "CL=F": 101.94000244140625,
+  "NQ=F": 29546.75,
+  "ES=F": 7748.0,
+  "BTC-USD": 79842.953125,
+  "GC=F": 4074.199951171875,
+  "CL=F": 101.70999908447266,
   "^VIX": 16.889999389648438
  },
  "enviadas": {
-  "redondo-ES=F-7750": "2026-10-27T17:49:33.453121+00:00",
+  "redondo-ES=F-7750": "2026-10-29T02:17:00.877257+00:00",
   "nivel-ES=F-mínimo-7741": "2026-10-15T05:52:12.581932+00:00",
   "nivel-BTC-USD-mínimo-80963": "2026-10-15T05:52:12.795608+00:00",
   "gamma-regimen-SPY-True": "2026-10-21T19:31:09.649849+00:00",
@@ -123,7 +123,7 @@
   "btc-gamma flip-80532": "2026-10-24T10:26:44.572628+00:00",
   "btc-gamma flip-80551": "2026-10-24T14:05:31.936054+00:00",
   "nivel-BTC-USD-mínimo-80422": "2026-10-24T15:04:28.893146+00:00",
-  "redondo-BTC-USD-80000": "2026-10-27T17:49:33.729749+00:00",
+  "redondo-BTC-USD-80000": "2026-10-29T02:17:01.158716+00:00",
   "btc-gamma flip-80135": "2026-10-24T15:04:37.710419+00:00",
   "btc-put wall-80000": "2026-10-24T15:04:37.710452+00:00",
   "btc-gamma flip-80255": "2026-10-24T19:15:56.195374+00:00",
@@ -164,6 +164,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-ES=F-7750",
+   "titulo": "S&P 500 (ES) cruzó el número redondo 7,750",
+   "texto": "Precio 7,748.00. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "28-oct 22:17"
+  },
+  {
+   "clave": "redondo-BTC-USD-80000",
+   "titulo": "Bitcoin cruzó el número redondo 80,000",
+   "texto": "Precio 79,842.95. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "28-oct 22:17"
+  },
   {
    "clave": "nivel-NQ=F-máximo-29881",
    "titulo": "Nasdaq (NQ) cruzó hacia abajo ⬇️ el máximo de ayer (PDH)",
@@ -499,21 +513,7 @@
    "texto": "Precio 80,871. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
    "prioridad": 3,
    "hora": "23-oct 19:40"
-  },
-  {
-   "clave": "nivel-ES=F-mínimo-7677",
-   "titulo": "S&P 500 (ES) cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
-   "texto": "Nivel 7,676.75 · precio 7,666.00. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "23-oct 15:33"
-  },
-  {
-   "clave": "gamma-SPY-call wall-7685",
-   "titulo": "ES (S&P 500) cruzó el call wall (~7,685)",
-   "texto": "Precio 7,666. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "23-oct 15:33"
   }
  ],
- "btc_precio": 80884.2
+ "btc_precio": 79844.1
 }
