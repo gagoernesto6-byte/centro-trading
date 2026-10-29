@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 29622.5,
-  "ES=F": 7758.0,
-  "BTC-USD": 79855.0234375,
-  "GC=F": 4039.5,
-  "CL=F": 101.58000183105469,
-  "^VIX": 17.1299991607666
+  "NQ=F": 29694.5,
+  "ES=F": 7768.25,
+  "BTC-USD": 80123.75,
+  "GC=F": 4046.199951171875,
+  "CL=F": 101.26000213623047,
+  "^VIX": 16.979999542236328
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T02:17:00.877257+00:00",
@@ -152,7 +152,10 @@
   "nivel-CL=F-máximo-103": "2026-10-28T19:07:56.656833+00:00",
   "gamma-SPY-call wall-7757": "2026-10-28T19:08:01.220383+00:00",
   "nivel-BTC-USD-máximo-81181": "2026-10-28T23:14:26.156323+00:00",
-  "nivel-ES=F-mínimo-7750": "2026-10-29T08:46:02.051251+00:00"
+  "nivel-ES=F-mínimo-7750": "2026-10-29T08:46:02.051251+00:00",
+  "nivel-NQ=F-mínimo-29674": "2026-10-29T11:22:57.471250+00:00",
+  "evento-Advance GDP q/q-2026-10-29T08:30:00-04:00": "2026-10-29T11:23:00.231889+00:00",
+  "evento-Core PCE Price Index m/m-2026-10-29T08:30:00-04:00": "2026-10-29T11:23:00.231904+00:00"
  },
  "gamma": {
   "SPY": {
@@ -165,6 +168,27 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-NQ=F-mínimo-29674",
+   "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 29,674.25 · precio 29,694.50. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "29-oct 07:22"
+  },
+  {
+   "clave": "evento-Advance GDP q/q-2026-10-29T08:30:00-04:00",
+   "titulo": "⏰ En 67 min: Advance GDP q/q",
+   "texto": "Pronóstico 3.2% · anterior 1.5%. El precio puede saltar en segundos: muchos profesionales esperan a que pase el dato.",
+   "prioridad": 4,
+   "hora": "29-oct 07:23"
+  },
+  {
+   "clave": "evento-Core PCE Price Index m/m-2026-10-29T08:30:00-04:00",
+   "titulo": "⏰ En 67 min: Core PCE Price Index m/m",
+   "texto": "Pronóstico 0.3% · anterior 0.2%. El precio puede saltar en segundos: muchos profesionales esperan a que pase el dato.",
+   "prioridad": 4,
+   "hora": "29-oct 07:23"
+  },
   {
    "clave": "nivel-ES=F-mínimo-7750",
    "titulo": "S&P 500 (ES) cruzó hacia arriba ⬆️ el mínimo de ayer (PDL)",
@@ -493,28 +517,7 @@
    "texto": "Precio 80,475. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
    "prioridad": 3,
    "hora": "24-oct 06:26"
-  },
-  {
-   "clave": "nivel-BTC-USD-mínimo-80841",
-   "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
-   "texto": "Nivel 80,841.27 · precio 80,622.29. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "23-oct 21:08"
-  },
-  {
-   "clave": "rango-ES=F-20261024",
-   "titulo": "ES (S&P 500) se salió del rango esperado (±14 pts)",
-   "texto": "Va -32 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "23-oct 21:08"
-  },
-  {
-   "clave": "btc-gamma flip-80681",
-   "titulo": "Bitcoin cruzó el gamma flip (~80,681)",
-   "texto": "Precio 80,630. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "23-oct 21:08"
   }
  ],
- "btc_precio": 79855.6
+ "btc_precio": 80127.7
 }
