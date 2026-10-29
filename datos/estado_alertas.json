@@ -1,14 +1,14 @@
 {
  "precios": {
-  "NQ=F": 29591.25,
-  "ES=F": 7756.5,
-  "BTC-USD": 81596.9765625,
-  "GC=F": 4032.39990234375,
-  "CL=F": 100.25,
-  "^VIX": 16.420000076293945
+  "NQ=F": 29224.5,
+  "ES=F": 7717.25,
+  "BTC-USD": 79783.59375,
+  "GC=F": 4036.5,
+  "CL=F": 102.87000274658203,
+  "^VIX": 17.209999084472656
  },
  "enviadas": {
-  "redondo-ES=F-7750": "2026-10-29T02:17:00.877257+00:00",
+  "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
   "nivel-ES=F-mínimo-7741": "2026-10-15T05:52:12.581932+00:00",
   "nivel-BTC-USD-mínimo-80963": "2026-10-15T05:52:12.795608+00:00",
   "gamma-regimen-SPY-True": "2026-10-21T19:31:09.649849+00:00",
@@ -32,13 +32,13 @@
   "redondo-ES=F-7800": "2026-10-16T04:33:25.208786+00:00",
   "nivel-GC=F-máximo-4198": "2026-10-16T18:04:14.423449+00:00",
   "redondo-GC=F-4200": "2026-10-19T00:22:31.401198+00:00",
-  "mov-NQ=F-down": "2026-10-16T14:08:15.091278+00:00",
+  "mov-NQ=F-down": "2026-10-29T20:38:18.742617+00:00",
   "rango-NQ=F-20261016": "2026-10-16T14:08:26.220136+00:00",
   "gamma-SPY-call wall-7775": "2026-10-16T15:21:42.446130+00:00",
   "gamma-SPY-put wall-7775": "2026-10-16T15:21:42.446159+00:00",
   "gamma-QQQ-call wall-29825": "2026-10-16T15:21:42.446202+00:00",
   "nivel-NQ=F-mínimo-29622": "2026-10-16T18:04:13.012824+00:00",
-  "redondo-NQ=F-29500": "2026-10-27T06:01:54.849808+00:00",
+  "redondo-NQ=F-29500": "2026-10-29T20:38:18.742776+00:00",
   "nivel-ES=F-mínimo-7717": "2026-10-16T18:04:13.486513+00:00",
   "nivel-CL=F-máximo-98": "2026-10-16T18:04:14.937633+00:00",
   "gamma-SPY-gamma flip-7754": "2026-10-16T18:04:21.177262+00:00",
@@ -123,14 +123,14 @@
   "btc-gamma flip-80532": "2026-10-24T10:26:44.572628+00:00",
   "btc-gamma flip-80551": "2026-10-24T14:05:31.936054+00:00",
   "nivel-BTC-USD-mínimo-80422": "2026-10-24T15:04:28.893146+00:00",
-  "redondo-BTC-USD-80000": "2026-10-29T02:17:01.158716+00:00",
+  "redondo-BTC-USD-80000": "2026-10-29T20:38:19.224357+00:00",
   "btc-gamma flip-80135": "2026-10-24T15:04:37.710419+00:00",
   "btc-put wall-80000": "2026-10-24T15:04:37.710452+00:00",
   "btc-gamma flip-80255": "2026-10-24T19:15:56.195374+00:00",
   "btc-gamma flip-80237": "2026-10-24T21:14:58.463907+00:00",
   "btc-gamma flip-80260": "2026-10-24T21:58:40.880596+00:00",
   "rango-ES=F-20261025": "2026-10-25T00:02:55.964296+00:00",
-  "btc-put wall-80": "2026-10-27T06:02:00.290362+00:00",
+  "btc-put wall-80": "2026-10-29T20:38:24.439416+00:00",
   "nivel-NQ=F-máximo-29326": "2026-10-26T17:23:51.833647+00:00",
   "nivel-ES=F-máximo-7714": "2026-10-26T17:23:52.122739+00:00",
   "gamma-SPY-call wall-7719": "2026-10-26T17:23:57.184148+00:00",
@@ -138,7 +138,7 @@
   "rango-NQ=F-20261026": "2026-10-26T17:24:05.632185+00:00",
   "nivel-BTC-USD-mínimo-79767": "2026-10-27T06:01:55.302856+00:00",
   "btc-gamma flip-80": "2026-10-29T15:37:28.348123+00:00",
-  "btc-call wall-80": "2026-10-27T06:02:00.290339+00:00",
+  "btc-call wall-80": "2026-10-29T20:38:24.439371+00:00",
   "nivel-NQ=F-máximo-29572": "2026-10-27T17:49:33.160433+00:00",
   "nivel-ES=F-máximo-7740": "2026-10-27T17:49:33.453073+00:00",
   "nivel-GC=F-máximo-4044": "2026-10-27T17:49:34.037397+00:00",
@@ -173,6 +173,48 @@
   }
  },
  "historial": [
+  {
+   "clave": "mov-NQ=F-down",
+   "titulo": "Nasdaq (NQ) 📉 cae -0.91 % en 1 h",
+   "texto": "Precio 29,224.50. Movimiento fuerte: revisa noticias antes de operar.",
+   "prioridad": 4,
+   "hora": "29-oct 16:38"
+  },
+  {
+   "clave": "redondo-NQ=F-29500",
+   "titulo": "Nasdaq (NQ) cruzó el número redondo 29,500",
+   "texto": "Precio 29,224.50. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "29-oct 16:38"
+  },
+  {
+   "clave": "redondo-ES=F-7750",
+   "titulo": "S&P 500 (ES) cruzó el número redondo 7,750",
+   "texto": "Precio 7,717.25. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "29-oct 16:38"
+  },
+  {
+   "clave": "redondo-BTC-USD-80000",
+   "titulo": "Bitcoin cruzó el número redondo 80,000",
+   "texto": "Precio 79,783.59. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "29-oct 16:38"
+  },
+  {
+   "clave": "btc-call wall-80",
+   "titulo": "Bitcoin cruzó el call wall (~80,000)",
+   "texto": "Precio 79,782. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "29-oct 16:38"
+  },
+  {
+   "clave": "btc-put wall-80",
+   "titulo": "Bitcoin cruzó el put wall (~80,000)",
+   "texto": "Precio 79,782. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "29-oct 16:38"
+  },
   {
    "clave": "nivel-BTC-USD-mínimo-80300",
    "titulo": "Bitcoin cruzó hacia arriba ⬆️ el mínimo de ayer (PDL)",
@@ -480,49 +522,7 @@
    "texto": "Va +62 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
    "prioridad": 4,
    "hora": "26-oct 13:24"
-  },
-  {
-   "clave": "rango-NQ=F-20261026",
-   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±82 pts)",
-   "texto": "Va +398 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "26-oct 13:24"
-  },
-  {
-   "clave": "btc-put wall-80",
-   "titulo": "Bitcoin cruzó el put wall (~80,000)",
-   "texto": "Precio 80,205. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "26-oct 07:08"
-  },
-  {
-   "clave": "redondo-BTC-USD-80000",
-   "titulo": "Bitcoin cruzó el número redondo 80,000",
-   "texto": "Precio 79,947.77. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "26-oct 01:09"
-  },
-  {
-   "clave": "rango-ES=F-20261025",
-   "titulo": "ES (S&P 500) se salió del rango esperado (±14 pts)",
-   "texto": "Va -45 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "24-oct 20:02"
-  },
-  {
-   "clave": "btc-gamma flip-80260",
-   "titulo": "Bitcoin cruzó el gamma flip (~80,260)",
-   "texto": "Precio 80,328. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "24-oct 17:58"
-  },
-  {
-   "clave": "btc-gamma flip-80237",
-   "titulo": "Bitcoin cruzó el gamma flip (~80,237)",
-   "texto": "Precio 80,231. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "24-oct 17:14"
   }
  ],
- "btc_precio": 81585.0
+ "btc_precio": 79782.2
 }
