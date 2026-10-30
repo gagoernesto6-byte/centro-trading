@@ -1,10 +1,10 @@
 {
  "precios": {
-  "NQ=F": 28854.25,
-  "ES=F": 7672.25,
-  "BTC-USD": 76862.296875,
-  "GC=F": 4015.60009765625,
-  "CL=F": 102.73999786376953,
+  "NQ=F": 28971.75,
+  "ES=F": 7683.5,
+  "BTC-USD": 78471.5078125,
+  "GC=F": 3998.0,
+  "CL=F": 103.29000091552734,
   "^VIX": 17.209999084472656
  },
  "enviadas": {
@@ -149,7 +149,7 @@
   "rango-NQ=F-20261027": "2026-10-27T17:49:49.591971+00:00",
   "nivel-BTC-USD-máximo-80710": "2026-10-27T21:53:36.465549+00:00",
   "nivel-NQ=F-máximo-29881": "2026-10-28T23:14:25.227116+00:00",
-  "nivel-CL=F-máximo-103": "2026-10-28T19:07:56.656833+00:00",
+  "nivel-CL=F-máximo-103": "2026-10-30T06:15:03.420314+00:00",
   "gamma-SPY-call wall-7757": "2026-10-29T15:37:18.827363+00:00",
   "nivel-BTC-USD-máximo-81181": "2026-10-28T23:14:26.156323+00:00",
   "nivel-ES=F-mínimo-7750": "2026-10-29T08:46:02.051251+00:00",
@@ -164,7 +164,9 @@
   "mov-BTC-USD-down": "2026-10-30T00:15:55.969752+00:00",
   "redondo-BTC-USD-78000": "2026-10-30T00:15:55.969908+00:00",
   "btc-put wall-78": "2026-10-30T00:16:00.651279+00:00",
-  "redondo-NQ=F-29000": "2026-10-30T01:15:54.564895+00:00"
+  "redondo-NQ=F-29000": "2026-10-30T01:15:54.564895+00:00",
+  "redondo-GC=F-4000": "2026-10-30T06:15:03.042994+00:00",
+  "btc-call wall-78": "2026-10-30T06:15:09.226107+00:00"
  },
  "gamma": {
   "SPY": {
@@ -177,6 +179,27 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-GC=F-4000",
+   "titulo": "Oro cruzó el número redondo 4,000",
+   "texto": "Precio 3,998.00. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "30-oct 02:15"
+  },
+  {
+   "clave": "nivel-CL=F-máximo-103",
+   "titulo": "Petróleo WTI cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
+   "texto": "Nivel 103.00 · precio 103.29. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "30-oct 02:15"
+  },
+  {
+   "clave": "btc-call wall-78",
+   "titulo": "Bitcoin cruzó el call wall (~78,000)",
+   "texto": "Precio 78,428. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "30-oct 02:15"
+  },
   {
    "clave": "redondo-NQ=F-29000",
    "titulo": "Nasdaq (NQ) cruzó el número redondo 29,000",
@@ -505,28 +528,7 @@
    "texto": "Precio 79,776. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
    "prioridad": 3,
    "hora": "27-oct 02:02"
-  },
-  {
-   "clave": "btc-put wall-80",
-   "titulo": "Bitcoin cruzó el put wall (~80,000)",
-   "texto": "Precio 79,776. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "27-oct 02:02"
-  },
-  {
-   "clave": "redondo-BTC-USD-80000",
-   "titulo": "Bitcoin cruzó el número redondo 80,000",
-   "texto": "Precio 79,999.99. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "26-oct 17:46"
-  },
-  {
-   "clave": "nivel-NQ=F-máximo-29326",
-   "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
-   "texto": "Nivel 29,326.00 · precio 29,516.25. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "26-oct 13:23"
   }
  ],
- "btc_precio": 76853.1
+ "btc_precio": 78427.9
 }
