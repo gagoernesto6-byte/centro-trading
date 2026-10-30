@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 28775.25,
-  "ES=F": 7666.75,
-  "BTC-USD": 77164.09375,
-  "GC=F": 3949.0,
-  "CL=F": 103.76000213623047,
-  "^VIX": 18.600000381469727
+  "NQ=F": 28589.0,
+  "ES=F": 7611.75,
+  "BTC-USD": 77160.6875,
+  "GC=F": 3903.39990234375,
+  "CL=F": 104.27999877929688,
+  "^VIX": 19.940000534057617
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
@@ -167,19 +167,59 @@
   "redondo-NQ=F-29000": "2026-10-30T01:15:54.564895+00:00",
   "redondo-GC=F-4000": "2026-10-30T06:15:03.042994+00:00",
   "btc-call wall-78": "2026-10-30T06:15:09.226107+00:00",
-  "nivel-BTC-USD-mínimo-77737": "2026-10-30T12:07:58.918369+00:00"
+  "nivel-BTC-USD-mínimo-77737": "2026-10-30T12:07:58.918369+00:00",
+  "redondo-ES=F-7650": "2026-10-30T17:08:00.081854+00:00",
+  "gamma-SPY-gamma flip-7716": "2026-10-30T17:08:04.730102+00:00",
+  "gamma-QQQ-gamma flip-29413": "2026-10-30T17:08:04.730140+00:00",
+  "rango-ES=F-20261030": "2026-10-30T17:08:14.889104+00:00",
+  "rango-NQ=F-20261030": "2026-10-30T17:08:14.889145+00:00"
  },
  "gamma": {
   "SPY": {
    "positivo": false,
-   "precio": 7756.0
+   "precio": 7611.75
   },
   "QQQ": {
    "positivo": false,
-   "precio": 29588.75
+   "precio": 28589.0
   }
  },
  "historial": [
+  {
+   "clave": "redondo-ES=F-7650",
+   "titulo": "S&P 500 (ES) cruzó el número redondo 7,650",
+   "texto": "Precio 7,611.75. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "30-oct 13:08"
+  },
+  {
+   "clave": "gamma-SPY-gamma flip-7716",
+   "titulo": "ES (S&P 500) cruzó el gamma flip (~7,716)",
+   "texto": "Precio 7,612. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "30-oct 13:08"
+  },
+  {
+   "clave": "gamma-QQQ-gamma flip-29413",
+   "titulo": "NQ (Nasdaq 100) cruzó el gamma flip (~29,413)",
+   "texto": "Precio 28,589. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "30-oct 13:08"
+  },
+  {
+   "clave": "rango-ES=F-20261030",
+   "titulo": "ES (S&P 500) se salió del rango esperado (±29 pts)",
+   "texto": "Va -142 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "30-oct 13:08"
+  },
+  {
+   "clave": "rango-NQ=F-20261030",
+   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±161 pts)",
+   "texto": "Va -973 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "30-oct 13:08"
+  },
   {
    "clave": "nivel-BTC-USD-mínimo-77737",
    "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
@@ -494,42 +534,7 @@
    "texto": "Precio 29,806. Nivel de opciones donde puede cambiar el comportamiento del precio.",
    "prioridad": 3,
    "hora": "27-oct 13:49"
-  },
-  {
-   "clave": "rango-ES=F-20261027",
-   "titulo": "ES (S&P 500) se salió del rango esperado (±12 pts)",
-   "texto": "Va +42 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "27-oct 13:49"
-  },
-  {
-   "clave": "rango-NQ=F-20261027",
-   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±68 pts)",
-   "texto": "Va +368 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "27-oct 13:49"
-  },
-  {
-   "clave": "redondo-NQ=F-29500",
-   "titulo": "Nasdaq (NQ) cruzó el número redondo 29,500",
-   "texto": "Precio 29,368.50. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "27-oct 02:01"
-  },
-  {
-   "clave": "nivel-BTC-USD-mínimo-79767",
-   "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
-   "texto": "Nivel 79,766.83 · precio 79,751.64. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "27-oct 02:01"
-  },
-  {
-   "clave": "btc-gamma flip-80",
-   "titulo": "Bitcoin cruzó el gamma flip (~80,018)",
-   "texto": "Precio 79,776. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "27-oct 02:02"
   }
  ],
- "btc_precio": 77177.7
+ "btc_precio": 77145.1
 }
