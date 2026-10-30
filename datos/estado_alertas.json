@@ -1,10 +1,10 @@
 {
  "precios": {
-  "NQ=F": 29100.5,
-  "ES=F": 7704.75,
-  "BTC-USD": 77076.640625,
-  "GC=F": 4021.199951171875,
-  "CL=F": 102.7699966430664,
+  "NQ=F": 28900.0,
+  "ES=F": 7677.75,
+  "BTC-USD": 77012.9921875,
+  "GC=F": 4011.300048828125,
+  "CL=F": 102.55999755859375,
   "^VIX": 17.209999084472656
  },
  "enviadas": {
@@ -163,7 +163,8 @@
   "btc-put wall-81": "2026-10-29T15:37:28.348133+00:00",
   "mov-BTC-USD-down": "2026-10-30T00:15:55.969752+00:00",
   "redondo-BTC-USD-78000": "2026-10-30T00:15:55.969908+00:00",
-  "btc-put wall-78": "2026-10-30T00:16:00.651279+00:00"
+  "btc-put wall-78": "2026-10-30T00:16:00.651279+00:00",
+  "redondo-NQ=F-29000": "2026-10-30T01:15:54.564895+00:00"
  },
  "gamma": {
   "SPY": {
@@ -176,6 +177,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-NQ=F-29000",
+   "titulo": "Nasdaq (NQ) cruzó el número redondo 29,000",
+   "texto": "Precio 28,900.00. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "29-oct 21:15"
+  },
   {
    "clave": "mov-BTC-USD-down",
    "titulo": "Bitcoin 📉 cae -1.54 % en 1 h",
@@ -518,14 +526,7 @@
    "texto": "Nivel 29,326.00 · precio 29,516.25. Zona de liquidez: ojo con barridas y rupturas falsas.",
    "prioridad": 3,
    "hora": "26-oct 13:23"
-  },
-  {
-   "clave": "redondo-NQ=F-29500",
-   "titulo": "Nasdaq (NQ) cruzó el número redondo 29,500",
-   "texto": "Precio 29,516.25. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "26-oct 13:23"
   }
  ],
- "btc_precio": 77092.4
+ "btc_precio": 77048.8
 }
