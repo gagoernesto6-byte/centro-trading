@@ -123,13 +123,15 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
     <button role="tab" data-tab="volatilidad">Volatilidad</button>
     <button role="tab" data-tab="bitcoin">Bitcoin</button>
     <button role="tab" data-tab="riesgo">Riesgo</button>
-    <button role="tab" data-tab="reporte">Reporte</button>
+    <button role="tab" data-tab="reporte">Reporte de precios</button>
+    <button role="tab" data-tab="noticias">Noticias</button>
     <button role="tab" data-tab="laboratorio">Laboratorio</button>
   </nav>
 
   <main>
     <!-- RESUMEN -->
     <section class="tab" id="resumen" role="tabpanel">
+      <div id="ultima-hora" hidden></div>
       <div class="pan"><div class="pan-h"><h2>Antes de operar</h2></div><div class="sem" id="semaforo"></div></div>
       <div class="pan"><div class="pan-h"><h2>Rango esperado</h2><small>lo que espera el mercado de opciones</small></div><div class="kpis" id="rangos"></div></div>
       <div class="fila">
@@ -263,7 +265,14 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
     <!-- REPORTE -->
     <section class="tab" id="reporte" role="tabpanel" hidden>
       <div class="fila">
-        <div class="pan"><div class="pan-h"><h2>Último reporte con IA</h2></div><div id="rep" class="reporte"></div></div>
+        <div class="pan"><div class="pan-h"><h2>Reporte de precios con IA</h2><small>NQ · ES · bitcoin · escenarios y niveles</small></div><div id="rep" class="reporte"></div></div>
+      </div>
+    </section>
+
+    <!-- NOTICIAS -->
+    <section class="tab" id="noticias" role="tabpanel" hidden>
+      <div class="fila">
+        <div class="pan"><div class="pan-h"><h2>Noticias generales con IA</h2><small>mundo · Venezuela · economía · empresas · cripto</small></div><div id="not" class="reporte"></div></div>
         <div class="pan"><div class="pan-h"><h2>Titulares</h2><small>CNBC · Investing.com</small></div><div id="titulares"></div></div>
       </div>
     </section>
@@ -549,11 +558,26 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
   presets(); calcular();
 
   // ---------- REPORTE y LABORATORIO ----------
-  var rep = document.getElementById("rep");
-  if (D.reporte && D.reporte.bloques && D.reporte.bloques.length) {
-    rep.appendChild(el("small", "mono", D.reporte.fecha || ""));
-    D.reporte.bloques.forEach(function (b) { if (b.tipo === "h") rep.appendChild(el("h3", null, b.texto)); else if (b.tipo === "li") { var u = rep.lastElementChild && rep.lastElementChild.tagName === "UL" ? rep.lastElementChild : rep.appendChild(el("ul")); u.appendChild(el("li", null, b.texto)); } else rep.appendChild(el("p", null, b.texto)); });
-  } else rep.appendChild(el("p", "vacio", "Todavía no hay reporte con IA."));
+  function pintarMd(cont, datos, vacio) {
+    if (datos && datos.bloques && datos.bloques.length) {
+      cont.appendChild(el("small", "mono", datos.fecha || ""));
+      datos.bloques.forEach(function (b) { if (b.tipo === "h") cont.appendChild(el("h3", null, b.texto)); else if (b.tipo === "li") { var u = cont.lastElementChild && cont.lastElementChild.tagName === "UL" ? cont.lastElementChild : cont.appendChild(el("ul")); u.appendChild(el("li", null, b.texto)); } else cont.appendChild(el("p", null, b.texto)); });
+    } else cont.appendChild(el("p", "vacio", vacio));
+  }
+  pintarMd(document.getElementById("rep"), D.reporte, "Todavía no hay reporte con IA.");
+  pintarMd(document.getElementById("not"), D.noticias, "Todavía no hay noticias con IA.");
+  // Última hora: si las noticias traen un título con ⚡, se muestra arriba del Resumen
+  (function () {
+    var b = D.noticias && D.noticias.bloques ? D.noticias.bloques.filter(function (x) { return x.tipo === "h" && x.texto.indexOf("⚡") === 0; })[0] : null;
+    if (!b) return;
+    var caja = document.getElementById("ultima-hora"), av = el("div", "aviso mal");
+    av.appendChild(el("strong", null, b.texto + " · "));
+    var i = D.noticias.bloques.indexOf(b), sig = D.noticias.bloques[i + 1];
+    if (sig && sig.tipo !== "h") av.appendChild(el("span", null, sig.texto + " "));
+    var ver = el("button", null, "Ver noticias"); ver.type = "button"; ver.style.marginLeft = "6px";
+    ver.addEventListener("click", function () { abrir("noticias"); });
+    av.appendChild(ver); caja.appendChild(av); caja.hidden = false;
+  })();
   (D.titulares || []).slice(0, 12).forEach(function (t) { var r = el("div", "titular"); var a = el("a", null, t.titulo); a.href = t.link; a.target = "_blank"; a.rel = "noopener"; r.appendChild(a); r.appendChild(el("small", null, t.fuente + " · " + t.hora)); document.getElementById("titulares").appendChild(r); });
   (D.laboratorio || []).forEach(function (p) { var tr = el("tr"); tr.appendChild(el("td", null, p.prueba)); tr.appendChild(el("td", null, p.datos)); tr.appendChild(el("td", null, p.resultado)); var td = el("td"); td.appendChild(el("span", "tag " + p.color, p.veredicto)); tr.appendChild(td); document.querySelector("#lab tbody").appendChild(tr); });
 

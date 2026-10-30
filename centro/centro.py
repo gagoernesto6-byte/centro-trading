@@ -6,7 +6,8 @@ Cada vez que corre (cada hora en la nube):
 2. Gamma de los dealers para ES y NQ (clases/gamma.py) y lo guarda a diario.
 3. Alertas: movimientos fuertes, cruces de niveles, gamma y datos económicos (clases/alertas.py);
    si existe NTFY_TOPIC, las manda al celular.
-4. Titulares (CNBC, Investing.com) y el último reporte con IA (carpeta reportes/).
+4. Titulares (CNBC, Investing.com), el último reporte con IA (carpeta reportes/)
+   y las últimas noticias generales con IA (carpeta noticias/).
 5. La sesión de hoy: zonas del día, VWAP, perfil de volumen y toques a las paredes (clases/sesion.py).
 6. Arma el panel: docs/index.html (página web) y centro/panel.html (versión para Claude).
 
@@ -29,6 +30,7 @@ import bitcoin as BT  # noqa: E402
 import mercado as ME  # noqa: E402
 import opciones as OP  # noqa: E402
 import sesion as SE  # noqa: E402
+import md_bloques as MD  # noqa: E402
 
 CARACAS = timezone(timedelta(hours=-4))
 FUENTES = [("CNBC", "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100003114"),
@@ -68,30 +70,11 @@ def titulares():
 
 
 def ultimo_reporte():
-    carpeta = RAIZ / "reportes"
-    archivos = sorted(carpeta.glob("*.md")) if carpeta.exists() else []
-    if not archivos:
-        return None
-    texto = archivos[-1].read_text(encoding="utf-8")
-    texto = re.sub(r"^---.*?---\s*", "", texto, flags=re.S)  # quitar encabezado YAML
-    bloques = []
-    for linea in texto.splitlines():
-        l = linea.strip()
-        if not l or l.startswith(">") or l.startswith("|---") or l.startswith("[[") or l.lower().startswith("## relacionado"):
-            continue
-        l = re.sub(r"\*\*(.*?)\*\*", r"\1", l)
-        l = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", l)
-        l = re.sub(r"\[\[([^\]|]+)(\|[^\]]+)?\]\]", r"\1", l)
-        if l.startswith("#"):
-            bloques.append({"tipo": "h", "texto": l.lstrip("#").strip()})
-        elif l.startswith(("- ", "* ", "• ")):
-            bloques.append({"tipo": "li", "texto": l[2:].strip()})
-        elif l.startswith("|"):
-            celdas = [c.strip() for c in l.strip("|").split("|")]
-            bloques.append({"tipo": "li", "texto": " · ".join(c for c in celdas if c)})
-        else:
-            bloques.append({"tipo": "p", "texto": l})
-    return {"fecha": archivos[-1].stem, "bloques": bloques[:60]}
+    return MD.ultimo_md(RAIZ / "reportes")
+
+
+def ultimas_noticias():
+    return MD.ultimo_md(RAIZ / "noticias", max_bloques=90)
 
 
 def semaforo(mercado, gamma_res, calendario):
@@ -275,6 +258,7 @@ def armar():
         "sesion": ses,
         "titulares": titulares(),
         "reporte": ultimo_reporte(),
+        "noticias": ultimas_noticias(),
         "laboratorio": lab,
     }
     plantilla = (RAIZ / "centro" / "plantilla.html").read_text(encoding="utf-8")
