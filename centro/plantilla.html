@@ -82,7 +82,7 @@ th:first-child, td:first-child { text-align: left }
 .evento { display: grid; grid-template-columns: 118px minmax(0,1fr); gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--line) }
 .evento .t { font-family: var(--mono); font-size: 12px; color: var(--amber) } .evento small { color: var(--muted) }
 .titular { display: grid; gap: 1px; padding: 6px 0; border-bottom: 1px solid var(--line) } .titular small { color: var(--muted); font-family: var(--mono); font-size: 11px }
-.reporte { max-width: 75ch } .reporte h3 { font-size: 15px; margin: 10px 0 2px } .reporte ul { padding-left: 18px; margin: 4px 0 } .reporte p { margin: 4px 0 }
+.reporte { max-width: 75ch } .reporte li.sub { margin-left: 16px; list-style: circle } .reporte h3 { font-size: 15px; margin: 10px 0 2px } .reporte ul { padding-left: 18px; margin: 4px 0 } .reporte p { margin: 4px 0 }
 /* selector NQ/ES */
 .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 3px; overflow: hidden }
 .seg button { background: none; border: 0; padding: 4px 12px; cursor: pointer; color: var(--muted); font-family: var(--mono); font-size: 12px }
@@ -561,7 +561,7 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
   function pintarMd(cont, datos, vacio) {
     if (datos && datos.bloques && datos.bloques.length) {
       cont.appendChild(el("small", "mono", datos.fecha || ""));
-      datos.bloques.forEach(function (b) { if (b.tipo === "h") cont.appendChild(el("h3", null, b.texto)); else if (b.tipo === "li") { var u = cont.lastElementChild && cont.lastElementChild.tagName === "UL" ? cont.lastElementChild : cont.appendChild(el("ul")); u.appendChild(el("li", null, b.texto)); } else cont.appendChild(el("p", null, b.texto)); });
+      datos.bloques.forEach(function (b) { if (b.tipo === "h") cont.appendChild(el("h3", null, b.texto)); else if (b.tipo === "li") { var u = cont.lastElementChild && cont.lastElementChild.tagName === "UL" ? cont.lastElementChild : cont.appendChild(el("ul")); u.appendChild(el("li", b.sub ? "sub" : null, b.texto)); } else cont.appendChild(el("p", null, b.texto)); });
     } else cont.appendChild(el("p", "vacio", vacio));
   }
   pintarMd(document.getElementById("rep"), D.reporte, "Todavía no hay reporte con IA.");
@@ -572,8 +572,9 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
     if (!b) return;
     var caja = document.getElementById("ultima-hora"), av = el("div", "aviso mal");
     av.appendChild(el("strong", null, b.texto + " · "));
-    var i = D.noticias.bloques.indexOf(b), sig = D.noticias.bloques[i + 1];
-    if (sig && sig.tipo !== "h") av.appendChild(el("span", null, sig.texto + " "));
+    var resto = D.noticias.bloques.slice(D.noticias.bloques.indexOf(b) + 1);
+    var sig = resto.filter(function (x) { return x.tipo !== "h" && x.texto.length > 40 && x.texto.slice(-1) !== ":"; })[0];
+    if (sig) av.appendChild(el("span", null, (sig.texto.length > 200 ? sig.texto.slice(0, 197) + "…" : sig.texto) + " "));
     var ver = el("button", null, "Ver noticias"); ver.type = "button"; ver.style.marginLeft = "6px";
     ver.addEventListener("click", function () { abrir("noticias"); });
     av.appendChild(ver); caja.appendChild(av); caja.hidden = false;

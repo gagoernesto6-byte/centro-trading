@@ -20,7 +20,10 @@ def ultimo_md(carpeta: Path, max_bloques: int = 60):
         if l.startswith("#"):
             bloques.append({"tipo": "h", "texto": l.lstrip("#").strip()})
         elif l.startswith(("- ", "* ", "• ")):
-            bloques.append({"tipo": "li", "texto": l[2:].strip()})
+            b = {"tipo": "li", "texto": l[2:].strip()}
+            if len(linea) - len(linea.lstrip(" ")) >= 2:   # viñeta con sangría (sub-punto)
+                b["sub"] = True
+            bloques.append(b)
         elif l.startswith("|"):
             celdas = [c.strip() for c in l.strip("|").split("|")]
             bloques.append({"tipo": "li", "texto": " · ".join(c for c in celdas if c)})
