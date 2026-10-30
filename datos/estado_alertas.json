@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 28971.75,
-  "ES=F": 7683.5,
-  "BTC-USD": 78471.5078125,
-  "GC=F": 3998.0,
-  "CL=F": 103.29000091552734,
-  "^VIX": 17.209999084472656
+  "NQ=F": 28799.25,
+  "ES=F": 7668.25,
+  "BTC-USD": 77355.84375,
+  "GC=F": 3976.10009765625,
+  "CL=F": 104.04000091552734,
+  "^VIX": 18.649999618530273
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
@@ -166,7 +166,8 @@
   "btc-put wall-78": "2026-10-30T00:16:00.651279+00:00",
   "redondo-NQ=F-29000": "2026-10-30T01:15:54.564895+00:00",
   "redondo-GC=F-4000": "2026-10-30T06:15:03.042994+00:00",
-  "btc-call wall-78": "2026-10-30T06:15:09.226107+00:00"
+  "btc-call wall-78": "2026-10-30T06:15:09.226107+00:00",
+  "nivel-BTC-USD-mínimo-77737": "2026-10-30T12:07:58.918369+00:00"
  },
  "gamma": {
   "SPY": {
@@ -179,6 +180,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-BTC-USD-mínimo-77737",
+   "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 77,737.19 · precio 77,355.84. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "30-oct 08:07"
+  },
   {
    "clave": "redondo-GC=F-4000",
    "titulo": "Oro cruzó el número redondo 4,000",
@@ -521,14 +529,7 @@
    "texto": "Precio 79,776. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
    "prioridad": 3,
    "hora": "27-oct 02:02"
-  },
-  {
-   "clave": "btc-call wall-80",
-   "titulo": "Bitcoin cruzó el call wall (~80,000)",
-   "texto": "Precio 79,776. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "27-oct 02:02"
   }
  ],
- "btc_precio": 78427.9
+ "btc_precio": 77360.9
 }
