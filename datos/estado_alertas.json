@@ -1,10 +1,10 @@
 {
  "precios": {
-  "NQ=F": 29032.5,
-  "ES=F": 7696.75,
-  "BTC-USD": 78677.921875,
-  "GC=F": 4028.699951171875,
-  "CL=F": 102.81999969482422,
+  "NQ=F": 29111.25,
+  "ES=F": 7705.25,
+  "BTC-USD": 77574.0703125,
+  "GC=F": 4015.699951171875,
+  "CL=F": 102.91999816894531,
   "^VIX": 17.209999084472656
  },
  "enviadas": {
@@ -160,7 +160,10 @@
   "gamma-QQQ-call wall-29726": "2026-10-29T15:37:18.827393+00:00",
   "gamma-QQQ-put wall-29726": "2026-10-29T15:37:18.827402+00:00",
   "rango-NQ=F-20261029": "2026-10-29T15:37:28.348084+00:00",
-  "btc-put wall-81": "2026-10-29T15:37:28.348133+00:00"
+  "btc-put wall-81": "2026-10-29T15:37:28.348133+00:00",
+  "mov-BTC-USD-down": "2026-10-30T00:15:55.969752+00:00",
+  "redondo-BTC-USD-78000": "2026-10-30T00:15:55.969908+00:00",
+  "btc-put wall-78": "2026-10-30T00:16:00.651279+00:00"
  },
  "gamma": {
   "SPY": {
@@ -173,6 +176,27 @@
   }
  },
  "historial": [
+  {
+   "clave": "mov-BTC-USD-down",
+   "titulo": "Bitcoin 📉 cae -1.54 % en 1 h",
+   "texto": "Precio 77,574.07. Movimiento fuerte: revisa noticias antes de operar.",
+   "prioridad": 4,
+   "hora": "29-oct 20:15"
+  },
+  {
+   "clave": "redondo-BTC-USD-78000",
+   "titulo": "Bitcoin cruzó el número redondo 78,000",
+   "texto": "Precio 77,574.07. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "29-oct 20:15"
+  },
+  {
+   "clave": "btc-put wall-78",
+   "titulo": "Bitcoin cruzó el put wall (~78,000)",
+   "texto": "Precio 77,588. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "29-oct 20:16"
+  },
   {
    "clave": "redondo-ES=F-7700",
    "titulo": "S&P 500 (ES) cruzó el número redondo 7,700",
@@ -501,28 +525,7 @@
    "texto": "Precio 29,516.25. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "26-oct 13:23"
-  },
-  {
-   "clave": "nivel-ES=F-máximo-7714",
-   "titulo": "S&P 500 (ES) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
-   "texto": "Nivel 7,714.25 · precio 7,721.75. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "26-oct 13:23"
-  },
-  {
-   "clave": "redondo-ES=F-7700",
-   "titulo": "S&P 500 (ES) cruzó el número redondo 7,700",
-   "texto": "Precio 7,721.75. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "26-oct 13:23"
-  },
-  {
-   "clave": "gamma-SPY-call wall-7719",
-   "titulo": "ES (S&P 500) cruzó el call wall (~7,719)",
-   "texto": "Precio 7,722. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "26-oct 13:23"
   }
  ],
- "btc_precio": 78702.5
+ "btc_precio": 77587.9
 }
