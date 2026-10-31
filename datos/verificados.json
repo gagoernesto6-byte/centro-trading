@@ -1,0 +1,50 @@
+[
+ {
+  "fecha": "2026-10-31",
+  "veredicto": "falso",
+  "titulo": "«EE. UU. anunciará la moneda XTO el 18 de noviembre» y «Barron Trump es su mayor dueño»",
+  "detalle": "Sale de un TikTok con enlace de referidos. No hay ninguna noticia real: la «portada de Yahoo Finance» del video no aparece en ningún buscador, y XTO Energy es una filial petrolera de ExxonMobil, no una criptomoneda. Que Barron Trump sea el mayor dueño no se puede comprobar en una billetera anónima. Es el patrón del «pump and dump»: inflan la moneda con un rumor y venden cuando la gente entra. En 2024 pasó igual con la moneda DJT, que decían ligada a Barron y terminó desplomándose.",
+  "fuentes": [
+   {
+    "nombre": "The Block: la moneda no oficial de Barron Trump cayó 95 %",
+    "url": "https://www.theblock.co/news/defi/2025-01-20-unofficial-barron-trump-memecoin-rose-to-460-million-market-cap-before-crashing-95-335762"
+   },
+   {
+    "nombre": "Protos: el token DJT terminó en estafa",
+    "url": "https://protos.com/no-one-surprised-as-djt-token-has-finally-rugged"
+   }
+  ]
+ },
+ {
+  "fecha": "2026-10-31",
+  "veredicto": "real-riesgo",
+  "titulo": "La app «fomo», que muestra a los que más ganan y te deja copiarlos",
+  "detalle": "La app existe y es grande: sirve para comprar memecoins en Solana y la hicieron ex empleados de dYdX. Los rankings son reales, pero solo muestran a los que ganaron hoy (nadie ve a los que perdieron), y quien la promociona en TikTok cobra por cada persona que se registra con su enlace. Copiar memecoins es de lo más arriesgado que existe: muchas pierden casi todo su valor en días.",
+  "fuentes": [
+   {
+    "nombre": "Datawallet: cómo funciona Fomo, sus comisiones y riesgos",
+    "url": "https://www.datawallet.com/crypto/fomo-app-explained"
+   },
+   {
+    "nombre": "Crypto Briefing: Fomo supera a Pump.fun en ingresos",
+    "url": "https://cryptobriefing.com/fomo-surpasses-pumpfun-seven-day-revenue/"
+   }
+  ]
+ },
+ {
+  "fecha": "2026-10-31",
+  "veredicto": "real-riesgo",
+  "titulo": "«Palm Jebel Ali es la nueva Palm Jumeirah: apartamentos desde $760.000»",
+  "detalle": "El proyecto es real: Nakheel vende apartamentos en Palm Jebel Ali desde unos AED 2,5 millones (≈ $680.000), con entrega en julio de 2029 y pagos de 20 % al reservar, 50 % durante la obra y 30 % al recibirlo. Lo de que Palm Jumeirah «multiplicó el dinero 20 veces» es publicidad de un agente: algunas villas sí, pero no es lo normal. Riesgos: comprar sobre planos (pagas años antes de recibir) y la ola de oferta nueva en Dubái.",
+  "fuentes": [
+   {
+    "nombre": "Property Finder: Palm Central Private Residences",
+    "url": "https://www.propertyfinder.ae/en/new-projects/nakheel/palm-central-private-residences-frond-m"
+   },
+   {
+    "nombre": "Economy Middle East: Fitch prevé caída de precios en Dubái por la oferta de 2026",
+    "url": "https://economymiddleeast.com/news/dubai-real-estate-prices-to-drop-on-2026-supply-spike-says-fitch"
+   }
+  ]
+ }
+]

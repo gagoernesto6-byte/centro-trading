@@ -107,6 +107,25 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
 .aviso.mal { background: var(--down-soft); color: var(--down) } .aviso.ok { background: var(--up-soft); color: var(--up) }
 .pie { color: var(--faint); font-size: 11px; border-top: 1px solid var(--line); padding-top: 10px; margin-top: 16px }
 @media (prefers-reduced-motion: no-preference) { .tabs button { transition: color .15s } }
+/* ballenas */
+.sub { color: var(--muted); font-size: 13px; margin: 0 }
+.lista { margin: 0; padding-left: 18px; display: grid; gap: 4px }
+.termo { display: grid; gap: 10px }
+.termo .tr { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 3px 10px; align-items: center }
+.termo .tr small { grid-column: 2; color: var(--muted); font-size: 12px }
+.barra2 { display: flex; height: 10px; border-radius: 2px; overflow: hidden; background: var(--panel2) }
+.barra2 .l { background: var(--up) } .barra2 .c { background: var(--down) }
+.chip { display: inline-block; font-family: var(--mono); font-size: 11px; padding: 1px 6px; border-radius: 3px; margin: 1px 4px 1px 0; white-space: nowrap }
+.chip.l { background: var(--up-soft); color: var(--up) } .chip.c { background: var(--down-soft); color: var(--down) } .chip.n { background: var(--panel2); color: var(--ink); white-space: normal }
+.izq td a.mono { white-space: nowrap }
+.sub-b { display: block; color: var(--faint); font-size: 11px; font-family: var(--mono) }
+.ver { display: grid; gap: 10px }
+.ver article { background: var(--panel2); border-left: 3px solid var(--muted); border-radius: 3px; padding: 8px 10px; display: grid; gap: 4px }
+.ver article.falso { border-left-color: var(--down) } .ver article.rumor, .ver article.real-riesgo { border-left-color: var(--warn) } .ver article.real { border-left-color: var(--up) }
+.ver .vb { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 600 }
+.ver .falso .vb { color: var(--down) } .ver .rumor .vb, .ver .real-riesgo .vb { color: var(--warn) } .ver .real .vb { color: var(--up) }
+.ver p { margin: 0; font-size: 13px }
+.ver .f { font-size: 12px; display: flex; flex-wrap: wrap; gap: 4px 12px }
 </style>
 
 <div class="app">
@@ -122,6 +141,7 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
     <button role="tab" data-tab="opciones">Gamma y opciones</button>
     <button role="tab" data-tab="volatilidad">Volatilidad</button>
     <button role="tab" data-tab="bitcoin">Bitcoin</button>
+    <button role="tab" data-tab="ballenas">Ballenas</button>
     <button role="tab" data-tab="riesgo">Riesgo</button>
     <button role="tab" data-tab="reporte">Reporte de precios</button>
     <button role="tab" data-tab="noticias">Noticias</button>
@@ -263,6 +283,33 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
     </section>
 
     <!-- REPORTE -->
+    <!-- BALLENAS -->
+    <section class="tab" id="ballenas" role="tabpanel" hidden>
+      <div class="pan"><div class="pan-h"><h2>Termómetro de ballenas</h2><small id="bl-hora"></small></div>
+        <p class="sub" id="bl-resumen"></p>
+        <div id="bl-termo" class="termo"></div>
+      </div>
+      <div class="fila">
+        <div class="pan"><div class="pan-h"><h2>Los que más ganaron hoy · Hyperliquid</h2><small>futuros cripto · dinero real</small></div>
+          <div class="scroll"><table id="bl-hl" class="izq"><thead><tr><th>#</th><th>Trader</th><th>Hoy</th><th>Semana</th><th>Qué tiene abierto</th></tr></thead><tbody></tbody></table></div></div>
+        <div class="pan"><div class="pan-h"><h2>Los que más ganaron hoy · Polymarket</h2><small>apuestas sobre eventos</small></div>
+          <div class="scroll"><table id="bl-pm" class="izq"><thead><tr><th>#</th><th>Apostador</th><th>Hoy</th><th>Sus apuestas más grandes</th></tr></thead><tbody></tbody></table></div></div>
+      </div>
+      <div class="fila">
+        <div class="pan"><div class="pan-h"><h2>La familia Trump: cómo van sus inversiones</h2><small>CoinGecko · Yahoo Finance</small></div>
+          <div class="scroll"><table id="bl-trump" class="izq"><thead><tr><th>Activo</th><th>Precio</th><th>24 h</th><th>30 días</th><th>Desde su máximo</th></tr></thead><tbody></tbody></table></div>
+          <p class="sub" id="bl-trump-nota"></p></div>
+        <div class="pan"><div class="pan-h"><h2>¿Es real? · verificado por la IA</h2><small>rumores y videos revisados</small></div><div id="bl-ver" class="ver"></div></div>
+      </div>
+      <div class="pan"><div class="pan-h"><h2>Cómo usar esta pestaña</h2></div>
+        <ul class="sub lista">
+          <li>Los rankings muestran a los que <b>ganaron</b>. Nadie ve a los que perdieron: es el sesgo de supervivencia.</li>
+          <li>Muchas ballenas operan con apalancamiento y con cientos de millones. Copiarlas con tu cuenta no da el mismo resultado.</li>
+          <li>Úsalo como termómetro (¿las ballenas están en largo o en corto?), no como orden de compra.</li>
+          <li>Que un famoso invierta en algo no hace que suba: mira cómo les ha ido a los activos de la familia Trump.</li>
+        </ul></div>
+    </section>
+
     <section class="tab" id="reporte" role="tabpanel" hidden>
       <div class="fila">
         <div class="pan"><div class="pan-h"><h2>Reporte de precios con IA</h2><small>NQ · ES · bitcoin · escenarios y niveles</small></div><div id="rep" class="reporte"></div></div>
@@ -283,7 +330,7 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
         <div class="scroll"><table id="lab" class="izq"><thead><tr><th>Prueba</th><th>Datos</th><th>Resultado</th><th>Veredicto</th></tr></thead><tbody></tbody></table></div></div>
     </section>
   </main>
-  <p class="pie">Datos: Yahoo Finance (≈15 min de retraso), opciones de SPY/QQQ (Yahoo) y de bitcoin (Deribit), libro de órdenes de Coinbase, calendario de ForexFactory, miedo y codicia de alternative.me, titulares de CNBC e Investing.com. Las métricas de opciones son estimaciones con datos públicos. Herramienta educativa: no es asesoría financiera. Practica en demo y arriesga como máximo el 1 % por operación.</p>
+  <p class="pie">Datos: Yahoo Finance (≈15 min de retraso), opciones de SPY/QQQ (Yahoo) y de bitcoin (Deribit), libro de órdenes de Coinbase, calendario de ForexFactory, miedo y codicia de alternative.me, titulares de CNBC e Investing.com, ballenas de Hyperliquid y Polymarket, y los activos de la familia Trump de CoinGecko y Yahoo Finance. Las métricas de opciones son estimaciones con datos públicos. Herramienta educativa: no es asesoría financiera. Practica en demo y arriesga como máximo el 1 % por operación.</p>
 </div>
 
 <script id="datos" type="application/json">__DATOS__</script>
@@ -659,6 +706,77 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
   seg("seg-hoy", "data-i", function (v) { hoySel = v; dibujarHoy(); });
   seg("seg-vol", "data-i", function (v) { volSel = v; dibujarVol(); });
   seg("seg-dist", "data-h", function (v) { distSel = v; dibujarVol(); });
+  // ---------- ballenas ----------
+  (function () {
+    var B = D.ballenas || {}, hl = B.hyperliquid || {}, pm = B.polymarket || [], tr = B.trump || [];
+    function dinero(x) { if (x == null) return "—"; var a = Math.abs(x), s = a >= 1e9 ? (a / 1e9).toFixed(2) + "B" : a >= 1e6 ? (a / 1e6).toFixed(2) + "M" : a >= 1e3 ? (a / 1e3).toFixed(1) + "K" : String(Math.round(a)); return (x < 0 ? "-$" : "$") + s; }
+    function signo(x) { return x == null ? "—" : (x > 0 ? "+" : "") + dinero(x); }
+    function enlace(txt, url) { var a = el("a", "mono", txt); a.href = url; a.target = "_blank"; a.rel = "noopener"; return a; }
+    document.getElementById("bl-hora").textContent = B.calculado ? "actualizado " + B.calculado.slice(11, 16) + " UTC" : "sin datos todavía";
+    var t = hl.termometro || [], termo = document.getElementById("bl-termo");
+    if (!t.length) termo.appendChild(el("p", "vacio", "Sin posiciones abiertas entre los mejores de la semana."));
+    t.forEach(function (m) {
+      var tot = (m.valor_largo + m.valor_corto) || 1, pl = m.valor_largo / tot * 100;
+      var f = el("div", "tr"), b = el("div", "barra2"), l = el("i", "l"), c = el("i", "c");
+      l.style.width = pl + "%"; c.style.width = (100 - pl) + "%"; b.appendChild(l); b.appendChild(c);
+      f.appendChild(el("b", "mono", m.moneda)); f.appendChild(b);
+      f.appendChild(el("small", null, m.largos + " en largo (" + dinero(m.valor_largo) + ") · " + m.cortos + " en corto (" + dinero(m.valor_corto) + ")"));
+      termo.appendChild(f);
+    });
+    var btc = t.filter(function (m) { return m.moneda === "BTC"; })[0];
+    document.getElementById("bl-resumen").textContent = btc
+      ? "De los " + (hl.muestra || 20) + " traders que más ganaron esta semana en Hyperliquid, en bitcoin hay " + btc.largos + " en largo y " + btc.cortos + " en corto. " +
+        (btc.valor_corto > btc.valor_largo * 1.5 ? "Hoy las ballenas apuestan a la baja." : btc.valor_largo > btc.valor_corto * 1.5 ? "Hoy las ballenas apuestan al alza." : "Hoy están divididas.") +
+        (btc.largos + btc.cortos < 5 ? " Ojo: solo " + (btc.largos + btc.cortos) + " de " + (hl.muestra || 20) + " tienen una posición abierta, así que la señal es débil." : "")
+      : "Ninguno de los mejores traders de la semana tiene posiciones abiertas en bitcoin.";
+    var tb = document.querySelector("#bl-hl tbody");
+    if (!(hl.top || []).length) { var v = el("tr"); var td0 = el("td", "vacio", "Sin datos todavía."); td0.colSpan = 5; v.appendChild(td0); tb.appendChild(v); }
+    (hl.top || []).forEach(function (x, i) {
+      var r = el("tr"), td = el("td");
+      r.appendChild(el("td", "mono", String(i + 1)));
+      td.appendChild(enlace(x.nombre || (x.wallet.slice(0, 6) + "…" + x.wallet.slice(-4)), "https://hypurrscan.io/address/" + x.wallet));
+      td.appendChild(el("small", "sub-b", "cuenta " + dinero(x.cuenta))); r.appendChild(td);
+      r.appendChild(el("td", "num pos", signo(x.pnl_dia)));
+      r.appendChild(el("td", "num " + (x.pnl_semana >= 0 ? "pos" : "neg"), signo(x.pnl_semana)));
+      var tp = el("td");
+      if (!x.posiciones.length) tp.appendChild(el("span", "vacio", "sin posiciones abiertas"));
+      x.posiciones.forEach(function (p) { tp.appendChild(el("span", "chip " + (p.lado === "largo" ? "l" : "c"), p.moneda + " " + p.lado + " " + dinero(p.valor) + (p.apalancamiento ? " ×" + p.apalancamiento : ""))); });
+      r.appendChild(tp); tb.appendChild(r);
+    });
+    var tp2 = document.querySelector("#bl-pm tbody");
+    if (!pm.length) { var v2 = el("tr"); var td1 = el("td", "vacio", "Sin datos todavía."); td1.colSpan = 4; v2.appendChild(td1); tp2.appendChild(v2); }
+    pm.forEach(function (x, i) {
+      var r = el("tr"), td = el("td");
+      r.appendChild(el("td", "mono", String(i + 1)));
+      td.appendChild(enlace(x.nombre.length > 22 ? x.nombre.slice(0, 20) + "…" : x.nombre, "https://polymarket.com/profile/" + x.wallet));
+      td.appendChild(el("small", "sub-b", "movió " + dinero(x.volumen))); r.appendChild(td);
+      r.appendChild(el("td", "num pos", signo(x.pnl)));
+      var ta = el("td");
+      x.apuestas.forEach(function (a) { var lado = a.lado === "Yes" ? "Sí" : a.lado; ta.appendChild(el("span", "chip n", lado + " · " + a.titulo + " · " + dinero(a.valor))); });
+      r.appendChild(ta); tp2.appendChild(r);
+    });
+    var tt = document.querySelector("#bl-trump tbody"), peores = [];
+    tr.forEach(function (x) {
+      var r = el("tr"), td = el("td");
+      td.appendChild(el("b", null, x.activo)); td.appendChild(el("small", "sub-b", x.que)); r.appendChild(td);
+      r.appendChild(el("td", "num", x.precio < 1 ? "$" + Number(x.precio).toFixed(4) : "$" + fmt(x.precio, 2)));
+      r.appendChild(el("td", "num " + (x.c24 >= 0 ? "pos" : "neg"), pct(x.c24)));
+      r.appendChild(el("td", "num " + (x.c30 >= 0 ? "pos" : "neg"), pct(x.c30)));
+      r.appendChild(el("td", "num neg", x.desde_maximo == null ? "—" : Number(x.desde_maximo).toFixed(0) + "%"));
+      if (x.desde_maximo != null) peores.push(x.desde_maximo);
+      tt.appendChild(r);
+    });
+    if (peores.length) document.getElementById("bl-trump-nota").textContent = "Quien compró en el mejor momento de cada uno hoy tiene entre " + Math.abs(Math.max.apply(null, peores)).toFixed(0) + " % y " + Math.abs(Math.min.apply(null, peores)).toFixed(0) + " % menos. Que los Trump estén metidos en algo no garantiza que suba.";
+    var ver = document.getElementById("bl-ver"), NOMBRE = { falso: "Falso o sin pruebas", rumor: "Rumor sin confirmar", real: "Real", "real-riesgo": "Real, pero con riesgo" };
+    if (!(D.verificados || []).length) ver.appendChild(el("p", "vacio", "Todavía no hay rumores revisados."));
+    (D.verificados || []).forEach(function (v) {
+      var a = el("article", v.veredicto); a.appendChild(el("span", "vb", (NOMBRE[v.veredicto] || v.veredicto) + " · " + v.fecha));
+      a.appendChild(el("b", null, v.titulo)); a.appendChild(el("p", null, v.detalle));
+      var f = el("div", "f"); (v.fuentes || []).forEach(function (s) { var l2 = el("a", null, s.nombre); l2.href = s.url; l2.target = "_blank"; l2.rel = "noopener"; f.appendChild(l2); });
+      a.appendChild(f); ver.appendChild(a);
+    });
+  })();
+
   function dibujarTodo() {
     var vis = function (id) { return !document.getElementById(id).hidden; };
     if (vis("opciones")) dibujarOpciones(); if (vis("volatilidad")) dibujarVol(); if (vis("bitcoin")) { dibujarBTC(); dibujarFootprint(); } if (vis("hoy")) dibujarHoy();

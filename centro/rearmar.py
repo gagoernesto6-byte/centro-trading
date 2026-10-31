@@ -17,6 +17,10 @@ salida = Path(sys.argv[1]) if len(sys.argv) > 1 else Path.home() / "estudios/esc
 datos = json.loads((RAIZ / "docs" / "datos.json").read_text(encoding="utf-8"))
 datos["reporte"] = MD.ultimo_md(RAIZ / "reportes")
 datos["noticias"] = MD.ultimo_md(RAIZ / "noticias", max_bloques=90)
+try:
+    datos["verificados"] = json.loads((RAIZ / "datos" / "verificados.json").read_text(encoding="utf-8"))
+except Exception:
+    pass
 plantilla = (RAIZ / "centro" / "plantilla.html").read_text(encoding="utf-8")
 js = json.dumps(datos, ensure_ascii=False).replace("</", "<\\/")
 salida.write_text(plantilla.replace("__DATOS__", js), encoding="utf-8")

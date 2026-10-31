@@ -26,6 +26,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "clases"))
 import alertas as AL  # noqa: E402
+import ballenas as BA  # noqa: E402
 import bitcoin as BT  # noqa: E402
 import mercado as ME  # noqa: E402
 import opciones as OP  # noqa: E402
@@ -196,6 +197,33 @@ def escaleras(mercado, gamma_res, ops_res=None, btc=None):
     return out
 
 
+def ballenas_cacheadas():
+    """Los rankings de ballenas se recalculan como máximo una vez por hora; si no, se reusa lo anterior."""
+    previo = {}
+    try:
+        previo = json.loads((RAIZ / "docs" / "datos.json").read_text(encoding="utf-8")).get("ballenas") or {}
+        if datetime.now(timezone.utc) - datetime.fromisoformat(previo["calculado"]) < timedelta(minutes=55):
+            return previo
+    except Exception:
+        pass
+    try:
+        nuevo = BA.todo()
+        for k in ("hyperliquid", "polymarket", "trump"):  # si una fuente falló, conservar la anterior
+            if not nuevo.get(k) and previo.get(k):
+                nuevo[k] = previo[k]
+        return nuevo
+    except Exception as e:
+        print("ballenas:", e)
+        return previo
+
+
+def verificados():
+    try:
+        return json.loads((RAIZ / "datos" / "verificados.json").read_text(encoding="utf-8"))
+    except Exception:
+        return []
+
+
 def armar():
     estado = AL.cargar_estado()
     nuevas = []
@@ -260,6 +288,8 @@ def armar():
         "reporte": ultimo_reporte(),
         "noticias": ultimas_noticias(),
         "laboratorio": lab,
+        "ballenas": ballenas_cacheadas(),
+        "verificados": verificados(),
     }
     plantilla = (RAIZ / "centro" / "plantilla.html").read_text(encoding="utf-8")
     js = json.dumps(datos, ensure_ascii=False).replace("</", "<\\/")
