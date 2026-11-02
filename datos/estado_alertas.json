@@ -1,10 +1,10 @@
 {
  "precios": {
-  "NQ=F": 28659.75,
-  "ES=F": 7633.5,
-  "BTC-USD": 77966.4375,
-  "GC=F": 3903.5,
-  "CL=F": 102.44000244140625,
+  "NQ=F": 28760.5,
+  "ES=F": 7643.5,
+  "BTC-USD": 78413.90625,
+  "GC=F": 3918.10009765625,
+  "CL=F": 101.66000366210938,
   "^VIX": 19.440000534057617
  },
  "enviadas": {
@@ -177,7 +177,8 @@
   "redondo-ES=F-7600": "2026-10-30T18:31:11.036992+00:00",
   "redondo-GC=F-3900": "2026-11-01T23:29:59.467419+00:00",
   "gamma-SPY-put wall-7589": "2026-10-30T18:31:15.542692+00:00",
-  "btc-put wall-77": "2026-10-30T18:31:26.027816+00:00"
+  "btc-put wall-77": "2026-10-30T18:31:26.027816+00:00",
+  "nivel-CL=F-mínimo-102": "2026-11-02T01:50:17.343218+00:00"
  },
  "gamma": {
   "SPY": {
@@ -190,6 +191,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-CL=F-mínimo-102",
+   "titulo": "Petróleo WTI cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 102.43 · precio 101.66. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "01-nov 21:50"
+  },
   {
    "clave": "redondo-GC=F-3900",
    "titulo": "Oro cruzó el número redondo 3,900",
@@ -532,14 +540,7 @@
    "texto": "Nivel 29,881.25 · precio 29,957.25. Zona de liquidez: ojo con barridas y rupturas falsas.",
    "prioridad": 3,
    "hora": "28-oct 02:47"
-  },
-  {
-   "clave": "nivel-BTC-USD-máximo-80710",
-   "titulo": "Bitcoin cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
-   "texto": "Nivel 80,709.98 · precio 80,855.13. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "27-oct 17:53"
   }
  ],
- "btc_precio": 77996.8
+ "btc_precio": 78440.3
 }
