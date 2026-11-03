@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 28230.25,
-  "ES=F": 7580.75,
-  "BTC-USD": 77048.6484375,
-  "GC=F": 3963.699951171875,
-  "CL=F": 96.62999725341797,
-  "^VIX": 21.170000076293945
+  "NQ=F": 28136.5,
+  "ES=F": 7561.75,
+  "BTC-USD": 76440.90625,
+  "GC=F": 3918.300048828125,
+  "CL=F": 98.01000213623047,
+  "^VIX": 21.690000534057617
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
@@ -182,7 +182,9 @@
   "nivel-BTC-USD-máximo-78313": "2026-11-02T08:58:10.130308+00:00",
   "nivel-BTC-USD-mínimo-77384": "2026-11-02T19:14:52.861758+00:00",
   "btc-gamma flip-78": "2026-11-02T19:15:14.614135+00:00",
-  "nivel-NQ=F-mínimo-28233": "2026-11-03T01:36:52.411989+00:00"
+  "nivel-NQ=F-mínimo-28233": "2026-11-03T01:36:52.411989+00:00",
+  "nivel-ES=F-mínimo-7571": "2026-11-03T08:36:33.475550+00:00",
+  "nivel-BTC-USD-mínimo-76572": "2026-11-03T08:36:33.912294+00:00"
  },
  "gamma": {
   "SPY": {
@@ -195,6 +197,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-ES=F-mínimo-7571",
+   "titulo": "S&P 500 (ES) cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 7,570.75 · precio 7,561.75. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "03-nov 04:36"
+  },
+  {
+   "clave": "nivel-BTC-USD-mínimo-76572",
+   "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 76,572.23 · precio 76,440.91. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "03-nov 04:36"
+  },
   {
    "clave": "nivel-NQ=F-mínimo-28233",
    "titulo": "Nasdaq (NQ) cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
@@ -530,21 +546,7 @@
    "texto": "Pronóstico 3.2% · anterior 1.5%. El precio puede saltar en segundos: muchos profesionales esperan a que pase el dato.",
    "prioridad": 4,
    "hora": "29-oct 07:23"
-  },
-  {
-   "clave": "evento-Core PCE Price Index m/m-2026-10-29T08:30:00-04:00",
-   "titulo": "⏰ En 67 min: Core PCE Price Index m/m",
-   "texto": "Pronóstico 0.3% · anterior 0.2%. El precio puede saltar en segundos: muchos profesionales esperan a que pase el dato.",
-   "prioridad": 4,
-   "hora": "29-oct 07:23"
-  },
-  {
-   "clave": "nivel-ES=F-mínimo-7750",
-   "titulo": "S&P 500 (ES) cruzó hacia arriba ⬆️ el mínimo de ayer (PDL)",
-   "texto": "Nivel 7,750.25 · precio 7,758.00. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "29-oct 04:46"
   }
  ],
- "btc_precio": 77052.6
+ "btc_precio": 76435.2
 }
