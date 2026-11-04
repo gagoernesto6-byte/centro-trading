@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 27871.25,
-  "ES=F": 7542.0,
-  "BTC-USD": 77056.2578125,
-  "GC=F": 3957.300048828125,
-  "CL=F": 95.44999694824219,
-  "^VIX": 20.809999465942383
+  "NQ=F": 28335.25,
+  "ES=F": 7612.0,
+  "BTC-USD": 78306.0078125,
+  "GC=F": 4044.699951171875,
+  "CL=F": 96.37999725341797,
+  "^VIX": 19.1299991607666
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
@@ -162,11 +162,11 @@
   "rango-NQ=F-20261029": "2026-10-29T15:37:28.348084+00:00",
   "btc-put wall-81": "2026-10-29T15:37:28.348133+00:00",
   "mov-BTC-USD-down": "2026-10-30T00:15:55.969752+00:00",
-  "redondo-BTC-USD-78000": "2026-11-02T19:14:52.861804+00:00",
+  "redondo-BTC-USD-78000": "2026-11-04T09:13:32.216432+00:00",
   "btc-put wall-78": "2026-10-30T00:16:00.651279+00:00",
   "redondo-NQ=F-29000": "2026-10-30T01:15:54.564895+00:00",
-  "redondo-GC=F-4000": "2026-10-30T06:15:03.042994+00:00",
-  "btc-call wall-78": "2026-10-30T06:15:09.226107+00:00",
+  "redondo-GC=F-4000": "2026-11-04T09:13:32.451070+00:00",
+  "btc-call wall-78": "2026-11-04T09:13:37.988631+00:00",
   "nivel-BTC-USD-mínimo-77737": "2026-10-30T12:07:58.918369+00:00",
   "redondo-ES=F-7650": "2026-10-30T17:08:00.081854+00:00",
   "gamma-SPY-gamma flip-7716": "2026-10-30T17:08:04.730102+00:00",
@@ -174,7 +174,7 @@
   "rango-ES=F-20261030": "2026-10-30T17:08:14.889104+00:00",
   "rango-NQ=F-20261030": "2026-10-30T17:08:14.889145+00:00",
   "redondo-NQ=F-28500": "2026-11-02T19:14:51.851865+00:00",
-  "redondo-ES=F-7600": "2026-11-03T16:36:38.724479+00:00",
+  "redondo-ES=F-7600": "2026-11-04T09:13:31.907358+00:00",
   "redondo-GC=F-3900": "2026-11-01T23:29:59.467419+00:00",
   "gamma-SPY-put wall-7589": "2026-10-30T18:31:15.542692+00:00",
   "btc-put wall-77": "2026-10-30T18:31:26.027816+00:00",
@@ -187,10 +187,14 @@
   "nivel-BTC-USD-mínimo-76572": "2026-11-03T08:36:33.912294+00:00",
   "rango-ES=F-20261103": "2026-11-03T16:36:57.764885+00:00",
   "rango-NQ=F-20261103": "2026-11-03T16:36:57.764929+00:00",
-  "btc-gamma flip-77": "2026-11-03T16:36:57.764951+00:00",
+  "btc-gamma flip-77": "2026-11-04T09:13:37.988580+00:00",
   "nivel-NQ=F-mínimo-28102": "2026-11-04T02:08:58.083354+00:00",
   "redondo-NQ=F-28000": "2026-11-04T02:08:58.083373+00:00",
-  "redondo-ES=F-7550": "2026-11-04T02:08:58.643438+00:00"
+  "redondo-ES=F-7550": "2026-11-04T02:08:58.643438+00:00",
+  "nivel-NQ=F-mínimo-28038": "2026-11-04T09:13:31.702083+00:00",
+  "nivel-ES=F-mínimo-7546": "2026-11-04T09:13:31.907302+00:00",
+  "nivel-BTC-USD-máximo-77965": "2026-11-04T09:13:32.216381+00:00",
+  "nivel-GC=F-máximo-3982": "2026-11-04T09:13:32.451021+00:00"
  },
  "gamma": {
   "SPY": {
@@ -203,6 +207,69 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-NQ=F-mínimo-28038",
+   "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 28,038.25 · precio 28,335.25. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "04-nov 05:13"
+  },
+  {
+   "clave": "nivel-ES=F-mínimo-7546",
+   "titulo": "S&P 500 (ES) cruzó hacia arriba ⬆️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 7,546.00 · precio 7,612.00. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "04-nov 05:13"
+  },
+  {
+   "clave": "redondo-ES=F-7600",
+   "titulo": "S&P 500 (ES) cruzó el número redondo 7,600",
+   "texto": "Precio 7,612.00. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "04-nov 05:13"
+  },
+  {
+   "clave": "nivel-BTC-USD-máximo-77965",
+   "titulo": "Bitcoin cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
+   "texto": "Nivel 77,964.98 · precio 78,306.01. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "04-nov 05:13"
+  },
+  {
+   "clave": "redondo-BTC-USD-78000",
+   "titulo": "Bitcoin cruzó el número redondo 78,000",
+   "texto": "Precio 78,306.01. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "04-nov 05:13"
+  },
+  {
+   "clave": "nivel-GC=F-máximo-3982",
+   "titulo": "Oro cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
+   "texto": "Nivel 3,981.70 · precio 4,044.70. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "04-nov 05:13"
+  },
+  {
+   "clave": "redondo-GC=F-4000",
+   "titulo": "Oro cruzó el número redondo 4,000",
+   "texto": "Precio 4,044.70. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "04-nov 05:13"
+  },
+  {
+   "clave": "btc-gamma flip-77",
+   "titulo": "Bitcoin cruzó el gamma flip (~77,439)",
+   "texto": "Precio 78,306. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "04-nov 05:13"
+  },
+  {
+   "clave": "btc-call wall-78",
+   "titulo": "Bitcoin cruzó el call wall (~78,000)",
+   "texto": "Precio 78,306. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "04-nov 05:13"
+  },
   {
    "clave": "mov-NQ=F-down",
    "titulo": "Nasdaq (NQ) 📉 cae -0.99 % en 1 h",
@@ -489,70 +556,7 @@
    "texto": "Precio 77,574.07. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "29-oct 20:15"
-  },
-  {
-   "clave": "btc-put wall-78",
-   "titulo": "Bitcoin cruzó el put wall (~78,000)",
-   "texto": "Precio 77,588. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "29-oct 20:16"
-  },
-  {
-   "clave": "redondo-ES=F-7700",
-   "titulo": "S&P 500 (ES) cruzó el número redondo 7,700",
-   "texto": "Precio 7,696.75. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "29-oct 19:15"
-  },
-  {
-   "clave": "mov-NQ=F-down",
-   "titulo": "Nasdaq (NQ) 📉 cae -0.91 % en 1 h",
-   "texto": "Precio 29,224.50. Movimiento fuerte: revisa noticias antes de operar.",
-   "prioridad": 4,
-   "hora": "29-oct 16:38"
-  },
-  {
-   "clave": "redondo-NQ=F-29500",
-   "titulo": "Nasdaq (NQ) cruzó el número redondo 29,500",
-   "texto": "Precio 29,224.50. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "29-oct 16:38"
-  },
-  {
-   "clave": "redondo-ES=F-7750",
-   "titulo": "S&P 500 (ES) cruzó el número redondo 7,750",
-   "texto": "Precio 7,717.25. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "29-oct 16:38"
-  },
-  {
-   "clave": "redondo-BTC-USD-80000",
-   "titulo": "Bitcoin cruzó el número redondo 80,000",
-   "texto": "Precio 79,783.59. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "29-oct 16:38"
-  },
-  {
-   "clave": "btc-call wall-80",
-   "titulo": "Bitcoin cruzó el call wall (~80,000)",
-   "texto": "Precio 79,782. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "29-oct 16:38"
-  },
-  {
-   "clave": "btc-put wall-80",
-   "titulo": "Bitcoin cruzó el put wall (~80,000)",
-   "texto": "Precio 79,782. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "29-oct 16:38"
-  },
-  {
-   "clave": "nivel-BTC-USD-mínimo-80300",
-   "titulo": "Bitcoin cruzó hacia arriba ⬆️ el mínimo de ayer (PDL)",
-   "texto": "Nivel 80,300.30 · precio 81,596.98. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "29-oct 11:37"
   }
  ],
- "btc_precio": 77043.2
+ "btc_precio": 78306.4
 }
