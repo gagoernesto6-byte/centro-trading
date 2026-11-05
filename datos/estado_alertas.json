@@ -1,10 +1,10 @@
 {
  "precios": {
-  "NQ=F": 28580.5,
-  "ES=F": 7732.25,
-  "BTC-USD": 80482.9375,
-  "GC=F": 4072.10009765625,
-  "CL=F": 88.13999938964844,
+  "NQ=F": 28413.25,
+  "ES=F": 7717.75,
+  "BTC-USD": 80544.3203125,
+  "GC=F": 4136.5,
+  "CL=F": 87.51000213623047,
   "^VIX": 16.56999969482422
  },
  "enviadas": {
@@ -96,7 +96,7 @@
   "btc-call wall-84000": "2026-10-22T01:57:55.130989+00:00",
   "btc-call wall-83000": "2026-10-22T03:45:26.886222+00:00",
   "nivel-ES=F-mínimo-7751": "2026-10-22T05:49:01.397704+00:00",
-  "redondo-GC=F-4100": "2026-10-22T05:49:01.770778+00:00",
+  "redondo-GC=F-4100": "2026-11-05T02:49:30.728885+00:00",
   "rango-ES=F-20261022": "2026-10-22T19:47:59.088950+00:00",
   "rango-NQ=F-20261022": "2026-10-22T19:47:59.088999+00:00",
   "nivel-BTC-USD-mínimo-82543": "2026-10-22T11:18:24.797854+00:00",
@@ -215,6 +215,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-GC=F-4100",
+   "titulo": "Oro cruzó el número redondo 4,100",
+   "texto": "Precio 4,136.50. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "04-nov 22:49"
+  },
   {
    "clave": "nivel-NQ=F-máximo-28450",
    "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
@@ -557,14 +564,7 @@
    "texto": "Precio 76,794. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
    "prioridad": 3,
    "hora": "30-oct 14:31"
-  },
-  {
-   "clave": "redondo-ES=F-7650",
-   "titulo": "S&P 500 (ES) cruzó el número redondo 7,650",
-   "texto": "Precio 7,611.75. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "30-oct 13:08"
   }
  ],
- "btc_precio": 80492.4
+ "btc_precio": 80552.6
 }
