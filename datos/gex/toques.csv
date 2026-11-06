@@ -71,9 +71,9 @@ sesion,mercado,pared,nivel,toques,roto
 05-Nov,ES,Call wall,7724.85,0,False
 05-Nov,ES,Put wall,7423.88,0,False
 05-Nov,ES,Gamma flip,7716.25,0,False
-06-Nov,NQ,Call wall,28778.35,0,False
-06-Nov,NQ,Put wall,26722.76,2,True
-06-Nov,NQ,Gamma flip,28859.89,0,False
-06-Nov,ES,Call wall,7724.85,0,False
-06-Nov,ES,Put wall,7423.88,1,False
-06-Nov,ES,Gamma flip,7716.25,0,False
+06-Nov,NQ,Call wall,27253.17,3,True
+06-Nov,NQ,Put wall,26840.25,1,True
+06-Nov,NQ,Gamma flip,28444.1,0,False
+06-Nov,ES,Call wall,7451.57,1,True
+06-Nov,ES,Put wall,7451.57,1,True
+06-Nov,ES,Gamma flip,7611.02,0,False

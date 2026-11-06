@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 27106.0,
-  "ES=F": 7400.5,
-  "BTC-USD": 75992.2265625,
-  "GC=F": 4075.89990234375,
-  "CL=F": 91.0199966430664,
-  "^VIX": 26.799999237060547
+  "NQ=F": 27093.5,
+  "ES=F": 7419.0,
+  "BTC-USD": 75675.03125,
+  "GC=F": 4068.89990234375,
+  "CL=F": 89.76000213623047,
+  "^VIX": 25.639999389648438
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
@@ -199,7 +199,7 @@
   "nivel-ES=F-máximo-7624": "2026-11-04T17:15:33.386865+00:00",
   "mov-CL=F-down": "2026-11-04T17:15:34.436290+00:00",
   "nivel-CL=F-mínimo-94": "2026-11-04T17:15:34.436421+00:00",
-  "redondo-CL=F-90": "2026-11-05T18:12:43.006208+00:00",
+  "redondo-CL=F-90": "2026-11-06T18:20:40.052651+00:00",
   "gamma-SPY-put wall-7719": "2026-11-04T17:15:38.848281+00:00",
   "rango-ES=F-20261104": "2026-11-04T17:15:48.930067+00:00",
   "rango-NQ=F-20261104": "2026-11-04T17:15:48.930104+00:00",
@@ -215,19 +215,34 @@
   "rango-NQ=F-20261105": "2026-11-05T18:12:54.985044+00:00",
   "nivel-GC=F-máximo-4081": "2026-11-06T02:24:45.709512+00:00",
   "nivel-GC=F-mínimo-4067": "2026-11-06T11:31:39.508299+00:00",
-  "nivel-CL=F-máximo-91": "2026-11-06T11:31:39.873643+00:00"
+  "nivel-CL=F-máximo-91": "2026-11-06T11:31:39.873643+00:00",
+  "rango-NQ=F-20261106": "2026-11-06T18:20:52.100547+00:00"
  },
  "gamma": {
   "SPY": {
    "positivo": false,
-   "precio": 7399.5
+   "precio": 7419.25
   },
   "QQQ": {
    "positivo": false,
-   "precio": 26846.75
+   "precio": 27092.75
   }
  },
  "historial": [
+  {
+   "clave": "redondo-CL=F-90",
+   "titulo": "Petróleo WTI cruzó el número redondo 90",
+   "texto": "Precio 89.76. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "06-nov 14:20"
+  },
+  {
+   "clave": "rango-NQ=F-20261106",
+   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±212 pts)",
+   "texto": "Va +341 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "06-nov 14:20"
+  },
   {
    "clave": "redondo-NQ=F-27000",
    "titulo": "Nasdaq (NQ) cruzó el número redondo 27,000",
@@ -563,21 +578,7 @@
    "texto": "Precio 7,608.75. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "03-nov 12:36"
-  },
-  {
-   "clave": "rango-ES=F-20261103",
-   "titulo": "ES (S&P 500) se salió del rango esperado (±32 pts)",
-   "texto": "Va +34 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "03-nov 12:36"
-  },
-  {
-   "clave": "rango-NQ=F-20261103",
-   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±188 pts)",
-   "texto": "Va +218 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "03-nov 12:36"
   }
  ],
- "btc_precio": 75996.6
+ "btc_precio": 75696.5
 }
