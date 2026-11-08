@@ -2,7 +2,7 @@
  "precios": {
   "NQ=F": 27085.25,
   "ES=F": 7402.0,
-  "BTC-USD": 75798.0,
+  "BTC-USD": 74159.8125,
   "GC=F": 4074.89990234375,
   "CL=F": 90.83000183105469,
   "^VIX": 25.6299991607666
@@ -161,7 +161,7 @@
   "gamma-QQQ-put wall-29726": "2026-10-29T15:37:18.827402+00:00",
   "rango-NQ=F-20261029": "2026-10-29T15:37:28.348084+00:00",
   "btc-put wall-81": "2026-10-29T15:37:28.348133+00:00",
-  "mov-BTC-USD-down": "2026-10-30T00:15:55.969752+00:00",
+  "mov-BTC-USD-down": "2026-11-08T22:37:53.903096+00:00",
   "redondo-BTC-USD-78000": "2026-11-04T09:13:32.216432+00:00",
   "btc-put wall-78": "2026-10-30T00:16:00.651279+00:00",
   "redondo-NQ=F-29000": "2026-10-30T01:15:54.564895+00:00",
@@ -216,7 +216,8 @@
   "nivel-GC=F-máximo-4081": "2026-11-06T02:24:45.709512+00:00",
   "nivel-GC=F-mínimo-4067": "2026-11-06T11:31:39.508299+00:00",
   "nivel-CL=F-máximo-91": "2026-11-06T11:31:39.873643+00:00",
-  "rango-NQ=F-20261106": "2026-11-06T18:20:52.100547+00:00"
+  "rango-NQ=F-20261106": "2026-11-06T18:20:52.100547+00:00",
+  "nivel-BTC-USD-mínimo-75486": "2026-11-08T22:37:53.903235+00:00"
  },
  "gamma": {
   "SPY": {
@@ -229,6 +230,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "mov-BTC-USD-down",
+   "titulo": "Bitcoin 📉 cae -1.77 % en 1 h",
+   "texto": "Precio 74,159.81. Movimiento fuerte: revisa noticias antes de operar.",
+   "prioridad": 4,
+   "hora": "08-nov 18:37"
+  },
+  {
+   "clave": "nivel-BTC-USD-mínimo-75486",
+   "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 75,485.69 · precio 74,159.81. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "08-nov 18:37"
+  },
   {
    "clave": "redondo-CL=F-90",
    "titulo": "Petróleo WTI cruzó el número redondo 90",
@@ -564,21 +579,7 @@
    "texto": "Nivel 7,570.75 · precio 7,542.00. Zona de liquidez: ojo con barridas y rupturas falsas.",
    "prioridad": 3,
    "hora": "03-nov 22:08"
-  },
-  {
-   "clave": "redondo-ES=F-7550",
-   "titulo": "S&P 500 (ES) cruzó el número redondo 7,550",
-   "texto": "Precio 7,542.00. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "03-nov 22:08"
-  },
-  {
-   "clave": "redondo-ES=F-7600",
-   "titulo": "S&P 500 (ES) cruzó el número redondo 7,600",
-   "texto": "Precio 7,608.75. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "03-nov 12:36"
   }
  ],
- "btc_precio": 75806.8
+ "btc_precio": 74173.2
 }
