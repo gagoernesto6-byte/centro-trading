@@ -1,10 +1,10 @@
 {
  "precios": {
-  "NQ=F": 26943.0,
-  "ES=F": 7397.0,
-  "BTC-USD": 74611.296875,
-  "GC=F": 4070.199951171875,
-  "CL=F": 90.3499984741211,
+  "NQ=F": 27217.5,
+  "ES=F": 7446.0,
+  "BTC-USD": 74719.796875,
+  "GC=F": 4133.2998046875,
+  "CL=F": 91.30999755859375,
   "^VIX": 25.6299991607666
  },
  "enviadas": {
@@ -96,7 +96,7 @@
   "btc-call wall-84000": "2026-10-22T01:57:55.130989+00:00",
   "btc-call wall-83000": "2026-10-22T03:45:26.886222+00:00",
   "nivel-ES=F-mínimo-7751": "2026-10-22T05:49:01.397704+00:00",
-  "redondo-GC=F-4100": "2026-11-06T02:24:45.709554+00:00",
+  "redondo-GC=F-4100": "2026-11-09T04:59:52.643831+00:00",
   "rango-ES=F-20261022": "2026-10-22T19:47:59.088950+00:00",
   "rango-NQ=F-20261022": "2026-10-22T19:47:59.088999+00:00",
   "nivel-BTC-USD-mínimo-82543": "2026-10-22T11:18:24.797854+00:00",
@@ -217,7 +217,8 @@
   "nivel-GC=F-mínimo-4067": "2026-11-06T11:31:39.508299+00:00",
   "nivel-CL=F-máximo-91": "2026-11-06T11:31:39.873643+00:00",
   "rango-NQ=F-20261106": "2026-11-06T18:20:52.100547+00:00",
-  "nivel-BTC-USD-mínimo-75486": "2026-11-08T22:37:53.903235+00:00"
+  "nivel-BTC-USD-mínimo-75486": "2026-11-08T22:37:53.903235+00:00",
+  "nivel-GC=F-máximo-4116": "2026-11-09T04:59:52.643768+00:00"
  },
  "gamma": {
   "SPY": {
@@ -230,6 +231,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-GC=F-máximo-4116",
+   "titulo": "Oro cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
+   "texto": "Nivel 4,116.20 · precio 4,133.30. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "09-nov 00:59"
+  },
+  {
+   "clave": "redondo-GC=F-4100",
+   "titulo": "Oro cruzó el número redondo 4,100",
+   "texto": "Precio 4,133.30. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "09-nov 00:59"
+  },
   {
    "clave": "redondo-NQ=F-27000",
    "titulo": "Nasdaq (NQ) cruzó el número redondo 27,000",
@@ -565,21 +580,7 @@
    "texto": "Precio 78,306. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
    "prioridad": 3,
    "hora": "04-nov 05:13"
-  },
-  {
-   "clave": "mov-NQ=F-down",
-   "titulo": "Nasdaq (NQ) 📉 cae -0.99 % en 1 h",
-   "texto": "Precio 27,871.25. Movimiento fuerte: revisa noticias antes de operar.",
-   "prioridad": 4,
-   "hora": "03-nov 22:08"
-  },
-  {
-   "clave": "nivel-NQ=F-mínimo-28102",
-   "titulo": "Nasdaq (NQ) cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
-   "texto": "Nivel 28,101.75 · precio 27,871.25. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "03-nov 22:08"
   }
  ],
- "btc_precio": 74607.9
+ "btc_precio": 74725.4
 }
