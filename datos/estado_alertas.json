@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 27950.5,
-  "ES=F": 7580.0,
-  "BTC-USD": 74218.2578125,
-  "GC=F": 4084.60009765625,
-  "CL=F": 85.8499984741211,
-  "^VIX": 20.040000915527344
+  "NQ=F": 27917.0,
+  "ES=F": 7580.5,
+  "BTC-USD": 74260.4296875,
+  "GC=F": 4087.5,
+  "CL=F": 84.95999908447266,
+  "^VIX": 20.15999984741211
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
@@ -222,7 +222,11 @@
   "redondo-ES=F-7450": "2026-11-09T13:43:24.353816+00:00",
   "nivel-CL=F-mínimo-89": "2026-11-09T13:43:25.505118+00:00",
   "nivel-NQ=F-máximo-27425": "2026-11-09T23:10:20.591226+00:00",
-  "nivel-ES=F-máximo-7469": "2026-11-09T23:10:20.962356+00:00"
+  "nivel-ES=F-máximo-7469": "2026-11-09T23:10:20.962356+00:00",
+  "nivel-CL=F-mínimo-85": "2026-11-10T13:00:24.757312+00:00",
+  "redondo-CL=F-85": "2026-11-10T13:00:24.757350+00:00",
+  "evento-Core CPI m/m-2026-11-10T08:30:00-05:00": "2026-11-10T13:00:25.474758+00:00",
+  "evento-CPI m/m-2026-11-10T08:30:00-05:00": "2026-11-10T13:00:25.474780+00:00"
  },
  "gamma": {
   "SPY": {
@@ -235,6 +239,34 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-CL=F-mínimo-85",
+   "titulo": "Petróleo WTI cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 85.02 · precio 84.96. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "10-nov 09:00"
+  },
+  {
+   "clave": "redondo-CL=F-85",
+   "titulo": "Petróleo WTI cruzó el número redondo 85",
+   "texto": "Precio 84.96. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "10-nov 09:00"
+  },
+  {
+   "clave": "evento-Core CPI m/m-2026-11-10T08:30:00-05:00",
+   "titulo": "⏰ En 30 min: Core CPI m/m",
+   "texto": "Pronóstico 0.2% · anterior 0.3%. El precio puede saltar en segundos: muchos profesionales esperan a que pase el dato.",
+   "prioridad": 4,
+   "hora": "10-nov 09:00"
+  },
+  {
+   "clave": "evento-CPI m/m-2026-11-10T08:30:00-05:00",
+   "titulo": "⏰ En 30 min: CPI m/m",
+   "texto": "Pronóstico 0.3% · anterior 0.6%. El precio puede saltar en segundos: muchos profesionales esperan a que pase el dato.",
+   "prioridad": 4,
+   "hora": "10-nov 09:00"
+  },
   {
    "clave": "redondo-GC=F-4100",
    "titulo": "Oro cruzó el número redondo 4,100",
@@ -556,35 +588,7 @@
    "texto": "Precio 88.93. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "04-nov 13:15"
-  },
-  {
-   "clave": "gamma-SPY-put wall-7719",
-   "titulo": "ES (S&P 500) cruzó el put wall (~7,719)",
-   "texto": "Precio 7,726. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "04-nov 13:15"
-  },
-  {
-   "clave": "rango-ES=F-20261104",
-   "titulo": "ES (S&P 500) se salió del rango esperado (±30 pts)",
-   "texto": "Va +130 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "04-nov 13:15"
-  },
-  {
-   "clave": "rango-NQ=F-20261104",
-   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±176 pts)",
-   "texto": "Va +369 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "04-nov 13:15"
-  },
-  {
-   "clave": "nivel-NQ=F-mínimo-28038",
-   "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el mínimo de ayer (PDL)",
-   "texto": "Nivel 28,038.25 · precio 28,335.25. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "04-nov 05:13"
   }
  ],
- "btc_precio": 74229.0
+ "btc_precio": 74242.3
 }
