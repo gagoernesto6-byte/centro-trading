@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 28307.5,
-  "ES=F": 7608.25,
-  "BTC-USD": 73548.296875,
-  "GC=F": 4021.699951171875,
-  "CL=F": 87.4800033569336,
-  "^VIX": 18.290000915527344
+  "NQ=F": 28470.25,
+  "ES=F": 7646.75,
+  "BTC-USD": 74310.0,
+  "GC=F": 3993.89990234375,
+  "CL=F": 86.47000122070312,
+  "^VIX": 17.479999542236328
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
@@ -165,7 +165,7 @@
   "redondo-BTC-USD-78000": "2026-11-04T09:13:32.216432+00:00",
   "btc-put wall-78": "2026-10-30T00:16:00.651279+00:00",
   "redondo-NQ=F-29000": "2026-10-30T01:15:54.564895+00:00",
-  "redondo-GC=F-4000": "2026-11-04T09:13:32.451070+00:00",
+  "redondo-GC=F-4000": "2026-11-11T21:59:35.903228+00:00",
   "btc-call wall-78": "2026-11-05T18:12:54.985083+00:00",
   "nivel-BTC-USD-mínimo-77737": "2026-10-30T12:07:58.918369+00:00",
   "redondo-ES=F-7650": "2026-10-30T17:08:00.081854+00:00",
@@ -228,18 +228,19 @@
   "evento-Core CPI m/m-2026-11-10T08:30:00-05:00": "2026-11-10T13:00:25.474758+00:00",
   "evento-CPI m/m-2026-11-10T08:30:00-05:00": "2026-11-10T13:00:25.474780+00:00",
   "nivel-BTC-USD-mínimo-73665": "2026-11-10T20:23:22.994016+00:00",
-  "redondo-BTC-USD-74000": "2026-11-10T20:23:22.994053+00:00",
+  "redondo-BTC-USD-74000": "2026-11-11T21:59:35.707223+00:00",
   "nivel-GC=F-mínimo-4062": "2026-11-10T20:23:23.207425+00:00",
   "rango-ES=F-20261110": "2026-11-10T20:23:37.611522+00:00",
   "rango-NQ=F-20261110": "2026-11-10T20:23:37.611556+00:00",
-  "btc-put wall-74": "2026-11-10T20:23:37.611575+00:00",
+  "btc-put wall-74": "2026-11-11T21:59:40.645185+00:00",
   "nivel-NQ=F-máximo-28109": "2026-11-11T07:14:26.911626+00:00",
   "nivel-ES=F-máximo-7599": "2026-11-11T15:15:15.645216+00:00",
   "nivel-CL=F-máximo-87": "2026-11-11T15:15:16.381856+00:00",
   "gamma-QQQ-gamma flip-28278": "2026-11-11T15:15:20.646586+00:00",
   "gamma-QQQ-put wall-28066": "2026-11-11T15:15:20.646601+00:00",
   "rango-ES=F-20261111": "2026-11-11T15:15:31.906279+00:00",
-  "rango-NQ=F-20261111": "2026-11-11T15:15:31.906321+00:00"
+  "rango-NQ=F-20261111": "2026-11-11T15:15:31.906321+00:00",
+  "nivel-GC=F-mínimo-4021": "2026-11-11T21:59:35.903178+00:00"
  },
  "gamma": {
   "SPY": {
@@ -252,6 +253,34 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-BTC-USD-74000",
+   "titulo": "Bitcoin cruzó el número redondo 74,000",
+   "texto": "Precio 74,310.00. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "11-nov 17:59"
+  },
+  {
+   "clave": "nivel-GC=F-mínimo-4021",
+   "titulo": "Oro cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 4,020.80 · precio 3,993.90. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "11-nov 17:59"
+  },
+  {
+   "clave": "redondo-GC=F-4000",
+   "titulo": "Oro cruzó el número redondo 4,000",
+   "texto": "Precio 3,993.90. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "11-nov 17:59"
+  },
+  {
+   "clave": "btc-put wall-74",
+   "titulo": "Bitcoin cruzó el put wall (~74,000)",
+   "texto": "Precio 74,299. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "11-nov 17:59"
+  },
   {
    "clave": "nivel-ES=F-máximo-7599",
    "titulo": "S&P 500 (ES) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
@@ -573,35 +602,7 @@
    "texto": "Precio 26,848.75. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "05-nov 14:12"
-  },
-  {
-   "clave": "mov-ES=F-down",
-   "titulo": "S&P 500 (ES) 📉 cae -0.83 % en 1 h",
-   "texto": "Precio 7,399.50. Movimiento fuerte: revisa noticias antes de operar.",
-   "prioridad": 4,
-   "hora": "05-nov 14:12"
-  },
-  {
-   "clave": "nivel-ES=F-mínimo-7490",
-   "titulo": "S&P 500 (ES) cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
-   "texto": "Nivel 7,490.00 · precio 7,399.50. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "05-nov 14:12"
-  },
-  {
-   "clave": "redondo-ES=F-7400",
-   "titulo": "S&P 500 (ES) cruzó el número redondo 7,400",
-   "texto": "Precio 7,399.50. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "05-nov 14:12"
-  },
-  {
-   "clave": "redondo-BTC-USD-76000",
-   "titulo": "Bitcoin cruzó el número redondo 76,000",
-   "texto": "Precio 75,971.14. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "05-nov 14:12"
   }
  ],
- "btc_precio": 73540.9
+ "btc_precio": 74299.0
 }
