@@ -1,18 +1,18 @@
 {
  "precios": {
-  "NQ=F": 28216.0,
-  "ES=F": 7587.0,
-  "BTC-USD": 73505.953125,
-  "GC=F": 4072.89990234375,
-  "CL=F": 86.36000061035156,
-  "^VIX": 19.459999084472656
+  "NQ=F": 28307.5,
+  "ES=F": 7608.25,
+  "BTC-USD": 73548.296875,
+  "GC=F": 4021.699951171875,
+  "CL=F": 87.4800033569336,
+  "^VIX": 18.290000915527344
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
   "nivel-ES=F-mínimo-7741": "2026-10-15T05:52:12.581932+00:00",
   "nivel-BTC-USD-mínimo-80963": "2026-10-15T05:52:12.795608+00:00",
   "gamma-regimen-SPY-True": "2026-10-21T19:31:09.649849+00:00",
-  "gamma-regimen-QQQ-True": "2026-10-15T11:21:04.625113+00:00",
+  "gamma-regimen-QQQ-True": "2026-11-11T15:15:20.646551+00:00",
   "evento-Core PPI m/m-2026-10-15T08:30:00-04:00": "2026-10-15T11:21:04.858761+00:00",
   "evento-Core Retail Sales m/m-2026-10-15T08:30:00-04:00": "2026-10-15T11:21:04.858780+00:00",
   "evento-PPI m/m-2026-10-15T08:30:00-04:00": "2026-10-15T11:21:04.858795+00:00",
@@ -174,7 +174,7 @@
   "rango-ES=F-20261030": "2026-10-30T17:08:14.889104+00:00",
   "rango-NQ=F-20261030": "2026-10-30T17:08:14.889145+00:00",
   "redondo-NQ=F-28500": "2026-11-04T17:15:33.085307+00:00",
-  "redondo-ES=F-7600": "2026-11-04T09:13:31.907358+00:00",
+  "redondo-ES=F-7600": "2026-11-11T15:15:15.645268+00:00",
   "redondo-GC=F-3900": "2026-11-01T23:29:59.467419+00:00",
   "gamma-SPY-put wall-7589": "2026-10-30T18:31:15.542692+00:00",
   "btc-put wall-77": "2026-10-30T18:31:26.027816+00:00",
@@ -233,19 +233,81 @@
   "rango-ES=F-20261110": "2026-11-10T20:23:37.611522+00:00",
   "rango-NQ=F-20261110": "2026-11-10T20:23:37.611556+00:00",
   "btc-put wall-74": "2026-11-10T20:23:37.611575+00:00",
-  "nivel-NQ=F-máximo-28109": "2026-11-11T07:14:26.911626+00:00"
+  "nivel-NQ=F-máximo-28109": "2026-11-11T07:14:26.911626+00:00",
+  "nivel-ES=F-máximo-7599": "2026-11-11T15:15:15.645216+00:00",
+  "nivel-CL=F-máximo-87": "2026-11-11T15:15:16.381856+00:00",
+  "gamma-QQQ-gamma flip-28278": "2026-11-11T15:15:20.646586+00:00",
+  "gamma-QQQ-put wall-28066": "2026-11-11T15:15:20.646601+00:00",
+  "rango-ES=F-20261111": "2026-11-11T15:15:31.906279+00:00",
+  "rango-NQ=F-20261111": "2026-11-11T15:15:31.906321+00:00"
  },
  "gamma": {
   "SPY": {
    "positivo": false,
-   "precio": 7532.75
+   "precio": 7607.25
   },
   "QQQ": {
-   "positivo": false,
-   "precio": 27766.0
+   "positivo": true,
+   "precio": 28304.5
   }
  },
  "historial": [
+  {
+   "clave": "nivel-ES=F-máximo-7599",
+   "titulo": "S&P 500 (ES) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
+   "texto": "Nivel 7,598.75 · precio 7,608.25. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "11-nov 11:15"
+  },
+  {
+   "clave": "redondo-ES=F-7600",
+   "titulo": "S&P 500 (ES) cruzó el número redondo 7,600",
+   "texto": "Precio 7,608.25. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "11-nov 11:15"
+  },
+  {
+   "clave": "nivel-CL=F-máximo-87",
+   "titulo": "Petróleo WTI cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
+   "texto": "Nivel 86.93 · precio 87.48. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "11-nov 11:15"
+  },
+  {
+   "clave": "gamma-regimen-QQQ-True",
+   "titulo": "Gamma de NQ (Nasdaq 100) cambió a POSITIVO",
+   "texto": "Ahora los dealers frenan el precio: más probable un día de rango. GEX +141.0 M.",
+   "prioridad": 4,
+   "hora": "11-nov 11:15"
+  },
+  {
+   "clave": "gamma-QQQ-gamma flip-28278",
+   "titulo": "NQ (Nasdaq 100) cruzó el gamma flip (~28,278)",
+   "texto": "Precio 28,304. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "11-nov 11:15"
+  },
+  {
+   "clave": "gamma-QQQ-put wall-28066",
+   "titulo": "NQ (Nasdaq 100) cruzó el put wall (~28,066)",
+   "texto": "Precio 28,304. Nivel de opciones donde puede cambiar el comportamiento del precio.",
+   "prioridad": 3,
+   "hora": "11-nov 11:15"
+  },
+  {
+   "clave": "rango-ES=F-20261111",
+   "titulo": "ES (S&P 500) se salió del rango esperado (±31 pts)",
+   "texto": "Va +62 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "11-nov 11:15"
+  },
+  {
+   "clave": "rango-NQ=F-20261111",
+   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±183 pts)",
+   "texto": "Va +466 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
+   "prioridad": 4,
+   "hora": "11-nov 11:15"
+  },
   {
    "clave": "nivel-NQ=F-máximo-28109",
    "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
@@ -539,63 +601,7 @@
    "texto": "Precio 75,971.14. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "05-nov 14:12"
-  },
-  {
-   "clave": "redondo-CL=F-90",
-   "titulo": "Petróleo WTI cruzó el número redondo 90",
-   "texto": "Precio 90.28. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "05-nov 14:12"
-  },
-  {
-   "clave": "gamma-SPY-gamma flip-7716",
-   "titulo": "ES (S&P 500) cruzó el gamma flip (~7,716)",
-   "texto": "Precio 7,400. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "05-nov 14:12"
-  },
-  {
-   "clave": "gamma-SPY-call wall-7725",
-   "titulo": "ES (S&P 500) cruzó el call wall (~7,725)",
-   "texto": "Precio 7,400. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "05-nov 14:12"
-  },
-  {
-   "clave": "gamma-SPY-put wall-7424",
-   "titulo": "ES (S&P 500) cruzó el put wall (~7,424)",
-   "texto": "Precio 7,400. Nivel de opciones donde puede cambiar el comportamiento del precio.",
-   "prioridad": 3,
-   "hora": "05-nov 14:12"
-  },
-  {
-   "clave": "rango-ES=F-20261105",
-   "titulo": "ES (S&P 500) se salió del rango esperado (±26 pts)",
-   "texto": "Va -322 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "05-nov 14:12"
-  },
-  {
-   "clave": "rango-NQ=F-20261105",
-   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±454 pts)",
-   "texto": "Va -1,721 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "05-nov 14:12"
-  },
-  {
-   "clave": "btc-gamma flip-77",
-   "titulo": "Bitcoin cruzó el gamma flip (~77,177)",
-   "texto": "Precio 75,970. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "05-nov 14:12"
-  },
-  {
-   "clave": "btc-call wall-78",
-   "titulo": "Bitcoin cruzó el call wall (~78,000)",
-   "texto": "Precio 75,970. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "05-nov 14:12"
   }
  ],
- "btc_precio": 73491.1
+ "btc_precio": 73540.9
 }
