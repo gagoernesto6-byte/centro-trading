@@ -1,10 +1,10 @@
 {
  "precios": {
-  "NQ=F": 27974.75,
-  "ES=F": 7566.25,
-  "BTC-USD": 73475.4375,
-  "GC=F": 4045.10009765625,
-  "CL=F": 86.30000305175781,
+  "NQ=F": 28216.0,
+  "ES=F": 7587.0,
+  "BTC-USD": 73505.953125,
+  "GC=F": 4072.89990234375,
+  "CL=F": 86.36000061035156,
   "^VIX": 19.459999084472656
  },
  "enviadas": {
@@ -189,7 +189,7 @@
   "rango-NQ=F-20261103": "2026-11-03T16:36:57.764929+00:00",
   "btc-gamma flip-77": "2026-11-05T18:12:54.985069+00:00",
   "nivel-NQ=F-mínimo-28102": "2026-11-04T02:08:58.083354+00:00",
-  "redondo-NQ=F-28000": "2026-11-09T23:10:20.591286+00:00",
+  "redondo-NQ=F-28000": "2026-11-11T07:14:26.911678+00:00",
   "redondo-ES=F-7550": "2026-11-10T20:23:22.755781+00:00",
   "nivel-NQ=F-mínimo-28038": "2026-11-04T09:13:31.702083+00:00",
   "nivel-ES=F-mínimo-7546": "2026-11-04T09:13:31.907302+00:00",
@@ -232,7 +232,8 @@
   "nivel-GC=F-mínimo-4062": "2026-11-10T20:23:23.207425+00:00",
   "rango-ES=F-20261110": "2026-11-10T20:23:37.611522+00:00",
   "rango-NQ=F-20261110": "2026-11-10T20:23:37.611556+00:00",
-  "btc-put wall-74": "2026-11-10T20:23:37.611575+00:00"
+  "btc-put wall-74": "2026-11-10T20:23:37.611575+00:00",
+  "nivel-NQ=F-máximo-28109": "2026-11-11T07:14:26.911626+00:00"
  },
  "gamma": {
   "SPY": {
@@ -245,6 +246,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-NQ=F-máximo-28109",
+   "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
+   "texto": "Nivel 28,109.00 · precio 28,216.00. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "11-nov 03:14"
+  },
+  {
+   "clave": "redondo-NQ=F-28000",
+   "titulo": "Nasdaq (NQ) cruzó el número redondo 28,000",
+   "texto": "Precio 28,216.00. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "11-nov 03:14"
+  },
   {
    "clave": "redondo-ES=F-7550",
    "titulo": "S&P 500 (ES) cruzó el número redondo 7,550",
@@ -580,21 +595,7 @@
    "texto": "Precio 75,970. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
    "prioridad": 3,
    "hora": "05-nov 14:12"
-  },
-  {
-   "clave": "redondo-GC=F-4100",
-   "titulo": "Oro cruzó el número redondo 4,100",
-   "texto": "Precio 4,136.50. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "04-nov 22:49"
-  },
-  {
-   "clave": "nivel-NQ=F-máximo-28450",
-   "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
-   "texto": "Nivel 28,449.50 · precio 28,674.50. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "04-nov 13:15"
   }
  ],
- "btc_precio": 73479.9
+ "btc_precio": 73491.1
 }
