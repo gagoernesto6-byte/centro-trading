@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 28415.25,
-  "ES=F": 7632.25,
-  "BTC-USD": 69136.53125,
-  "GC=F": 3920.199951171875,
-  "CL=F": 88.16000366210938,
-  "^VIX": 18.690000534057617
+  "NQ=F": 28402.75,
+  "ES=F": 7627.0,
+  "BTC-USD": 69116.46875,
+  "GC=F": 3893.60009765625,
+  "CL=F": 88.41999816894531,
+  "^VIX": 18.34000015258789
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
@@ -175,7 +175,7 @@
   "rango-NQ=F-20261030": "2026-10-30T17:08:14.889145+00:00",
   "redondo-NQ=F-28500": "2026-11-12T23:48:01.625493+00:00",
   "redondo-ES=F-7600": "2026-11-11T15:15:15.645268+00:00",
-  "redondo-GC=F-3900": "2026-11-12T18:30:23.449508+00:00",
+  "redondo-GC=F-3900": "2026-11-13T11:36:48.885763+00:00",
   "gamma-SPY-put wall-7589": "2026-10-30T18:31:15.542692+00:00",
   "btc-put wall-77": "2026-10-30T18:31:26.027816+00:00",
   "nivel-CL=F-mínimo-102": "2026-11-02T01:50:17.343218+00:00",
@@ -263,6 +263,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-GC=F-3900",
+   "titulo": "Oro cruzó el número redondo 3,900",
+   "texto": "Precio 3,893.60. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "13-nov 07:36"
+  },
   {
    "clave": "redondo-BTC-USD-70000",
    "titulo": "Bitcoin cruzó el número redondo 70,000",
@@ -605,14 +612,7 @@
    "texto": "Precio 26,943.00. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "08-nov 19:55"
-  },
-  {
-   "clave": "redondo-ES=F-7400",
-   "titulo": "S&P 500 (ES) cruzó el número redondo 7,400",
-   "texto": "Precio 7,397.00. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "08-nov 19:55"
   }
  ],
- "btc_precio": 69137.0
+ "btc_precio": 69127.9
 }
