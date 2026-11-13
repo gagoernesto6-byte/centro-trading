@@ -21,6 +21,10 @@ try:
     datos["verificados"] = json.loads((RAIZ / "datos" / "verificados.json").read_text(encoding="utf-8"))
 except Exception:
     pass
+try:
+    datos["kronos"] = json.loads((RAIZ / "datos" / "kronos.json").read_text(encoding="utf-8"))
+except Exception:
+    pass
 plantilla = (RAIZ / "centro" / "plantilla.html").read_text(encoding="utf-8")
 js = json.dumps(datos, ensure_ascii=False).replace("</", "<\\/")
 salida.write_text(plantilla.replace("__DATOS__", js), encoding="utf-8")

@@ -224,6 +224,14 @@ def verificados():
         return []
 
 
+def kronos():
+    """El último pronóstico de Kronos (lo arma clases/kronos_pronostico.py en su propio flujo, cada 4 horas)."""
+    try:
+        return json.loads((RAIZ / "datos" / "kronos.json").read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
 def armar():
     estado = AL.cargar_estado()
     nuevas = []
@@ -290,6 +298,7 @@ def armar():
         "laboratorio": lab,
         "ballenas": ballenas_cacheadas(),
         "verificados": verificados(),
+        "kronos": kronos(),
     }
     plantilla = (RAIZ / "centro" / "plantilla.html").read_text(encoding="utf-8")
     js = json.dumps(datos, ensure_ascii=False).replace("</", "<\\/")

@@ -141,6 +141,7 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
     <button role="tab" data-tab="opciones">Gamma y opciones</button>
     <button role="tab" data-tab="volatilidad">Volatilidad</button>
     <button role="tab" data-tab="bitcoin">Bitcoin</button>
+    <button role="tab" data-tab="pronostico">Pronóstico IA</button>
     <button role="tab" data-tab="ballenas">Ballenas</button>
     <button role="tab" data-tab="riesgo">Riesgo</button>
     <button role="tab" data-tab="reporte">Reporte de precios</button>
@@ -321,6 +322,23 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
       <div class="fila">
         <div class="pan"><div class="pan-h"><h2>Noticias generales con IA</h2><small>mundo · Venezuela · economía · empresas · cripto</small></div><div id="not" class="reporte"></div></div>
         <div class="pan"><div class="pan-h"><h2>Titulares</h2><small>CNBC · Investing.com</small></div><div id="titulares"></div></div>
+      </div>
+    </section>
+
+    <!-- PRONÓSTICO IA (Kronos) -->
+    <section class="tab" id="pronostico" role="tabpanel" hidden>
+      <div class="pan"><div class="pan-h"><div class="seg" id="seg-kr"><button data-i="BTC" aria-pressed="true">Bitcoin</button><button data-i="NQ" aria-pressed="false">NQ</button></div><small id="kr-hora"></small></div>
+        <div class="kpis" id="kr-kpis"></div>
+        <div id="kr-graf"></div>
+        <div class="leyenda"><span><i style="background:var(--ink)"></i>precio real (últimas 72 h)</span><span><i style="background:var(--amber)"></i>mediana de Kronos</span><span><i style="background:var(--warn-soft);border:1px solid var(--amber)"></i>rango del 10 % al 90 %</span></div>
+      </div>
+      <div class="pan"><div class="pan-h"><h2>Qué es esto</h2></div>
+        <ul class="lista">
+          <li><b>Kronos</b> es un modelo de IA de código abierto entrenado con más de 12.000 millones de velas de 45 bolsas. Mira las últimas velas de 1 hora y dibuja varias trayectorias posibles para las próximas 24 horas.</li>
+          <li>La línea ámbar es la trayectoria del medio; la banda muestra dónde cayó el 80 % de las trayectorias. Cuanto más ancha, más incertidumbre.</li>
+          <li>Son escenarios de un modelo, no certezas: no es una señal para operar. Compáralo con la gamma y el rango esperado de las opciones, y practica en demo.</li>
+          <li>Se actualiza cada 4 horas en la nube. Fuente: <a href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener">Kronos en GitHub</a>.</li>
+        </ul>
       </div>
     </section>
 
@@ -777,9 +795,49 @@ svg text { fill: var(--muted); font-family: var(--mono); font-size: 10px }
     });
   })();
 
+  // ---------- pronóstico IA (Kronos) ----------
+  var krActivo = "BTC";
+  (function () {
+    var seg = document.getElementById("seg-kr"); if (!seg) return;
+    var bs = [].slice.call(seg.querySelectorAll("button"));
+    bs.forEach(function (b) { b.addEventListener("click", function () { krActivo = b.getAttribute("data-i"); bs.forEach(function (o) { o.setAttribute("aria-pressed", o === b); }); dibujarKronos(); }); });
+  })();
+  function horaCaracas(ms) {
+    try { return new Date(ms).toLocaleString("es-VE", { timeZone: "America/Caracas", day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit", hour12: false }); }
+    catch (e) { return new Date(ms).toISOString().slice(5, 16).replace("T", " "); }
+  }
+  function dibujarKronos() {
+    var K = D.kronos || {}, A = (K.activos || {})[krActivo], box = document.getElementById("kr-graf"), kp = document.getElementById("kr-kpis");
+    document.getElementById("kr-hora").textContent = K.hora ? "pronóstico del " + K.hora : "";
+    kp.innerHTML = "";
+    if (!A || !(A.pronostico || []).length) { box.innerHTML = ""; box.appendChild(el("p", "vacio", "Todavía no hay pronóstico de Kronos para este activo.")); return; }
+    kpi(kp, "Precio al calcular", fmt(A.ultimo, 0));
+    kpi(kp, "Mediana en " + (K.horizonte_h || 24) + " h", fmt(A.mediana_final, 0), pct(A.cambio_pct), A.cambio_pct >= 0 ? "pos" : "neg");
+    kpi(kp, "Rango del 10 % al 90 %", fmt(A.rango_final[0], 0) + " – " + fmt(A.rango_final[1], 0), "donde cayó el 80 % de las trayectorias");
+    var H = A.historia.map(function (p) { return [Date.parse(p[0]), p[1]]; });
+    var P = [[H[H.length - 1][0], A.ultimo, A.ultimo, A.ultimo]].concat(A.pronostico.map(function (p) { return [Date.parse(p[0]), p[1], p[2], p[3]]; }));
+    var W = ancho(box), Ht = 250, m = { l: 58, r: 14, t: 14, b: 28 };
+    var xs = H.map(function (p) { return p[0]; }).concat(P.map(function (p) { return p[0]; }));
+    var ys = H.map(function (p) { return p[1]; }).concat(P.map(function (p) { return p[1]; }), P.map(function (p) { return p[3]; }));
+    var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys), pad = (y1 - y0) * 0.08 || 1; y0 -= pad; y1 += pad;
+    var X = function (v) { return m.l + (v - x0) / ((x1 - x0) || 1) * (W - m.l - m.r); }, Y = function (v) { return m.t + (y1 - v) / ((y1 - y0) || 1) * (Ht - m.t - m.b); };
+    var s = nuevoSvg(box, W, Ht, "Pronóstico de Kronos para " + (A.nombre || krActivo) + ": precio real, mediana y rango del 10 al 90 %");
+    for (var g = 0; g <= 3; g++) { var v = y0 + (y1 - y0) * g / 3; svgEl(s, "line", { x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), stroke: "var(--line)" }); svgEl(s, "text", { x: m.l - 6, y: Y(v) + 3, "text-anchor": "end" }, fmt(v)); }
+    [x0, H[H.length - 1][0], x1].forEach(function (v, i) { svgEl(s, "text", { x: X(v), y: Ht - 8, "text-anchor": i === 0 ? "start" : i === 2 ? "end" : "middle" }, horaCaracas(v)); });
+    var banda = P.map(function (p) { return X(p[0]).toFixed(1) + "," + Y(p[3]).toFixed(1); }).concat(P.slice().reverse().map(function (p) { return X(p[0]).toFixed(1) + "," + Y(p[1]).toFixed(1); }));
+    svgEl(s, "polygon", { points: banda.join(" "), fill: "var(--warn-soft)", stroke: "var(--amber)", "stroke-width": 0.6, "stroke-opacity": 0.6 });
+    var ahora = X(H[H.length - 1][0]);
+    svgEl(s, "line", { x1: ahora, x2: ahora, y1: m.t, y2: Ht - m.b, stroke: "var(--faint)", "stroke-dasharray": "4 3" });
+    var dH = ""; H.forEach(function (p) { dH += (dH ? "L" : "M") + X(p[0]).toFixed(1) + "," + Y(p[1]).toFixed(1); });
+    svgEl(s, "path", { d: dH, fill: "none", stroke: "var(--ink)", "stroke-width": 1.6 });
+    var dP = ""; P.forEach(function (p) { dP += (dP ? "L" : "M") + X(p[0]).toFixed(1) + "," + Y(p[2]).toFixed(1); });
+    svgEl(s, "path", { d: dP, fill: "none", stroke: "var(--amber)", "stroke-width": 2, "stroke-dasharray": "5 3" });
+    var fin = P[P.length - 1]; svgEl(s, "circle", { cx: X(fin[0]), cy: Y(fin[2]), r: 3.4, fill: "var(--amber)" });
+  }
+
   function dibujarTodo() {
     var vis = function (id) { return !document.getElementById(id).hidden; };
-    if (vis("opciones")) dibujarOpciones(); if (vis("volatilidad")) dibujarVol(); if (vis("bitcoin")) { dibujarBTC(); dibujarFootprint(); } if (vis("hoy")) dibujarHoy();
+    if (vis("opciones")) dibujarOpciones(); if (vis("volatilidad")) dibujarVol(); if (vis("bitcoin")) { dibujarBTC(); dibujarFootprint(); } if (vis("hoy")) dibujarHoy(); if (vis("pronostico")) dibujarKronos();
   }
   var t; window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(dibujarTodo, 200); });
   abrir(inicial);

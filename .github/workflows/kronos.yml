@@ -1,0 +1,42 @@
+name: Pronóstico Kronos (cada 4 horas)
+
+on:
+  schedule:
+    - cron: "41 */4 * * *"
+  workflow_dispatch:       # botón para correrlo a mano
+
+permissions:
+  contents: write
+
+concurrency:
+  group: centro
+  cancel-in-progress: false
+
+jobs:
+  kronos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Instalar Kronos (versión fija) y torch para CPU
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install einops "huggingface_hub>=0.33" safetensors tqdm -r requirements.txt
+          git clone https://github.com/shiyu-coder/Kronos.git /tmp/kronos
+          git -C /tmp/kronos checkout 67b630e67f6a18c9e9be918d9b4337c960db1e9a
+      - name: Pronóstico de bitcoin y del Nasdaq
+        env:
+          KRONOS_DIR: /tmp/kronos
+        run: python clases/kronos_pronostico.py
+      - name: Guardar el pronóstico
+        run: |
+          git config user.name "centro-trading-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add datos/kronos.json
+          git diff --cached --quiet || git commit -m "Pronóstico Kronos $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git pull --rebase --autostash || true
+          git push
