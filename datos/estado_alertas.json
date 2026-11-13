@@ -1,10 +1,10 @@
 {
  "precios": {
-  "NQ=F": 28505.75,
-  "ES=F": 7637.75,
-  "BTC-USD": 70254.203125,
-  "GC=F": 3912.300048828125,
-  "CL=F": 88.44000244140625,
+  "NQ=F": 28415.25,
+  "ES=F": 7632.25,
+  "BTC-USD": 69136.53125,
+  "GC=F": 3920.199951171875,
+  "CL=F": 88.16000366210938,
   "^VIX": 18.690000534057617
  },
  "enviadas": {
@@ -248,7 +248,9 @@
   "gamma-SPY-call wall-7642": "2026-11-12T18:30:28.024083+00:00",
   "gamma-SPY-put wall-7642": "2026-11-12T18:30:28.024114+00:00",
   "gamma-QQQ-put wall-28455": "2026-11-12T18:30:28.024148+00:00",
-  "nivel-CL=F-máximo-89": "2026-11-12T23:48:03.038213+00:00"
+  "nivel-CL=F-máximo-89": "2026-11-12T23:48:03.038213+00:00",
+  "redondo-BTC-USD-70000": "2026-11-13T03:39:28.078616+00:00",
+  "btc-put wall-70": "2026-11-13T03:39:32.202076+00:00"
  },
  "gamma": {
   "SPY": {
@@ -261,6 +263,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-BTC-USD-70000",
+   "titulo": "Bitcoin cruzó el número redondo 70,000",
+   "texto": "Precio 69,136.53. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "12-nov 23:39"
+  },
+  {
+   "clave": "btc-put wall-70",
+   "titulo": "Bitcoin cruzó el put wall (~70,000)",
+   "texto": "Precio 69,137. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "12-nov 23:39"
+  },
   {
    "clave": "redondo-NQ=F-28500",
    "titulo": "Nasdaq (NQ) cruzó el número redondo 28,500",
@@ -596,21 +612,7 @@
    "texto": "Precio 7,397.00. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "08-nov 19:55"
-  },
-  {
-   "clave": "mov-BTC-USD-down",
-   "titulo": "Bitcoin 📉 cae -1.77 % en 1 h",
-   "texto": "Precio 74,159.81. Movimiento fuerte: revisa noticias antes de operar.",
-   "prioridad": 4,
-   "hora": "08-nov 18:37"
-  },
-  {
-   "clave": "nivel-BTC-USD-mínimo-75486",
-   "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
-   "texto": "Nivel 75,485.69 · precio 74,159.81. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "08-nov 18:37"
   }
  ],
- "btc_precio": 70232.1
+ "btc_precio": 69137.0
 }
