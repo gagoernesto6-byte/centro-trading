@@ -1,10 +1,10 @@
 {
  "precios": {
   "NQ=F": 27927.25,
-  "ES=F": 7561.0,
-  "BTC-USD": 67168.0,
-  "GC=F": 3887.60009765625,
-  "CL=F": 88.91999816894531,
+  "ES=F": 7583.0,
+  "BTC-USD": 67088.109375,
+  "GC=F": 3886.300048828125,
+  "CL=F": 88.55999755859375,
   "^VIX": 19.280000686645508
  },
  "enviadas": {
@@ -252,7 +252,7 @@
   "redondo-BTC-USD-70000": "2026-11-13T03:39:28.078616+00:00",
   "btc-put wall-70": "2026-11-13T03:39:32.202076+00:00",
   "nivel-NQ=F-mínimo-28014": "2026-11-13T18:47:15.103160+00:00",
-  "nivel-ES=F-mínimo-7572": "2026-11-13T18:47:15.362303+00:00",
+  "nivel-ES=F-mínimo-7572": "2026-11-14T12:25:16.291311+00:00",
   "gamma-SPY-gamma flip-7634": "2026-11-13T18:47:19.764376+00:00",
   "gamma-QQQ-gamma flip-28434": "2026-11-13T18:47:19.764415+00:00",
   "gamma-QQQ-call wall-28039": "2026-11-13T18:47:19.764429+00:00",
@@ -274,6 +274,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-ES=F-mínimo-7572",
+   "titulo": "S&P 500 (ES) cruzó hacia arriba ⬆️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 7,572.00 · precio 7,583.00. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "14-nov 08:25"
+  },
   {
    "clave": "redondo-BTC-USD-68000",
    "titulo": "Bitcoin cruzó el número redondo 68,000",
@@ -616,14 +623,7 @@
    "texto": "Nivel 85.02 · precio 84.96. Zona de liquidez: ojo con barridas y rupturas falsas.",
    "prioridad": 3,
    "hora": "10-nov 09:00"
-  },
-  {
-   "clave": "redondo-CL=F-85",
-   "titulo": "Petróleo WTI cruzó el número redondo 85",
-   "texto": "Precio 84.96. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "10-nov 09:00"
   }
  ],
- "btc_precio": 67164.9
+ "btc_precio": 67089.4
 }
