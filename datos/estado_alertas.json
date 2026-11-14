@@ -2,7 +2,7 @@
  "precios": {
   "NQ=F": 27927.25,
   "ES=F": 7561.0,
-  "BTC-USD": 68230.5234375,
+  "BTC-USD": 67168.0,
   "GC=F": 3887.60009765625,
   "CL=F": 88.91999816894531,
   "^VIX": 19.280000686645508
@@ -259,7 +259,9 @@
   "gamma-QQQ-put wall-28039": "2026-11-13T18:47:19.764440+00:00",
   "rango-ES=F-20261113": "2026-11-13T18:47:27.110570+00:00",
   "rango-NQ=F-20261113": "2026-11-13T18:47:27.110608+00:00",
-  "btc-call wall-69": "2026-11-13T18:47:27.110628+00:00"
+  "btc-call wall-69": "2026-11-13T18:47:27.110628+00:00",
+  "redondo-BTC-USD-68000": "2026-11-14T05:19:07.913646+00:00",
+  "btc-put wall-68": "2026-11-14T05:19:13.136699+00:00"
  },
  "gamma": {
   "SPY": {
@@ -272,6 +274,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-BTC-USD-68000",
+   "titulo": "Bitcoin cruzó el número redondo 68,000",
+   "texto": "Precio 67,168.00. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "14-nov 01:19"
+  },
+  {
+   "clave": "btc-put wall-68",
+   "titulo": "Bitcoin cruzó el put wall (~68,000)",
+   "texto": "Precio 67,165. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "14-nov 01:19"
+  },
   {
    "clave": "nivel-NQ=F-mínimo-28014",
    "titulo": "Nasdaq (NQ) cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
@@ -607,21 +623,7 @@
    "texto": "Precio 84.96. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "10-nov 09:00"
-  },
-  {
-   "clave": "evento-Core CPI m/m-2026-11-10T08:30:00-05:00",
-   "titulo": "⏰ En 30 min: Core CPI m/m",
-   "texto": "Pronóstico 0.2% · anterior 0.3%. El precio puede saltar en segundos: muchos profesionales esperan a que pase el dato.",
-   "prioridad": 4,
-   "hora": "10-nov 09:00"
-  },
-  {
-   "clave": "evento-CPI m/m-2026-11-10T08:30:00-05:00",
-   "titulo": "⏰ En 30 min: CPI m/m",
-   "texto": "Pronóstico 0.3% · anterior 0.6%. El precio puede saltar en segundos: muchos profesionales esperan a que pase el dato.",
-   "prioridad": 4,
-   "hora": "10-nov 09:00"
   }
  ],
- "btc_precio": 68237.7
+ "btc_precio": 67164.9
 }
