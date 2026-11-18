@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 27353.25,
-  "ES=F": 7401.75,
-  "BTC-USD": 64566.359375,
-  "GC=F": 3768.89990234375,
-  "CL=F": 82.6500015258789,
-  "^VIX": 24.020000457763672
+  "NQ=F": 27161.0,
+  "ES=F": 7351.5,
+  "BTC-USD": 63018.2890625,
+  "GC=F": 3743.60009765625,
+  "CL=F": 81.70999908447266,
+  "^VIX": 23.729999542236328
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
@@ -263,7 +263,7 @@
   "redondo-BTC-USD-68000": "2026-11-14T05:19:07.913646+00:00",
   "btc-put wall-68": "2026-11-14T05:19:13.136699+00:00",
   "redondo-BTC-USD-66000": "2026-11-14T18:24:41.547040+00:00",
-  "redondo-BTC-USD-64000": "2026-11-17T18:46:04.384658+00:00",
+  "redondo-BTC-USD-64000": "2026-11-18T17:50:54.761966+00:00",
   "btc-put wall-64": "2026-11-18T01:20:32.718975+00:00",
   "mov-BTC-USD-up": "2026-11-15T09:27:07.681192+00:00",
   "btc-put wall-65": "2026-11-15T09:27:15.608130+00:00",
@@ -282,19 +282,42 @@
   "rango-ES=F-20261117": "2026-11-17T18:46:18.032837+00:00",
   "rango-NQ=F-20261117": "2026-11-17T18:46:18.032882+00:00",
   "nivel-GC=F-mínimo-3835": "2026-11-18T01:20:28.001126+00:00",
-  "redondo-GC=F-3800": "2026-11-18T08:55:26.198649+00:00"
+  "redondo-GC=F-3800": "2026-11-18T08:55:26.198649+00:00",
+  "nivel-BTC-USD-mínimo-63284": "2026-11-18T17:50:54.761922+00:00",
+  "evento-FOMC Meeting Minutes-2026-11-18T14:00:00-05:00": "2026-11-18T17:50:57.711671+00:00"
  },
  "gamma": {
   "SPY": {
    "positivo": false,
-   "precio": 7359.0
+   "precio": 7351.0
   },
   "QQQ": {
    "positivo": false,
-   "precio": 27006.5
+   "precio": 27158.5
   }
  },
  "historial": [
+  {
+   "clave": "nivel-BTC-USD-mínimo-63284",
+   "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 63,284.46 · precio 63,018.29. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "18-nov 13:50"
+  },
+  {
+   "clave": "redondo-BTC-USD-64000",
+   "titulo": "Bitcoin cruzó el número redondo 64,000",
+   "texto": "Precio 63,018.29. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "18-nov 13:50"
+  },
+  {
+   "clave": "evento-FOMC Meeting Minutes-2026-11-18T14:00:00-05:00",
+   "titulo": "⏰ En 69 min: FOMC Meeting Minutes",
+   "texto": "Pronóstico — · anterior —. El precio puede saltar en segundos: muchos profesionales esperan a que pase el dato.",
+   "prioridad": 4,
+   "hora": "18-nov 13:50"
+  },
   {
    "clave": "redondo-ES=F-7400",
    "titulo": "S&P 500 (ES) cruzó el número redondo 7,400",
@@ -623,28 +646,7 @@
    "texto": "Precio 68,789. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
    "prioridad": 3,
    "hora": "13-nov 14:47"
-  },
-  {
-   "clave": "redondo-GC=F-3900",
-   "titulo": "Oro cruzó el número redondo 3,900",
-   "texto": "Precio 3,893.60. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "13-nov 07:36"
-  },
-  {
-   "clave": "redondo-BTC-USD-70000",
-   "titulo": "Bitcoin cruzó el número redondo 70,000",
-   "texto": "Precio 69,136.53. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "12-nov 23:39"
-  },
-  {
-   "clave": "btc-put wall-70",
-   "titulo": "Bitcoin cruzó el put wall (~70,000)",
-   "texto": "Precio 69,137. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "12-nov 23:39"
   }
  ],
- "btc_precio": 64561.8
+ "btc_precio": 63018.6
 }
