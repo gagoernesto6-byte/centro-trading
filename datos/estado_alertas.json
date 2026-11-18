@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 27161.0,
-  "ES=F": 7351.5,
-  "BTC-USD": 63018.2890625,
-  "GC=F": 3743.60009765625,
-  "CL=F": 81.70999908447266,
-  "^VIX": 23.729999542236328
+  "NQ=F": 27461.75,
+  "ES=F": 7381.25,
+  "BTC-USD": 63063.71875,
+  "GC=F": 3742.699951171875,
+  "CL=F": 82.0999984741211,
+  "^VIX": 24.559999465942383
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
@@ -284,7 +284,8 @@
   "nivel-GC=F-mínimo-3835": "2026-11-18T01:20:28.001126+00:00",
   "redondo-GC=F-3800": "2026-11-18T08:55:26.198649+00:00",
   "nivel-BTC-USD-mínimo-63284": "2026-11-18T17:50:54.761922+00:00",
-  "evento-FOMC Meeting Minutes-2026-11-18T14:00:00-05:00": "2026-11-18T17:50:57.711671+00:00"
+  "evento-FOMC Meeting Minutes-2026-11-18T14:00:00-05:00": "2026-11-18T17:50:57.711671+00:00",
+  "mov-NQ=F-up": "2026-11-18T23:58:10.602335+00:00"
  },
  "gamma": {
   "SPY": {
@@ -297,6 +298,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "mov-NQ=F-up",
+   "titulo": "Nasdaq (NQ) 📈 sube +1.06 % en 1 h",
+   "texto": "Precio 27,461.75. Movimiento fuerte: revisa noticias antes de operar.",
+   "prioridad": 4,
+   "hora": "18-nov 19:58"
+  },
   {
    "clave": "nivel-BTC-USD-mínimo-63284",
    "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
@@ -639,14 +647,7 @@
    "texto": "Va -423 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
    "prioridad": 4,
    "hora": "13-nov 14:47"
-  },
-  {
-   "clave": "btc-call wall-69",
-   "titulo": "Bitcoin cruzó el call wall (~69,000)",
-   "texto": "Precio 68,789. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "13-nov 14:47"
   }
  ],
- "btc_precio": 63018.6
+ "btc_precio": 63052.9
 }
