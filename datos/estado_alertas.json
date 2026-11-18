@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 27341.5,
-  "ES=F": 7395.25,
-  "BTC-USD": 64519.19140625,
-  "GC=F": 3823.39990234375,
-  "CL=F": 85.63999938964844,
-  "^VIX": 25.450000762939453
+  "NQ=F": 27353.25,
+  "ES=F": 7401.75,
+  "BTC-USD": 64566.359375,
+  "GC=F": 3768.89990234375,
+  "CL=F": 82.6500015258789,
+  "^VIX": 24.020000457763672
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
@@ -207,7 +207,7 @@
   "redondo-NQ=F-27000": "2026-11-08T23:55:49.620468+00:00",
   "mov-ES=F-down": "2026-11-05T18:12:42.278726+00:00",
   "nivel-ES=F-mínimo-7490": "2026-11-05T18:12:42.278850+00:00",
-  "redondo-ES=F-7400": "2026-11-17T18:46:04.113770+00:00",
+  "redondo-ES=F-7400": "2026-11-18T08:55:25.393429+00:00",
   "redondo-BTC-USD-76000": "2026-11-05T18:12:42.552171+00:00",
   "gamma-SPY-call wall-7725": "2026-11-05T18:12:46.316852+00:00",
   "gamma-SPY-put wall-7424": "2026-11-05T18:12:46.316864+00:00",
@@ -223,8 +223,8 @@
   "nivel-CL=F-mínimo-89": "2026-11-09T13:43:25.505118+00:00",
   "nivel-NQ=F-máximo-27425": "2026-11-09T23:10:20.591226+00:00",
   "nivel-ES=F-máximo-7469": "2026-11-09T23:10:20.962356+00:00",
-  "nivel-CL=F-mínimo-85": "2026-11-10T13:00:24.757312+00:00",
-  "redondo-CL=F-85": "2026-11-10T13:00:24.757350+00:00",
+  "nivel-CL=F-mínimo-85": "2026-11-18T08:55:26.573680+00:00",
+  "redondo-CL=F-85": "2026-11-18T08:55:26.573721+00:00",
   "evento-Core CPI m/m-2026-11-10T08:30:00-05:00": "2026-11-10T13:00:25.474758+00:00",
   "evento-CPI m/m-2026-11-10T08:30:00-05:00": "2026-11-10T13:00:25.474780+00:00",
   "nivel-BTC-USD-mínimo-73665": "2026-11-10T20:23:22.994016+00:00",
@@ -281,7 +281,8 @@
   "nivel-BTC-USD-mínimo-63835": "2026-11-17T18:46:04.384608+00:00",
   "rango-ES=F-20261117": "2026-11-17T18:46:18.032837+00:00",
   "rango-NQ=F-20261117": "2026-11-17T18:46:18.032882+00:00",
-  "nivel-GC=F-mínimo-3835": "2026-11-18T01:20:28.001126+00:00"
+  "nivel-GC=F-mínimo-3835": "2026-11-18T01:20:28.001126+00:00",
+  "redondo-GC=F-3800": "2026-11-18T08:55:26.198649+00:00"
  },
  "gamma": {
   "SPY": {
@@ -294,6 +295,34 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-ES=F-7400",
+   "titulo": "S&P 500 (ES) cruzó el número redondo 7,400",
+   "texto": "Precio 7,401.75. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "18-nov 04:55"
+  },
+  {
+   "clave": "redondo-GC=F-3800",
+   "titulo": "Oro cruzó el número redondo 3,800",
+   "texto": "Precio 3,768.90. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "18-nov 04:55"
+  },
+  {
+   "clave": "nivel-CL=F-mínimo-85",
+   "titulo": "Petróleo WTI cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 84.68 · precio 82.65. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "18-nov 04:55"
+  },
+  {
+   "clave": "redondo-CL=F-85",
+   "titulo": "Petróleo WTI cruzó el número redondo 85",
+   "texto": "Precio 82.65. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "18-nov 04:55"
+  },
   {
    "clave": "nivel-NQ=F-mínimo-27235",
    "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el mínimo de ayer (PDL)",
@@ -615,35 +644,7 @@
    "texto": "Precio 69,137. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
    "prioridad": 3,
    "hora": "12-nov 23:39"
-  },
-  {
-   "clave": "redondo-NQ=F-28500",
-   "titulo": "Nasdaq (NQ) cruzó el número redondo 28,500",
-   "texto": "Precio 28,545.00. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "12-nov 19:48"
-  },
-  {
-   "clave": "nivel-CL=F-máximo-89",
-   "titulo": "Petróleo WTI cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
-   "texto": "Nivel 88.74 · precio 88.80. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "12-nov 19:48"
-  },
-  {
-   "clave": "nivel-BTC-USD-mínimo-73142",
-   "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
-   "texto": "Nivel 73,141.53 · precio 71,918.55. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "12-nov 14:30"
-  },
-  {
-   "clave": "redondo-BTC-USD-72000",
-   "titulo": "Bitcoin cruzó el número redondo 72,000",
-   "texto": "Precio 71,918.55. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "12-nov 14:30"
   }
  ],
- "btc_precio": 64509.1
+ "btc_precio": 64561.8
 }
