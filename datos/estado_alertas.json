@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 25106.0,
-  "ES=F": 6931.25,
-  "BTC-USD": 58462.01171875,
-  "GC=F": 3506.0,
-  "CL=F": 83.72000122070312,
-  "^VIX": 36.0
+  "NQ=F": 25291.0,
+  "ES=F": 6966.75,
+  "BTC-USD": 58843.87890625,
+  "GC=F": 3539.0,
+  "CL=F": 83.62000274658203,
+  "^VIX": 35.88999938964844
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
@@ -308,7 +308,8 @@
   "gamma-SPY-gamma flip-7197": "2026-11-20T20:44:50.787161+00:00",
   "gamma-QQQ-gamma flip-26245": "2026-11-20T20:44:50.787195+00:00",
   "rango-ES=F-20261120": "2026-11-20T20:45:03.355082+00:00",
-  "rango-NQ=F-20261120": "2026-11-20T20:45:03.355119+00:00"
+  "rango-NQ=F-20261120": "2026-11-20T20:45:03.355119+00:00",
+  "btc-call wall-60": "2026-11-21T01:48:18.479227+00:00"
  },
  "gamma": {
   "SPY": {
@@ -321,6 +322,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "btc-call wall-60",
+   "titulo": "Bitcoin cruzó el call wall (~60,000)",
+   "texto": "Precio 58,849. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "20-nov 21:48"
+  },
   {
    "clave": "mov-NQ=F-down",
    "titulo": "Nasdaq (NQ) 📉 cae -1.18 % en 1 h",
@@ -663,14 +671,7 @@
    "texto": "Precio 7,402.00. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "17-nov 05:45"
-  },
-  {
-   "clave": "nivel-NQ=F-mínimo-27695",
-   "titulo": "Nasdaq (NQ) cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
-   "texto": "Nivel 27,695.25 · precio 27,441.00. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "16-nov 14:00"
   }
  ],
- "btc_precio": 61488.1
+ "btc_precio": 58849.3
 }
