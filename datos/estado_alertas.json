@@ -2,7 +2,7 @@
  "precios": {
   "NQ=F": 25126.5,
   "ES=F": 6935.0,
-  "BTC-USD": 59902.44921875,
+  "BTC-USD": 60300.44921875,
   "GC=F": 3515.39990234375,
   "CL=F": 83.41000366210938,
   "^VIX": 35.88999938964844
@@ -304,14 +304,15 @@
   "redondo-NQ=F-25500": "2026-11-20T20:44:43.117278+00:00",
   "redondo-ES=F-6950": "2026-11-21T16:38:08.787641+00:00",
   "nivel-BTC-USD-mínimo-61381": "2026-11-20T20:44:44.144568+00:00",
-  "redondo-BTC-USD-60000": "2026-11-20T20:44:44.144604+00:00",
+  "redondo-BTC-USD-60000": "2026-11-21T21:55:58.939203+00:00",
   "gamma-SPY-gamma flip-7197": "2026-11-20T20:44:50.787161+00:00",
   "gamma-QQQ-gamma flip-26245": "2026-11-20T20:44:50.787195+00:00",
   "rango-ES=F-20261120": "2026-11-20T20:45:03.355082+00:00",
   "rango-NQ=F-20261120": "2026-11-20T20:45:03.355119+00:00",
   "btc-call wall-60": "2026-11-21T01:48:18.479227+00:00",
   "redondo-BTC-USD-58000": "2026-11-21T08:50:34.286472+00:00",
-  "btc-put wall-58": "2026-11-21T16:38:15.392204+00:00"
+  "btc-put wall-58": "2026-11-21T16:38:15.392204+00:00",
+  "btc-put wall-60": "2026-11-21T21:56:03.329315+00:00"
  },
  "gamma": {
   "SPY": {
@@ -324,6 +325,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-BTC-USD-60000",
+   "titulo": "Bitcoin cruzó el número redondo 60,000",
+   "texto": "Precio 60,300.45. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "21-nov 17:55"
+  },
+  {
+   "clave": "btc-put wall-60",
+   "titulo": "Bitcoin cruzó el put wall (~60,000)",
+   "texto": "Precio 60,298. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "21-nov 17:56"
+  },
   {
    "clave": "redondo-ES=F-6950",
    "titulo": "S&P 500 (ES) cruzó el número redondo 6,950",
@@ -659,21 +674,7 @@
    "texto": "Precio 63,670.79. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "17-nov 14:46"
-  },
-  {
-   "clave": "rango-ES=F-20261117",
-   "titulo": "ES (S&P 500) se salió del rango esperado (±46 pts)",
-   "texto": "Va -81 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "17-nov 14:46"
-  },
-  {
-   "clave": "rango-NQ=F-20261117",
-   "titulo": "NQ (Nasdaq 100) se salió del rango esperado (±229 pts)",
-   "texto": "Va -274 pts desde el cierre de ayer. Movimiento más grande de lo que esperaban las opciones.",
-   "prioridad": 4,
-   "hora": "17-nov 14:46"
   }
  ],
- "btc_precio": 59886.6
+ "btc_precio": 60297.5
 }
