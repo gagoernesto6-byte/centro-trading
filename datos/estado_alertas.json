@@ -2,7 +2,7 @@
  "precios": {
   "NQ=F": 25291.0,
   "ES=F": 6966.75,
-  "BTC-USD": 58843.87890625,
+  "BTC-USD": 57969.33984375,
   "GC=F": 3539.0,
   "CL=F": 83.62000274658203,
   "^VIX": 35.88999938964844
@@ -309,7 +309,8 @@
   "gamma-QQQ-gamma flip-26245": "2026-11-20T20:44:50.787195+00:00",
   "rango-ES=F-20261120": "2026-11-20T20:45:03.355082+00:00",
   "rango-NQ=F-20261120": "2026-11-20T20:45:03.355119+00:00",
-  "btc-call wall-60": "2026-11-21T01:48:18.479227+00:00"
+  "btc-call wall-60": "2026-11-21T01:48:18.479227+00:00",
+  "redondo-BTC-USD-58000": "2026-11-21T08:50:34.286472+00:00"
  },
  "gamma": {
   "SPY": {
@@ -322,6 +323,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-BTC-USD-58000",
+   "titulo": "Bitcoin cruzó el número redondo 58,000",
+   "texto": "Precio 57,969.34. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "21-nov 04:50"
+  },
   {
    "clave": "btc-call wall-60",
    "titulo": "Bitcoin cruzó el call wall (~60,000)",
@@ -664,14 +672,7 @@
    "texto": "Nivel 7,420.25 · precio 7,402.00. Zona de liquidez: ojo con barridas y rupturas falsas.",
    "prioridad": 3,
    "hora": "17-nov 05:45"
-  },
-  {
-   "clave": "redondo-ES=F-7450",
-   "titulo": "S&P 500 (ES) cruzó el número redondo 7,450",
-   "texto": "Precio 7,402.00. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "17-nov 05:45"
   }
  ],
- "btc_precio": 58849.3
+ "btc_precio": 57963.5
 }
