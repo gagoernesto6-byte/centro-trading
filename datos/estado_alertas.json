@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 25698.0,
-  "ES=F": 7069.5,
-  "BTC-USD": 60522.3515625,
-  "GC=F": 3589.60009765625,
-  "CL=F": 82.98999786376953,
-  "^VIX": 39.529998779296875
+  "NQ=F": 25980.0,
+  "ES=F": 7125.75,
+  "BTC-USD": 61330.76171875,
+  "GC=F": 3619.699951171875,
+  "CL=F": 82.44999694824219,
+  "^VIX": 30.18000030517578
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
@@ -295,7 +295,7 @@
   "redondo-ES=F-7200": "2026-11-19T22:56:58.884484+00:00",
   "btc-put wall-63": "2026-11-19T22:57:05.462793+00:00",
   "redondo-NQ=F-26500": "2026-11-20T03:53:13.205712+00:00",
-  "redondo-GC=F-3600": "2026-11-20T03:53:14.166278+00:00",
+  "redondo-GC=F-3600": "2026-11-23T12:12:40.604843+00:00",
   "nivel-NQ=F-mínimo-26436": "2026-11-20T12:33:50.509840+00:00",
   "nivel-ES=F-mínimo-7168": "2026-11-20T12:33:50.767960+00:00",
   "redondo-ES=F-7150": "2026-11-20T12:33:50.768002+00:00",
@@ -313,7 +313,8 @@
   "redondo-BTC-USD-58000": "2026-11-21T08:50:34.286472+00:00",
   "btc-put wall-58": "2026-11-21T16:38:15.392204+00:00",
   "btc-put wall-60": "2026-11-22T17:17:56.287799+00:00",
-  "redondo-ES=F-7050": "2026-11-23T03:02:18.274600+00:00"
+  "redondo-ES=F-7050": "2026-11-23T03:02:18.274600+00:00",
+  "redondo-ES=F-7100": "2026-11-23T12:12:40.159434+00:00"
  },
  "gamma": {
   "SPY": {
@@ -326,6 +327,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-ES=F-7100",
+   "titulo": "S&P 500 (ES) cruzó el número redondo 7,100",
+   "texto": "Precio 7,125.75. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "23-nov 08:12"
+  },
+  {
+   "clave": "redondo-GC=F-3600",
+   "titulo": "Oro cruzó el número redondo 3,600",
+   "texto": "Precio 3,619.70. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "23-nov 08:12"
+  },
   {
    "clave": "redondo-NQ=F-25500",
    "titulo": "Nasdaq (NQ) cruzó el número redondo 25,500",
@@ -661,21 +676,7 @@
    "texto": "Nivel 84.68 · precio 82.65. Zona de liquidez: ojo con barridas y rupturas falsas.",
    "prioridad": 3,
    "hora": "18-nov 04:55"
-  },
-  {
-   "clave": "redondo-CL=F-85",
-   "titulo": "Petróleo WTI cruzó el número redondo 85",
-   "texto": "Precio 82.65. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "18-nov 04:55"
-  },
-  {
-   "clave": "nivel-NQ=F-mínimo-27235",
-   "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el mínimo de ayer (PDL)",
-   "texto": "Nivel 27,234.75 · precio 27,341.50. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "17-nov 21:20"
   }
  ],
- "btc_precio": 60527.4
+ "btc_precio": 61330.1
 }
