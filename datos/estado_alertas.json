@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 26702.75,
-  "ES=F": 7245.25,
-  "BTC-USD": 61172.3203125,
-  "GC=F": 3626.300048828125,
-  "CL=F": 80.36000061035156,
-  "^VIX": 26.610000610351562
+  "NQ=F": 26699.75,
+  "ES=F": 7246.5,
+  "BTC-USD": 60464.3203125,
+  "GC=F": 3622.10009765625,
+  "CL=F": 79.55999755859375,
+  "^VIX": 26.75
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
@@ -317,7 +317,9 @@
   "redondo-ES=F-7100": "2026-11-23T12:12:40.159434+00:00",
   "nivel-NQ=F-máximo-26604": "2026-11-23T23:54:38.116798+00:00",
   "nivel-ES=F-máximo-7217": "2026-11-23T23:54:38.347886+00:00",
-  "nivel-CL=F-mínimo-82": "2026-11-23T23:54:39.005159+00:00"
+  "nivel-CL=F-mínimo-82": "2026-11-23T23:54:39.005159+00:00",
+  "nivel-CL=F-mínimo-80": "2026-11-24T08:47:41.152410+00:00",
+  "redondo-CL=F-80": "2026-11-24T08:47:41.152451+00:00"
  },
  "gamma": {
   "SPY": {
@@ -330,6 +332,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-CL=F-mínimo-80",
+   "titulo": "Petróleo WTI cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
+   "texto": "Nivel 79.87 · precio 79.56. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "24-nov 04:47"
+  },
+  {
+   "clave": "redondo-CL=F-80",
+   "titulo": "Petróleo WTI cruzó el número redondo 80",
+   "texto": "Precio 79.56. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "24-nov 04:47"
+  },
   {
    "clave": "nivel-NQ=F-máximo-26604",
    "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
@@ -665,21 +681,7 @@
    "texto": "Nivel 63,284.46 · precio 63,446.27. Zona de liquidez: ojo con barridas y rupturas falsas.",
    "prioridad": 3,
    "hora": "19-nov 02:19"
-  },
-  {
-   "clave": "mov-NQ=F-up",
-   "titulo": "Nasdaq (NQ) 📈 sube +1.06 % en 1 h",
-   "texto": "Precio 27,461.75. Movimiento fuerte: revisa noticias antes de operar.",
-   "prioridad": 4,
-   "hora": "18-nov 19:58"
-  },
-  {
-   "clave": "nivel-BTC-USD-mínimo-63284",
-   "titulo": "Bitcoin cruzó hacia abajo ⬇️ el mínimo de ayer (PDL)",
-   "texto": "Nivel 63,284.46 · precio 63,018.29. Zona de liquidez: ojo con barridas y rupturas falsas.",
-   "prioridad": 3,
-   "hora": "18-nov 13:50"
   }
  ],
- "btc_precio": 61184.5
+ "btc_precio": 60470.2
 }
