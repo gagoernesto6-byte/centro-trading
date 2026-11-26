@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 26326.0,
-  "ES=F": 7238.5,
-  "BTC-USD": 60829.26171875,
-  "GC=F": 3602.10009765625,
-  "CL=F": 84.26000213623047,
-  "^VIX": 28.31999969482422
+  "NQ=F": 26389.75,
+  "ES=F": 7247.75,
+  "BTC-USD": 60775.96875,
+  "GC=F": 3620.39990234375,
+  "CL=F": 84.41999816894531,
+  "^VIX": 26.950000762939453
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
@@ -332,7 +332,9 @@
   "nivel-CL=F-máximo-82": "2026-11-25T12:56:38.066861+00:00",
   "evento-Core PCE Price Index m/m-2026-11-25T08:30:00-05:00": "2026-11-25T12:56:38.706731+00:00",
   "evento-Prelim GDP q/q-2026-11-25T08:30:00-05:00": "2026-11-25T12:56:38.706749+00:00",
-  "nivel-ES=F-máximo-7224": "2026-11-26T04:10:08.666895+00:00"
+  "nivel-ES=F-máximo-7224": "2026-11-26T04:10:08.666895+00:00",
+  "nivel-NQ=F-máximo-26351": "2026-11-26T13:54:44.967783+00:00",
+  "nivel-CL=F-máximo-84": "2026-11-26T13:54:45.863384+00:00"
  },
  "gamma": {
   "SPY": {
@@ -345,6 +347,20 @@
   }
  },
  "historial": [
+  {
+   "clave": "nivel-NQ=F-máximo-26351",
+   "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
+   "texto": "Nivel 26,350.75 · precio 26,389.75. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "26-nov 09:54"
+  },
+  {
+   "clave": "nivel-CL=F-máximo-84",
+   "titulo": "Petróleo WTI cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
+   "texto": "Nivel 84.27 · precio 84.42. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "26-nov 09:54"
+  },
   {
    "clave": "nivel-ES=F-máximo-7224",
    "titulo": "S&P 500 (ES) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
@@ -680,21 +696,7 @@
    "texto": "Precio 25,106.00. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "20-nov 16:44"
-  },
-  {
-   "clave": "mov-ES=F-down",
-   "titulo": "S&P 500 (ES) 📉 cae -0.89 % en 1 h",
-   "texto": "Precio 6,931.25. Movimiento fuerte: revisa noticias antes de operar.",
-   "prioridad": 4,
-   "hora": "20-nov 16:44"
-  },
-  {
-   "clave": "redondo-ES=F-6950",
-   "titulo": "S&P 500 (ES) cruzó el número redondo 6,950",
-   "texto": "Precio 6,931.25. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "20-nov 16:44"
   }
  ],
- "btc_precio": 60820.2
+ "btc_precio": 60777.0
 }
