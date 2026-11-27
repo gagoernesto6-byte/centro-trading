@@ -1,11 +1,11 @@
 {
  "precios": {
-  "NQ=F": 26389.75,
-  "ES=F": 7247.75,
-  "BTC-USD": 61424.7890625,
-  "GC=F": 3620.39990234375,
-  "CL=F": 84.41999816894531,
-  "^VIX": 26.799999237060547
+  "NQ=F": 26355.5,
+  "ES=F": 7256.5,
+  "BTC-USD": 60162.80078125,
+  "GC=F": 3661.199951171875,
+  "CL=F": 84.0199966430664,
+  "^VIX": 25.989999771118164
  },
  "enviadas": {
   "redondo-ES=F-7750": "2026-10-29T20:38:19.002243+00:00",
@@ -161,7 +161,7 @@
   "gamma-QQQ-put wall-29726": "2026-10-29T15:37:18.827402+00:00",
   "rango-NQ=F-20261029": "2026-10-29T15:37:28.348084+00:00",
   "btc-put wall-81": "2026-10-29T15:37:28.348133+00:00",
-  "mov-BTC-USD-down": "2026-11-14T22:39:50.809578+00:00",
+  "mov-BTC-USD-down": "2026-11-27T14:44:51.628063+00:00",
   "redondo-BTC-USD-78000": "2026-11-04T09:13:32.216432+00:00",
   "btc-put wall-78": "2026-10-30T00:16:00.651279+00:00",
   "redondo-NQ=F-29000": "2026-10-30T01:15:54.564895+00:00",
@@ -334,8 +334,10 @@
   "evento-Prelim GDP q/q-2026-11-25T08:30:00-05:00": "2026-11-25T12:56:38.706749+00:00",
   "nivel-ES=F-máximo-7224": "2026-11-26T04:10:08.666895+00:00",
   "nivel-NQ=F-máximo-26351": "2026-11-26T13:54:44.967783+00:00",
-  "nivel-CL=F-máximo-84": "2026-11-26T13:54:45.863384+00:00",
-  "btc-call wall-61": "2026-11-27T04:49:54.944591+00:00"
+  "nivel-CL=F-máximo-84": "2026-11-27T14:44:52.536406+00:00",
+  "btc-call wall-61": "2026-11-27T04:49:54.944591+00:00",
+  "redondo-ES=F-7250": "2026-11-27T14:44:51.102899+00:00",
+  "mov-GC=F-up": "2026-11-27T14:44:52.148953+00:00"
  },
  "gamma": {
   "SPY": {
@@ -348,6 +350,34 @@
   }
  },
  "historial": [
+  {
+   "clave": "redondo-ES=F-7250",
+   "titulo": "S&P 500 (ES) cruzó el número redondo 7,250",
+   "texto": "Precio 7,256.50. En números redondos se juntan órdenes y stops.",
+   "prioridad": 3,
+   "hora": "27-nov 10:44"
+  },
+  {
+   "clave": "mov-BTC-USD-down",
+   "titulo": "Bitcoin 📉 cae -1.93 % en 1 h",
+   "texto": "Precio 60,162.80. Movimiento fuerte: revisa noticias antes de operar.",
+   "prioridad": 4,
+   "hora": "27-nov 10:44"
+  },
+  {
+   "clave": "mov-GC=F-up",
+   "titulo": "Oro 📈 sube +1.13 % en 1 h",
+   "texto": "Precio 3,661.20. Movimiento fuerte: revisa noticias antes de operar.",
+   "prioridad": 4,
+   "hora": "27-nov 10:44"
+  },
+  {
+   "clave": "nivel-CL=F-máximo-84",
+   "titulo": "Petróleo WTI cruzó hacia abajo ⬇️ el máximo de ayer (PDH)",
+   "texto": "Nivel 84.27 · precio 84.02. Zona de liquidez: ojo con barridas y rupturas falsas.",
+   "prioridad": 3,
+   "hora": "27-nov 10:44"
+  },
   {
    "clave": "btc-call wall-61",
    "titulo": "Bitcoin cruzó el call wall (~61,000)",
@@ -669,35 +699,7 @@
    "texto": "Precio 6,935.00. En números redondos se juntan órdenes y stops.",
    "prioridad": 3,
    "hora": "21-nov 12:38"
-  },
-  {
-   "clave": "btc-put wall-58",
-   "titulo": "Bitcoin cruzó el put wall (~58,000)",
-   "texto": "Precio 59,887. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "21-nov 12:38"
-  },
-  {
-   "clave": "redondo-BTC-USD-58000",
-   "titulo": "Bitcoin cruzó el número redondo 58,000",
-   "texto": "Precio 57,969.34. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "21-nov 04:50"
-  },
-  {
-   "clave": "btc-call wall-60",
-   "titulo": "Bitcoin cruzó el call wall (~60,000)",
-   "texto": "Precio 58,849. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
-   "prioridad": 3,
-   "hora": "20-nov 21:48"
-  },
-  {
-   "clave": "mov-NQ=F-down",
-   "titulo": "Nasdaq (NQ) 📉 cae -1.18 % en 1 h",
-   "texto": "Precio 25,106.00. Movimiento fuerte: revisa noticias antes de operar.",
-   "prioridad": 4,
-   "hora": "20-nov 16:44"
   }
  ],
- "btc_precio": 61428.6
+ "btc_precio": 60135.6
 }
