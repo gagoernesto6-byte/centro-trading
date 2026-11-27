@@ -2,7 +2,7 @@
  "precios": {
   "NQ=F": 26389.75,
   "ES=F": 7247.75,
-  "BTC-USD": 60569.98828125,
+  "BTC-USD": 61424.7890625,
   "GC=F": 3620.39990234375,
   "CL=F": 84.41999816894531,
   "^VIX": 26.799999237060547
@@ -334,7 +334,8 @@
   "evento-Prelim GDP q/q-2026-11-25T08:30:00-05:00": "2026-11-25T12:56:38.706749+00:00",
   "nivel-ES=F-máximo-7224": "2026-11-26T04:10:08.666895+00:00",
   "nivel-NQ=F-máximo-26351": "2026-11-26T13:54:44.967783+00:00",
-  "nivel-CL=F-máximo-84": "2026-11-26T13:54:45.863384+00:00"
+  "nivel-CL=F-máximo-84": "2026-11-26T13:54:45.863384+00:00",
+  "btc-call wall-61": "2026-11-27T04:49:54.944591+00:00"
  },
  "gamma": {
   "SPY": {
@@ -347,6 +348,13 @@
   }
  },
  "historial": [
+  {
+   "clave": "btc-call wall-61",
+   "titulo": "Bitcoin cruzó el call wall (~61,000)",
+   "texto": "Precio 61,429. Nivel de opciones de Deribit donde puede cambiar el comportamiento.",
+   "prioridad": 3,
+   "hora": "27-nov 00:49"
+  },
   {
    "clave": "nivel-NQ=F-máximo-26351",
    "titulo": "Nasdaq (NQ) cruzó hacia arriba ⬆️ el máximo de ayer (PDH)",
@@ -689,14 +697,7 @@
    "texto": "Precio 25,106.00. Movimiento fuerte: revisa noticias antes de operar.",
    "prioridad": 4,
    "hora": "20-nov 16:44"
-  },
-  {
-   "clave": "redondo-NQ=F-25500",
-   "titulo": "Nasdaq (NQ) cruzó el número redondo 25,500",
-   "texto": "Precio 25,106.00. En números redondos se juntan órdenes y stops.",
-   "prioridad": 3,
-   "hora": "20-nov 16:44"
   }
  ],
- "btc_precio": 60573.3
+ "btc_precio": 61428.6
 }
